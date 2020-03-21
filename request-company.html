@@ -17,14 +17,21 @@
   <body>
     <body>
         
-        <h> สมัครสมาชิก </h>
-     <form id="Regis" method="POST" action="regis.php">
+        <h> ยื่นเรื่องขออนุมัติฝึกงาน </h>
+     <form id="reque" method="POST" action="reque.php">
          ชื่อ : <input type="text" name="Firtname"/>
          <br> 
          นามสกุล: <input type="text" name="Lastname"/>
          <br>
          รหัสนักศึกษา : <input type="studentcode" id="studentnum" pattern="[0-9]{7}">
          <br>
+         ชั้นปีที่ <select name="year">
+             <option value="ปี2"> ปี2</option>
+             <option value="ปี3">ปี3</option>
+             <option value="ปี4">ปี4</option>
+             <option value="ปี5">ปี5</option> <br>
+             <br>
+             <br>
          เบอร์โทร : <input type="tel" id="telnum" pattern="[0-9]{10}">
          <br>
          E-mail : <input type="email" id="mymail" name="mymail" placeholder="@rsu.ac.th"> 
@@ -33,11 +40,10 @@
              <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
              <option value="เคมี">เคมี</option>
              <option value="อุตสาหการ">อุตสาหการ</option> <br>
+
              
-         Password : <input type="password" name="pwd"/> <br>
-         Confirm Password : <input type="password" name="pwd"/>
-         <br>
-         <button type="submit" class="btn btn-light" @click="submit">สมัครสมาชิก</button>
+            <br> 
+         <button type="submit" class="btn btn-light" @click="submit">ยื่นเรื่อง</button>
          <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
 
 

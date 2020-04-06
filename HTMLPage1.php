@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-    <img src="/scr/img/Banner.png"  width="100%">
+    <img src="./scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -32,9 +32,8 @@
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        <a class="nav-item nav-link" href="request-company.html">ยื่นเรื่องฝึกงาน</a>
-                        <a class="nav-item nav-link" href="#">ออกจากระบบ</a>
-                        
+                        <a class="nav-item nav-link" href="regis.php">สมัครสมาชิก</a>
+                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
                     </div>
                     
                 </div>
@@ -59,13 +58,57 @@
         
           
           <div class="row">
-            <div class="leftcolumn">
-              <div class="card1">
+              <div class="leftcolumn">
+                <div class="card1">
  
-                       
+                        <!-- Login Form -->
+    <form>
+        <input type="text" id="email" class="fadeIn second" name="login" placeholder="Email">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
                     
                 </div><!-- card-top-left -->
                 <div class="card3">
+                  <!DOCTYPE html>
+
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <title> เอกสารต่างๆ </title>
+    <style>
+        a [href$=".doc"]  {
+            background-image : url('pdf.gif');
+            background-repeat : no-repeat;
+            background-position :right;
+            padding-right:40px;
+            font-size:1.6em;
+
+
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <h2 id="top">Link Download เอกสารต่างๆ </h2>
+    <ul>
+        <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
+        <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
+        <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
+            
+
+         
+        </ul>
+
+
+
+    
+
+</body>
+</html>
                   <p>ติดต่อเรา</p>
                   
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
@@ -135,3 +178,8 @@
 
 </body>
 </html>
+
+<?php
+  include "connect.php"
+  
+?>

@@ -195,38 +195,72 @@
   echo "<pre>", print_r($_POST, true), "</pre>";
 
   include "connect.php";
-  if(isset($_POST['Regis'])){
+
+
+
+  if ($_POST["txt_fname"] == "") {
+    $statusMsg = "โปรดระบุชื่อจริง";
+    echo "<script type='text/javascript'>alert('$statusMsg');</script>";
+} 
+else if ($_POST["txt_lname"] == "") {
+    $statusMsg = "โปรดระบุนามสกุล";
+    echo "<script type='text/javascript'>alert('$statusMsg');</script>";
+} 
+// else if (!filter_var($_POST["txt_mail"], FILTER_VALIDATE_EMAIL)) {
+//     $statusMsg = "โปรดใช้อีเมลอื่น อีเมล์นี้มีผู้ใช้แล้ว!";
+//     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+ else if ($_POST["txt_pwd"] == "") {
+    $statusMsg = "โปรดระบุรหัสผ่าน!";
+    echo "<script type='text/javascript'>alert('$statusMsg');</script>";
+ }
+ else if ($_POST["txt_cpwd"] == "") {
+  $statusMsg = "โปรดระบุรหัสผ่านยืนยัน!";
+  echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+}
+
+else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) {
+  $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
+  echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+}
+
+  if($_POST["txt_pwd"] && $_POST["txt_cpwd"] != "" && $_POST["txt_pwd"] == $_POST["txt_cpwd"]){
+    $statusMsg = "โปรดระบุอีเมล";
     echo "if";
     $data = array(
-      $txt_id=>$_POST["txt_id"],
-      $txt_fname=>$_POST["txt_fname"],
-      $txt_lname=>$_POST["txt_lname"],
-      $txt_mail=>$_POST["txt_mail"],
-      $txt_pwd=>$_POST["txt_pwd"],
-      $txt_cpwd=>$_POST["txt_cpwd"]
+      "txt_id" => $_POST["txt_id"],
+      "txt_fname" => $_POST["txt_fname"],
+      "txt_lname" => $_POST["txt_lname"],
+      "txt_mail" => $_POST["txt_mail"],
+      "txt_pwd" => $_POST["txt_pwd"],
+      "txt_cpwd" => $_POST["txt_cpwd"]
 );
-if($txt_pwd === $txt_cpwd){
-$sql =" INSERT INTO users (s_id, s_fname, s_lname, s_email, s_password)
-VALUES
-($txt_id, $txt_fname, $txt_lname, $txt_mail, $txt_pwd)
+    // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+    $sql =" INSERT INTO users (s_id, s_fname, s_lname, s_email, s_password)
+    VALUES
+    (?, ?, ?, ?, ?)
 ";
-echo "Insert to DB : ",$qr->affected_rows, "row";
-$qr->close();
+
 $qr = $con->prepare($sql);
 if($qr === false){
 trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
 }
-  }
-  echo "ระหัสไม่ตรงกัน";
 
+$qr->bind_param("sssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["txt_pwd"]);
+$qr->execute();
+
+echo 
+$statusMsg = "สมัครสมาชิกเรียบร้อย";
+echo "<script type='text/javascript'>alert('$statusMsg');window.location ='HTMLPage1.php';</script>";
+
+$qr->close();
+  } else {
+    $statusMsg = "else";
+    echo "else";
+    // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+  }
+
+  
  
-
-// $qr->bind_param("sssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["txt_pwd"]);
-// $qr->execute();
-
-
-  }
-  echo "out if";
 ?>
 
 

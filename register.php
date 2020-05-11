@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -60,44 +60,28 @@
         <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
                     
-                </div><!-- card-top-left -->
+                             
+      </div>
                 <div class="card3">
+                
+            
                   <!DOCTYPE html>
 
-<html lang="th">
-<head>
-    <meta charset="utf-8" />
-    <title> เอกสารต่างๆ </title>
-    <style>
-        a [href$=".doc"]  {
-            background-image : url('pdf.gif');
-            background-repeat : no-repeat;
-            background-position :right;
-            padding-right:40px;
-            font-size:1.6em;
-        }
-
-
-    </style>
-</head>
-
-
-<body>
-    <h2 id="top">Link Download เอกสารต่างๆ </h2>
+    <p id="top">Link Download เอกสารต่างๆ </p>
     <ul>
         <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
         <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
         <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
         </ul>
-</body>
-</html>
-                  <p>ติดต่อเรา</p>
+                  <p>ติดต่อเรา..</p>
                   
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
-                <!-- <br><br> <a href="https://www.instagram.com/kkallp" target="_blank">My Instagram</a></p> -->
-                  
-                  <div class="fakeimg" style="height:200px;"></div>
-                  
+                
+                 
+                
+                
+
+  
            </div>
               </div>
               <div class="rightcolumn">
@@ -187,15 +171,15 @@
                           <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
                           </form> -->
                       </div>
-               
+<!--                
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    </a> -->
+                    <!-- <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
-                    </a>
+                    </a> -->
                   
                 </div>
                 </div>

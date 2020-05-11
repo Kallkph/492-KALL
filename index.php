@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 
@@ -18,16 +18,12 @@
     <img src="./scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
-                    
-         
                     <div class="navbar-nav">
-
                         <a class="nav-item nav-link" href="Company.html">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
@@ -40,22 +36,6 @@
             </div>
         </nav>
         </div>
-
-        
-
-
-        <!-- <div class="header">
-            <h1>MY PROFILE</h1>
-            <p>Kalsuda Phochai </p>
-          </div>
-          
-          <div class="topnav">
-            <a href="index.html">HOME</a>
-            <a href="./Code.zip">code</a>
-            <a href="My Interest.html">My Interest</a>
-            <a href="My Interest2.html">My Interest2</a>
-          </div> -->
-        
           
           <div class="row">
               <div class="leftcolumn">
@@ -65,55 +45,26 @@
       <form action="login.php" method="post">
         <input type="text" id="txt_email" class="fadeIn second" name="txt_email" placeholder="email">
         <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-        <input type="submit" class="fadeIn fourth" name="login" value="">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+        <dev class="card1leftcolumn">
+        <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
+        </dev>
       </form>
                     
-                </div><!-- card-top-left -->
+                </div>
                 <div class="card3">
                   <!DOCTYPE html>
 
-<html lang="th">
-<head>
-    <meta charset="utf-8" />
-    <title> เอกสารต่างๆ </title>
-    <style>
-        a [href$=".doc"]  {
-            background-image : url('pdf.gif');
-            background-repeat : no-repeat;
-            background-position :right;
-            padding-right:40px;
-            font-size:1.6em;
-
-
-        }
-
-
-    </style>
-</head>
-
-
-<body>
-    <h2 id="top">Link Download เอกสารต่างๆ </h2>
+    <p id="top">Link Download เอกสารต่างๆ </p>
     <ul>
         <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
         <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
         <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
-            
-
-         
         </ul>
-
-
-
-    
-
-</body>
-</html>
-                  <p>ติดต่อเรา</p>
+                  <p>ติดต่อเรา..</p>
                   
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
-                <!-- <br><br> <a href="https://www.instagram.com/kkallp" target="_blank">My Instagram</a></p> -->
-                  
+                
                   <div class="fakeimg" style="height:200px;"></div>
                   
            </div>
@@ -121,7 +72,6 @@
               <div class="rightcolumn">
                 
                 <div class="card2">
-                  <!-- <h3>สไลด์โชว์</h3> -->
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -149,13 +99,6 @@
                     </a>
                   </div>
                 </div>
-              
-                  <!-- <div class="fakeimg" >
-                      <img src="9.jpg" width="100%" height="100%">
-                  </div> -->
-
-              
-              
                 </div>
                
               </div>

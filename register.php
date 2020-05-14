@@ -36,18 +36,7 @@
                 </div>
             </div>
         </nav>
-      </div>
-        <!-- <div class="header">
-            <h1>MY PROFILE</h1>
-            <p>Kalsuda Phochai </p>
-          </div>
-          
-          <div class="topnav">
-            <a href="index.html">HOME</a>
-            <a href="./Code.zip">code</a>
-            <a href="My Interest.html">My Interest</a>
-            <a href="My Interest2.html">My Interest2</a>
-          </div> -->
+      </div> 
 
           <div class="row">
               <div class="leftcolumn">
@@ -91,7 +80,7 @@
                   
                     <div class="card">
                       <h> สมัครสมาชิก </h>
-                      <form action="register.php" method="post">
+                      <form action="register_db.php" method="post">
                         <?php include('errors.php'); ?>
                         <?php if (isset($_SESSION['error'])) : ?>
                             <div class="error">

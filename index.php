@@ -36,11 +36,9 @@
             </div>
         </nav>
         </div>
-          
           <div class="row">
               <div class="leftcolumn">
                 <div class="card1">
- 
                         <!-- Login Form -->
       <form action="login.php" method="post">
         <input type="text" id="txt_email" class="fadeIn second" name="txt_email" placeholder="email">
@@ -49,8 +47,7 @@
         <dev class="card1leftcolumn">
         <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
         </dev>
-      </form>
-                    
+      </form>       
                 </div>
                 <div class="card3">
                   <!DOCTYPE html>
@@ -62,11 +59,8 @@
         <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
         </ul>
                   <p>ติดต่อเรา..</p>
-                  
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
-                
-                  <div class="fakeimg" style="height:200px;"></div>
-                  
+                  <div class="fakeimg" style="height:200px;"></div>  
            </div>
               </div>
               <div class="rightcolumn">
@@ -100,19 +94,11 @@
                   </div>
                 </div>
                 </div>
-               
               </div>
             </div>
-            
-      
-      
-      
           <div class="conteiner">
           <div class="footer">
-          
-            <div class="fakeimg" >
-              
-              
+            <div class="fakeimg" >  
             </div>
           </div>
           </div>
@@ -123,6 +109,6 @@
 </html>
 
 <?php
-  include "connect.php"
+  include('connect.php')
   
 ?>

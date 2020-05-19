@@ -47,7 +47,7 @@ if(isset($_POST['reg'])){
 
     echo 'txtId >>>';
     echo $data['txt_id'];
-        $user_check_query = "SELECT * FROM users WHERE s_id = $data[txt_id] ";
+        $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] ";
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         // echo('qwe');4
@@ -57,11 +57,11 @@ if(isset($_POST['reg'])){
 
         if($result){
           echo ($result);
-          if($result['s_id'] === $data['txt_id']){
+          if($result['id'] === $data['txt_id']){
             array_push($errors, "Username already exists or email");
             echo 'มี id นี้ในระบบแล้ว';
           }
-          if($result['s_email'] === $data['txt_mail']){
+          if($result['email'] === $data['txt_mail']){
               array_push($errors, "Username already exists or email");
             echo 'มี id นี้ในระบบแล้ว';
           }
@@ -76,7 +76,7 @@ if(isset($_POST['reg'])){
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO users (s_id, s_fname, s_lname, s_email, s_password)
+      $sql =" INSERT INTO users (id, f_name, l_name, email, password)
       VALUES
       (?, ?, ?, ?, ?)
       ";

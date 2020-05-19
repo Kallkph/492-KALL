@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-
+<?php
+  session_start();
+  include('connect.php')
+  
+?>
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -67,7 +70,14 @@
                 </div><!-- card-top-left -->
                 <div class="card3">
                   <p>ติดต่อเรา</p>
-                  
+                  <?php if (isset($_SESSION ['success'])) : ?>
+                    <?php
+                      echo $_SESSION['id'];
+                      echo $_SESSION['f_name'];
+                      echo $_SESSION['l_name'];
+                      unset($_SESSION['error']);
+                    ?>
+                  <?php endif ?>
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
                 <!-- <br><br> <a href="https://www.instagram.com/kkallp" target="_blank">My Instagram</a></p> -->
                   
@@ -135,3 +145,6 @@
 
 </body>
 </html>
+
+
+

@@ -40,10 +40,10 @@
               <div class="leftcolumn">
                 <div class="card1">
                         <!-- Login Form -->
-      <form action="login.php" method="post">
-        <input type="text" id="txt_email" class="fadeIn second" name="txt_email" placeholder="email">
+      <form action="login_db.php" method="post">
+        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
         <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-        <input type="submit" class="fadeIn fourth" value="Log In">
+        <button type="submit" class="fadeIn fourth" name = "login_user"></button>
         <dev class="card1leftcolumn">
         <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
         </dev>

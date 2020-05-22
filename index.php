@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿<?php
+  session_start();
+  include('connect.php');
+
+  if (!isset($_SESSION['id'])) {
+    $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
+  }
+
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['id']);
+  }
+
+  
+?>
 
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -29,6 +43,24 @@
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
                         <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
+                       
+
+
+                   
+<?php if (!isset($_SESSION)) : ?>
+  <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
+  <?php else : ?>
+    <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+   <?php endif ?>
+
+         
+
+
+
+
+
+
+
                         <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
                     </div>
                     
@@ -38,17 +70,35 @@
         </div>
           <div class="row">
               <div class="leftcolumn">
+              <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
                         <!-- Login Form -->
       <form action="login_db.php" method="post">
         <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
         <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-        <button type="submit" class="fadeIn fourth" name = "login_user"></button>
+        
         <dev class="card1leftcolumn">
+        <button type="submit" class="btn btn-primary" name = "login_user">Login</button>
         <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
         </dev>
       </form>       
                 </div>
+  <?php else : ;?>
+    <div class="card3">
+    <a href="pageuser.php">
+    <img src="./scr/img/Banner.png" width="100%">
+</a>
+    
+      รหัสนักศึกษา
+      <p><?php echo $_SESSION['id'];?></p>
+      ชื่อ
+      <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
+      สาขา
+      <p><?php echo $_SESSION['id'];?></p>
+  </div>
+
+   <?php endif ?>
+
                 <div class="card3">
                   <!DOCTYPE html>
 
@@ -103,6 +153,16 @@
           </div>
           </div>
         <!-- //// -->
+        <?php 
+if (isset($_SESSION ['success'])) {
+  echo $_SESSION['id'];
+  echo $_SESSION['f_name'];
+  echo $_SESSION['l_name'];
+  unset($_SESSION['error']);
+} else {
+  echo "Have a good night!";
+}
+?>
     </div>
 
 </body>

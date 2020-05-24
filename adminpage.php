@@ -12,7 +12,19 @@
     unset($_SESSION['type']);
     header('location: index.php');
   }
+  
+  include('connect.php');
+    $allquery = "SELECT * FROM requestcompany ";
+    $result = mysqli_query($con, $allquery);
+    // pre_r($query);
+    // pre_r($result->fetch_assoc());
+    // pre_r($result->fetch_assoc());
 
+    function pre_r( $array ) {
+      echo '<pre>';
+      print_r($array);
+      echo '</pre>';
+    }
   
 ?>
 
@@ -30,46 +42,17 @@
 
 
 <body>
-    <!-- <div class="container"> -->
-    <!-- <img src="./scr/img/Banner.png" width="100%"> -->
-    <div id="mainlink">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="container">
-                    <div class="navbar-nav">
-                        <!-- <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
-                        <a class="nav-item nav-link" href="#">ข่าวสาร</a>
-                        <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a> -->
-                       
-
-
-                   
-<?php if (!isset($_SESSION)) : ?>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
+  <form class="form-inline">
+    <?php if (!isset($_SESSION)) : ?>
   <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
   <?php else : ?>
     <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
    <?php endif ?>
-
-         
-
-
-
-
-
-
-
-                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
-                    </div>
-                    
-                </div>
-            </div>
-        </nav>
-        </div>
+  </form>
+</nav>
+    
           <div class="row">
               <div class="leftcolumn">
               <?php if (!isset($_SESSION ['success'])) : ?>
@@ -86,7 +69,7 @@
       </form>       
                 </div>
   <?php else : ;?>
-    <div class="card3">
+    <div class="card1">
     <a href="pageuser.php">
     <img src="./scr/img/adminproflie.jpg" width="50%">
 </a>
@@ -98,7 +81,7 @@
       ?>
       </p>
       สาขา
-      <!-- <p><?php echo $_SESSION['id'];?></p> -->
+      <p><?php echo $_SESSION['major'];?></p>
   </div>
 
    <?php endif ?>
@@ -119,10 +102,7 @@
   <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
   <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
   <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+
 </div>
 
 
@@ -141,7 +121,7 @@
                 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">ลำดับ</th>
+      <!-- <th scope="col">ลำดับ</th> -->
       <th scope="col">รหัสนักศึกษา</th>
       <th scope="col">ชื่อ</th>
       <th scope="col">สาขา</th>
@@ -150,22 +130,36 @@
   </thead>
   
   <tbody>
+ 
+  <!-- <?php while($row = $result->fetch_assoc()): ?> -->
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-success">อนุมัติแล้ว</button></td>
+      <!-- <th scope="row">1</th> -->
+      <td><?php echo $row['_id']?></td>
+
+      <td>
+        <?php
+          //  $query = "SELECT * FROM users WHERE id = $row['_id'] ";
+          //  $result = mysqli_query($con, $query);
+          // //  $userdata = mysqli_fetch_assoc($result);
+          // //  pre_r($userdata);
+          // echo $row['_id']
+        ?>
+      </td>
+      <td><?php echo $row['r_major']?></td>
+      <td><?php echo $row['r_status']?></td>
+      <!-- <td><button type="button" class="btn btn-success">อนุมัติแล้ว</button></td> -->
+    
     </tr>
+    <?php endwhile; ?>
     <tr>
-      <th scope="row">2</th>
+      <!-- <th scope="row">2</th> -->
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
       <td><button type="button" class="btn btn-danger">ยังไม่ผ่าน</button></td>
     </tr>
     <tr>
-      <th scope="row">3</th>
+      <!-- <th scope="row">3</th> -->
       <td>Larry</td>
       <td>the Bird</td>
       <td>the Bird</td>
@@ -174,151 +168,7 @@
   </tbody>
 </table>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
- 
-</table>
+
 <!-- </div> -->
 
 
@@ -349,7 +199,7 @@
 if (isset($_SESSION ['success'])) {
   echo $_SESSION['id'];
   echo $_SESSION['f_name'];
-  echo $_SESSION['l_name'];
+  // echo $_SESSION['l_name'];
   unset($_SESSION['error']);
 } else {
   echo "Have a good night!";
@@ -360,7 +210,4 @@ if (isset($_SESSION ['success'])) {
 </body>
 </html>
 
-<?php
-  include('connect.php')
-  
-?>
+

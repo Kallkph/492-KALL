@@ -28,7 +28,7 @@
          
                     <div class="navbar-nav">
 
-                        <a class="nav-item nav-link" href="Company.html">สถานประกอบการ</a>
+                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>

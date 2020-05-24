@@ -1,4 +1,4 @@
-﻿<?php
+<?php
   session_start();
   include('connect.php');
 
@@ -6,19 +6,9 @@
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
 
-  // if($_SESSION['type']){
-    // if ( $_SESSION['type'] = 'admin'){
-    //   unset($_SESSION);
-    // header('location: adminpage.php');
-    // } else {
-
-    // }
-  // }
-
-
   if (isset($_GET['logout'])) {
     session_destroy();
-    unset($_SESSION);
+    unset($_SESSION['id']);
     header('location: index.php');
   }
 
@@ -53,17 +43,16 @@
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                       
+                        <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
                        
 
 
                    
-<?php if (!isset($_SESSION ['success'])) : ?>
+<?php if (!isset($_SESSION)) : ?>
   <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
   <?php else : ?>
     <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
    <?php endif ?>
-
 
          
 
@@ -128,6 +117,170 @@
               <div class="rightcolumn">
                 
                 <div class="card2">
+                  
+                หน้ายื่นเรื่อง
+                
+                <form>
+
+
+  <!-- <div class="form-row">  -->
+    
+    <div class="form-group">
+      
+      <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
+      <input type="email" class="form-control" id="inputEmail4">
+      
+    </div>
+
+  <!-- </div> -->
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    สำนักงาน(วิทยาลัยวิศวกรรมศาสตร์) จัดหาให้
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    นักศึกษาจัดหาเอง
+  </label>
+</div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>เลือก...</option>
+1. <option>กรุงเทพมหานคร </option>
+2. <option>กระบี่</option> 
+3. <option>กาญจนบุรี</option> 
+4. <option>กาฬสินธุ์</option> 
+5. <option>กำแพงเพชร</option> 
+6. <option>ขอนแก่น</option> 
+7. <option>จันทบุรี</option> 
+8. <option>ฉะเชิงเทรา</option> 
+9. <option>ชลบุรี</option> 
+10. <option>ชัยนาท</option> 
+11. <option>ชัยภูมิ</option> 
+12. <option>ชุมพร</option> 
+13. <option>เชียงราย</option> 
+14. <option>เชียงใหม่</option> 
+15. <option>ตรัง</option> 
+16. <option>ตราด</option> 
+17. <option>ตาก</option> 
+18. <option>นครนายก</option> 
+19. <option>นครปฐม</option> 
+20. <option>นครพนม</option> 
+21. <option>นครราชสีมา</option> 
+22. <option>นครศรีธรรมราช</option> 
+23. <option>นครสวรรค์</option> 
+24. <option>นนทบุรี</option> 
+25. <option>นราธิวาส</option> 
+26. <option>น่าน</option> 
+27. <option>บึงกาฬ</option> 
+28. <option>บุรีรัมย์</option> 
+29. <option>ปทุมธานี</option> 
+30. <option>ประจวบคีรีขันธ์</option> 
+31. <option>ปราจีนบุรี</option> 
+32. <option>ปัตตานี</option> 
+33. <option>พระนครศรีอยุธยา</option>
+34. <option>พังงา</option>
+35. <option>พัทลุง</option>
+36. <option>พิจิตร</option>
+37. <option>พิษณุโลก</option>
+38. <option>เพชรบุรี</option>
+39. <option>เพชรบูรณ์</option>
+40. <option>แพร่</option>
+41. <option>พะเยา</option>
+42. <option>ภูเก็ต</option>
+43. <option>มหาสารคาม</option>
+44. <option>มุกดาหาร</option>
+45. <option>แม่ฮ่องสอน</option>
+46. <option>ยะลา</option>
+47. <option>ยโสธร</option>
+48. <option>ร้อยเอ็ด</option>
+49. <option>ระนอง</option>
+50. <option>ระยอง</option>
+51. <option>ราชบุรี</option>
+52. <option>ลพบุรี</option>
+53. <option>ลำปาง</option>
+54. <option>ลำพูน</option>
+55. <option>เลย</option>
+56. <option>ศรีสะเกษ</option>
+57. <option>สกลนคร</option>
+58. <option>สงขลา</option>
+59. <option>สตูล</option>
+60. <option>สมุทรปราการ</option>
+61. <option>สมุทรสงคราม</option>
+62. <option>สมุทรสาคร</option>
+63. <option>สระแก้ว</option>
+64. <option>สระบุรี</option>
+65. <option>สิงห์บุรี</option>
+66. <option>สุโขทัย</option>
+67. <option>สุพรรณบุรี</option>
+68. <option>สุราษฎร์ธานี</option>
+69. <option>สุรินทร์</option>
+70. <option>หนองคาย</option>
+71. <option>หนองบัวลำภู</option>
+72. <option>อ่างทอง</option>
+73. <option>อุดรธานี</option>
+74. <option>อุทัยธานี</option>
+75. <option>อุตรดิตถ์</option>
+76. <option>อุบลราชธานี</option>
+77. <option>อำนาจเจริญ</option>
+
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">เบอร์โทรศัพท์</label>
+      <input type="email" class="form-control" id="inputEmail4">
+      
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">เบอร์โทรสาร</label>
+      <input type="password" class="form-control" id="inputPassword4">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        ตรวจสอบความถูกต้อง
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">ยื่นเรื่อง</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

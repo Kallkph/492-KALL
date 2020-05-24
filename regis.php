@@ -28,7 +28,7 @@
          
                     <div class="navbar-nav">
 
-                        <a class="nav-item nav-link" href="Company.html">สถานประกอบการ</a>
+                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
@@ -59,16 +59,34 @@
           
           <div class="row">
               <div class="leftcolumn">
+              <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
- 
                         <!-- Login Form -->
-    <form>
-        <input type="text" id="email" class="fadeIn second" name="login" placeholder="Email">
-        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-        <input type="submit" class="fadeIn fourth" value="Log In">
-      </form>
-                    
-                </div><!-- card-top-left -->
+      <form action="login_db.php" method="post">
+        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
+        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+        
+        <dev class="card1leftcolumn">
+        <button type="submit" class="btn btn-primary" name = "login_user">Login</button>
+        <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
+        </dev>
+      </form>       
+                </div>
+  <?php else : ;?>
+    <div class="card3">
+    <a href="pageuser.php">
+    <img src="./scr/img/profile.jpg" width="50%">
+</a>
+    
+      รหัสนักศึกษา
+      <p><?php echo $_SESSION['id'];?></p>
+      ชื่อ
+      <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
+      สาขา
+      <p><?php echo $_SESSION['id'];?></p>
+  </div>
+
+   <?php endif ?>
                 <div class="card3">
                   <!DOCTYPE html>
 

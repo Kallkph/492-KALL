@@ -25,12 +25,27 @@ if (isset($_POST['login_user'])) {
 
 
     if (mysqli_num_rows($result) == 1) {
-      $_SESSION['id'] = $id;
-      $_SESSION['success'] = "Your are now login";
-      print_r($userdata);
-      $_SESSION['f_name'] = $userdata['f_name'];
-      $_SESSION['l_name'] = $userdata['l_name'];
-      header("location: pageuser.php");
+      switch ($userdata['type']) {
+        case 'user':
+          $_SESSION['id'] = $id;
+          $_SESSION['success'] = "Your are now login";
+          print_r($userdata);
+          $_SESSION['f_name'] = $userdata['f_name'];
+          $_SESSION['l_name'] = $userdata['l_name'];
+          header("location: pageuser.php");
+          break;
+  
+        case 'admin':
+          $_SESSION['success'] = "Your are now login";
+          $_SESSION['f_name'] = $userdata['f_name'];
+          header("location: adminpage.php");
+          break;
+
+      }
+        // case label3:
+        //   code to be executed if n=label3;
+        //   break;
+     
     } else {
       $statusMsg = "การเข้าสู่ระบบไม่สำเร็จ กรุณาตรวาจสอบ id และ password ของท่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";

@@ -33,36 +33,27 @@
     <img src="./scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
+                    
+         
                     <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
+                        
+                        <?php if (isset($_SESSION ['success'])) : ?>
+                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
+                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                        <?php endif ?>
                        
-
-
-                   
-<?php if (!isset($_SESSION)) : ?>
-  <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
-  <?php else : ?>
-    <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
-   <?php endif ?>
-
-         
-
-
-
-
-
-
-
-                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
+                        
                     </div>
                     
                 </div>
@@ -120,47 +111,47 @@
                   
                 หน้ายื่นเรื่อง
                 
-                <form>
+               
 
 
   <!-- <div class="form-row">  -->
-    
+  <form action="request-company_db.php" method="post">
     <div class="form-group">
       
       <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
       
     </div>
 
   <!-- </div> -->
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+  <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios1" value="1" checked>
   <label class="form-check-label" for="exampleRadios1">
     สำนักงาน(วิทยาลัยวิศวกรรมศาสตร์) จัดหาให้
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios2" value="2">
   <label class="form-check-label" for="exampleRadios2">
     นักศึกษาจัดหาเอง
   </label>
 </div>
   <div class="form-group">
     <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" class="form-control" id="txt_r_address" name="txt_r_address" placeholder="1234 Main St">
   </div>
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" id="txt_r_address2" name="txt_r_address2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="text" class="form-control" id="txt_r_city" name="txt_r_city">
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
         <option selected>เลือก...</option>
 1. <option>กรุงเทพมหานคร </option>
 2. <option>กระบี่</option> 
@@ -244,18 +235,18 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
+      <input type="text" class="form-control" id="txt_r_zip" name="txt_r_zip">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">เบอร์โทรศัพท์</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <input type="text" class="form-control" id="txt_r_phone" name="txt_r_phone">
       
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">เบอร์โทรสาร</label>
-      <input type="password" class="form-control" id="inputPassword4">
+      <input type="text" class="form-control" id="txt_r_fax" name="txt_r_fax">
     </div>
   </div>
   <div class="form-group">
@@ -266,7 +257,7 @@
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">ยื่นเรื่อง</button>
+  <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
 </form>
 
 

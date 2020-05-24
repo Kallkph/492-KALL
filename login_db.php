@@ -32,6 +32,8 @@ if (isset($_POST['login_user'])) {
           print_r($userdata);
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['l_name'] = $userdata['l_name'];
+          $_SESSION['major'] = $userdata['major'];
+
           header("location: pageuser.php");
           break;
   

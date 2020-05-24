@@ -33,36 +33,27 @@
     <img src="./scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
+                    
+         
                     <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
+                        
+                        <?php if (isset($_SESSION ['success'])) : ?>
+                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
+                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                        <?php endif ?>
                        
-
-
-                   
-<?php if (!isset($_SESSION)) : ?>
-  <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
-  <?php else : ?>
-    <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
-   <?php endif ?>
-
-         
-
-
-
-
-
-
-
-                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
+                        
                     </div>
                     
                 </div>

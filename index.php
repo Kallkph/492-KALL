@@ -61,6 +61,7 @@
 <?php if (!isset($_SESSION ['success'])) : ?>
   <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
   <?php else : ?>
+    <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
     <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
    <?php endif ?>
 

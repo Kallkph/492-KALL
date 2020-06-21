@@ -14,11 +14,11 @@
   }
   
   include('connect.php');
-    $allquery = "SELECT * FROM requestcompany ";
-    $result = mysqli_query($con, $allquery);
-    // pre_r($query);
-    // pre_r($result->fetch_assoc());
-    // pre_r($result->fetch_assoc());
+  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany._id";
+  $result = mysqli_query($con, $sql);
+  // mysql_query("set names utf8")
+    // $allquery = "SELECT * FROM requestcompany ";
+    // $result = mysqli_query($con, $allquery);
 
     function pre_r( $array ) {
       echo '<pre>';
@@ -142,11 +142,24 @@
           //  $result = mysqli_query($con, $query);
           // //  $userdata = mysqli_fetch_assoc($result);
           // //  pre_r($userdata);
-          // echo $row['_id']
+          echo $row['f_name'];
+          echo ' ';
+          echo $row['l_name'];
         ?>
       </td>
       <td><?php echo $row['r_major']?></td>
-      <td><?php echo $row['r_status']?></td>
+      <td>
+        <!-- <php echo $row['r_status']?> -->
+        <?php if ($row['r_status'] == 0) {?>
+          <button type="button" class="btn btn-danger">ยังไม่ผ่าน</button>
+        <?php } else if ($row['r_status'] == 2) {?>
+          <button type="button" class="btn btn-light">กำลังดำเนินการ</button>
+          <?php } else if ($row['r_status'] == 1) {?>
+          <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
+          <?php } else {?>
+            <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
+<?php } ?>
+    </td>
       <!-- <td><button type="button" class="btn btn-success">อนุมัติแล้ว</button></td> -->
     
     </tr>

@@ -13,6 +13,8 @@ if(isset($_POST['reg'])){
     "txt_fname" => $_POST["txt_fname"],
     "txt_lname" => $_POST["txt_lname"],
     "txt_mail" => $_POST["txt_mail"],
+    "major" => $_POST["major"],
+    "type" => "user",
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );
@@ -76,9 +78,9 @@ if(isset($_POST['reg'])){
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO users (id, f_name, l_name, email, password)
+      $sql =" INSERT INTO users (id, f_name, l_name, email, major, type, password)
       VALUES
-      (?, ?, ?, ?, ?)
+      (?, ?, ?, ?, ?, ?, ?)
       ";
 
       $qr = $con->prepare($sql);
@@ -86,12 +88,13 @@ if(isset($_POST['reg'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("sssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["txt_pwd"]);
+    $qr->bind_param("sssssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"], $data["type"], $data["txt_pwd"]);
     $qr->execute();
 
-    // echo 5
-    // $statusMsg = "สมัครสมาชิกเรียบร้อย";
-    // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='HTMLPage1.php';</script>";
+  
+
+    $statusMsg = "สมัครสมาชิกเรียบร้อย";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
 
     $qr->close();
   } else if((!count($errors) == 0)){

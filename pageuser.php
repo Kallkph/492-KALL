@@ -168,19 +168,19 @@
                           Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
                           <br>
                           <!-- btn -->
-                          <button type="submit" class="btn btn-light" id="btn_submit" value="Save...">สมัครสมาชิก</button>
+                          <button type="submit" class="btn btn-light" id="btn_submit" value="Save...">แก้ไขข้อมูล</button>
                           <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
                           </form>
                       </div>
                
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
-                    </a>
+                    </a> -->
                   
                 </div>
               

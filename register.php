@@ -103,7 +103,7 @@
                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
                        <br>
                        สาขา   <select name="major">
-                           <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
+                           <option value="cpe">คอมพิวเตอร์</option>
                            <option value="เคมี">เคมี</option>
                            <option value="อุตสาหการ">อุตสาหการ</option>
                           </select><br>      

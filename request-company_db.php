@@ -21,7 +21,7 @@ if(isset($_POST['r_submit'])){
     "txt_r_zip" => $_POST["txt_r_zip"],
     "txt_r_phone" => $_POST["txt_r_phone"],
     "txt_r_fax" => $_POST["txt_r_fax"],
-    "input_r_status" => "1"
+    "input_r_status" => "2"
     
   );
 

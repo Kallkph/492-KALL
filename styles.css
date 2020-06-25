@@ -203,7 +203,7 @@
     background-color: white;
     padding: 30px;
     margin-top: 20px;
-    height: 60%;
+    height: 65%;
   }
 
   .card2_1 {
@@ -213,11 +213,19 @@
     height: 100%;
   }
 
+  .card2infograde {
+    background-color: white;
+    padding: 30px;
+    margin-top: 20px;
+    height: 828px;
+  }
+
+
   .card3 {
     background-color: white;
     padding: 20px;
     margin-top: 10px;
-    height: 30%
+    height: 35%
   }
   
   /* Clear floats after the columns */

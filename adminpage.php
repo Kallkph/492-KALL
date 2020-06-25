@@ -134,7 +134,9 @@
   <!-- <?php while($row = $result->fetch_assoc()): ?> -->
     <tr>
       <!-- <th scope="row">1</th> -->
-      <td><?php echo $row['_id']?></td>
+      <td><?php echo $row['_id']?>
+    </td>
+      
 
       <td>
         <?php
@@ -161,6 +163,14 @@
 <?php } ?>
     </td>
       <!-- <td><button type="button" class="btn btn-success">อนุมัติแล้ว</button></td> -->
+        <!-- <td>
+          <a href="adminpage_db.php?awite=<?php echo $row['_id']; ?>"
+            class="btn btn-info">กำลังดำเนินการ</a>
+            <a href="adminpage_db.php?success=<?php echo '4534545345'; ?>"
+            class="btn btn-info">ดำเนินการสำเร็จ</a>
+            <a href="adminpage_db.php?failed=<?php echo $row['_id']; ?>"
+            class="btn btn-info">ยังไม่ผ่าน</a>
+        </td> -->
     
     </tr>
     <?php endwhile; ?>

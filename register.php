@@ -98,7 +98,7 @@
                        <br>
                        รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
                        <br> -->
-                       เบอร์โทร : <input type="text" id="telnum" pattern="[0-9]{10}"> 
+                       เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"> 
                        <br>
                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
                        <br>
@@ -209,6 +209,7 @@ if(isset($_POST['reg'])){
     "txt_fname" => $_POST["txt_fname"],
     "txt_lname" => $_POST["txt_lname"],
     "txt_mail" => $_POST["txt_mail"],
+    "txt_tel" => $_POST["txt_tel"],
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );

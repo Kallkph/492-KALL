@@ -13,6 +13,7 @@ if(isset($_POST['reg'])){
     "txt_fname" => $_POST["txt_fname"],
     "txt_lname" => $_POST["txt_lname"],
     "txt_mail" => $_POST["txt_mail"],
+    "txt_tel" => $_POST["txt_tel"],
     "major" => $_POST["major"],
     "type" => "user",
     "txt_pwd" => $_POST["txt_pwd"],
@@ -78,9 +79,9 @@ if(isset($_POST['reg'])){
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO users (id, f_name, l_name, email, major, type, password)
+      $sql =" INSERT INTO users (id, f_name, l_name, email, major, tel, type, password)
       VALUES
-      (?, ?, ?, ?, ?, ?, ?)
+      (?, ?, ?, ?, ?, ?, ?, ?)
       ";
 
       $qr = $con->prepare($sql);
@@ -88,7 +89,7 @@ if(isset($_POST['reg'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("sssssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"], $data["type"], $data["txt_pwd"]);
+    $qr->bind_param("ssssssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"],  $data["txt_tel"], $data["type"], $data["txt_pwd"]);
     $qr->execute();
 
   

@@ -123,11 +123,12 @@
 
   <!-- <div class="form-row">  -->
   <form action="request-company_db.php" method="post">
-    <div class="form-group">
-      
-      <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
-      
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่</label>
+    <div class="col-sm-2">
+      <input class="form-control" id="input">
     </div>
+  </div>
 
   <!-- </div> -->
   <div class="form-group row">
@@ -143,11 +144,40 @@
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิจลงทะเบียนเทอม(ปัจจุบัน)</label>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputState">State</label> -->
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เทอม</option>
+        1. <option>S</option>
+        2. <option>1</option> 
+        3. <option>2</option> 
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputState">State</label> -->
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>ปี</option>
+        1. <option>57</option>
+        1. <option>58</option>
+        1. <option>59</option>
+        1. <option>60</option>
+        2. <option>61</option> 
+        3. <option>62</option>
+        3. <option>63</option>
+        3. <option>64</option>
+        3. <option>65</option>
+        3. <option>66</option>
+      </select>
+    </div>
     <div class="col-sm-2">
       <input class="form-control" id="input">
     </div>
     <label for="inputEmail3" class="col-sm-2 col-form-label">หน่วยกิจ</label>
-    <label for="inputEmail3" class="col-sm-2.5 col-form-label">(ต้องไม่ต่ำกว่า 70 หน่วยกิจ)</label>
+    <!-- ?php if() { ?>
+      <label for="inputEmail3" class="col-sm-2.5 col-form-label">(ต้องไม่ต่ำกว่า 70 หน่วยกิจ)</label>
+    ?php } else {?>
+      <label for="inputEmail3" class="col-sm-2.5 col-form-label">(ต้องไม่ต่ำกว่า 100 หน่วยกิจ)</label>
+    ?php }?>   -->
   </div>
 
 

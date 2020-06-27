@@ -3,7 +3,7 @@
 
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include('connect.php');
+  include('../configure/connect.php');
 
 //   $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany._id";
 //   $result = mysqli_query($con, $sql);

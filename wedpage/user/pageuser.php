@@ -1,20 +1,20 @@
 <?php
   session_start();
-  include('connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
+    heder('location: index.php');
   }
 
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['id']);
-    header('location: index.php');
+    heder('location: index.php');
   }
 
   
 ?>
-
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -24,13 +24,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="/scr/img/Banner.png"   href="index.php"  width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -60,7 +60,8 @@
             </div>
         </nav>
         </div>
-          <div class="row">
+          
+        <div class="row">
               <div class="leftcolumn">
               <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
@@ -78,7 +79,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="pageuser.php">
-    <img src="./scr/img/profile.jpg" width="50%">
+    <img src="../../scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -89,159 +90,135 @@
       <p><?php echo $_SESSION['id'];?></p>
 
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
+        <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
+        <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
+        <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
       </div>
-
   </div>
 
    <?php endif ?>
-
                 <div class="card3">
                   <!DOCTYPE html>
 
-    <p id="top">Link Download เอกสารต่างๆ </p>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <title> เอกสารต่างๆ </title>
+    <style>
+        a [href$=".doc"]  {
+            background-image : url('pdf.gif');
+            background-repeat : no-repeat;
+            background-position :right;
+            padding-right:40px;
+            font-size:1.6em;
+
+
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <h2 id="top">Link Download เอกสารต่างๆ </h2>
     <ul>
         <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
         <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
         <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
+            
+
+         
         </ul>
-                  <p>ติดต่อเรา..</p>
+
+
+
+    
+
+</body>
+</html>
+                  <p>ติดต่อเรา</p>
+                  
                 <p><b><a href="https://www.facebook.com/kallkph" target="_blank">link.//www.en-rsu.ac.th</a></b>
-                  <div class="fakeimg" style="height:200px;"></div>  
+                <!-- <br><br> <a href="https://www.instagram.com/kkallp" target="_blank">My Instagram</a></p> -->
+                  
+                  <div class="fakeimg" style="height:200px;"></div>
+                  
            </div>
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2infograde">
+                <div class="card2_1">
+                  <!-- <h3>สไลด์โชว์</h3> -->
                   
-                หน้าอัพโหลด
+                    <div class="card">
+                      <h> สมัครสมาชิก </h>
+                   <form id="Regis" method="POST" action="regis.php">
+                       ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
+                       <br> 
+                       นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
+                       <br>
+                       รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
+                       <br>
+                       <!-- เบอร์โทร : <input type="text" id="telnum" pattern="[0-9]{10}"> -->
+                       <br>
+                       E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
+                       <br>
+                       สาขา   <select name="major">
+                           <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
+                           <option value="เคมี">เคมี</option>
+                           <option value="อุตสาหการ">อุตสาหการ</option>
+                          </select><br>      
                 
+                          Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
+                          Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
+                          <br>
+                          <!-- btn -->
+                          <button type="submit" class="btn btn-light" id="btn_submit" value="Save...">แก้ไขข้อมูล</button>
+                          <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
+                          </form>
+                      </div>
                
-
-
-  <!-- <div class="form-row">  -->
-  <form action="request-company_db.php" method="post">
-    <div class="form-group">
-      
-      <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
-      
-    </div>
-
-  <!-- </div> -->
-
-
-  link.....
-
-  <div class="form-row">
-  <div class="form-group col-md-2">
-      <button type="submit" name="r_submit" value="Save..." class="btn btn-light">Upload</button>
-    </div>
-    
-
-  
-
-    <div class="form-group col-md-4">
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>week</option>
-         <option>1</option>
-         <option>2</option> 
-         <option>3</option> 
-         <option>4</option> 
-         <option>5</option> 
-         <option>6</option> 
-         <option>7</option>
-         <option>8</option> 
-      </select>
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        ตรวจสอบความถูกต้อง
-      </label>
-      
-    </div>
-    <div class="form-group col-md-6">
-    <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
-    </div>
-  </div>
-
-  </div>
-
-  
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./scr/img/2.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/3.png" class="d-block w-100" alt="...">
-                      </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
-                    </a>
+                    </a> -->
+                  
+                </div>
+              
+                  <!-- <div class="fakeimg" >
+                      <img src="9.jpg" width="100%" height="100%">
                   </div> -->
 
+              
+              
                 </div>
-                </div>
+               
               </div>
             </div>
+            
+      
+      
+      
           <div class="conteiner">
           <div class="footer">
-            <div class="fakeimg" >  
+          
+            <div class="fakeimg" >
+              
+              
             </div>
           </div>
           </div>
         <!-- //// -->
-        <?php 
-if (isset($_SESSION ['success'])) {
-  echo $_SESSION['id'];
-  echo $_SESSION['f_name'];
-  echo $_SESSION['l_name'];
-  unset($_SESSION['error']);
-} else {
-  echo "Have a good night!";
-}
-?>
     </div>
+        
 
 </body>
 </html>
 
-<?php
-  include('connect.php')
-  
-?>
+
+

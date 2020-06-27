@@ -1,6 +1,6 @@
 <?php
   session_start();
-  // include('connect.php');
+  // include('../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -13,7 +13,7 @@
     header('location: index.php');
   }
   
-  include('connect.php');
+  include('../../configure/connect.php');
   $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany._id";
   $result = mysqli_query($con, $sql);
   // mysql_query("set names utf8")
@@ -37,7 +37,7 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
@@ -48,7 +48,7 @@
     <?php if (!isset($_SESSION)) : ?>
   <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
   <?php else : ?>
-    <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+    <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
    <?php endif ?>
   </form>
 </nav>
@@ -71,7 +71,7 @@
   <?php else : ;?>
     <div class="card1">
     <a href="pageuser.php">
-    <img src="./scr/img/adminproflie.jpg" width="50%">
+    <img src="../../scr/img/adminproflie.jpg" width="50%">
 </a>
     
 

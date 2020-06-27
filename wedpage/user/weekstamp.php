@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include('connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -24,13 +24,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -78,7 +78,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="pageuser.php">
-    <img src="./scr/img/profile.jpg" width="50%">
+    <img src="../../scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -89,9 +89,9 @@
       <p><?php echo $_SESSION['id'];?></p>
 
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
+      <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
+        <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
+        <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
       </div>
 
   </div>
@@ -116,7 +116,7 @@
                 
                 <div class="card2infograde">
                   
-                หน้ายื่นเรื่อง
+                หน้าอัพโหลด
                 
                
 
@@ -125,178 +125,34 @@
   <form action="request-company_db.php" method="post">
     <div class="form-group">
       
-      <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
+      <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
       
     </div>
 
   <!-- </div> -->
 
 
+  link.....
+
   <div class="form-row">
-  <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
+  <div class="form-group col-md-2">
+      <button type="submit" name="r_submit" value="Save..." class="btn btn-light">Upload</button>
     </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
+    
+
   
 
     <div class="form-group col-md-4">
-      <label for="inputState">State</label>
       <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-  </div>
-
-  <div class="form-row">
-  <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
-
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-  </div>
-
-
-  <div class="form-row">
-  <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
-
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
+        <option selected>week</option>
+         <option>1</option>
+         <option>2</option> 
+         <option>3</option> 
+         <option>4</option> 
+         <option>5</option> 
+         <option>6</option> 
+         <option>7</option>
+         <option>8</option> 
       </select>
     </div>
   </div>
@@ -310,7 +166,9 @@
       </label>
       
     </div>
+    <div class="form-group col-md-6">
     <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
+    </div>
   </div>
 
   </div>
@@ -384,6 +242,6 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
-  include('connect.php')
+  include('../../configure/connect.php')
   
 ?>

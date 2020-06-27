@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include('connect.php');
+  include('../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -226,6 +226,6 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
-  include('connect.php')
+  include('../configure/connect.php')
   
 ?>

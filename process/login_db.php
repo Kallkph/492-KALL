@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../configure/connect.php";
 session_start();
   
 
@@ -33,15 +33,21 @@ if (isset($_POST['login_user'])) {
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['l_name'] = $userdata['l_name'];
           $_SESSION['major'] = $userdata['major'];
+          $_SESSION['status'] = $userdata['status'];
 
-          header("location: pageuser.php");
+          if ($_SESSION['status'] == 0) {
+            header("location: ../wedpage/user/infograde.php");
+          } else {
+            header("location: ../wedpage/user/checkstatus.php");
+          }
+
           break;
   
         case 'admin':
           $_SESSION['success'] = "Your are now login";
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['major'] = $userdata['major'];
-          header("location: adminpage.php");
+          header("location: ../wedpage/admin/adminpage.php");
           break;
 
       }

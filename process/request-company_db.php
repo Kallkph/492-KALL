@@ -3,7 +3,7 @@
 
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "connect.php";
+  include "../configure/connect.php";
 
   $errors = array();
 

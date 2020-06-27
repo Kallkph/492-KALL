@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('connect.php'); 
+    include('../configure/connect.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -199,7 +199,7 @@
 <?php
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "connect.php";
+  include "../configure/connect.php";
 
   $errors = array();
 

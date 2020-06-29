@@ -58,7 +58,7 @@ if (isset($_POST['login_user'])) {
     } else {
       $statusMsg = "การเข้าสู่ระบบไม่สำเร็จ กรุณาตรวาจสอบ id และ password ของท่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
-      header("location: index.php");
+      header("location: ../wedpage/index.php");
     }
 
   // }

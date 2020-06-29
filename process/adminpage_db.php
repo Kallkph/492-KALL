@@ -23,7 +23,7 @@
     // $status = 1
     // $updata = true;
     // mysql_select_db(requestcompany);
-    $con = "UPDATE users SET email= 1 WHERE _id=$id");
+    $con = "UPDATE users SET email= 1 WHERE r_id=$id");
     // $sql->query("UPDATE requestcompany SET ='$status', WHERE _id=$id") or die($mysqli->error());
 
 //   } else {

@@ -86,7 +86,7 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
 
       <div class="list-group">
       <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
@@ -120,36 +120,22 @@
           <div class="card2">
           
             ตรวจสอบสถานะ
-         
-  
+      
                 <?php if ($_SESSION['status'] == 0) {?>
                   <figure class="figure">
                   <img src="../../scr/img/status_wait_grade.png" width="100%">
                   </figure>
-           
-                    
                   <div style="margin-left: 310px;">
                     <a class="btn btn-light" href="infograde.php" role="button">กรอกผลการศึกษา</a>
                   </div>
-             
-                  
-
-
-
-
-
-
                 <?php } else if ($_SESSION['status'] == 1) {?>
-                  <img src="../../scr/img/status_wait.png" width="100%">
-                <?php } else if ($_SESSION['status'] == 2) {?>
                   <img src="../../scr/img/status_allow.png" width="100%">
-          <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
-          <?php } else {?>
-            <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
-<?php } ?>
-                
-                
-            
+                <?php } else if ($_SESSION['status'] == 2) {?>
+                  <img src="../../scr/img/status_wait.png" width="100%">
+                  <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
+                <?php } else {?>
+                  <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
+                <?php } ?>
 
           </div>
         </div>

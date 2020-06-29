@@ -50,7 +50,7 @@
                         
                         <?php if (isset($_SESSION ['success'])) : ?>
                           <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
-                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
                         <?php endif ?>
                        
                         
@@ -86,12 +86,12 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
 
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
+        <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
+        <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
+        <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
       </div>
 
   </div>
@@ -122,11 +122,11 @@
 
 
   <!-- <div class="form-row">  -->
-  <form action="request-company_db.php" method="post">
+  <form action="infograde_db.php" method="post">
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่</label>
     <div class="col-sm-2">
-      <input class="form-control" id="input">
+      <input class="form-control" id="input" name="g_class">
     </div>
   </div>
 
@@ -134,19 +134,19 @@
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิจสะสม</label>
     <div class="col-sm-2">
-      <input class="form-control" id="input">
+      <input class="form-control" id="input" name="g_sumcredit">
     </div>
     <label for="inputEmail3" class="col-sm-3 col-form-label">หน่วยกิจ (ไม่รวม W, F)</label>
     <label for="inputEmail3" class="col-sm-2.5 col-form-label">GPA</label>
     <div class="col-sm-2">
-      <input class="form-control" id="input">
+      <input class="form-control" id="input" name="g_gpa">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิจลงทะเบียนเทอม(ปัจจุบัน)</label>
     <div class="form-group col-md-2">
       <!-- <label for="inputState">State</label> -->
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="g_term" class="form-control">
         <option selected>เทอม</option>
         1. <option>S</option>
         2. <option>1</option> 
@@ -155,7 +155,7 @@
     </div>
     <div class="form-group col-md-2">
       <!-- <label for="inputState">State</label> -->
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="g_yearTerm" class="form-control">
         <option selected>ปี</option>
         1. <option>57</option>
         1. <option>58</option>
@@ -170,7 +170,7 @@
       </select>
     </div>
     <div class="col-sm-2">
-      <input class="form-control" id="input">
+      <input class="form-control" id="input" name="g_creditnow">
     </div>
     <label for="inputEmail3" class="col-sm-2 col-form-label">หน่วยกิจ</label>
     <!-- ?php if() { ?>
@@ -359,7 +359,7 @@
       </label>
       
     </div>
-    <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
+    <button type="submit" name="g_save" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
 
   </div>

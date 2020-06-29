@@ -7,7 +7,7 @@
 
   $errors = array();
 
-if(isset($_POST['r_submit'])){
+if(isset($_POST['g_save'])){
   $data = array(
         
     "_id" => $_SESSION['id'],
@@ -20,7 +20,8 @@ if(isset($_POST['r_submit'])){
     "txt_r_state" => $_POST["txt_r_state"],
     "txt_r_zip" => $_POST["txt_r_zip"],
     "txt_r_phone" => $_POST["txt_r_phone"],
-    "txt_r_fax" => $_POST["txt_r_fax"]
+    "txt_r_fax" => $_POST["txt_r_fax"],
+    "input_r_status" => "2"
     
   );
 
@@ -35,9 +36,9 @@ if(isset($_POST['r_submit'])){
 
          if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_set, r_address, r_address2, r_city, r_state, r_zip, r_phone, r_fax)
+      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_set, r_address, r_address2, r_city, r_state, r_zip, r_phone, r_fax, r_status)
       VALUES
-      (?,?,?,?,?,?,?,?,?,?,?)
+      (?,?,?,?,?,?,?,?,?,?,?,?)
       ";
 
       
@@ -48,7 +49,7 @@ if(isset($_POST['r_submit'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("sssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"]);
+    $qr->bind_param("ssssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"],$data["input_r_status"]);
     $qr->execute();
 
     echo "if";

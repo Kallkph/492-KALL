@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include('../configure/connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -24,13 +24,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -50,7 +50,7 @@
                         
                         <?php if (isset($_SESSION ['success'])) : ?>
                           <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
-                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
                         <?php endif ?>
                        
                         
@@ -78,7 +78,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="pageuser.php">
-    <img src="./scr/img/profile.jpg" width="50%">
+    <img src="../../scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -122,7 +122,7 @@
 
 
   <!-- <div class="form-row">  -->
-  <form action="request-company_db.php" method="post">
+  <form action="../../process/request-company_db.php" method="post">
     <div class="form-group">
       
       <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
@@ -287,13 +287,13 @@
                     </ol>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="./scr/img/2.png" class="d-block w-100" alt="...">
+                        <img src="../../scr/img/2.png" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="./scr/img/1.png" class="d-block w-100" alt="...">
+                        <img src="../../scr/img/1.png" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="./scr/img/3.png" class="d-block w-100" alt="...">
+                        <img src="../../scr/img/3.png" class="d-block w-100" alt="...">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -332,6 +332,6 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
-  include('../configure/connect.php')
+  include('../../configure/connect.php')
   
 ?>

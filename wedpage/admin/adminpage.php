@@ -16,9 +16,6 @@
   include('../../configure/connect.php');
   $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany._id";
   $result = mysqli_query($con, $sql);
-  // mysql_query("set names utf8")
-    // $allquery = "SELECT * FROM requestcompany ";
-    // $result = mysqli_query($con, $allquery);
 
     function pre_r( $array ) {
       echo '<pre>';
@@ -152,11 +149,11 @@
       <td><?php echo $row['r_major']?></td>
       <td>
         <!-- <php echo $row['r_status']?> -->
-        <?php if ($row['r_status'] == 0) {?>
+        <?php if ($row['status'] == 0) {?>
           <button type="button" class="btn btn-danger">ยังไม่ผ่าน</button>
-        <?php } else if ($row['r_status'] == 2) {?>
+        <?php } else if ($row['status'] == 2) {?>
           <button type="button" class="btn btn-light">กำลังดำเนินการ</button>
-          <?php } else if ($row['r_status'] == 1) {?>
+          <?php } else if ($row['status'] == 1) {?>
           <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
           <?php } else {?>
             <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>

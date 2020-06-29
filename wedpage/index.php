@@ -108,7 +108,7 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
   </div>
 
    <?php endif ?>
@@ -129,7 +129,7 @@
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2">
+                <div class="card2_index">
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

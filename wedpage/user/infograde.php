@@ -12,6 +12,23 @@
     header('location: index.php');
   }
 
+  $id = 'CEN';
+  // $id = mysqli_real_escape_string($con, $_POST['txt_id']);
+  // $password = mysqli_real_escape_string($con, $_POST['txt_password']);
+
+  // if (count($errors == 0)) {
+
+    $query = "SELECT * FROM subject WHERE s_key LIKE '$id'";
+    
+    // $results = mysqli_query($con, $query);
+    $result = mysqli_query($con, $query);
+    // $userdata = mysqli_fetch_assoc($results);
+
+    // $sql="SELECT subject.s_key WHERE "
+
+    // echo $row['s_kay']."<br>";
+  print_r($result);
+  
   
 ?>
 
@@ -350,6 +367,22 @@
     </div>
   </div>
 
+   
+    <tr>
+      <!-- <th scope="row">1</th> -->
+     
+      <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เกรต</option>
+        <?php while($row = $result->fetch_assoc()) { ?>
+      <option><?php echo $row['s_value']?>
+      </option>
+        <?php } ?>
+      </select>
+    </div>
+  </div>
+    
 
   <div class="form-group">
     <div class="form-check">

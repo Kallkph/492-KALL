@@ -12,22 +12,45 @@
     header('location: index.php');
   }
 
-  $id = 'CEN';
-  // $id = mysqli_real_escape_string($con, $_POST['txt_id']);
-  // $password = mysqli_real_escape_string($con, $_POST['txt_password']);
 
-  // if (count($errors == 0)) {
+  // test
+  $major = 'CHE';
+  
+  // true
+  // $major = $_SESSION['major'];
+  echo $major;
 
-    $query = "SELECT * FROM subject WHERE s_key LIKE '$id'";
-    
-    // $results = mysqli_query($con, $query);
-    $result = mysqli_query($con, $query);
-    // $userdata = mysqli_fetch_assoc($results);
-
-    // $sql="SELECT subject.s_key WHERE "
-
-    // echo $row['s_kay']."<br>";
-  print_r($result);
+  switch ($major) {
+    case "CEN":
+      $s_value_length = 2;
+      break;
+    case "CHE":
+      $s_value_length = 3;
+      break;
+    case "ENV":
+      $s_value_length = 2;
+      break;
+    case "ยย":
+      $s_value_length = 0;
+      break;
+    case "EEN":
+      $s_value_length = 2;
+      break;
+    case "IEN":
+      $s_value_length = 3;
+      break;
+    case "MEN":
+      $s_value_length = 1;
+      break;
+    case "CPE":
+      $s_value_length = 1;
+      break;
+    default:
+      $s_value_length = 0;
+  }
+ 
+  // debug
+  // print_r($result);
   
   
 ?>
@@ -190,201 +213,180 @@
       <input class="form-control" id="input" name="g_creditnow">
     </div>
     <label for="inputEmail3" class="col-sm-2 col-form-label">หน่วยกิจ</label>
-    <!-- ?php if() { ?>
-      <label for="inputEmail3" class="col-sm-2.5 col-form-label">(ต้องไม่ต่ำกว่า 70 หน่วยกิจ)</label>
-    ?php } else {?>
-      <label for="inputEmail3" class="col-sm-2.5 col-form-label">(ต้องไม่ต่ำกว่า 100 หน่วยกิจ)</label>
-    ?php }?>   -->
   </div>
 
-
-  <div class="form-row">
+  <?php if ($s_value_length == '3') { ?>
+      <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+     <select id="txt_r_state" name="txt_r_state" class="form-control">
         <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
-
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-  </div>
-
-  <div class="form-row">
-  <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
-
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-  </div>
-
-
-  <div class="form-row">
-  <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
-
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
-    </div>
-  </div>
-
-   
-    <tr>
-      <!-- <th scope="row">1</th> -->
-     
-      <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        <?php while($row = $result->fetch_assoc()) { ?>
+        <?php
+        $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+        $result = mysqli_query($con, $query);
+        while($row = $result->fetch_assoc()) { ?>
       <option><?php echo $row['s_value']?>
       </option>
         <?php } ?>
       </select>
     </div>
-  </div>
-    
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เทอม</option>
+        1. <option>S</option>
+        2. <option>1</option> 
+        3. <option>2</option> 
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>ปี</option>
+        1. <option>57</option>
+        1. <option>58</option>
+        1. <option>59</option>
+        1. <option>60</option>
+        2. <option>61</option> 
+        3. <option>62</option>
+        3. <option>63</option>
+        3. <option>64</option>
+        3. <option>65</option>
+        3. <option>66</option>
+      </select>
+    </div>
+  
 
-  <div class="form-group">
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เกรต</option>
+        1. <option>A</option>
+        2. <option>B+</option> 
+        3. <option>B</option> 
+        4. <option>C+</option> 
+        5. <option>C</option> 
+        6. <option>D+</option> 
+        7. <option>D</option> 
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>รายวิชา</option>
+        <?php
+        $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+        $result = mysqli_query($con, $query);
+        while($row = $result->fetch_assoc()) { ?>
+      <option><?php echo $row['s_value']?>
+      </option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เทอม</option>
+        1. <option>S</option>
+        2. <option>1</option> 
+        3. <option>2</option> 
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>ปี</option>
+        1. <option>57</option>
+        1. <option>58</option>
+        1. <option>59</option>
+        1. <option>60</option>
+        2. <option>61</option> 
+        3. <option>62</option>
+        3. <option>63</option>
+        3. <option>64</option>
+        3. <option>65</option>
+        3. <option>66</option>
+      </select>
+    </div>
+  
+
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เกรต</option>
+        1. <option>A</option>
+        2. <option>B+</option> 
+        3. <option>B</option> 
+        4. <option>C+</option> 
+        5. <option>C</option> 
+        6. <option>D+</option> 
+        7. <option>D</option> 
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>รายวิชา</option>
+        <?php
+        $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+        $result = mysqli_query($con, $query);
+        while($row = $result->fetch_assoc()) { ?>
+      <option><?php echo $row['s_value']?>
+      </option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เทอม</option>
+        1. <option>S</option>
+        2. <option>1</option> 
+        3. <option>2</option> 
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>ปี</option>
+        1. <option>57</option>
+        1. <option>58</option>
+        1. <option>59</option>
+        1. <option>60</option>
+        2. <option>61</option> 
+        3. <option>62</option>
+        3. <option>63</option>
+        3. <option>64</option>
+        3. <option>65</option>
+        3. <option>66</option>
+      </select>
+    </div>
+  
+
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <option selected>เกรต</option>
+        1. <option>A</option>
+        2. <option>B+</option> 
+        3. <option>B</option> 
+        4. <option>C+</option> 
+        5. <option>C</option> 
+        6. <option>D+</option> 
+        7. <option>D</option> 
+      </select>
+    </div>
+  </div>
+
+
+    <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
@@ -394,10 +396,14 @@
     </div>
     <button type="submit" name="g_save" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
-
   </div>
-
+        <?php } else {?>
+          <?php echo '0';?>
+        <?php } ?>
   
+
+
+  </div> 
 </form>
 
 

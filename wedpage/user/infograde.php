@@ -14,41 +14,53 @@
 
 
   // test
-  $major = 'CHE';
+  $major = 'env';
   
   // true
   // $major = $_SESSION['major'];
   echo $major;
 
   switch ($major) {
-    case "CEN":
+    case "cen":
       $s_value_length = 2;
       break;
-    case "CHE":
+    case "che":
       $s_value_length = 3;
       break;
-    case "ENV":
+    case "env":
       $s_value_length = 2;
       break;
-    case "ยย":
+    case "aen":
       $s_value_length = 0;
       break;
-    case "EEN":
+    case "een":
       $s_value_length = 2;
       break;
-    case "IEN":
+    case "ien":
       $s_value_length = 3;
       break;
-    case "MEN":
+    case "men":
       $s_value_length = 1;
       break;
-    case "CPE":
+    case "cpe":
       $s_value_length = 1;
       break;
     default:
       $s_value_length = 0;
   }
- 
+
+  echo $s_value_length;
+
+  // คิดปี
+  // $year = (date('Y') + 543) - 2500;
+  // echo $year;
+
+  // for ($i = -5; $i <= 1; $i++) {
+  //   echo $year + $i;
+  // }
+
+
+
   // debug
   // print_r($result);
   
@@ -105,7 +117,7 @@
               <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
                         <!-- Login Form -->
-      <form action="login_db.php" method="post">
+      <form action="infograde_db.php" method="post">
         <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
         <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
         
@@ -133,7 +145,6 @@
         <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
         <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
       </div>
-
   </div>
 
    <?php endif ?>
@@ -162,7 +173,7 @@
 
 
   <!-- <div class="form-row">  -->
-  <form action="infograde_db.php" method="post">
+  <form action="../../process/infograde_db.php" method="post">
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่</label>
     <div class="col-sm-2">
@@ -188,25 +199,25 @@
       <!-- <label for="inputState">State</label> -->
       <select id="txt_r_state" name="g_term" class="form-control">
         <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
+        1. <option value="S">S</option>
+        2. <option value="1">1</option> 
+        3. <option value="2">2</option> 
       </select>
     </div>
     <div class="form-group col-md-2">
       <!-- <label for="inputState">State</label> -->
       <select id="txt_r_state" name="g_yearTerm" class="form-control">
         <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
+
+        1. <option value="58">58</option>
+        1. <option value="59">59</option>
+        1. <option value="60">60</option>
+        2. <option value="61">61</option> 
+        3. <option value="62">62</option>
+        3. <option value="63">63</option>
+        3. <option value="64">64</option>
+        3. <option value="65">65</option>
+        3. <option value="66">66</option>
       </select>
     </div>
     <div class="col-sm-2">
@@ -216,61 +227,61 @@
   </div>
 
   <?php if ($s_value_length == '3') { ?>
-      <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-     <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>รายวิชา</option>
-        <?php
-        $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-        $result = mysqli_query($con, $query);
-        while($row = $result->fetch_assoc()) { ?>
-      <option><?php echo $row['s_value']?>
-      </option>
-        <?php } ?>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เทอม</option>
-        1. <option>S</option>
-        2. <option>1</option> 
-        3. <option>2</option> 
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>ปี</option>
-        1. <option>57</option>
-        1. <option>58</option>
-        1. <option>59</option>
-        1. <option>60</option>
-        2. <option>61</option> 
-        3. <option>62</option>
-        3. <option>63</option>
-        3. <option>64</option>
-        3. <option>65</option>
-        3. <option>66</option>
-      </select>
-    </div>
-  
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+          <select id="txt_r_state" name="txt_r_state" class="form-control">
+            <option selected>รายวิชา</option>
+            <?php
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+              $result = mysqli_query($con, $query);
+              while($row = $result->fetch_assoc()) { ?>
+              <option><?php echo $row['s_value']?>
+              </option>
+            <?php } ?>
+          </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เทอม</option>
+          1. <option>S</option>
+          2. <option>1</option> 
+          3. <option>2</option> 
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>ปี</option>
+          1. <option>57</option>
+          1. <option>58</option>
+          1. <option>59</option>
+          1. <option>60</option>
+          2. <option>61</option> 
+          3. <option>62</option>
+          3. <option>63</option>
+          3. <option>64</option>
+          3. <option>65</option>
+          3. <option>66</option>
+        </select>
+      </div>
+    
 
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เกรต</option>
-        1. <option>A</option>
-        2. <option>B+</option> 
-        3. <option>B</option> 
-        4. <option>C+</option> 
-        5. <option>C</option> 
-        6. <option>D+</option> 
-        7. <option>D</option> 
-      </select>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เกรต</option>
+          1. <option>A</option>
+          2. <option>B+</option> 
+          3. <option>B</option> 
+          4. <option>C+</option> 
+          5. <option>C</option> 
+          6. <option>D+</option> 
+          7. <option>D</option> 
+        </select>
+      </div>
     </div>
-  </div>
 
   <div class="form-row">
   <div class="form-group col-md-4">
@@ -397,9 +408,207 @@
     <button type="submit" name="g_save" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
   </div>
-        <?php } else {?>
-          <?php echo '0';?>
-        <?php } ?>
+  <?php } else if($s_value_length == '2') {?>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+          <select id="txt_r_state" name="txt_r_state" class="form-control">
+            <option selected>รายวิชา</option>
+            <?php
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+              $result = mysqli_query($con, $query);
+              while($row = $result->fetch_assoc()) { ?>
+              <option><?php echo $row['s_value']?>
+              </option>
+            <?php } ?>
+          </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เทอม</option>
+          1. <option>S</option>
+          2. <option>1</option> 
+          3. <option>2</option> 
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>ปี</option>
+          
+          1. <option>57</option>
+          1. <option>58</option>
+          1. <option>59</option>
+          1. <option>60</option>
+          2. <option>61</option> 
+          3. <option>62</option>
+          3. <option>63</option>
+          3. <option>64</option>
+          3. <option>65</option>
+          3. <option>66</option>
+        </select>
+      </div>
+    
+
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เกรต</option>
+          1. <option>A</option>
+          2. <option>B+</option> 
+          3. <option>B</option> 
+          4. <option>C+</option> 
+          5. <option>C</option> 
+          6. <option>D+</option> 
+          7. <option>D</option> 
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+          <select id="txt_r_state" name="txt_r_state" class="form-control">
+            <option selected>รายวิชา</option>
+            <?php
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+              $result = mysqli_query($con, $query);
+              while($row = $result->fetch_assoc()) { ?>
+              <option><?php echo $row['s_value']?>
+              </option>
+            <?php } ?>
+          </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เทอม</option>
+          1. <option>S</option>
+          2. <option>1</option> 
+          3. <option>2</option> 
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>ปี</option>
+          1. <option>57</option>
+          1. <option>58</option>
+          1. <option>59</option>
+          1. <option>60</option>
+          2. <option>61</option> 
+          3. <option>62</option>
+          3. <option>63</option>
+          3. <option>64</option>
+          3. <option>65</option>
+          3. <option>66</option>
+        </select>
+      </div>
+    
+
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เกรต</option>
+          1. <option>A</option>
+          2. <option>B+</option> 
+          3. <option>B</option> 
+          4. <option>C+</option> 
+          5. <option>C</option> 
+          6. <option>D+</option> 
+          7. <option>D</option> 
+        </select>
+      </div>
+
+
+      <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        ตรวจสอบความถูกต้อง
+      </label>
+      
+    </div>
+    <button type="submit" name="g_save" value="Save2" class="btn btn-primary">บันทึกข้อมูล</button>
+  </div>
+    </div>
+  <?php } else if($s_value_length == '1') {?>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+          <select id="txt_r_state" name="s1_name" class="form-control">
+            <option selected>รายวิชา</option>
+            <?php
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+              $result = mysqli_query($con, $query);
+              while($row = $result->fetch_assoc()) { ?>
+              <option value = <?php echo $row['s_value']?> ><?php echo $row['s_value']?>
+              </option>
+            <?php } ?>
+          </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="s1_term" class="form-control">
+          <option selected>เทอม</option>
+          1. <option value="S">S</option>
+          2. <option value="1">1</option> 
+          3. <option value="2">2</option> 
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="s1_year" class="form-control">
+          <option selected>ปี</option>
+        1. <option value="58">58</option>
+        1. <option value="59">59</option>
+        1. <option value="60">60</option>
+        2. <option value="61">61</option> 
+        3. <option value="62">62</option>
+        3. <option value="63">63</option>
+        3. <option value="64">64</option>
+        3. <option value="65">65</option>
+        3. <option value="66">66</option>
+        </select>
+      </div>
+    
+
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="s1_grade" class="form-control">
+          <option selected>เกรต</option>
+          1. <option value="A">A</option>
+          2. <option value="B+">B+</option> 
+          3. <option value="B">B</option> 
+          4. <option value="C+">C+</option> 
+          5. <option value="C">C</option> 
+          6. <option value="D+">D+</option> 
+          7. <option value="D">D</option> 
+        </select>
+      </div>
+
+      <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        ตรวจสอบความถูกต้อง
+      </label>
+      
+    </div>
+    <button type="submit" name="g_save" value="Save1" class="btn btn-primary">บันทึกข้อมูล</button>
+  </div>
+    </div>
+  <?php } else {?>
+    <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        ตรวจสอบความถูกต้อง
+      </label>
+      
+    </div>
+    <button type="submit" name="g_save1" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
+  </div>
+  <?php } ?>
   
 
 
@@ -409,41 +618,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-                  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./scr/img/2.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/3.png" class="d-block w-100" alt="...">
-                      </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div> -->
 
                 </div>
                 </div>

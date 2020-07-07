@@ -43,7 +43,7 @@
                 <div class="card1">
  
                         <!-- Login Form -->
-    <form>
+      <form>
         <input type="text" id="email" class="fadeIn second" name="login" placeholder="Email">
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
         <input type="submit" class="fadeIn fourth" value="Log In">
@@ -92,17 +92,17 @@
                               </h3>
                             </div>
                         <?php endif ?>
-                        ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
-                       <br> 
-                       นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
-                       <br>
-                       รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
-                       <br> -->
-                       เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"> 
-                       <br>
-                       E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
-                       <br>
-                       สาขา   <select name="major">
+                          ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
+                        <br> 
+                        นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
+                        <br>
+                        รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
+                        <br> -->
+                        เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"> 
+                        <br>
+                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
+                        <br>
+                        สาขา   <select name="major">
                            <option value="cpe">คอมพิวเตอร์</option>
                            <option value="เคมี">เคมี</option>
                            <option value="อุตสาหการ">อุตสาหการ</option>
@@ -113,62 +113,11 @@
                           <br>
                            btn -->
                            <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">สมัครสมาชิก</button>
-                        <!-- <div class="input-group"> 
-                          <label for="username">Username</label>
-                          <input type="text" name="username">
-                        </div>
-                        <div class="input-group">
-                          <label for="email">Email</label>
-                          <input type="text" name="email">
-                        </div>
-                        <div class="input-group">
-                          <label for="password_1">Password</label>
-                          <input type="text" name="password_1">
-                        </div>
-                        <div class="input-group">
-                            <label for="password_2">Confirm Password</label>
-                            <input type="text" name="password_2">
-                        </div>
-                        <div class="input-group">
-                            <button  class="btn btn-light" type="submit" name="reg_user" class="btn">สมัครสมาชิก</button>
-                        </div>
-                        <p>Already a member? <a href="login.php">Sign in</a></p> -->
                       </form>
 
-                   <!-- <form id="Regis" method="POST" action="register.php">
-                       ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
-                       <br> 
-                       นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
-                       <br>
-                       รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
-                       <br> -->
-                       <!-- เบอร์โทร : <input type="text" id="telnum" pattern="[0-9]{10}"> -->
-                       <!-- <br>
-                       E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
-                       <br>
-                       สาขา   <select name="major">
-                           <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
-                           <option value="เคมี">เคมี</option>
-                           <option value="อุตสาหการ">อุตสาหการ</option>
-                          </select><br>      
-                
-                          Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
-                          Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
-                          <br>
-                           btn -->
-                          <!-- <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">สมัครสมาชิก</button> -->
                           <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
                           </form> -->
                       </div>
-<!--                
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a> -->
-                    <!-- <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a> -->
                   
                 </div>
                 </div>

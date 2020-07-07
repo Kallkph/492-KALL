@@ -7,64 +7,138 @@
 
   $errors = array();
 
-if(isset($_POST['g_save'])){
-  $data = array(
-        
-    "_id" => $_SESSION['id'],
-    "txt_r_major" => $_SESSION['major'],
-    "txt_r_company" => $_POST["txt_r_company"],
-    "txt_r_set" => $_POST["txt_r_set"],
-    "txt_r_address" => $_POST["txt_r_address"],
-    "txt_r_address2" => $_POST["txt_r_address2"],
-    "txt_r_city" => $_POST["txt_r_city"],
-    "txt_r_state" => $_POST["txt_r_state"],
-    "txt_r_zip" => $_POST["txt_r_zip"],
-    "txt_r_phone" => $_POST["txt_r_phone"],
-    "txt_r_fax" => $_POST["txt_r_fax"],
-    "input_r_status" => "2"
-    
-  );
+  if($_POST['g_save'] == 'Save1'){
+    $data = array(
+          
+      "_id" => $_SESSION['id'],
+      "class" => $_POST['g_class'],
+      "sumcredit" => $_POST["g_sumcredit"],
+      "gpa" => $_POST["g_gpa"],
+      "term" => $_POST["g_term"],
+      "yearTerm" => $_POST["g_yearTerm"],
+      "creditnow" => $_POST["g_creditnow"],
+      "s1_name" => $_POST["s1_name"],
+      "s1_term" => $_POST["s1_term"],
+      "s1_year" => $_POST["s1_year"],
+      "s1_grade" => $_POST["s1_grade"]
 
+    );
 
-    echo 'txtId >>>';
-    echo $data['_id'];
-        $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] ";
-        
-       
-        print_r($query = mysqli_query($con, $user_check_query));
-        
+    print_r($data);
 
-         if (count($errors) == 0) {
+    echo $_SESSION['id'];
+
+    $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] ";
+    print_r($query = mysqli_query($con, $user_check_query));
+  
+    if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_set, r_address, r_address2, r_city, r_state, r_zip, r_phone, r_fax, r_status)
-      VALUES
-      (?,?,?,?,?,?,?,?,?,?,?,?)
-      ";
-
+      $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1)
       
 
+                -- g_subject2
+                -- g_term2
+                -- g_year2
+                -- g_gpa2
+                -- g_subject3
+                -- g_term3
+                -- g_year3
+                -- g_gpa3
+
+      VALUES
+      (?,?,?,?,?,?,?,?,?,?,?)
+      ";
+
+    
       $qr = $con->prepare($sql);
       if($qr === false){
         echo "($qr === false)";
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("ssssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"],$data["input_r_status"]);
-    $qr->execute();
+      $qr->bind_param("sssssssssss",$data["_id"],$data["class"],$data["sumcredit"],$data["gpa"], $data["term"], $data["yearTerm"], $data["creditnow"], $data["s1_name"],$data["s1_term"],$data["s1_year"],$data["s1_grade"]);
+      $qr->execute();
 
-    echo "if";
-    $statusMsg = "สำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
+      echo "if";
+      $statusMsg = "สำเร็จ";
+      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
 
-    $qr->close();
-  } else if((!count($errors) == 0)){
+      $qr->close();
+    } else if((!count($errors) == 0)){
 
-    print_r($errors);
-      echo "else";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
-  }
-}
+      print_r($errors);
+        echo "else";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+    }
 
+  } else if($_POST['g_save'] == 'Save2'){
+      $data = array(
+            
+        "_id" => 5906558,
+        "class" => $_POST['g_class'],
+        "sumcredit" => $_POST["g_sumcredit"],
+        "gpa" => $_POST["g_gpa"],
+        "term" => $_POST["g_term"],
+        "yearTerm" => $_POST["g_yearTerm"],
+        "creditnow" => $_POST["g_creditnow"],
+         ///////////////////////////////////
+        "s1_name" => $_POST["s1_name"],
+        "s1_term" => $_POST["s1_term"],
+        "s1_year" => $_POST["s1_year"],
+        "s1_grade" => $_POST["s1_grade"]
+        ///////////////////////////////////
   
-
+      );
+  
+      print_r($data);
+  
+      echo $_SESSION['id'];
+  
+      $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] ";
+      print_r($query = mysqli_query($con, $user_check_query));
+    
+      if (count($errors) == 0) {
+        echo 'error = 0';
+        $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1)
+        
+  
+                  -- g_subject2
+                  -- g_term2
+                  -- g_year2
+                  -- g_gpa2
+                  -- g_subject3
+                  -- g_term3
+                  -- g_year3
+                  -- g_gpa3
+  
+        VALUES
+        (?,?,?,?,?,?,?,?,?,?,?)
+        ";
+  
+      
+        $qr = $con->prepare($sql);
+        if($qr === false){
+          echo "($qr === false)";
+          trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
+        }
+  
+        $qr->bind_param("sssssssssss",$data["_id"],$data["class"],$data["sumcredit"],$data["gpa"], $data["term"], $data["yearTerm"], $data["creditnow"], $data["s1_name"],$data["s1_term"],$data["s1_year"],$data["s1_grade"]);
+        $qr->execute();
+  
+        echo "if";
+        $statusMsg = "สำเร็จ";
+        // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
+  
+        $qr->close();
+      } else if((!count($errors) == 0)){
+  
+        print_r($errors);
+          echo "else";
+          echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      }
+  } else {
+    print_r($errors);
+    echo "else";
+    // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+  }
 ?>

@@ -39,6 +39,10 @@ if(isset($_POST['r_submit'])){
       VALUES
       (?,?,?,?,?,?,?,?,?,?,?)
       ";
+        $sql2 = "UPDATE users SET
+        status = 2
+        WHERE id = $_SESSION[id] ";
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
 
       
 
@@ -53,7 +57,7 @@ if(isset($_POST['r_submit'])){
 
     echo "if";
     $statusMsg = "สำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
 
     $qr->close();
   } else if((!count($errors) == 0)){

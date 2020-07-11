@@ -6,11 +6,24 @@
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
 
+
+  ///Get Status
+  if (isset($_SESSION['id'])){
+    $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
+    $result = mysqli_query($con, $query);
+    $userdata = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) == 1) {
+      $_SESSION['status'] = $userdata['status'];
+    }
+  }
+
+
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['id']);
     header('location: index.php');
   }
+
 
   
 ?>
@@ -132,7 +145,14 @@
                   <img src="../../scr/img/status_allow.png" width="100%">
                 <?php } else if ($_SESSION['status'] == 2) {?>
                   <img src="../../scr/img/status_wait.png" width="100%">
-                  <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
+                  <!-- <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button> -->
+                <?php } else if ($_SESSION['status'] == 3) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_save_grade.png" width="100%">
+                  </figure>
+                  <div style="margin-left: 330px;">
+                    <a class="btn btn-success" href="request-company.php" role="button">ยื่นเรื่องฝึกงาน</a>
+                  </div>
                 <?php } else {?>
                   <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
                 <?php } ?>

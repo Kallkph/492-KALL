@@ -1,6 +1,6 @@
 <?php
   session_start();
-  // include('../configure/connect.php');
+  // include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -14,9 +14,11 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany._id";
-  $result = mysqli_query($con, $sql);
+  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
+  // $result = mysqli_query($con, $sql);
+  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
+  print_r($result);
     function pre_r( $array ) {
       echo '<pre>';
       print_r($array);
@@ -128,78 +130,31 @@
   
   <tbody>
  
-  <!-- <?php while($row = $result->fetch_assoc()): ?> -->
-    <tr>
-      <!-- <th scope="row">1</th> -->
-      <td><?php echo $row['_id']?>
-    </td>
-      
-
-      <td>
-        <?php
-          //  $query = "SELECT * FROM users WHERE id = $row['_id'] ";
-          //  $result = mysqli_query($con, $query);
-          // //  $userdata = mysqli_fetch_assoc($result);
-          // //  pre_r($userdata);
-          echo $row['f_name'];
-          echo ' ';
-          echo $row['l_name'];
-        ?>
-      </td>
-      <td><?php echo $row['r_major']?></td>
-      <td>
-        <!-- <php echo $row['r_status']?> -->
-        <?php if ($row['status'] == 0) {?>
-          <button type="button" class="btn btn-danger">ยังไม่ผ่าน</button>
-        <?php } else if ($row['status'] == 2) {?>
-          <button type="button" class="btn btn-light">กำลังดำเนินการ</button>
-          <?php } else if ($row['status'] == 1) {?>
-          <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button>
-          <?php } else {?>
-            <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
-<?php } ?>
-    </td>
-      <!-- <td><button type="button" class="btn btn-success">อนุมัติแล้ว</button></td> -->
-        <!-- <td>
-          <a href="adminpage_db.php?awite=<?php echo $row['_id']; ?>"
-            class="btn btn-info">กำลังดำเนินการ</a>
-            <a href="adminpage_db.php?success=<?php echo '4534545345'; ?>"
-            class="btn btn-info">ดำเนินการสำเร็จ</a>
-            <a href="adminpage_db.php?failed=<?php echo $row['_id']; ?>"
-            class="btn btn-info">ยังไม่ผ่าน</a>
-        </td> -->
-    
-    </tr>
-    <?php endwhile; ?>
-    <tr>
-      <!-- <th scope="row">2</th> -->
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><button type="button" class="btn btn-danger">ยังไม่ผ่าน</button></td>
-    </tr>
-    <tr>
-      <!-- <th scope="row">3</th> -->
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>the Bird</td>
-      <td><button type="button" class="btn btn-light">กำลังดำเนินการ</button></td>
-    </tr>
+  <?php while($row = $result->fetch_assoc()){
+            echo "<tr>" ;
+            echo "<td>" . $row['r_id'] . "</td>"; 
+            echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
+            echo "<td>" . $row['r_major'] . "</td>";
+            echo "<td>" ;
+        if ($row['status'] == 0) {
+        echo "<button type='button' class='btn btn-light'> 'รอผลการเรียน'</button>"; 
+        } else if ($row['status'] == 1) {
+        echo "<button type='button' class='btn btn-success'>'ยื่นเรื่องสำเร็จ'</button>";
+         } else if ($row['status'] == 2) {
+        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+         } else if ($row['status'] == 7) {
+        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+         } else {
+        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
+         }
+          "</td>";
+        "</tr>";
+        } ?>
   </tbody>
 </table>
 
 
 <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
 
                 </div>
                 </div>
@@ -217,7 +172,7 @@
         <!-- //// -->
         <?php 
 if (isset($_SESSION ['success'])) {
-  echo $_SESSION['id'];
+  // echo $_SESSION['id'];
   echo $_SESSION['f_name'];
   // echo $_SESSION['l_name'];
   unset($_SESSION['error']);

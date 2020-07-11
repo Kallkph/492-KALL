@@ -14,10 +14,10 @@
 
 
   // test
-  $major = 'env';
+  // $major = 'che';
   
   // true
-  // $major = $_SESSION['major'];
+  $major = $_SESSION['major'];
   echo $major;
 
   switch ($major) {
@@ -230,10 +230,10 @@
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-          <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <select id="txt_r_state" name="s1_name" class="form-control">
             <option selected>รายวิชา</option>
             <?php
-              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";           
               $result = mysqli_query($con, $query);
               while($row = $result->fetch_assoc()) { ?>
               <option><?php echo $row['s_value']?>
@@ -243,7 +243,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_term" class="form-control">
           <option selected>เทอม</option>
           1. <option>S</option>
           2. <option>1</option> 
@@ -252,7 +252,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_year" class="form-control">
           <option selected>ปี</option>
           1. <option>57</option>
           1. <option>58</option>
@@ -270,7 +270,7 @@
 
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_grade" class="form-control">
           <option selected>เกรต</option>
           1. <option>A</option>
           2. <option>B+</option> 
@@ -286,7 +286,7 @@
   <div class="form-row">
   <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s2_name" class="form-control">
         <option selected>รายวิชา</option>
         <?php
         $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
@@ -299,7 +299,7 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s2_term" class="form-control">
         <option selected>เทอม</option>
         1. <option>S</option>
         2. <option>1</option> 
@@ -308,7 +308,7 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s2_year" class="form-control">
         <option selected>ปี</option>
         1. <option>57</option>
         1. <option>58</option>
@@ -326,7 +326,7 @@
 
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s2_grade" class="form-control">
         <option selected>เกรต</option>
         1. <option>A</option>
         2. <option>B+</option> 
@@ -343,7 +343,7 @@
   <div class="form-row">
   <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s3_name" class="form-control">
         <option selected>รายวิชา</option>
         <?php
         $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
@@ -356,7 +356,7 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s3_term" class="form-control">
         <option selected>เทอม</option>
         1. <option>S</option>
         2. <option>1</option> 
@@ -365,7 +365,7 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s3_year" class="form-control">
         <option selected>ปี</option>
         1. <option>57</option>
         1. <option>58</option>
@@ -383,7 +383,7 @@
 
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
+      <select id="txt_r_state" name="s3_grade" class="form-control">
         <option selected>เกรต</option>
         1. <option>A</option>
         2. <option>B+</option> 
@@ -405,14 +405,14 @@
       </label>
       
     </div>
-    <button type="submit" name="g_save" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
+    <button type="submit" name="g_save" value="Save3" class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
   </div>
   <?php } else if($s_value_length == '2') {?>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-          <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <select id="txt_r_state" name="s1_name" class="form-control">
             <option selected>รายวิชา</option>
             <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
@@ -425,7 +425,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_term" class="form-control">
           <option selected>เทอม</option>
           1. <option>S</option>
           2. <option>1</option> 
@@ -434,7 +434,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_year" class="form-control">
           <option selected>ปี</option>
           
           1. <option>57</option>
@@ -453,7 +453,7 @@
 
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s1_grade" class="form-control">
           <option selected>เกรต</option>
           1. <option>A</option>
           2. <option>B+</option> 
@@ -467,7 +467,7 @@
 
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-          <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <select id="txt_r_state" name="s2_name" class="form-control">
             <option selected>รายวิชา</option>
             <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
@@ -480,7 +480,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s2_term" class="form-control">
           <option selected>เทอม</option>
           1. <option>S</option>
           2. <option>1</option> 
@@ -489,7 +489,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s2_year" class="form-control">
           <option selected>ปี</option>
           1. <option>57</option>
           1. <option>58</option>
@@ -507,7 +507,7 @@
 
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select id="txt_r_state" name="txt_r_state" class="form-control">
+        <select id="txt_r_state" name="s2_grade" class="form-control">
           <option selected>เกรต</option>
           1. <option>A</option>
           2. <option>B+</option> 
@@ -606,7 +606,7 @@
       </label>
       
     </div>
-    <button type="submit" name="g_save1" value="Save..." class="btn btn-primary">บันทึกข้อมูล</button>
+    <button type="submit" name="g_save" value="Save0" class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
   <?php } ?>
   

@@ -7,14 +7,15 @@
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
 
-  // if($_SESSION['type']){
-    // if ( $_SESSION['type'] = 'admin'){
-    //   unset($_SESSION);
-    // header('location: adminpage.php');
-    // } else {
-
-    // }
-  // }
+  ///Get Status
+  if (isset($_SESSION['id'])){
+    $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
+    $result = mysqli_query($con, $query);
+    $userdata = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) == 1) {
+      $_SESSION['status'] = $userdata['status'];
+    }
+  }
 
 
   if (isset($_GET['logout'])) {

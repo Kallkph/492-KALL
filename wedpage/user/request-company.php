@@ -12,6 +12,10 @@
     header('location: index.php');
   }
 
+  if ($_SESSION['status'] != 3) {
+    header('location: checkstatus.php');
+  }
+
   
 ?>
 

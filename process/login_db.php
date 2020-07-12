@@ -33,6 +33,7 @@ if (isset($_POST['login_user'])) {
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['l_name'] = $userdata['l_name'];
           $_SESSION['major'] = $userdata['major'];
+          $_SESSION['type'] = $userdata['type'];
           $_SESSION['status'] = $userdata['status'];
 
           if ($_SESSION['status'] == 0) {
@@ -47,6 +48,7 @@ if (isset($_POST['login_user'])) {
           $_SESSION['success'] = "Your are now login";
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['major'] = $userdata['major'];
+          $_SESSION['type'] = $userdata['type'];
           header("location: ../wedpage/admin/adminpage.php");
           break;
 

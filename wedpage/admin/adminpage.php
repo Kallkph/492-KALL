@@ -70,7 +70,7 @@
   <?php else : ;?>
     <div class="card1">
     <a href="pageuser.php">
-    <img src="../../scr/img/adminproflie.jpg" width="50%">
+    <img src="../../scr/img/adminproflie.jpg" width="40%">
 </a>
     
 
@@ -114,8 +114,7 @@
                 <div class="card2">
                   
                 หน้า เเอดมินต้องมีตาราง
-                
-
+                "
                 <!-- <div class="row row-cols-1 row-cols-md-3"> -->
                 <table class="table">
   <thead class="thead-dark">
@@ -125,21 +124,22 @@
       <th scope="col">ชื่อ</th>
       <th scope="col">สาขา</th>
       <th scope="col">สถานะ</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-            echo "<tr>" ;
-            echo "<td>" . $row['r_id'] . "</td>"; 
-            echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-            echo "<td>" . $row['r_major'] . "</td>";
-            echo "<td>" ;
+    echo "<tr>" ;
+      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
+      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" ;
         if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'> 'รอผลการเรียน'</button>"; 
+        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
         } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>'ยื่นเรื่องสำเร็จ'</button>";
+        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
          } else if ($row['status'] == 2) {
         echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
          } else if ($row['status'] == 7) {
@@ -147,8 +147,12 @@
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }
-          "</td>";
-        "</tr>";
+      "</td>";
+      echo "<td>";
+         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+      "</td>";
+    "</tr>";
         } ?>
   </tbody>
 </table>

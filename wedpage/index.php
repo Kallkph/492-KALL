@@ -17,6 +17,9 @@
     }
   }
 
+  // if ($_SESSION['type'] = 'admin') {
+  //   header('location: /wedpage/admin/adminpage.php');
+  // }
 
   if (isset($_GET['logout'])) {
     session_destroy();
@@ -24,7 +27,6 @@
     header('location: index.php');
   }
 
-  
 ?>
 
 <html lang="th">
@@ -173,6 +175,7 @@ if (isset($_SESSION ['success'])) {
   echo $_SESSION['id'];
   echo $_SESSION['f_name'];
   echo $_SESSION['l_name'];
+  echo $_SESSION['type'];
   unset($_SESSION['error']);
 } else {
   echo "Have a good night!";

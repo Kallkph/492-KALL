@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../configure/connect.php";
 session_start();
   
 
@@ -33,15 +33,23 @@ if (isset($_POST['login_user'])) {
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['l_name'] = $userdata['l_name'];
           $_SESSION['major'] = $userdata['major'];
+          $_SESSION['type'] = $userdata['type'];
+          $_SESSION['status'] = $userdata['status'];
 
-          header("location: pageuser.php");
+          if ($_SESSION['status'] == 0) {
+            header("location: ../wedpage/user/infograde.php");
+          } else {
+            header("location: ../wedpage/user/checkstatus.php");
+          }
+
           break;
   
         case 'admin':
           $_SESSION['success'] = "Your are now login";
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['major'] = $userdata['major'];
-          header("location: adminpage.php");
+          $_SESSION['type'] = $userdata['type'];
+          header("location: ../wedpage/admin/adminpage.php");
           break;
 
       }
@@ -52,7 +60,7 @@ if (isset($_POST['login_user'])) {
     } else {
       $statusMsg = "การเข้าสู่ระบบไม่สำเร็จ กรุณาตรวาจสอบ id และ password ของท่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
-      header("location: index.php");
+      header("location: ../wedpage/index.php");
     }
 
   // }

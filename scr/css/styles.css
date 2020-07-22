@@ -129,7 +129,8 @@
     float: left;
     width: 25%;
     background-color: #f1f1f1;
-    padding-left: 20px;
+    /* margin-left: 20px; */
+    /* padding-left: 20px; */
   }
   
   /* pag */
@@ -199,11 +200,18 @@
     margin-left: 37%;
   }
 
-  .card2 {
+  .card2_index {
     background-color: white;
     padding: 30px;
     margin-top: 20px;
-    height: 60%;
+    height: 65%;
+  }
+
+  .card2 {
+    background-color: white;
+    padding: 30px;
+    margin-top: 10px;
+    height: 65%;
   }
 
   .card2_1 {
@@ -213,11 +221,26 @@
     height: 100%;
   }
 
+  .card2infograde {
+    background-color: white;
+    padding: 30px;
+    margin-top: 10px;
+    height: 838px;
+  }
+
+  .card2-from-admin-read {
+    background-color: white;
+    padding: 30px;
+    margin-top: 10px;
+    height: 100%;
+  }
+
+
   .card3 {
     background-color: white;
     padding: 20px;
     margin-top: 10px;
-    height: 30%
+    height: 35%
   }
   
   /* Clear floats after the columns */
@@ -261,7 +284,7 @@
     float: left;
     width: 75%;
     background-color: #f1f1f1;
-    padding-left: 20px;
+    padding-left: 10px;
   }
 
 

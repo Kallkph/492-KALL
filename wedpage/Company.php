@@ -1,24 +1,14 @@
-﻿<?php
+<?php
   session_start();
-  include('connect.php');
+  include('../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
 
-  // if($_SESSION['type']){
-    // if ( $_SESSION['type'] = 'admin'){
-    //   unset($_SESSION);
-    // header('location: adminpage.php');
-    // } else {
-
-    // }
-  // }
-
-
   if (isset($_GET['logout'])) {
     session_destroy();
-    unset($_SESSION);
+    unset($_SESSION['id']);
     header('location: index.php');
   }
 
@@ -43,38 +33,27 @@
     <img src="./scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
+                    
+         
                     <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
+                        
+                        <?php if (isset($_SESSION ['success'])) : ?>
+                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
+                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                        <?php endif ?>
                        
-                       
-
-
-                   
-<?php if (!isset($_SESSION ['success'])) : ?>
-  <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
-  <?php else : ?>
-    <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
-    <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
-   <?php endif ?>
-
-
-         
-
-
-
-
-
-
-
-                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
+                        
                     </div>
                     
                 </div>
@@ -129,32 +108,94 @@
               <div class="rightcolumn">
                 
                 <div class="card2">
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./scr/img/2.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/3.png" class="d-block w-100" alt="...">
-                      </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
+                  
+                หน้า ข้อมูลสถาน ประกอบกาาร   ต้อง  มีช่องเสิส(.......)
+
+                <div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-4">
+    <div class="card">
+      <img src="./scr/img/01.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">คอมพิวเตอร์</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/02.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">ซ่อมบำรุงอากาศยาน</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/03.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">ยานยนต์</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/04.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">Card title</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/05.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">Card title</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/06.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">Card title</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/07.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">Card title</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <img src="./scr/img/08.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">Card title</h6>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 </div>
               </div>
@@ -162,8 +203,11 @@
           <div class="conteiner">
           <div class="footer">
             <div class="fakeimg" >  
+              
             </div>
+            
           </div>
+          
           </div>
         <!-- //// -->
         <?php 
@@ -182,6 +226,6 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
-  include('connect.php')
+  include('../configure/connect.php')
   
 ?>

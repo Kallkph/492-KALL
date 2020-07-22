@@ -1,5 +1,20 @@
-﻿<!DOCTYPE html>
+<?php
+  session_start();
+  include('../../configure/connect.php');
 
+  if (!isset($_SESSION['id'])) {
+    $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
+    heder('location: index.php');
+  }
+
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['id']);
+    heder('location: index.php');
+  }
+
+  
+?>
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -9,13 +24,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="/scr/img/Banner.png"   href="index.php"  width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -27,48 +42,61 @@
                     
          
                     <div class="navbar-nav">
-
+                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
-                        <!-- <a class="nav-item nav-link" href="login-user.html">เข้าสู่ระบบ</a> -->
+                        
+                        <?php if (isset($_SESSION ['success'])) : ?>
+                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
+                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
+                        <?php endif ?>
+                       
+                        
                     </div>
                     
                 </div>
             </div>
         </nav>
         </div>
-
-        
-
-
-        <!-- <div class="header">
-            <h1>MY PROFILE</h1>
-            <p>Kalsuda Phochai </p>
-          </div>
           
-          <div class="topnav">
-            <a href="index.html">HOME</a>
-            <a href="./Code.zip">code</a>
-            <a href="My Interest.html">My Interest</a>
-            <a href="My Interest2.html">My Interest2</a>
-          </div> -->
-        
-          
-          <div class="row">
+        <div class="row">
               <div class="leftcolumn">
+              <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
- 
                         <!-- Login Form -->
-      <form action="login.php" method="post">
-        <input type="text" id="txt_email" class="fadeIn second" name="txt_email" placeholder="email">
+      <form action="login_db.php" method="post">
+        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
         <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-        <input type="submit" class="fadeIn fourth" name="login" value="">
-      </form>
-                    
-                </div><!-- card-top-left -->
+        
+        <dev class="card1leftcolumn">
+        <button type="submit" class="btn btn-primary" name = "login_user">Login</button>
+        <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
+        </dev>
+      </form>       
+                </div>
+  <?php else : ;?>
+    <div class="card3">
+    <a href="pageuser.php">
+    <img src="../../scr/img/profile.jpg" width="50%">
+</a>
+    
+      รหัสนักศึกษา
+      <p><?php echo $_SESSION['id'];?></p>
+      ชื่อ
+      <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
+      สาขา
+      <p><?php echo $_SESSION['id'];?></p>
+
+      <div class="list-group">
+        <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
+        <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
+        <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
+      </div>
+  </div>
+
+   <?php endif ?>
                 <div class="card3">
                   <!DOCTYPE html>
 
@@ -120,34 +148,46 @@
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2">
+                <div class="card2_1">
                   <!-- <h3>สไลด์โชว์</h3> -->
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./scr/img/2.png" class="d-block w-100" alt="...">
+                  
+                    <div class="card">
+                      <h> สมัครสมาชิก </h>
+                   <form id="Regis" method="POST" action="regis.php">
+                       ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
+                       <br> 
+                       นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
+                       <br>
+                       รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
+                       <br>
+                       <!-- เบอร์โทร : <input type="text" id="telnum" pattern="[0-9]{10}"> -->
+                       <br>
+                       E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
+                       <br>
+                       สาขา   <select name="major">
+                           <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
+                           <option value="เคมี">เคมี</option>
+                           <option value="อุตสาหการ">อุตสาหการ</option>
+                          </select><br>      
+                
+                          Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
+                          Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
+                          <br>
+                          <!-- btn -->
+                          <button type="submit" class="btn btn-light" id="btn_submit" value="Save...">แก้ไขข้อมูล</button>
+                          <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
+                          </form>
                       </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./scr/img/3.png" class="d-block w-100" alt="...">
-                      </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+               
+                    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
-                    </a>
-                  </div>
+                    </a> -->
+                  
                 </div>
               
                   <!-- <div class="fakeimg" >
@@ -175,11 +215,10 @@
           </div>
         <!-- //// -->
     </div>
+        
 
 </body>
 </html>
 
-<?php
-  include "connect.php"
-  
-?>
+
+

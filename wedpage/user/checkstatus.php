@@ -1,16 +1,29 @@
 <?php
   session_start();
-  include('connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
+
+
+  ///Get Status
+  if (isset($_SESSION['id'])){
+    $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
+    $result = mysqli_query($con, $query);
+    $userdata = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) == 1) {
+      $_SESSION['status'] = $userdata['status'];
+    }
+  }
+
 
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['id']);
     header('location: index.php');
   }
+
 
   
 ?>
@@ -24,13 +37,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -42,7 +55,7 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
@@ -50,7 +63,7 @@
                         
                         <?php if (isset($_SESSION ['success'])) : ?>
                           <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
-                         <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
+                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
                         <?php endif ?>
                        
                         
@@ -78,7 +91,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="pageuser.php">
-    <img src="./scr/img/profile.jpg" width="50%">
+    <img src="../../scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -86,7 +99,14 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
+
+      <div class="list-group">
+      <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
+        <a href="pageuser.php" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
+        <a href="checkstatus.php" class="list-group-item list-group-item-action list-group-item-light">ตรวจสอบสถานะ</a>
+      </div>
+
   </div>
 
    <?php endif ?>
@@ -105,127 +125,57 @@
                   <div class="fakeimg" style="height:200px;"></div>  
            </div>
               </div>
-              <div class="rightcolumn">
-                
-                <div class="card2">
-                  
-                หน้า ข้อมูลสถาน ประกอบกาาร   ต้อง  มีช่องเสิส(.......)
-
-                <div class="row row-cols-1 row-cols-md-3">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="./scr/img/01.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">คอมพิวเตอร์</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/02.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">ซ่อมบำรุงอากาศยาน</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/03.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">ยานยนต์</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/04.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/05.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/06.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/07.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="./scr/img/08.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
 
-
-
-
-
-
-
-
-                </div>
-                </div>
-              </div>
-            </div>
-          <div class="conteiner">
-          <div class="footer">
-            <div class="fakeimg" >  
-              
-            </div>
-            
-          </div>
+        <div class="rightcolumn">  
+          <div class="card2">
           
+            ตรวจสอบสถานะ
+      
+                <?php if ($_SESSION['status'] == 0) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_wait_grade.png" width="100%">
+                  </figure>
+                  <div style="margin-left: 310px;">
+                    <a class="btn btn-light" href="infograde.php" role="button">กรอกผลการศึกษา</a>
+                  </div>
+                <?php } else if ($_SESSION['status'] == 1) {?>
+                  <img src="../../scr/img/status_allow.png" width="100%">
+                <?php } else if ($_SESSION['status'] == 2) {?>
+                  <img src="../../scr/img/status_wait.png" width="100%">
+                  <!-- <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button> -->
+                <?php } else if ($_SESSION['status'] == 3) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_save_grade.png" width="100%">
+                  </figure>
+                  <div style="margin-left: 330px;">
+                    <a class="btn btn-success" href="request-company.php" role="button">ยื่นเรื่องฝึกงาน</a>
+                  </div>
+                <?php } else {?>
+                  <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>
+                <?php } ?>
+
           </div>
-        <!-- //// -->
+        </div>
         <?php 
+
+
 if (isset($_SESSION ['success'])) {
   echo $_SESSION['id'];
   echo $_SESSION['f_name'];
   echo $_SESSION['l_name'];
+  echo $_SESSION['status'];
   unset($_SESSION['error']);
 } else {
   echo "Have a good night!";
 }
 ?>
-    </div>
-
 </body>
 </html>
 
 <?php
-  include('connect.php')
+  include('../../configure/connect.php')
   
 ?>

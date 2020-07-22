@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('../configure/connect.php'); 
+    include('../../configure/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -12,11 +12,11 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,8 +80,8 @@
                   
                     <div class="card">
                       <h> สมัครสมาชิก </h>
-                      <form action="register_db.php" method="post">
-                        <?php include('errors.php'); ?>
+                      <form action="../../process/register_db.php" method="post">
+                        <?php include('../errors.php'); ?>
                         <?php if (isset($_SESSION['error'])) : ?>
                             <div class="error">
                               <h3>
@@ -148,7 +148,7 @@
 <?php
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "../configure/connect.php";
+
 
   $errors = array();
 

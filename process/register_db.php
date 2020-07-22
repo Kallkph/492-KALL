@@ -95,7 +95,7 @@ if(isset($_POST['reg'])){
   
 
     $statusMsg = "สมัครสมาชิกเรียบร้อย";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
 
     $qr->close();
   } else if((!count($errors) == 0)){

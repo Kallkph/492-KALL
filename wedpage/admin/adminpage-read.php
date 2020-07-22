@@ -128,15 +128,182 @@
     </div>
   </div>
   <div class="rightcolumn">            
-    <div class="card2">  
-      หน้า เเอดมินต้องมีตาราง
+    <div class="card2-from-admin-read">
+    <div class="form-row">
+    <div class="form-group col-md-3">
+    </div>
+    <div class="form-group col-md-4">
+        ใบอนุมัติฝึกงานสาขาวิชา วิศวกรรมคอมพิวเตอร์(สำหรับ นศ.3ปี)
+    </div>
+    </div>
+        
 
-      ..
+      <form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+    <br>
+      <label for="inputEmail4">ชื่อ-สกุล (นาย/นางสาว)</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+    <br>
+      <label for="inputPassword4">รหัสนักศึกษา</label>
+      <?php echo "<br>" . $row['id'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+    <br>
+      <label for="inputPassword4">ชั้นปีที่</label>
+      <?php echo "<br>" . $row['g_class'] ; ?> 
+    </div>
+  </div>
 
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <br>
+      <label for="inputEmail4">จำนวนหน่วยกิตสะสม (ถึงก่อนเทอมปัจจุบัน)</label> 
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">หน่วยกิต (ไม่รวม W,F)</label>
+      <?php echo "<br>" . $row['g_credit'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">GPA</label>
+      <?php echo "<br>" . $row['g_gpa'] ; ?> 
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">จำนวนหน่วยกิตลงทะเบียนเทอมปัจจุบัน</label>
+      <?php echo "<br>" . $row['g_termnow'] . '/' . $row['g_yearnow'] ; ?>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">หน่วยกิต (ต้องไม่ต่ำกว่า 70 หน่วยกิต)</label>
+      <?php echo "<br>" . $row['g_creditnow'] ; ?> 
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">รายวิชาบังคัยก่อน</th>
+      <th scope="col">เทอม/ปีการศึกษา</th>
+      <th scope="col">เกรดที่ได้</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+
+  if($row['g_subject3'] !== '') {
+   echo "<td>" . $row['g_subject3'] . "</td>"; 
+        echo "<td>" . $row['g_term3'] . '/' . $row['g_year3'] . "</td>"; 
+        echo "<td>" . $row['g_gpa3'] . "</td>"; 
+  } else if($row['g_subject2'] !== '') {
+    echo "</tr>";
+    echo "<tr>";
+        echo "<td>" . $row['g_subject2'] . "</td>"; 
+        echo "<td>" . $row['g_term2'] . '/' . $row['g_year2'] . "</td>"; 
+        echo "<td>" . $row['g_gpa2'] . "</td>"; 
+  } else if($row['g_subject1'] !== '') {
+    echo "</tr>";
+    echo "<tr>";
+        echo "<td>" . $row['g_subject1'] . "</td>"; 
+        echo "<td>" . $row['g_term1'] . '/' . $row['g_year1'] . "</td>"; 
+        echo "<td>" . $row['g_gpa1'] . "</td>"; 
+  }
+  ?>
+    
+    
+  </tbody>
+</table>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
+      <?php echo "<br>" . $row['r_company'] ; ?>
+    </div>
+  </div> 
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          สำนักงานวิทยาลัยวิศวกรรมศาตร์จัดหาให้
+        </label>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          นักศึกษาจัดหาเอง
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคลที่ติดต่อ</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputEmail4">เลขที่</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">หมู่</label>
+      <?php echo "<br>" . $row['id'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPassword4">ถนน</label>
+      <?php echo "<br>" . $row['class'] ; ?> 
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputPassword4">แขวง/ตำบล</label>
+      <?php echo "<br>" . $row['class'] ; ?> 
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">เขต/อำเภอ</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">จังหวัด</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+      <label for="inputEmail4">รหัสไปรษณีย์</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputEmail4">โทรศัพท์</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">โทรสาร</label>
+      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+    </div>
+
+
+
+
+
+
+
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+      
 
 
     </div>
   </div>
+
 </div>
 </div>
           <div class="conteiner">

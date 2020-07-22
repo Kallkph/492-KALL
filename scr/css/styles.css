@@ -228,6 +228,13 @@
     height: 838px;
   }
 
+  .card2-from-admin-read {
+    background-color: white;
+    padding: 30px;
+    margin-top: 10px;
+    height: 100%;
+  }
+
 
   .card3 {
     background-color: white;

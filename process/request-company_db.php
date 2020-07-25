@@ -15,6 +15,8 @@ if(isset($_POST['r_submit'])){
     "txt_r_company" => $_POST["txt_r_company"],
     "txt_r_set" => $_POST["txt_r_set"],
     "txt_r_address" => $_POST["txt_r_address"],
+    "txt_r_mu" => $_POST["txt_r_mu"],
+    "txt_r_road" => $_POST["txt_r_road"],
     "txt_r_address2" => $_POST["txt_r_address2"],
     "txt_r_city" => $_POST["txt_r_city"],
     "txt_r_state" => $_POST["txt_r_state"],
@@ -35,9 +37,9 @@ if(isset($_POST['r_submit'])){
 
          if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_set, r_address, r_address2, r_city, r_state, r_zip, r_phone, r_fax)
+      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_set, r_address, r_mu, r_road, r_address2, r_city, r_state, r_zip, r_phone, r_fax)
       VALUES
-      (?,?,?,?,?,?,?,?,?,?,?)
+      (?,?,?,?,?,?,?,?,?,?,?,?,?)
       ";
         $sql2 = "UPDATE users SET
         status = 2
@@ -52,7 +54,7 @@ if(isset($_POST['r_submit'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("sssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"]);
+    $qr->bind_param("sssssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_mu"], $data["txt_r_road"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"]);
     $qr->execute();
 
     echo "if";

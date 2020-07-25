@@ -252,43 +252,45 @@
   <div class="form-row">
     <div class="form-group col-md-2">
       <label for="inputEmail4">เลขที่</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+      <?php echo "<br>" . $row['r_address'] ; ?> 
     </div>
     <div class="form-group col-md-2">
       <label for="inputPassword4">หมู่</label>
-      <?php echo "<br>" . $row['id'] ; ?> 
+      <?php echo "<br>" . $row['r_mu'] ; ?> 
     </div>
     <div class="form-group col-md-4">
       <label for="inputPassword4">ถนน</label>
-      <?php echo "<br>" . $row['class'] ; ?> 
+      <?php echo "<br>" . $row['r_road'] ; ?> 
     </div>
     <div class="form-group col-md-3">
       <label for="inputPassword4">แขวง/ตำบล</label>
-      <?php echo "<br>" . $row['class'] ; ?> 
+      <?php echo "<br>" . $row['r_address2'] ; ?> 
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputEmail4">เขต/อำเภอ</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+      <?php echo "<br>" . $row['r_city']  ; ?> 
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputEmail4">จังหวัด</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+      <?php echo "<br>" . $row['r_state'] ; ?> 
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">รหัสไปรษณีย์</label>
+      <?php echo "<br>" . $row['r_zip'] ; ?> 
     </div>
   </div>
-  <div class="form-group col-md-3">
-      <label for="inputEmail4">รหัสไปรษณีย์</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
-    </div>
+  <div class="form-row">
     <div class="form-group col-md-2">
       <label for="inputEmail4">โทรศัพท์</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+      <?php echo "<br>" . $row['r_phone']  ; ?> 
     </div>
     <div class="form-group col-md-4">
       <label for="inputEmail4">โทรสาร</label>
-      <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+      <?php echo "<br>" . $row['r_fax'] ; ?> 
     </div>
+</div>
 
 
 

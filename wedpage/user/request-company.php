@@ -147,17 +147,27 @@
     นักศึกษาจัดหาเอง
   </label>
 </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <label for="inputAddress">เลขที่</label>
     <input type="text" class="form-control" id="txt_r_address" name="txt_r_address" placeholder="1234 Main St">
   </div>
+  <div class="form-group col-md-3">
+    <label for="inputAddress">หมู่</label>
+    <input type="text" class="form-control" id="txt_r_mu" name="txt_r_mu" placeholder="1">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputAddress">ถนน</label>
+    <input type="text" class="form-control" id="txt_r_road" name="txt_r_road" placeholder="1234 Main St">
+  </div>
+</div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
+    <label for="inputAddress2">แขวง/ตำบบล</label>
     <input type="text" class="form-control" id="txt_r_address2" name="txt_r_address2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
+      <label for="inputCity">เขต/อำเภอ</label>
       <input type="text" class="form-control" id="txt_r_city" name="txt_r_city">
     </div>
     <div class="form-group col-md-4">

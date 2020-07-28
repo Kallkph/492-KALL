@@ -12,6 +12,10 @@
     header('location: index.php');
   }
 
+  if ($_SESSION['status'] != 1) {
+    header('location: checkstatus.php');
+  }
+
   
 ?>
 
@@ -122,56 +126,55 @@
 
 
   <!-- <div class="form-row">  -->
-  <form action="request-company_db.php" method="post">
-    <div class="form-group">
+  <form action="../../process/uploadPoto_db.php" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        
+        <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
+        
+      </div>
+
+    <!-- </div> -->
+
+
+    link.....
+
+    <div class="form-row">
+    <div class="form-group col-md-4">
+        <input type="file" name="fileupload" id="fileupload" required="required"/>
+      </div>
       
-      <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
-      
-    </div>
 
-  <!-- </div> -->
-
-
-  link.....
-
-  <div class="form-row">
-  <div class="form-group col-md-2">
-      <button type="submit" name="r_submit" value="Save..." class="btn btn-light">Upload</button>
-    </div>
     
 
-  
-
-    <div class="form-group col-md-4">
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>week</option>
-         <option>1</option>
-         <option>2</option> 
-         <option>3</option> 
-         <option>4</option> 
-         <option>5</option> 
-         <option>6</option> 
-         <option>7</option>
-         <option>8</option> 
-      </select>
+      <div class="form-group col-md-4">
+        <select id="weekstamp" name="weekstamp" class="form-control">
+          <option selected>week</option>
+          <option>1</option>
+          <option>2</option> 
+          <option>3</option> 
+          <option>4</option> 
+          <option>5</option> 
+          <option>6</option> 
+          <option>7</option>
+          <option>8</option> 
+        </select>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        ตรวจสอบความถูกต้อง
-      </label>
-      
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          ตรวจสอบความถูกต้อง
+        </label>
+        
+      </div>
+      <div class="form-group col-md-6">
+      <input type="hidden" id="upload_id" name="upload_id" value="<?php echo $_SESSION['id']; ?>">
+      <button type="submit" name="btn_upload" value="upload_weekstamp" class="btn btn-primary">บันทึก</button>
+      </div>
     </div>
-    <div class="form-group col-md-6">
-    <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
-    </div>
-  </div>
-
-  </div>
 
   
 </form>

@@ -85,7 +85,7 @@
 
    <?php endif ?>
 
-                <div class="card3">
+                <div class="card3-adminpage">
                 <div class="btn-group-vertical">
   แผงควบคุม
 </div>  

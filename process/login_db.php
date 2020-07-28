@@ -46,6 +46,7 @@ if (isset($_POST['login_user'])) {
   
         case 'admin':
           $_SESSION['success'] = "Your are now login";
+          $_SESSION['id'] = $id;
           $_SESSION['f_name'] = $userdata['f_name'];
           $_SESSION['major'] = $userdata['major'];
           $_SESSION['type'] = $userdata['type'];

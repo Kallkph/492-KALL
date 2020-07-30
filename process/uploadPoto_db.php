@@ -23,7 +23,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $newname = $date.$numrand.$type;
         $path_copy = $path.$newname;
         $path_link = "fileupload/".$newname;
-        $week = "weed".$_POST['weekstamp'];
+        $week = "week".$_POST['weekstamp'];
 
         move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);
 
@@ -47,6 +47,47 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
 
         $qr->close();
     }
+} else if ($_POST['btn_upload'] == 'upload_map')  {
+    echo "<pre>", print_r($_POST, true), "</pre>";
+    echo "mapxxxxx";
+    $fileupload = (isset($_POST['fileupload']) ? $_POST['fileupload'] : '');
+
+        date_default_timezone_get('Asia/Bangkok');
+        $date = date("Ymd");
+
+    $upload = $_FILES["fileupload"];
+    if ($upload != '') {
+        $path = "../scr/fileupload/";
+        $type = strrchr($_FILES['fileupload']['name'],".");
+        $numrand = (mt_rand());
+        $newname = $date.$numrand.$type;
+        $path_copy = $path.$newname;
+        $path_link = "fileupload/".$newname;
+        $week = "map";
+
+        move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);
+
+
+        $sql = "INSERT INTO uploadfile (fileupload, u_id, type)
+        VALUES(?, ?, ?)
+        ";
+
+        $qr = $con->prepare($sql);
+        if($qr === false){
+        trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
+        }
+
+        $qr->bind_param("sss", $newname, $_POST['upload_id'], $week);
+        $qr->execute();
+
+
+
+        $statusMsg = "สมัครสมาชิกเรียบร้อย";
+        // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+
+        $qr->close();
+    }
+
 }
 
 

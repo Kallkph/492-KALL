@@ -16,6 +16,9 @@
     header('location: checkstatus.php');
   }
 
+  $map = false
+  
+
   
 ?>
 
@@ -125,30 +128,25 @@
                
 
 
-  <!-- <div class="form-row">  -->
+  
   <form action="../../process/uploadPoto_db.php" method="post" enctype="multipart/form-data">
-      <div class="form-group">
+    <div class="form-group">
         
         <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
         
-      </div>
-
-    <!-- </div> -->
+    </div>
 
 
     link.....
 
     <div class="form-row">
-    <div class="form-group col-md-4">
+      <div class="form-group col-md-4">
         <input type="file" name="fileupload" id="fileupload" required="required"/>
       </div>
-      
-
-    
-
       <div class="form-group col-md-4">
         <select id="weekstamp" name="weekstamp" class="form-control">
-          <option selected>week</option>
+          <option selected>weekstamp && map</option>
+          <option>map</option>
           <option>1</option>
           <option>2</option> 
           <option>3</option> 
@@ -168,16 +166,44 @@
         <label class="form-check-label" for="gridCheck">
           ตรวจสอบความถูกต้อง
         </label>
-        
       </div>
       <div class="form-group col-md-6">
-      <input type="hidden" id="upload_id" name="upload_id" value="<?php echo $_SESSION['id']; ?>">
-      <button type="submit" name="btn_upload" value="upload_weekstamp" class="btn btn-primary">บันทึก</button>
+        <input type="hidden" id="upload_id" name="upload_id" value="<?php echo $_SESSION['id']; ?>">
+        <button type="submit" name="btn_upload" value="upload_weekstamp" class="btn btn-primary">บันทึก</button>
       </div>
     </div>
+    <?php
+      $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type == 'map'" or die("Error:" . mysqli_error());
+      $resultMap = mysqli_query($con, $queryMap);
+      if($resultMap){
+        $map = true;
+      }
+      if (isset($_SESSION['id']) && $map) {
+        echo "<table class='table table-bordered'>";
+          echo "<thead>";
+            echo "<tr>";
+              echo "<th scope='col'>" . 'ชื่อรูป' . "</th>";
+              echo "<th scope='col'>" . 'สัปดาห์' . "</th>";
+              echo "<th scope='col'>" . 'รูป' . "</th>";
+            echo "</tr>";
+          echo "</thead>";
+          echo "<tbody>";
+              
+            $query = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type != 'map'" or die("Error:" . mysqli_error());
+            $result = mysqli_query($con, $query);
 
-  
-</form>
+            while ($row = mysqli_fetch_array($result)) {
+              echo "<tr>";
+              echo "<td>" . $row['fileupload'] . "</td>"; 
+              echo "<td>" . $row['type'] . "</td>"; 
+              echo "<td>" . "<img src='../../scr/fileupload/".$row['fileupload']."' width='100'>" . "</td>";
+              echo "</td>"; 
+            }
+          echo "</tbody>";
+        echo "</table>";  
+      }
+    ?>
+  </form>
 
 
 

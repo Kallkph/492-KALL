@@ -63,7 +63,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $newname = $date.$numrand.$type;
         $path_copy = $path.$newname;
         $path_link = "fileupload/".$newname;
-        $week = "map";
+        $maps = $_POST['weekstamp'];
 
         move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);
 
@@ -77,7 +77,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
         }
 
-        $qr->bind_param("sss", $newname, $_POST['upload_id'], $week);
+        $qr->bind_param("sss", $newname, $_POST['upload_id'], $maps);
         $qr->execute();
 
 

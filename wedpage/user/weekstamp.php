@@ -16,7 +16,7 @@
     header('location: checkstatus.php');
   }
 
-  $map = false
+  
   
 
   
@@ -123,62 +123,126 @@
                 
                 <div class="card2infograde">
                   
-                หน้าอัพโหลด
+              
                 
                
 
 
-  
-  <form action="../../process/uploadPoto_db.php" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        
-        <label for="inputEmail4">อัพโหลดรายงานประจำสัปดาห์</label>
-        
-    </div>
+  <?php
+    $map = false;
+    $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'";
+    $resultMap = mysqli_query($con, $queryMap);
+    if(mysqli_num_rows($resultMap) > 0){
+      $map = true;
+    } else {
+      echo "<form action='../../process/uploadPoto_db.php' method='post' enctype='multipart/form-data'>";
+      echo "<div class='form-group'>";
+        echo "<label for='inputEmail4'> อัพโหลด แผนที่สถานที่ฝึกงานก่อน ทำการอัพโหลดรายงานประจำสัปดาห์ </label>";
+      echo "</div>";
+      echo "<div class='form-row'>";
+        echo "<div class='form-group col-md-4'>";
+          echo "<input type='file' name='fileupload' id='fileupload' required='required'/>";
+        echo "</div>";
+        echo "<div class='form-group col-md-4'>";
+          echo "<select id='weekstamp' name='weekstamp' class='form-control'>";
+            echo "<option selected>";
+              echo "map";
+            echo "</option>";
+          echo '</select>';
+        echo '</div>';
+      echo '</div>';
 
 
-    link.....
+      echo "<div class='form-group'>";
+        echo "<div class='form-check'>";
+          echo "<input class='form-check-input' type='checkbox' id='gridCheck'>";
+          echo "<label class='form-check-label' for='gridCheck'>";
+            echo 'ตรวจสอบความถูกต้อง';
+          echo "</label>";
+        echo "</div>";
+        echo "<div class='form-group col-md-6'>";
+          echo "<input type='hidden' id='upload_id' name='upload_id' value='$_SESSION[id]'>";
+          echo "<button type='submit' name='btn_upload' value='upload_map' class='btn btn-primary'> บันทึก </button>";
+        echo "</div>";
+      echo "</div>";
 
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <input type="file" name="fileupload" id="fileupload" required="required"/>
-      </div>
-      <div class="form-group col-md-4">
-        <select id="weekstamp" name="weekstamp" class="form-control">
-          <option selected>weekstamp && map</option>
-          <option>map</option>
-          <option>1</option>
-          <option>2</option> 
-          <option>3</option> 
-          <option>4</option> 
-          <option>5</option> 
-          <option>6</option> 
-          <option>7</option>
-          <option>8</option> 
-        </select>
-      </div>
-    </div>
+      echo "<table class='table table-bordered'>";
+        echo "<thead>";
+          echo "<tr>";
+            echo "<th scope='col'>" . 'ชื่อรูป' . "</th>";
+            echo "<th scope='col'>" . 'รูปแผนที่' . "</th>";
+          echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+            
+          $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'" or die("Error:" . mysqli_error());
+          $resultMap = mysqli_query($con, $queryMap);
+
+          while ($row = mysqli_fetch_array($resultMap)) {
+            echo "<tr>";
+            echo "<td>" . $row['fileupload'] . "</td>"; 
+            echo "<td>" . "<img src='../../scr/fileupload/".$row['fileupload']."' width='100'>" . "</td>";
+            echo "</td>"; 
+          }
+        echo "</tbody>";
+      echo "</table>";  
+    echo "</form>";
+    }
+
+    if (isset($_SESSION['id']) && $map) {
+      echo "<form action='../../process/uploadPoto_db.php' method='post' enctype='multipart/form-data'>";
+        echo "<div class='form-group'>";
+          echo "<label for='inputEmail4'> อัพโหลดรายงานประจำสัปดาห์ </label>";
+        echo "</div>";
+        echo "<div class='form-row'>";
+          echo "<div class='form-group col-md-4'>";
+            echo "<input type='file' name='fileupload' id='fileupload' required='required'/>";
+          echo "</div>";
+          echo "<div class='form-group col-md-4'>";
+          echo "สัปดาห์ที่";
+            echo "<select id='weekstamp' name='weekstamp' class='form-control'>";
+              echo "<option selected>";
+                echo "1";
+              echo "</option>";
+              echo "<option selected>";
+                echo "2";
+              echo "</option>";
+              echo "<option selected>";
+                echo "3";
+              echo "</option>";
+              echo "<option selected>";
+                echo "4";
+              echo "</option>";
+              echo "<option selected>";
+                echo "5";
+              echo "</option>";
+              echo "<option selected>";
+                echo "6";
+              echo "</option>";
+              echo "<option selected>";
+                echo "7";
+              echo "</option>";
+              echo "<option selected>";
+                echo "8";
+              echo "</option>";
+            echo '</select>';
+          echo '</div>';
+        echo '</div>';
 
 
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          ตรวจสอบความถูกต้อง
-        </label>
-      </div>
-      <div class="form-group col-md-6">
-        <input type="hidden" id="upload_id" name="upload_id" value="<?php echo $_SESSION['id']; ?>">
-        <button type="submit" name="btn_upload" value="upload_weekstamp" class="btn btn-primary">บันทึก</button>
-      </div>
-    </div>
-    <?php
-      $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type == 'map'" or die("Error:" . mysqli_error());
-      $resultMap = mysqli_query($con, $queryMap);
-      if($resultMap){
-        $map = true;
-      }
-      if (isset($_SESSION['id']) && $map) {
+        echo "<div class='form-group'>";
+          echo "<div class='form-check'>";
+            echo "<input class='form-check-input' type='checkbox' id='gridCheck'>";
+            echo "<label class='form-check-label' for='gridCheck'>";
+              echo 'ตรวจสอบความถูกต้อง';
+            echo "</label>";
+          echo "</div>";
+          echo "<div class='form-group col-md-6'>";
+            echo "<input type='hidden' id='upload_id' name='upload_id' value='value='$_SESSION[id]'>";
+            echo "<button type='submit' name='btn_upload' value='upload_weekstamp' class='btn btn-primary'> บันทึก </button>";
+          echo "</div>";
+        echo "</div>";
+
         echo "<table class='table table-bordered'>";
           echo "<thead>";
             echo "<tr>";
@@ -201,9 +265,10 @@
             }
           echo "</tbody>";
         echo "</table>";  
+      echo "</form>";
       }
     ?>
-  </form>
+
 
 
 

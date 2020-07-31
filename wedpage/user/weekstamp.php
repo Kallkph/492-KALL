@@ -238,7 +238,7 @@
             echo "</label>";
           echo "</div>";
           echo "<div class='form-group col-md-6'>";
-            echo "<input type='hidden' id='upload_id' name='upload_id' value='value='$_SESSION[id]'>";
+            echo "<input type='hidden' id='upload_id' name='upload_id' value='$_SESSION[id]'>";
             echo "<button type='submit' name='btn_upload' value='upload_weekstamp' class='btn btn-primary'> บันทึก </button>";
           echo "</div>";
         echo "</div>";

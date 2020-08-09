@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
+  $sql = "SELECT * From users";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -120,7 +120,8 @@
                 
                 <div class="card2fortable">
                   
-                ใบคำร้องขอฝึกงาน
+                จัดการบัญชีผู้ใช้
+                
                 <!-- <div class="row row-cols-1 row-cols-md-3"> -->
 <table class="table" id="table_row" width="1100px">
   <thead class="thead-dark">
@@ -137,11 +138,11 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-    if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
+    if (($row['major'] != "0") && ($_SESSION['major'] == $row['major'])) {
     echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['id'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" . $row['major'] . "</td>";
       echo "<td>" ;
         if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -156,15 +157,15 @@
          }
       "</td>";
       echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href='adminpage-editUserProfile.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
          echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
-    } else if ($_SESSION['major'] == "0") {
+    } else if ($_SESSION['major'] == "0" && $row['type'] == 'user') {
       echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['id'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" . $row['major'] . "</td>";
       echo "<td>" ;
         if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -179,7 +180,7 @@
          }
       "</td>";
       echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href='adminpage-editUserProfile.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
          echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";

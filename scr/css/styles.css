@@ -214,6 +214,13 @@
     height: 65%;
   }
 
+  .card2fortable {
+    background-color: white;
+    padding: 30px;
+    margin-top: 10px;
+    height: auto;
+  }
+
   .card2_1 {
     background-color: white;
     padding: 30px;
@@ -516,6 +523,11 @@
   }
   
   
+  .table_1 {
+    width: 1000px;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
   
   /* OTHERS */
   

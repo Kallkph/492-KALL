@@ -18,7 +18,7 @@
   
   // true
   $major = $_SESSION['major'];
-  echo $major;
+  // echo $major;
 
   switch ($major) {
     case "cen":
@@ -49,7 +49,7 @@
       $s_value_length = 0;
   }
 
-  echo $s_value_length;
+  // echo $s_value_length;
 
   // คิดปี
   // $year = (date('Y') + 543) - 2500;

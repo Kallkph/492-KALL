@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
+  $sql = "SELECT * From users";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -120,7 +120,7 @@
                 
                 <div class="card2fortable">
                   
-                ใบคำร้องขอฝึกงาน
+                จัดการบัญชีแอดมิน
                 <!-- <div class="row row-cols-1 row-cols-md-3"> -->
 <table class="table" id="table_row" width="1100px">
   <thead class="thead-dark">
@@ -129,7 +129,7 @@
       <th scope="col" width="40%">รหัสนักศึกษา</th>
       <th scope="col" >ชื่อ</th>
       <th scope="col"  width="40%">สาขา</th>
-      <th scope="col"  width="30%">สถานะ</th>
+      <!-- <th scope="col"  width="30%">สถานะ</th> -->
       <th scope="col"  width="30%"></th>
     </tr>
   </thead>
@@ -137,11 +137,11 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-    if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
+    if (($row['major'] != "0") && ($_SESSION['major'] == $row['major'])) {
     echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['id'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" . $row['major'] . "</td>";
       echo "<td>" ;
         if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -160,24 +160,24 @@
          echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
-    } else if ($_SESSION['major'] == "0") {
+    } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
       echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['id'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
-      echo "<td>" ;
-        if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-         } else {
-        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-         }
-      "</td>";
+      echo "<td>" . $row['major'] . "</td>";
+      // echo "<td>" ;
+      //   if ($row['status'] == 0) {
+      //   echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
+      //   } else if ($row['status'] == 1) {
+      //   echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
+      //    } else if ($row['status'] == 2) {
+      //   echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+      //    } else if ($row['status'] == 7) {
+      //   echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+      //    } else {
+      //   echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
+      //    }
+      // "</td>";
       echo "<td>";
          echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
          echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";

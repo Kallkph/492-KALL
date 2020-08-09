@@ -121,7 +121,7 @@
                           <br>
                         หลักสูตร<select name="course" class="form-control">
                           <option value="100">ปกติ</option>
-                          <option value="70">ปวช</option>
+                          <option value="70">ปวส</option>
                           </select><br>            
                           Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
                           Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">

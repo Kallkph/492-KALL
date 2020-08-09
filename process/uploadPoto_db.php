@@ -9,7 +9,6 @@ session_start();
 
 if ($_POST['btn_upload'] == 'upload_weekstamp') {
     echo "<pre>", print_r($_POST, true), "</pre>";
-    echo "xxxx";
     $fileupload = (isset($_POST['fileupload']) ? $_POST['fileupload'] : '');
 
         date_default_timezone_get('Asia/Bangkok');
@@ -42,14 +41,13 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
 
 
 
-        $statusMsg = "สมัครสมาชิกเรียบร้อย";
-        // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+        $statusMsg = "upload $week สำเร็จ";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
 
         $qr->close();
     }
 } else if ($_POST['btn_upload'] == 'upload_map')  {
     echo "<pre>", print_r($_POST, true), "</pre>";
-    echo "mapxxxxx";
     $fileupload = (isset($_POST['fileupload']) ? $_POST['fileupload'] : '');
 
         date_default_timezone_get('Asia/Bangkok');
@@ -82,8 +80,8 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
 
 
 
-        $statusMsg = "สมัครสมาชิกเรียบร้อย";
-        // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+        $statusMsg = "upload map สำเร็จ";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
 
         $qr->close();
     }

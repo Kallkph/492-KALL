@@ -10,12 +10,14 @@
 if(isset($_POST['reg'])){
   $data = array(
     "txt_id" => $_POST["txt_id"],
+    "name_titles" => $_POST["name_titles"],
     "txt_fname" => $_POST["txt_fname"],
     "txt_lname" => $_POST["txt_lname"],
     "txt_mail" => $_POST["txt_mail"],
     "txt_tel" => $_POST["txt_tel"],
     "major" => $_POST["major"],
     "type" => "user",
+    "course" => $_POST["course"],
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );
@@ -27,9 +29,6 @@ if(isset($_POST['reg'])){
       $statusMsg = "โปรดระบุนามสกุล";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  // else if (!filter_var($_POST["txt_mail"], FILTER_VALIDATE_EMAIL)) {
-  //     $statusMsg = "โปรดใช้อีเมลอื่น อีเมล์นี้มีผู้ใช้แล้ว!";
-  //     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
   else if ($_POST["txt_pwd"] == "") {
       $statusMsg = "โปรดระบุรหัสผ่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
@@ -79,9 +78,9 @@ if(isset($_POST['reg'])){
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO users (id, f_name, l_name, email, major, tel, type, password)
+      $sql =" INSERT INTO users (id, name_titles, f_name, l_name, email, major, tel, type, course, password)
       VALUES
-      (?, ?, ?, ?, ?, ?, ?, ?)
+      (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       ";
 
       $qr = $con->prepare($sql);
@@ -89,7 +88,7 @@ if(isset($_POST['reg'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("ssssssss", $data["txt_id"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"],  $data["txt_tel"], $data["type"], $data["txt_pwd"]);
+    $qr->bind_param("ssssssssss", $data["txt_id"], $data["name_titles"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"],  $data["txt_tel"], $data["type"], $data["course"], $data["txt_pwd"]);
     $qr->execute();
 
   

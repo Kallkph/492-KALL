@@ -10,7 +10,14 @@ if ($_POST['update-status'] == 'pass') {
     status = 1
     WHERE id = $_POST[id] ";
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+    if ($_SESSION['major'] != "0") {
+        $sql2 = "UPDATE requestcompany SET
+        r_advisor = $_SESSION[id]
+        WHERE r_id = $_POST[id] ";
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+    }
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
+
 }
 
 

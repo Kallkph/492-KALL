@@ -15,7 +15,7 @@ if($con->connect_error) {
   trigger_error("Database connect failed".$con->connect_error, E_USER_ERROR);
 } else {
   // echo console.log("OK")
-  echo "Connect OK..12345";
+  // echo "Connect OK..12345";
 }
 
 ?>

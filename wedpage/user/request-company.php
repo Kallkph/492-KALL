@@ -131,6 +131,9 @@
       
       <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
       <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
+
+      <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคคลที่ติดต่อ</label>
+      <input type="text" class="form-control" id="txt_r_about" name="txt_r_about">
       
     </div>
 

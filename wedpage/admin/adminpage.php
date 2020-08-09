@@ -92,16 +92,15 @@
 
 
 <div class="list-group">
-
-  
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">ใบคำร้องขอฝึกงาน</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-
+  <?php
+  if ($_SESSION['major'] == "0") {
+    echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+    echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
+    echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีแอดมิน</a>";
+  } else {
+    echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+  }
+  ?>              
 </div>
 
 
@@ -131,6 +130,7 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
+    if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
     echo "<tr>" ;
       echo "<td>" . $row['r_id'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
@@ -153,6 +153,30 @@
          echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
+    } else if ($_SESSION['major'] == "0") {
+      echo "<tr>" ;
+      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
+      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" ;
+        if ($row['status'] == 0) {
+        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
+        } else if ($row['status'] == 1) {
+        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
+         } else if ($row['status'] == 2) {
+        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+         } else if ($row['status'] == 7) {
+        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+         } else {
+        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
+         }
+      "</td>";
+      echo "<td>";
+         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+      "</td>";
+    "</tr>";
+    }
         } ?>
   </tbody>
 </table>

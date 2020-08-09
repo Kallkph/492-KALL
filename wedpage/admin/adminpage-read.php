@@ -35,7 +35,7 @@
 
           $name = $row['id'];
 
-          print_r($row);
+          // print_r($row);
         } else {
           echo "else";
           // header("locatino: index.")
@@ -44,13 +44,14 @@
     }
   }
 
-    function pre_r( $array ) {
-      echo '<pre>';
-      print_r($array);
-      echo '</pre>';
-    }
+
+      print_r($_SESSION);
 
 
+      // require_once __DIR__ . '/vendor/autoload.php';
+
+      // $mpdf = new \Mpdf\Mpdf();
+      // ob_start();
   
 ?>
 
@@ -104,13 +105,15 @@
           แผงควบคุม
         </div>  
         <div class="list-group">
-          <a href="adminpage.php" class="list-group-item list-group-item-action list-group-item-light">ใบคำร้องขอฝึกงาน</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+        <?php
+          if ($_SESSION['major'] == "0") {
+            echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+            echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
+            echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีแอดมิน</a>";
+          } else {
+            echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+          }
+          ?>
         </div>
           <div class="fakeimg" style="height:200px;"></div>  
       </div>
@@ -176,17 +179,32 @@
                 </thead>
                 <tbody>
                   <?php
-                  if($row['g_subject3'] !== '') {
-                  echo "<td>" . $row['g_subject3'] . "</td>"; 
+                  if ($row['g_subject3'] !== '') {
+                    echo "<td>" . $row['g_subject3'] . "</td>"; 
                         echo "<td>" . $row['g_term3'] . '/' . $row['g_year3'] . "</td>"; 
-                        echo "<td>" . $row['g_gpa3'] . "</td>"; 
-                  } else if($row['g_subject2'] !== '') {
+                        echo "<td>" . $row['g_gpa3'] . "</td>";
                     echo "</tr>";
                     echo "<tr>";
+                      echo "<td>" . $row['g_subject2'] . "</td>"; 
+                      echo "<td>" . $row['g_term2'] . '/' . $row['g_year2'] . "</td>"; 
+                      echo "<td>" . $row['g_gpa2'] . "</td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                      echo "<td>" . $row['g_subject1'] . "</td>"; 
+                      echo "<td>" . $row['g_term1'] . '/' . $row['g_year1'] . "</td>"; 
+                      echo "<td>" . $row['g_gpa1'] . "</td>"; 
+                  } else if ($row['g_subject2'] !== '') {
+                      echo "</tr>";
+                      echo "<tr>";
                         echo "<td>" . $row['g_subject2'] . "</td>"; 
                         echo "<td>" . $row['g_term2'] . '/' . $row['g_year2'] . "</td>"; 
-                        echo "<td>" . $row['g_gpa2'] . "</td>"; 
-                  } else if($row['g_subject1'] !== '') {
+                        echo "<td>" . $row['g_gpa2'] . "</td>";
+                      echo "</tr>";
+                      echo "<tr>";
+                        echo "<td>" . $row['g_subject1'] . "</td>"; 
+                        echo "<td>" . $row['g_term1'] . '/' . $row['g_year1'] . "</td>"; 
+                        echo "<td>" . $row['g_gpa1'] . "</td>";  
+                  } else if ($row['g_subject1'] !== '') {
                     echo "</tr>";
                     echo "<tr>";
                         echo "<td>" . $row['g_subject1'] . "</td>"; 
@@ -223,7 +241,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคลที่ติดต่อ</label>
-                <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+                <?php echo "<br>" . $row['r_about'] ; ?> 
               </div>
             </div>
             <div class="form-row">
@@ -268,7 +286,7 @@
                 <?php echo "<br>" . $row['r_fax'] ; ?> 
               </div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
               <div class="form-group col-md-1">
               </div>    
               <div class="form-group col-md-4">
@@ -294,11 +312,28 @@
                 </div>
               </div>
             </div>
-            <input type="hidden" id="txt_id" name="id" value="<?php echo $row['id']; ?>">
-            <input type="hidden" id="txt_id" name="_id" value="<?php echo $_SESSION['id']; ?>">
-          <button type="submit" class="btn btn-success" name="update-status" value="pass">Success</button>
-          <button type="submit" class="btn btn-danger" name="update-status" value="false" >Danger</button>
-          <button type="submit" class="btn btn-warning" name="update-status" value="onFix" >onFix</button>
+            <div class='form-row'  style='margin:20px;'> -->
+          <?php 
+          // if ($_SESSION['major'] == "0") {
+            echo "<div class='form-row'>";
+            echo "<div class='form-group col-md-4'>";
+            echo  "<input type='hidden' id='txt_id' name='id' value='$row[id]'>";
+            echo  "<input type='hidden' id='txt_id' name='_id' value='$_SESSION[id]'>";
+            echo  "<button type='submit' class='btn btn-success' name='update-status' value='pass'> อนุมัติ </button>";
+            echo "</div>";
+            echo "<div class='form-group col-md-4'>";
+            echo  "<button type='submit' class='btn btn-danger' name='update-status' value='false' > ไม่อนุมัติ </button>";
+            echo "</div>";
+            echo "<div class='form-group col-md-4'>";
+            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFix' >  ให้กลับไปแก้เขข้อมูล </button>";
+            echo "</div>";
+            // }
+
+            if ($_SESSION['major'] == "0") {
+              echo "<a href='adminpage-print.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ออกใบขอความอนุเคราะห์</a>";
+            }
+          ?>
+          </div>
         </form>
       </div>
     </div>
@@ -320,8 +355,5 @@
   </body>
 </html>
 
-<?php 
-
-?>
 
 

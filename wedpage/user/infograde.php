@@ -175,7 +175,7 @@
   <!-- <div class="form-row">  -->
   <form action="../../process/infograde_db.php" method="post">
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่</label>
+    <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่ </label>
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_class">
     </div>
@@ -223,7 +223,7 @@
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_creditnow">
     </div>
-    <label for="inputEmail3" class="col-sm-2 col-form-label">หน่วยกิจ</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">มากกว่า <?php echo $_SESSION['course'] ?> หน่วยกิจ</label>
   </div>
 
   <?php if ($s_value_length == '3') { ?>

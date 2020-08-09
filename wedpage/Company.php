@@ -24,13 +24,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="./scr/img/Banner.png" width="100%">
+    <img src="../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -108,13 +108,11 @@
               <div class="rightcolumn">
                 
                 <div class="card2">
-                  
-                หน้า ข้อมูลสถาน ประกอบกาาร   ต้อง  มีช่องเสิส(.......)
 
                 <div class="row row-cols-1 row-cols-md-3">
   <div class="col mb-4">
     <div class="card">
-      <img src="./scr/img/01.jpg" class="card-img-top" alt="...">
+      <img src="../scr/img/01.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">คอมพิวเตอร์</h6>
         <p class="card-text"></p>
@@ -123,7 +121,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/02.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/02.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">ซ่อมบำรุงอากาศยาน</h6>
         <p class="card-text"></p>
@@ -132,7 +130,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/03.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/03.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">ยานยนต์</h6>
         <p class="card-text"></p>
@@ -141,7 +139,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/04.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/04.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Card title</h6>
         <p class="card-text"></p>
@@ -150,7 +148,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/05.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/05.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Card title</h6>
         <p class="card-text"></p>
@@ -159,7 +157,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/06.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/06.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Card title</h6>
         <p class="card-text"></p>
@@ -168,7 +166,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/07.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/07.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Card title</h6>
         <p class="card-text"></p>
@@ -177,7 +175,7 @@
   </div>
   <div class="col mb-4">
     <div class="card">
-    <img src="./scr/img/08.jpg" class="card-img-top" alt="...">
+    <img src="../scr/img/08.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Card title</h6>
         <p class="card-text"></p>

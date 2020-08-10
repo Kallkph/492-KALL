@@ -45,7 +45,7 @@
   }
 
 
-      print_r($_SESSION);
+      // print_r($_SESSION);
 
 
       // require_once __DIR__ . '/vendor/autoload.php';
@@ -66,19 +66,19 @@
     <link rel="stylesheet" href="../../scr/css/styles.css">
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
-      <form class="form-inline">
-        <?php if (!isset($_SESSION)) : ?>
+    <!-- <nav class="navbar navbar-light bg-light"> -->
+      <!-- <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a> -->
+      <!-- <form class="form-inline">
+        ?php if (!isset($_SESSION)) : ?>
       <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
-        <?php else : ?>
+        ?php else : ?>
       <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
-        <?php endif ?>
-      </form>
-    </nav>
+        ?php endif ?>
+      </form> -->
+    <!-- </nav> -->
     <div class="row">
-      <div class="leftcolumn">
-        <?php if (!isset($_SESSION ['success'])) { 
+      <!-- <div class="leftcolumn">
+        ?php if (!isset($_SESSION ['success'])) { 
         "<div class='card1'>";
           "<form action='login_db.php' method='post'>";
             echo "<input type='text' id='txt_id' class='fadeIn second' name='txt_id' placeholder='id'>";
@@ -94,18 +94,18 @@
               <img src="../../scr/img/adminproflie.jpg" width="40%">
             </a>
             ชื่อ Admin
-            <p><?php echo $_SESSION['f_name'];?></p>
+            <p>?php echo $_SESSION['f_name'];?></p>
             สาขา
-            <p><?php echo $_SESSION['major'];?></p>
-            <p><?php echo $_SESSION['id'];?></p>
+            <p>?php echo $_SESSION['major'];?></p>
+            <p>?php echo $_SESSION['id'];?></p>
           </div>
-        <?php } ?>
+        ?php } ?>
       <div class="card3">
         <div class="btn-group-vertical">
           แผงควบคุม
         </div>  
         <div class="list-group">
-        <?php
+        ?php
           if ($_SESSION['major'] == "0") {
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
@@ -117,32 +117,226 @@
         </div>
           <div class="fakeimg" style="height:200px;"></div>  
       </div>
-    </div>
+    </div> -->
     <div class="rightcolumn">            
-      <div class="card2-from-admin-read">
+      <div class="card2-from-admin-read" style='padding:0px';>
+      <div class="form-row">
+      <a href="adminpage.php">
+              <img src="../../scr/img/rsuhead.jpg" width="1140px" style='margin-right: 100px;'>
+            </a>
+      </div>
         <div class="form-row">
           <div class="form-group col-md-3">
           </div>
-          <div class="form-group col-md-">
-            ใบอนุมัติฝึกงานสาขาวิชา วิศวกรรมคอมพิวเตอร์(สำหรับ นศ.3ปี)
+          <div class="form-group col-md-5" style='margin-top:60px';>
           </div>
         </div>
         <form action="../../process/admin-update-status_db.php" method="post">
-            <div class="form-row">
+        <div class="form-row">
+          <div class="form-group col-md-1">
+          </div>
+          <div class="form-group col-md-3">
+            ที่ วศ.130/2562
+          </div>
+          <div class="form-group col-md-4">
+          </div>
+          <div class="form-group col-md-3">
+            วิทยาลัยวิศวกรรมศาสตร์
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+          <div class="form-group col-md-2">
+          <input class="form-control" id="input" name="g_class">
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <div class="form-group"  style='margin-right: 20px;'>
+            เรื่อง
+          </div>
+          <div class="form-group col-md-4">
+            ขอส่งตัวนักศึกษาเข้ารับการฝึกงาน
+          </div>
+          
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <div class="form-group"  style='margin-right: 20px; margin-top:25px';>
+            เรียน
+          </div>
+          <div class="form-group col-md-2" style='margin-top:20px';>
+          <input class="form-control" id="input" name="g_class">
+          </div>
+          <div class="form-group col-md-4" >
+          <?php echo "<br>" . $row['r_company'] ; ?> 
+          </div>
+        </div>
+        <div class="form-row" style='margin-top:40px'>
+        <div class="form-group col-md-2">
+        </div>
+          <div class="form-group";>
+            ตามที่หน่วยงานของท่านได้ให้ความอนุเคราะห์ในการรับนักศึกษาของวิทยาลัยวิศวกรรมศาสตร์ มหาวิทยาลัยรังสิต
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <div class="form-group";>
+            เข้าฝึกงานนั้น ทางวิทยาลัยวิศวกรรมศาสตร์ ขอส่งตัวนักศึกษาเข้าฝึกงานกับหน่วยงาน ของท่าน ตั่งแต่วันที่
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <div class="form-group" style='margin-right:5px;'>
+            วันที่
+          </div>
+          <div class="form-group col-md-1" style='margin-top:-10px';>
+          <input class="form-control" id="input" name="g_class"  width="10px">
+          </div>
+          <div class="form-group col-md-1" style='margin-top:-10px';>
+          <input class="form-control" id="input" name="g_class">
+          </div>
+          <div class="form-group" style='margin-right:5px;'>
+            ถึง
+          </div>
+          <div class="form-group col-md-1" style='margin-top:-10px';>
+          <input class="form-control" id="input" name="g_class"  width="10px">
+          </div>
+          <div class="form-group col-md-1" style='margin-top:-10px';>
+          <input class="form-control" id="input" name="g_class">
+          </div>
+          <div class="form-group" style='margin-right:5px;'>
+            พ.ศ.
+          </div>
+          <div class="form-group col-md-1" style='margin-top:-10px';>
+          <input class="form-control" id="input" name="g_class">
+          </div>
+        </div>
+            <div class="form-row" style='margin-top:50px';>
+              <div class="form-group col-md-2">
+              </div>
+              <div class="form-group" style='margin-right:10px;'>
+              <?php echo $row['name_titles']; ?> 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+              <?php echo $row['f_name']; ?> 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+              <?php echo $row['l_name']; ?> 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+              รหัส
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+              <?php echo $row['id']; ?> 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+              ภาควิชา 
+              </div>
+        </div>
+        
+        <div class="form-row" style='margin-top:50px';>
+        <div class="form-group col-md-1" style='margin-right:80px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+        จึงเรียนมาเพื่อโปรดทราบ
+              </div>
+              </div>
+
+              <div class="form-row" style='margin-top:50px';>
+        <div class="form-group col-md-1" style='margin-right:80px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+        จึงเรียนมาเพื่อโปรดทราบ
+              </div>
+              </div>
+
+              <div class="form-row" style='margin-top:50px';>
+              <div class="form-group col-md-1" style='margin-right:80px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+        จึงเรียนมาเพื่อโปรดทราบ
+              </div>
+              </div>
+
+              <div class="form-row" style='margin-top:0px';>
+              <div class="form-group col-md-1" style='margin-right:80px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:40px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              <?php echo '(' . $row['f_name'] ."  ". $row['l_name'].')' ; ?> 
+              </div>
+              </div>
+
+              
+              <div class="form-row" style='margin-top:0px';>
+              <div class="form-group col-md-1" style='margin-right:80px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:30px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:20px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:10px;'>
+              <input class="form-control" id="input" name="g_class"  width="10px">
+              </div>
+              </div>
+
+
+              <div class="form-row" style='margin-top:500px ';>
+              <div class="form-group col-md-1" style='margin-right:ถ0px;'>
+              </div>
+              <div class="form-group col-md--" style='margin-right:30px;'>
+              สำนักงานวิทยาลัยวิศวกรรมศาสตร์
+              </div>
+              <div class="form-group col-md-2" style='margin-right:20px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:10px;'>
+              </div>
+              </div>
+
+              <div class="form-row" style='margin-top:0px';>
+              <div class="form-group col-md-1" style='margin-right:ถ0px;'>
+              </div>
+              <div class="form-group col-md--" style='margin-right:30px;'>
+              โทรศัพท์ 0-29972222-30 ต่อ 3221 โทรสาร 02-9972222-30 ต่อ 3230
+              </div>
+              <div class="form-group col-md-2" style='margin-right:20px;'>
+              </div>
+              <div class="form-group col-md-2" style='margin-right:10px;'>
+              </div>
+              </div>
+
+            <!-- <div class="form-row">
               <div class="form-group col-md-4">
                 <br>
                 <label for="inputEmail4">ชื่อ-สกุล (นาย/นางสาว)</label>
-                <?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
+                ?php echo "<br>" . $row['f_name'] ."  ". $row['l_name'] ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <br>
                 <label for="inputPassword4" type="text" id="txt_id" name="txt_id">รหัสนักศึกษา</label>
-                <?php echo "<br>" . $row['id'] ; ?> 
+                ?php echo "<br>" . $row['id'] ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <br>
                 <label for="inputPassword4">ชั้นปีที่</label>
-                <?php echo "<br>" . $row['g_class'] ; ?> 
+                ?php echo "<br>" . $row['g_class'] ; ?> 
               </div>
             </div>
             <div class="form-row">
@@ -152,21 +346,21 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputPassword4">หน่วยกิต (ไม่รวม W,F)</label>
-                  <?php echo "<br>" . $row['g_credit'] ; ?> 
+                  ?php echo "<br>" . $row['g_credit'] ; ?> 
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputPassword4">GPA</label>
-                  <?php echo "<br>" . $row['g_gpa'] ; ?> 
+                  ?php echo "<br>" . $row['g_gpa'] ; ?> 
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="inputEmail4">จำนวนหน่วยกิตลงทะเบียนเทอมปัจจุบัน</label>
-                  <?php echo "<br>" . $row['g_termnow'] . '/' . $row['g_yearnow'] ; ?>
+                  ?php echo "<br>" . $row['g_termnow'] . '/' . $row['g_yearnow'] ; ?>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputPassword4">หน่วยกิต (ต้องไม่ต่ำกว่า 70 หน่วยกิต)</label>
-                  <?php echo "<br>" . $row['g_creditnow'] ; ?> 
+                  ?php echo "<br>" . $row['g_creditnow'] ; ?> 
                 </div>
             </div>
             <table class="table table-bordered">
@@ -217,7 +411,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
-                <?php echo "<br>" . $row['r_company'] ; ?>
+                ?php echo "<br>" . $row['r_company'] ; ?>
               </div>
             </div>
             <div class="form-row">
@@ -241,51 +435,51 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคลที่ติดต่อ</label>
-                <?php echo "<br>" . $row['r_about'] ; ?> 
+                ?php echo "<br>" . $row['r_about'] ; ?> 
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="inputEmail4">เลขที่</label>
-                <?php echo "<br>" . $row['r_address'] ; ?> 
+                ?php echo "<br>" . $row['r_address'] ; ?> 
               </div>
               <div class="form-group col-md-2">
                 <label for="inputPassword4">หมู่</label>
-                <?php echo "<br>" . $row['r_mu'] ; ?> 
+                ?php echo "<br>" . $row['r_mu'] ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <label for="inputPassword4">ถนน</label>
-                <?php echo "<br>" . $row['r_road'] ; ?> 
+                ?php echo "<br>" . $row['r_road'] ; ?> 
               </div>
               <div class="form-group col-md-3">
                 <label for="inputPassword4">แขวง/ตำบล</label>
-                <?php echo "<br>" . $row['r_address2'] ; ?> 
+                ?php echo "<br>" . $row['r_address2'] ; ?> 
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputEmail4">เขต/อำเภอ</label>
-                <?php echo "<br>" . $row['r_city']  ; ?> 
+                ?php echo "<br>" . $row['r_city']  ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <label for="inputEmail4">จังหวัด</label>
-                <?php echo "<br>" . $row['r_state'] ; ?> 
+                ?php echo "<br>" . $row['r_state'] ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <label for="inputEmail4">รหัสไปรษณีย์</label>
-                <?php echo "<br>" . $row['r_zip'] ; ?> 
+                ?php echo "<br>" . $row['r_zip'] ; ?> 
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="inputEmail4">โทรศัพท์</label>
-                <?php echo "<br>" . $row['r_phone']  ; ?> 
+                ?php echo "<br>" . $row['r_phone']  ; ?> 
               </div>
               <div class="form-group col-md-4">
                 <label for="inputEmail4">โทรสาร</label>
-                <?php echo "<br>" . $row['r_fax'] ; ?> 
+                ?php echo "<br>" . $row['r_fax'] ; ?> 
               </div>
-            </div>
+            </div> -->
             <!-- <div class="form-row">
               <div class="form-group col-md-1">
               </div>    
@@ -313,7 +507,7 @@
               </div>
             </div>
             <div class='form-row'  style='margin:20px;'> -->
-          <?php 
+          <!-- ?php 
           // if ($_SESSION['major'] == "0") {
             echo "<div class='form-row'>";
             echo "<div class='form-group col-md-4'>";
@@ -332,7 +526,7 @@
             if ($_SESSION['major'] == "0") {
               echo "<a href='adminpage-print.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ออกใบขอความอนุเคราะห์</a>";
             }
-          ?>
+          ?> -->
           </div>
         </form>
       </div>
@@ -342,7 +536,7 @@
         <div class="fakeimg" >  
         </div>
       </div>
-      <?php if (isset($_SESSION ['success'])) {
+      <!-- ?php if (isset($_SESSION ['success'])) {
         // echo $_SESSION['id'];
         echo $_SESSION['f_name'];
         // echo $_SESSION['l_name'];
@@ -350,7 +544,10 @@
       } else {
         echo "Have a good night!";
       }
-      ?>
+      ?> -->
+      <!-- <button type='submit' class='btn btn-warning' name='update-status' value='onFix' @click="window.print()" >  พิมพ์ </button> -->
+      <input type="button" value="Print" 
+               onclick="window.print()" /> 
     </div>
   </body>
 </html>

@@ -13,17 +13,33 @@
     header('location: index.php');
   }
   
-  include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
-  // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+  if($_GET['id']){
+    include('../../configure/connect.php');
+    $sql = "SELECT * FROM company WHERE c_id = ?";
 
-  // print_r($result);
-  //   function pre_r( $array ) {
-  //     echo '<pre>';
-  //     print_r($array);
-  //     echo '</pre>';
-  //   }
+    if($stmt = mysqli_prepare($con, $sql)) {
+      mysqli_stmt_bind_param($stmt, "i", $param_id);
+
+      $param_id = trim($_GET['id']);
+
+      if(mysqli_stmt_execute($stmt)) {
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) == 1) {
+          $row = mysqli_fetch_assoc($result);
+
+          $name = $row['c_id'];
+
+          // print_r($row);
+        } else {
+          echo "else";
+          // header("locatino: index.")
+        }
+      }
+    }
+  }
+
+
   
 ?>
 
@@ -121,77 +137,30 @@
                 
                 <div class="card2fortable">
                   
-                ใบคำร้องขอฝึกงาน
-                <!-- <div class="row row-cols-1 row-cols-md-3"> -->
-<table class="table" id="table_row" width="1100px">
-  <thead class="thead-dark">
-    <tr>
-      <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" width="40%">รหัสนักศึกษา</th>
-      <th scope="col" >ชื่อ</th>
-      <th scope="col"  width="40%">สาขา</th>
-      <th scope="col"  width="30%">สถานะ</th>
-      <th scope="col"  width="30%"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
- 
-  <?php while($row = $result->fetch_assoc()){
-    if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
-    echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
-      echo "<td>" ;
-        if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-         } else {
-        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-         }
-      "</td>";
-      echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-      "</td>";
-    "</tr>";
-    } else if ($_SESSION['major'] == "0") {
-      echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
-      echo "<td>" ;
-        if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-         } else {
-        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-         }
-      "</td>";
-      echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-      "</td>";
-    "</tr>";
-    }
-        } ?>
-  </tbody>
-</table>
+                จัดการบัญชีแอดมิน
+               
+<form action="../../process/editCompany_db.php" method="post">
 
-
-<!-- </div> -->
-
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >แก้ไขข้อมูลสถานประกอบการใหม่</label>
+    <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
+    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" placeholder="@rsu.ac.th"  value='<?php echo $row['c_name']?>'> 
+  </div>
+  <div class="form-group"  style="width: 600px">
+  สาขา : <input type="text" id="txtc_major" name="txtc_major" placeholder="@rsu.ac.th"  value='<?php echo $row['c_major']?>'> 
+  </div>
+  <div class="form-group" style="width: 600px">
+    <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
+    <input type="text" id="txtc_address" name="txtc_address" placeholder="@rsu.ac.th" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
+    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
+  </div>
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
+    <input type="text" id="txtc_detail" name="txtc_detail" placeholder="@rsu.ac.th" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
+  </div>
+  <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
+  <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
+</form>
                 </div>
                 </div>
               </div>
@@ -206,8 +175,3 @@
 </body>
 </html>
 
-<script>
-  $(document).ready(function(){
-    $('#table_row').DataTable();
-  });
-</script>

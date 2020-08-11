@@ -85,8 +85,51 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
 
         $qr->close();
     }
+}  else if ($_POST['btn_upload'] == 'upload_c')  {
+    echo "<pre>", print_r($_POST, true), "</pre>";
+    $fileupload = (isset($_POST['fileupload']) ? $_POST['fileupload'] : '');
 
+        date_default_timezone_get('Asia/Bangkok');
+        $date = date("Ymd");
+
+    $upload = $_FILES["fileupload"];
+    if ($upload != '') {
+        $path = "../scr/fileupload/";
+        $type = strrchr($_FILES['fileupload']['name'],".");
+        $numrand = (mt_rand());
+        $newname = $date.$numrand.$type;
+        $path_copy = $path.$newname;
+        $path_link = "fileupload/".$newname;
+        $c_id = $_POST['weekstamp'];
+
+        move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);
+
+
+        $sql = "INSERT INTO uploadfile (fileupload, u_id, type)
+        VALUES(?, ?, ?)
+        ";
+
+        $qr = $con->prepare($sql);
+        if($qr === false){
+        trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
+        }
+
+        $qr->bind_param("sss", $newname, $_POST['upload_id'], $c_id);
+        $qr->execute();
+
+
+
+        $statusMsg = "upload map สำเร็จ";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
+
+        
+        $qr->close();
+        
+
+
+    }
 }
+
 
 
 

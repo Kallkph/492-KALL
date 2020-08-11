@@ -24,6 +24,9 @@
   //     print_r($array);
   //     echo '</pre>';
   //   }
+
+
+
   
 ?>
 
@@ -104,6 +107,7 @@
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
     echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
     echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีแอดมิน</a>";
+    echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
   } else {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
   }
@@ -126,7 +130,7 @@
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" width="40%">รหัสนักศึกษา</th>
+      <th scope="col" width="500px">รหัสนักศึกษา</th>
       <th scope="col" >ชื่อ</th>
       <th scope="col"  width="40%">สาขา</th>
       <!-- <th scope="col"  width="30%">สถานะ</th> -->
@@ -179,8 +183,8 @@
       //    }
       // "</td>";
       echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+         echo "<a href='adminpage-editAdminProfile.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+        //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
     }

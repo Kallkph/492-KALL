@@ -15,7 +15,9 @@
   
   if($_GET['id']){
     include('../../configure/connect.php');
-    $sql = "SELECT * FROM company WHERE c_id = ?";
+    $sql = "SELECT DISTINCT * 
+            From company 
+            WHERE c_id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
       mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -118,11 +120,12 @@
   <?php
   if ($_SESSION['major'] == "0") {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
-    echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
-    echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีแอดมิน</a>";
+    echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
+    echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
   } else {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+    echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>ดูข้อมูลสถานประกอบการ</a>";
   }
   ?>              
 </div>
@@ -144,22 +147,24 @@
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >แก้ไขข้อมูลสถานประกอบการใหม่</label>
     <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
-    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" placeholder="@rsu.ac.th"  value='<?php echo $row['c_name']?>'> 
+    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
   </div>
   <div class="form-group"  style="width: 600px">
-  สาขา : <input type="text" id="txtc_major" name="txtc_major" placeholder="@rsu.ac.th"  value='<?php echo $row['c_major']?>'> 
+  สาขา : <input type="text" id="txtc_major" name="txtc_major" value='<?php echo $row['c_major']?>'> 
   </div>
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
-    <input type="text" id="txtc_address" name="txtc_address" placeholder="@rsu.ac.th" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
+    <input type="text" id="txtc_address" name="txtc_address" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
     <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
   </div>
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
-    <input type="text" id="txtc_detail" name="txtc_detail" placeholder="@rsu.ac.th" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
+    <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
   </div>
   <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
+  <?php if ($_SESSION['id'] == '0') { ?>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
+<?php } ?>
 </form>
                 </div>
                 </div>

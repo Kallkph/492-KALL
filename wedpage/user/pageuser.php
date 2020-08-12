@@ -13,6 +13,30 @@
     heder('location: index.php');
   }
 
+
+    $sql = "SELECT * FROM users WHERE id = $_SESSION[id]";
+
+    if($stmt = mysqli_prepare($con, $sql)) {
+
+      if(mysqli_stmt_execute($stmt)) {
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) == 1) {
+          $row = mysqli_fetch_assoc($result);
+
+          $name = $row['id'];
+
+          // print_r($row);
+        } else {
+          echo "else";
+          // header("locatino: index.")
+        }
+      }
+    }
+  
+
+
+
   
 ?>
 <html lang="th">
@@ -42,9 +66,8 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
                         
@@ -87,7 +110,7 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
 
       <div class="list-group">
         <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
@@ -121,7 +144,7 @@
 
 
 <body>
-    <h2 id="top">Link Download เอกสารต่างๆ </h2>
+    <h3 id="top">Link Download เอกสารต่างๆ </h3>
     <ul>
         <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
         <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
@@ -150,34 +173,28 @@
                 
                 <div class="card2_1">
                   <!-- <h3>สไลด์โชว์</h3> -->
-                  
-                    <div class="card">
-                      <h> สมัครสมาชิก </h>
-                   <form id="Regis" method="POST" action="regis.php">
-                       ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
-                       <br> 
-                       นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
-                       <br>
-                       รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
-                       <br>
-                       <!-- เบอร์โทร : <input type="text" id="telnum" pattern="[0-9]{10}"> -->
-                       <br>
-                       E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
-                       <br>
-                       สาขา   <select name="major">
-                           <option value="คอมพิวเตอร์">คอมพิวเตอร์</option>
-                           <option value="เคมี">เคมี</option>
-                           <option value="อุตสาหการ">อุตสาหการ</option>
-                          </select><br>      
-                
-                          Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
-                          Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
+
+  <div class="form-row">
+            <form action="../../process/editUserProfile_byUser_db.php" method="post">
+            ชื่อ : <?php echo $row['f_name']?>
+                        <br> 
+                        นามสกุล: <?php echo $row['l_name']?>
+                        <br>
+                        <input type="hidden" for="inputEmail4" name="txt_id" value='<?php echo $row['id']?>'>รหัสนักศึกษา :
+                        <?php echo $row['id']?>
+                        <br>
+                        คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['name_titles']?>'>
+                        เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"  value='<?php echo $row['tel']?>'> 
+                        <br>
+                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"  value='<?php echo $row['email']?>'> 
+                        <br>
+                        สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th"  value='<?php echo $row['major']?>'> 
                           <br>
-                          <!-- btn -->
-                          <button type="submit" class="btn btn-light" id="btn_submit" value="Save...">แก้ไขข้อมูล</button>
-                          <button type="reset" class="btn btn-light" @click="submit">เคลียร์</button>
-                          </form>
-                      </div>
+                         <?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
+                          <br>
+                          <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
+              </form>
+              </div>
                
                     <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

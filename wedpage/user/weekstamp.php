@@ -93,7 +93,7 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['id'];?></p>
+      <p><?php echo $_SESSION['major'];?></p>
 
       <div class="list-group">
       <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
@@ -253,14 +253,14 @@
           echo "</thead>";
           echo "<tbody>";
               
-            $query = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type != 'map'" or die("Error:" . mysqli_error());
+            $query = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id]" or die("Error:" . mysqli_error());
             $result = mysqli_query($con, $query);
 
             while ($row = mysqli_fetch_array($result)) {
               echo "<tr>";
               echo "<td>" . $row['fileupload'] . "</td>"; 
               echo "<td>" . $row['type'] . "</td>"; 
-              echo "<td>" . "<img src='../../scr/fileupload/".$row['fileupload']."' width='100'>" . "</td>";
+              echo "<td>" . "<img src='../../scr/fileupload/".$row['fileupload']."' width='250'>" . "</td>";
               echo "</td>"; 
             }
           echo "</tbody>";
@@ -320,16 +320,7 @@
           </div>
           </div>
         <!-- //// -->
-        <?php 
-if (isset($_SESSION ['success'])) {
-  echo $_SESSION['id'];
-  echo $_SESSION['f_name'];
-  echo $_SESSION['l_name'];
-  unset($_SESSION['error']);
-} else {
-  echo "Have a good night!";
-}
-?>
+        
     </div>
 
 </body>

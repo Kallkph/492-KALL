@@ -85,7 +85,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
 
         $qr->close();
     }
-}  else if ($_POST['btn_upload'] == 'upload_c')  {
+}  else if ($_POST['btn_upload'] == 'upload_news')  {
     echo "<pre>", print_r($_POST, true), "</pre>";
     $fileupload = (isset($_POST['fileupload']) ? $_POST['fileupload'] : '');
 
@@ -101,29 +101,35 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $path_copy = $path.$newname;
         $path_link = "fileupload/".$newname;
         $c_id = $_POST['weekstamp'];
+        $newnewname = $newname;
 
         move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);
 
 
-        $sql = "INSERT INTO uploadfile (fileupload, u_id, type)
-        VALUES(?, ?, ?)
-        ";
-
-        $qr = $con->prepare($sql);
-        if($qr === false){
-        trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
-        }
-
-        $qr->bind_param("sss", $newname, $_POST['upload_id'], $c_id);
-        $qr->execute();
-
-
-
-        $statusMsg = "upload map สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
-
         
+        $sql2 = "UPDATE uploadfile SET
+        fileupload = '$newname'
+        WHERE type = '$_POST[weekstamp]'";
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+
+        $statusMsg = "news สำเร็จ";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-News.php';</script>";
+
         $qr->close();
+
+        // $sql = "INSERT INTO uploadfile (fileupload, u_id, type)
+        // VALUES(?, ?, ?)
+        // ";
+
+        // $qr = $con->prepare($sql);
+        // if($qr === false){
+        // trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
+        // }
+
+        // $qr->bind_param("sss", $newname, $_POST['upload_id'], $c_id);
+        // $qr->execute();
+
+
         
 
 

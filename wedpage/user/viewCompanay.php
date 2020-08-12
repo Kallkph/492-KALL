@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include('../configure/connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -12,10 +12,31 @@
     header('location: index.php');
   }
 
-  // include('../../configure/connect.php');
-  $sql = "SELECT * From company";
-  // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+    $sql = "SELECT DISTINCT * 
+            From company 
+            WHERE c_id = ?";
+
+    if($stmt = mysqli_prepare($con, $sql)) {
+      mysqli_stmt_bind_param($stmt, "i", $param_id);
+
+      $param_id = trim($_GET['id']);
+
+      if(mysqli_stmt_execute($stmt)) {
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) == 1) {
+          $row = mysqli_fetch_assoc($result);
+
+          $name = $row['c_id'];
+
+          // print_r($row);
+        } else {
+          echo "else";
+          // header("locatino: index.")
+        }
+      }
+    }
+  
 
 
   
@@ -36,13 +57,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="../scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
            
@@ -54,7 +75,7 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
@@ -90,7 +111,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="pageuser.php">
-    <img src="../scr/img/profile.jpg" width="50%">
+    <img src="./scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -119,9 +140,9 @@
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2">
+                <div class="card2"  style="height:900px;">
 
-                <div class="row row-cols-1 row-cols-md-3">
+                <div class="row row-cols-1 row-cols-md-3" >
                 </div>
   <!-- <div class="col mb-4">
     <div class="card">
@@ -207,71 +228,28 @@
 Search:
 <input type="search" class="form-control input-sm" placeholder aria-controls="table_row">
 </div> -->
-<table class="table" id="table_row" width="800px" style="margin-top:30px;">
-  <thead class="thead-dark">
-    <tr>
-      <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" style="width:300px;">ชื่อ</th>
-      <th scope="col"  style="width:60px;">สาขา</th>
-      <th scope="col"  style="width:280px;">ที่อยู่</th>
-      <th scope="col"  ></th>
-    </tr>
-  </thead>
-  
-  <tbody>
- 
-  <?php while($row = $result->fetch_assoc()){
-    // if (($row['c_major'] != "0") && ($_SESSION['major'] == $row['c_major'])) {
-    // echo "<tr>" ;
-    //   echo "<td>" . $row['c_id'] . "</td>"; 
-    //   echo "<td>" . $row['c_name'] ." ". $row['l_name'] . "</td>"; 
-    //   echo "<td>" . "</td>";
-    //   echo "<td>" ;
-    //     if ($row['status'] == 0) {
-    //     echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-    //     } else if ($row['status'] == 1) {
-    //     echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-    //      } else if ($row['status'] == 2) {
-    //     echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-    //      } else if ($row['status'] == 7) {
-    //     echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-    //      } else {
-    //     echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-    //      }
-    //   "</td>";
-    //   echo "<td>";
-    //      echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-    //      echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-    //   "</td>";
-    // "</tr>";
-    // } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
-      echo "<tr>" ;
-      // echo "<td>" . $row['c_id'] . "</td>"; 
-      echo "<td>" . $row['c_name'] . "</td>"; 
-      echo "<td>" . $row['c_major'] . "</td>";
-      echo "<td>" . $row['c_address'] . "</td>";
-      // echo "<td>" ;
-      //   if ($row['status'] == 0) {
-      //   echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-      //   } else if ($row['status'] == 1) {
-      //   echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-      //    } else if ($row['status'] == 2) {
-      //   echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-      //    } else if ($row['status'] == 7) {
-      //   echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-      //    } else {
-      //   echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-      //    }
-      // "</td>";
-      echo "<td>";
-         echo "<a href='user/viewCompanay.php?id=" . $row['c_id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-        //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-      "</td>";
-    "</tr>";
-    // }
-        } ?>
-  </tbody>
-</table>
+
+  <form action="../../process/editCompany_db.php" method="post" style="margin-left:90px">
+
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >แก้ไขข้อมูลสถานประกอบการใหม่</label>
+    <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
+    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
+  </div>
+  <div class="form-group"  style="width: 600px">
+  สาขา : <input type="text" id="txtc_major" name="txtc_major" value='<?php echo $row['c_major']?>'> 
+  </div>
+  <div class="form-group" style="width: 600px">
+    <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
+    <input type="text" id="txtc_address" name="txtc_address" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
+    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
+  </div>
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
+    <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
+  </div>
+  <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
+</form>
 
 
 

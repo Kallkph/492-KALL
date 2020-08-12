@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From company";
+  $sql = "SELECT * From uploadfile WHERE type = 'news'";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -131,9 +131,9 @@
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" style="width:300px;">ชื่อ</th>
-      <th scope="col"  style="width:60px;">สาขา</th>
-      <th scope="col"  style="width:280px;">ที่อยู่</th>
+      <th scope="col" style="width:300px;">ชื่อรูป</th>
+      <th scope="col"  style="width:60px;"></th>
+      <th scope="col"  style="width:280px;">รายละเอียด</th>
       <th scope="col"  ></th>
     </tr>
   </thead>
@@ -167,9 +167,9 @@
     // } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
       echo "<tr>" ;
       // echo "<td>" . $row['c_id'] . "</td>"; 
-      echo "<td>" . $row['c_name'] . "</td>"; 
-      echo "<td>" . $row['c_major'] . "</td>";
-      echo "<td>" . $row['c_address'] . "</td>";
+      echo "<td>" . $row['fileupload'] . "</td>"; 
+      echo "<td>" ."<img src='../../scr/fileupload/".$row['fileupload']."' width='300'>". "</td>";
+      echo "<td>" . "</td>";
       // echo "<td>" ;
       //   if ($row['status'] == 0) {
       //   echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -184,7 +184,7 @@
       //    }
       // "</td>";
       echo "<td>";
-         echo "<a href='adminpage-editCompanay.php?id=" . $row['c_id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href='adminpage-editCompanay.php?id=" . $row['fileupload'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
         //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
@@ -196,34 +196,38 @@
 
 <!-- </div> -->
 <?php if ($_SESSION['major'] == '0') {?>
-<form action="../../process/adminpage-add-companay.php" method="post">
+<!-- <form action="../../process/adminpage-add-companay.php" method="post">
 
-  <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >เพิ่มข้อมูลสถานประกอบการใหม่</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder="ชื้อ สถานประกอบการ">
-  </div>
-  <div class="form-group"  style="width: 600px">
-  สาขา<select name="txtc_major" class="form-control">
-                          <option value="cen">cen</option>
-                          <option value="cpe">คอมพิวเตอร์</option>
-                          <option value="che">เคมี</option>
-                          <option value="env">env</option>
-                          <option value="aen">aen</option>
-                          <option value="een">een</option>
-                          <option value="ien">ien</option>
-                          <option value="men">men</option>
-                          </select>
-  </div>
-  <div class="form-group" style="width: 600px">
-    <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3"></textarea>
-  </div>
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_detail" rows="3"  style="height: 300px"></textarea>
   </div>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
-</form>
+</form> -->
+<form action='../../process/uploadPoto_db.php' method='post' enctype='multipart/form-data'>
+  <div class='form-group'>
+  <label for='inputEmail4'> อัพโหลด รูปภาพข้อมูลข่าวสาร </label>
+  </div>
+  <div class='form-row'>
+  <div class='form-group col-md-4'>
+  <input type='file' name='fileupload' id='fileupload' required='required'/>
+  </div>
+  <div class='form-group col-md-4'>
+  <select id='weekstamp' name='weekstamp' class='form-control'>
+  <option selected>news
+  </option>
+  </select>
+  </div>
+  </div>
+
+
+  <div class='form-group'>
+  <div class='form-group col-md-6'>
+  <input type='hidden' id='upload_id' name='upload_id' value='$_SESSION[id]'>
+  <button type='submit' name='btn_upload' value='upload_news' class='btn btn-primary'> บันทึก </button>
+  </div>
+  </div>
+    </form>
       <?php } ?>
                 </div>
                 </div>

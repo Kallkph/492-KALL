@@ -1,7 +1,7 @@
 ﻿<?php
   session_start();
   
-  include('../configure/connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -21,8 +21,6 @@
   //   header('location: /wedpage/admin/adminpage.php');
   // }
 
-
-
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION);
@@ -40,13 +38,13 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
 
 
 <body>
     <div class="container">
-    <img src="../scr/img/Banner.png" width="100%">
+    <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +53,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="user/news.php">แนะนำ</a>
+                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
+                        <a class="nav-item nav-link" href="../Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
                        
                        
@@ -66,7 +64,7 @@
 <?php if (!isset($_SESSION ['success'])) : ?>
   <a class="nav-item nav-link" href="/wedpage/user/register.php">สมัครสมาชิก</a>
   <?php else : ?>
-    <a class="nav-item nav-link" href="user/checkstatus.php">ยื่นเรื่องฝึกงาน</a>
+    <a class="nav-item nav-link" href="checkstatus.php">ยื่นเรื่องฝึกงาน</a>
     <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
    <?php endif ?>
 
@@ -104,7 +102,7 @@
   <?php else : ;?>
     <div class="card3">
     <a href="user/pageuser.php">
-    <img src="../scr/img/profile.jpg" width="50%">
+    <img src="../../scr/img/profile.jpg" width="50%">
 </a>
     
       รหัสนักศึกษา
@@ -137,38 +135,13 @@
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <?php 
-                          $query = "SELECT * FROM uploadfile WHERE type = 'news'";
-                          $result = mysqli_query($con, $query);
-                          while ($row = mysqli_fetch_array($result)) {
-                              echo "<img src='../../scr/fileupload/".$row['fileupload']."' width='100%'>";
-                            } 
-                        ?>
-                      </div>
+                    <img src="../../scr/img/about.png" class="d-block w-100" alt="...">
                       <div class="carousel-item">
-                        <img src="../scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="../scr/img/3.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item active">
-                        <img src="../scr/img/2.png" class="d-block w-100" alt="...">
+                        <img src="../../scr/img/1.png" class="d-block w-100" alt="...">
                       </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
                   </div>
                 </div>
                 </div>
@@ -180,24 +153,19 @@
             </div>
           </div>
           </div>
-
+        <!-- //// -->
         <?php 
-if (isset($_SESSION ['success'])) {
-  echo $_SESSION['id'];
-  echo $_SESSION['f_name'];
-  echo $_SESSION['l_name'];
-  echo $_SESSION['type'];
-  unset($_SESSION['error']);
-} else {
-  echo "Have a good night!";
-}
+// if (isset($_SESSION ['success'])) {
+//   echo $_SESSION['id'];
+//   echo $_SESSION['f_name'];
+//   echo $_SESSION['l_name'];
+//   echo $_SESSION['type'];
+//   unset($_SESSION['error']);
+// } else {
+//   echo "Have a good night!";
+// }
 ?>
     </div>
 
 </body>
 </html>
-
-<?php
-  include('../configure/connect.php')
-  
-?>

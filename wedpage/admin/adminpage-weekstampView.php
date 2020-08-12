@@ -13,19 +13,31 @@
     header('location: index.php');
   }
   
-  include('../../configure/connect.php');
-  $sql = "SELECT * From uploadfile WHERE type != 'news' AND type != 'map'";
-  // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+  if($_GET['id']){
+    include('../../configure/connect.php');
+    $sql = "SELECT * FROM uploadfile WHERE fileupload = ?";
 
-  // print_r($result);
-  //   function pre_r( $array ) {
-  //     echo '<pre>';
-  //     print_r($array);
-  //     echo '</pre>';
-  //   }
+    if($stmt = mysqli_prepare($con, $sql)) {
+      mysqli_stmt_bind_param($stmt, "i", $param_id);
 
+      $param_id = trim($_GET['id']);
 
+      if(mysqli_stmt_execute($stmt)) {
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) == 1) {
+          $row = mysqli_fetch_assoc($result);
+
+          $name = $row['u_id'];
+
+          // print_r($row);
+        } else {
+          echo "else";
+          // header("locatino: index.")
+        }
+      }
+    }
+  }
 
   
 ?>
@@ -105,11 +117,15 @@
   <?php
   if ($_SESSION['major'] == "0") {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+    echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์และแผนที่</a>";
     echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
     echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
+    echo "<a href='adminpage-News.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลข่าวสาร</a>";
+    
   } else {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
+    echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>ดูข้อมูลสถานประกอบการ</a>";
   }
   ?>              
@@ -141,8 +157,12 @@
   
   <tbody>
  
-  <?php while($row = $result->fetch_assoc()){
-     echo 'ภาพ รายงานประจำสัปดาหฺ์ของ'. ' ' . $row['u_id'] . ' สัปดาหฺ์ที่ '.  $row['type']; 
+  <?php
+    if ($row['type'] != 'map') { 
+      echo 'ภาพ รายงานประจำสัปดาหฺ์ของ'. ' ' . $row['u_id'] . ' สัปดาหฺ์ที่ '.  $row['type'];
+    } else {
+      echo 'ภาพ แผนที่';
+    }
     // if (($row['c_major'] != "0") && ($_SESSION['major'] == $row['c_major'])) {
     // echo "<tr>" ;
     //   echo "<td>" . $row['c_id'] . "</td>"; 
@@ -192,7 +212,7 @@
       "</td>";
     "</tr>";
     // }
-        } ?>
+        ?>
   </tbody>
 </table>
 

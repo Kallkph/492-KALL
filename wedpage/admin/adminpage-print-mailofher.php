@@ -176,38 +176,57 @@
           <?php echo "<br>" . $row['r_company'] ; ?> 
           </div>
         </div>
+        <div class="form-row" style='margin-top:0px'>
+        <div class="form-group col-md-1">
+        </div>
+        สิ่งที่ส่งมาด้วย    ใบตอบรับ
+        </div>
         <div class="form-row" style='margin-top:40px'>
         <div class="form-group col-md-2">
         </div>
           <div class="form-group";>
-            ตามที่หน่วยงานของท่านได้ให้ความอนุเคราะห์ในการรับนักศึกษาของวิทยาลัยวิศวกรรมศาสตร์ มหาวิทยาลัยรังสิต
+          เนื่องด้วย   วิทยาลัยวิศวกรรมศาสตร์ มหาวิทยาลัยรังสิต  มีความจำเป็นในการจัดหาสถานที่ฝึกงาน  ให้แก่นักศึกษาชั้นปีที่ 4  ขึ้นไป โดยมีช่วงเวลาฝึกงานระหว่าง
           </div>
         </div>
         <div class="form-row">
         <div class="form-group col-md-1">
         </div>
           <div class="form-group";>
-            เข้าฝึกงานนั้น ทางวิทยาลัยวิศวกรรมศาสตร์ ขอส่งตัวนักศึกษาเข้าฝึกงานกับหน่วยงาน ของท่าน ตั่งแต่วันที่
+          วันที่   1  มิถุนายน  – 31  กรกฎาคม  2563  การฝึกงานถือเป็นวิชาหนึ่งในหลักสูตรของวิทยาลัยฯ ฯ   เพื่อเปิดโอกาสให้นักศึกษา หาประสบการณ์และทักษะในการทำงาน เตรียมตัวที่จะเป็นวิศวกร
           </div>
         </div>
         <div class="form-row">
         <div class="form-group col-md-1">
         </div>
-          <div class="form-group" style='margin-right:5px;'>
+          <div class="form-group";>
+          และนักเทคโนโลยีที่ดีต่อไป    วิทยาลัยฯ  ได้พิจารณาเห็นว่าองค์กรของท่านดำเนินกิจการ ทางด้านวิศวกรรมและเทคโนโลยีที่มีศักยภาพ   วิทยาลัยฯ จึงใคร่ขอความอนุเคราะห์พิจารณานักศึกษา
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <div class="form-group";>
+          เพื่อเข้ารับการฝึกงาน ดังนี้
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-1">
+        </div>
+          <!-- <div class="form-group" style='margin-right:5px;'>
             วันที่
-          </div>
+          </div> -->
           <div class="form-group col-md-1" style='margin-top:-10px';>
-          <input class="form-control" id="input" name="g_class"  width="10px" width="10px" style='border: none'; width="10px" placeholder="กรอก">
+          <!-- <input class="form-control" id="input" name="g_class"  width="10px" width="10px" style='border: none'; width="10px" placeholder="กรอก"> -->
           </div>
-          ถึง
+          <!-- ถึง -->
           <div class="form-group col-md-1" style='margin-top:-10px';>
-          <input class="form-control" id="input" name="g_class"  width="10px" style='border: none'; width="10px" placeholder="กรอก">
+          <!-- <input class="form-control" id="input" name="g_class"  width="10px" style='border: none'; width="10px" placeholder="กรอก"> -->
           </div>
           <div class="form-group" style='margin-right:5px;'>
-          พ.ศ.
+          <!-- พ.ศ. -->
           </div>
           <div class="form-group col-md-1" style='margin-top:-10px';>
-          <input class="form-control" id="input" name="g_class"  width="10px" style='border: none'; width="10px" placeholder="กรอก">
+          <!-- <input class="form-control" id="input" name="g_class"  width="10px" style='border: none'; width="10px" placeholder="กรอก"> -->
           </div>
           <div class="form-group col-md-1" style='margin-top:-10px';>
           <!-- <input class="form-control" id="input" name="g_class"> -->
@@ -219,7 +238,7 @@
           <input class="form-control" style='border: none'; id="input" name="g_class"  width="10px" placeholder="">
           </div>
         </div>
-            <div class="form-row" style='margin-top:50px';>
+            <div class="form-row" style='margin-top:0px';>
               <div class="form-group col-md-2">
               </div>
               <div class="form-group" style='margin-right:10px;'>
@@ -242,13 +261,26 @@
               </div>
         </div>
         
-        <div class="form-row" style='margin-top:50px';>
-        <div class="form-group col-md-1" style='margin-right:80px;'>
-              </div>
-              <div class="form-group col-md-2" style='margin-right:30px;'>
-        จึงเรียนมาเพื่อโปรดทราบ
-              </div>
-              </div>
+        <div class="form-row" style='margin-top:40px'>
+        <div class="form-group col-md-2">
+        </div>
+          <div class="form-group";>
+          อนึ่ง หากท่านสามารถรับนักศึกษาเข้าฝึกงานได้ หรือขัดข้องประการใด  โปรดแจ้งกลับตามเอกสารใบตอบรับ
+ที่แนบมา  จักเป็นพระคุณอย่างสูง
+
+          </div>
+        </div>
+        <div class="form-row" style='margin-top:40px'>
+        <div class="form-group col-md-2">
+        </div>
+          <div class="form-group";>
+          วิทยาลัยวิศวกรรมศาสตร์    มหาวิทยาลัยรังสิต    หวังในความอนุเคราะห์จากท่านเป็นอย่างยิ่งและขอขอบพระคุณ
+มา  ณ โอกาสนี้  
+
+
+          </div>
+        </div>
+
 
               <div class="form-row" style='margin-top:50px';>
         <div class="form-group col-md-1" style='margin-right:80px;'>

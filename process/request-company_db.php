@@ -23,7 +23,10 @@ if(isset($_POST['r_submit'])){
     "txt_r_state" => $_POST["txt_r_state"],
     "txt_r_zip" => $_POST["txt_r_zip"],
     "txt_r_phone" => $_POST["txt_r_phone"],
-    "txt_r_fax" => $_POST["txt_r_fax"]
+    "txt_r_fax" => $_POST["txt_r_fax"],
+    "txt_r_yearnow" => $_POST["txt_r_yearnow"],
+    "txt_r_startTime" => $_POST["txt_r_startTime"],
+    "txt_r_endTime" => $_POST["txt_r_endTime"]
     
   );
 
@@ -38,9 +41,9 @@ if(isset($_POST['r_submit'])){
 
          if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO requestcompany (r_id, r_major, r_company, r_about, r_set, r_address, r_mu, r_road, r_address2, r_city, r_state, r_zip, r_phone, r_fax)
+      $sql =" INSERT INTO requestcompany (r_id, r_major, r_yearnow, r_company, r_about, r_set, r_address, r_mu, r_road, r_address2, r_city, r_state, r_zip, r_phone, r_fax, r_startTime, r_endTime)
       VALUES
-      (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+      (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
       ";
         $sql2 = "UPDATE users SET
         status = 2
@@ -55,12 +58,12 @@ if(isset($_POST['r_submit'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("ssssssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_company"], $data["txt_r_about"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_mu"], $data["txt_r_road"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"]);
+    $qr->bind_param("sssssssssssssssss",$data["_id"],$data["txt_r_major"],$data["txt_r_yearnow"],$data["txt_r_company"], $data["txt_r_about"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_mu"], $data["txt_r_road"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"],$data["txt_r_startTime"],$data["txt_r_endTime"]);
     $qr->execute();
 
     echo "if";
     $statusMsg = "สำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
 
     $qr->close();
   } else if((!count($errors) == 0)){

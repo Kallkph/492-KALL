@@ -7,13 +7,16 @@
   }
 
 
+
+
   ///Get Status
   if (isset($_SESSION['id'])){
-    $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
-    $result = mysqli_query($con, $query);
+    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id AND users.id = '$_SESSION[id]'";
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
     $userdata = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
+      // print_r($userdata);
     }
   }
 
@@ -143,6 +146,22 @@
                   </div>
                 <?php } else if ($_SESSION['status'] == 1) {?>
                   <img src="../../scr/img/status_allow.png" width="100%">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">เข้่ารับการฝึกงาน ณ </label>
+                    <div class="col-sm-5" style='margin-top:8px'>
+                    <?php echo $userdata['r_company'];?>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">วันที่เริ่มฝึกงาน</label>
+                    <div class="col-sm-3" style='margin-top:8px'>
+                    <?php echo $userdata['r_startTime'];?>
+                    </div>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">วันสิ้นสุดการฝึกงาน</label>
+                    <div class="col-sm-4" style='margin-top:8px'>
+                      <?php echo $userdata['r_endTime'];?>
+                    </div>
+                  </div>
                 <?php } else if ($_SESSION['status'] == 2) {?>
                   <img src="../../scr/img/status_wait.png" width="100%">
                   <!-- <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button> -->

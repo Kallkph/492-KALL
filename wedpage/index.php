@@ -16,7 +16,7 @@
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
     }
-    header("location: /../index.php");
+    header("location: /../afterindex.php");
   } else {
      $loginAction = false;
   }

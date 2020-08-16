@@ -1,6 +1,6 @@
 <?php
   session_start();
-  // include('../../configure/connect.php');
+  include('../../configure/connect.php');
 
   if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
@@ -13,17 +13,46 @@
     header('location: index.php');
   }
   
-  include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
-  // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+  // if($_GET['id']){
+  //   include('../../configure/connect.php');
+  //   $sql = "SELECT DISTINCT * From company WHERE c_id = ?";
 
-  // print_r($result);
-  //   function pre_r( $array ) {
-  //     echo '<pre>';
-  //     print_r($array);
-  //     echo '</pre>';
+  //   if($stmt = mysqli_prepare($con, $sql)) {
+  //     mysqli_stmt_bind_param($stmt, "i", $param_id);
+
+  //     $param_id = trim($_GET['id']);
+
+  //     if(mysqli_stmt_execute($stmt)) {
+  //       $result = mysqli_stmt_get_result($stmt);
+
+  //       if(mysqli_num_rows($result) == 1) {
+  //         $row = mysqli_fetch_assoc($result);
+
+  //         $name = $row['c_id'];
+
+  //         // print_r($row);
+  //       } else {
+  //         echo "else";
+  //         // header("locatino: index.")
+  //       }
+  //     }
   //   }
+  if(isset($_POST['query'])){
+    $data = array(
+      "txt_year" => $_POST["year"]
+    );
+    $query = $data['txt_year']; 
+    $sql2 = "SELECT DISTINCT* From users inner join requestcompany on users.id = requestcompany.r_id WHERE r_yearnow = '$query'";
+    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+    print_r($result2);
+    // while($rows = $result2->fetch_assoc()){
+    //   print_r($rows);
+    // }
+  } else {
+    $result2 = '';
+  }
+
+
   
 ?>
 
@@ -102,19 +131,12 @@
   <?php
   if ($_SESSION['major'] == "0") {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
-    echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์และแผนที่</a>";
     echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
     echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
-    echo "<a href='/wedpage/admin/adminpage-intern-by-year.php' class='list-group-item list-group-item-action list-group-item-light'>รายชื่อผู้เข้าฝึงงานประจำปี</a>";
-    echo "<a href='adminpage-News.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลข่าวสาร</a>";
-    echo "<a href='../../scr/Doc/travel.pdf' class='list-group-item list-group-item-action list-group-item-light'>ดาวน์โหลดเอกสารออกนิเทศ</a>";
-    
   } else {
     echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
-    echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>ดูข้อมูลสถานประกอบการ</a>";
-    echo "<a href='../../scr/Doc/travel.pdf' class='list-group-item list-group-item-action list-group-item-light'>ดาวน์โหลดเอกสารออกนิเทศ</a>";
   }
   ?>              
 </div>
@@ -129,15 +151,37 @@
                 
                 <div class="card2fortable">
                   
-                ใบคำร้องขอฝึกงาน
-                <!-- <div class="row row-cols-1 row-cols-md-3"> -->
+                ดูข้อมูล ผู้เข้าฝึงงานประจำปี
+               
+<form action="/wedpage/admin/adminpage-intern-by-year.php" method="post">
+
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >เลือกปีที่ต้องการสืบค้น</label>
+    <div class="form-group row">
+    สาขา<select name="year" class="form-control">
+                          <option value="63">63</option>
+                          <option value="64">64</option>
+                          <option value="65">65</option>
+                          <option value="66">66</option>
+                          </select>
+    
+
+    <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
+    </div>
+  </div>
+</form>
+
+ตารางแสดง ข้อมูลผู้ฝึกงานประจำปี
+
 <table class="table" id="table_row" width="1100px">
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" width="40%">รหัสนักศึกษา</th>
-      <th scope="col" >ชื่อ</th>
-      <th scope="col"  width="40%">สาขา</th>
+      <th scope="col" width="20%">รหัสนักศึกษา</th>
+      <th scope="col" width="11%">ชื่อ</th>
+      <th scope="col"  width="10%">สาขา</th>
+      <th scope="col"  width="30%">เริ่มฝึกเมื่อ</th>
+      <th scope="col"  width="30%">สิ้นสุดการฝึก</th>
       <th scope="col"  width="30%">สถานะ</th>
       <th scope="col"  width="30%"></th>
     </tr>
@@ -145,64 +189,37 @@
   
   <tbody>
  
-  <?php while($row = $result->fetch_assoc()){
-    if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
+  <!-- ?php while($row = $result->fetch_assoc()){ -->
+    <?php while($rows = $result2->fetch_assoc()){
+      // print_r($rows);
     echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+      echo "<td>" . $rows['r_id'] . "</td>"; 
+      echo "<td>" . $rows['f_name'] ." ". $rows['l_name'] . "</td>"; 
+      echo "<td>" . $rows['r_major'] . "</td>";
+      echo "<td>" . $rows['r_startTime'] . "</td>";
+      echo "<td>" . $rows['r_endTime'] . "</td>";
       echo "<td>" ;
-        if ($row['status'] == 0) {
+        if ($rows['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
+        } else if ($rows['status'] == 1) {
         echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
+         } else if ($rows['status'] == 2) {
         echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
+         } else if ($rows['status'] == 7) {
         echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }
       "</td>";
       echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+        //  echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+        //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
-    } else if ($_SESSION['major'] == "0") {
-      echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
-      echo "<td>" ;
-        if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-         } else {
-        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-         }
-      "</td>";
-      echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         
-         if ($row['status'] == 1) {
-          echo "<a href='adminpage-print-mailofher.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>หนังสือขอความอนุเคราะห์</a>";
-          }
-      "</td>";
-    "</tr>";
-    }
-        } ?>
+        
+      }?>
   </tbody>
 </table>
-
-
-<!-- </div> -->
-
                 </div>
                 </div>
               </div>

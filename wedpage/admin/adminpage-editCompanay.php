@@ -15,9 +15,7 @@
   
   if($_GET['id']){
     include('../../configure/connect.php');
-    $sql = "SELECT DISTINCT * 
-            From company 
-            WHERE c_id = ?";
+    $sql = "SELECT DISTINCT * From company WHERE c_id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
       mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -39,6 +37,12 @@
         }
       }
     }
+    $sql2 = "SELECT DISTINCT* From company inner join requestcompany on company.c_name = requestcompany.r_company inner join users on users.id = requestcompany.r_id WHERE c_name = '$row[c_name]'";
+    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+    print_r($result2);
+    // while($rows = $result2->fetch_assoc()){
+    //   print_r($rows);
+    // }
   }
 
 
@@ -166,6 +170,55 @@
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
 <?php } ?>
 </form>
+
+ตารางแสดง ข้อมูลผู้ฝึกงาน ณ สถานประกอบการแห่งนี้
+
+<table class="table" id="table_row" width="1100px">
+  <thead class="thead-dark">
+    <tr>
+      <!-- <th scope="col">ลำดับ</th> -->
+      <th scope="col" width="20%">รหัสนักศึกษา</th>
+      <th scope="col" width="11%">ชื่อ</th>
+      <th scope="col"  width="10%">สาขา</th>
+      <th scope="col"  width="30%">เริ่มฝึกเมื่อ</th>
+      <th scope="col"  width="30%">สิ้นสุดการฝึก</th>
+      <th scope="col"  width="30%">สถานะ</th>
+      <th scope="col"  width="30%"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+ 
+  <!-- ?php while($row = $result->fetch_assoc()){ -->
+    <?php while($rows = $result2->fetch_assoc()){
+      // print_r($rows);
+    echo "<tr>" ;
+      echo "<td>" . $rows['r_id'] . "</td>"; 
+      echo "<td>" . $rows['f_name'] ." ". $rows['l_name'] . "</td>"; 
+      echo "<td>" . $rows['r_major'] . "</td>";
+      echo "<td>" . $rows['r_startTime'] . "</td>";
+      echo "<td>" . $rows['r_endTime'] . "</td>";
+      echo "<td>" ;
+        if ($rows['status'] == 0) {
+        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
+        } else if ($rows['status'] == 1) {
+        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
+         } else if ($rows['status'] == 2) {
+        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+         } else if ($rows['status'] == 7) {
+        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+         } else {
+        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
+         }
+      "</td>";
+      echo "<td>";
+        //  echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+        //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+      "</td>";
+    "</tr>";
+        }?>
+  </tbody>
+</table>
                 </div>
                 </div>
               </div>
@@ -180,3 +233,8 @@
 </body>
 </html>
 
+<script>
+  $(document).ready(function(){
+    $('#table_row').DataTable();
+  });
+</script>

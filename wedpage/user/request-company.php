@@ -118,7 +118,7 @@
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2">
+                <div class="card2"  style='height:1260px'>
                   
                 หน้ายื่นเรื่อง
                 
@@ -173,7 +173,7 @@
       <label for="inputCity">เขต/อำเภอ</label>
       <input type="text" class="form-control" id="txt_r_city" name="txt_r_city">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" style='margin-top:4px'>
       <label for="inputState">State</label>
       <select id="txt_r_state" name="txt_r_state" class="form-control">
         <option selected>เลือก...</option>
@@ -271,6 +271,30 @@
     <div class="form-group col-md-6">
       <label for="inputPassword4">เบอร์โทรสาร</label>
       <input type="text" class="form-control" id="txt_r_fax" name="txt_r_fax">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4" style='margin-top:4px'>
+      <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
+      <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
+        <option selected>ปี</option>
+        <option>63</option>
+        <option>64</option> 
+        <option>65</option> 
+        <option>66</option> 
+        <option>67</option> 
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
+      <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime"  placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
+      
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">สิ้นสุดเมื่อ</label>
+      <input type="text" class="form-control" id="txt_r_fax" name="txt_r_endTime" placeholder="วันที่ 1 เดือน เมษายน ปี พ.ศ.2563"  style='margin-top:30px'>
     </div>
   </div>
   <div class="form-group">

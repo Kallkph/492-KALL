@@ -9,16 +9,12 @@
 
   ///Get Status
   if (isset($_SESSION['id'])){
-    $loginAction = true;
     $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
     $result = mysqli_query($con, $query);
     $userdata = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
     }
-    header("location: /../index.php");
-  } else {
-     $loginAction = false;
   }
 
   // if ($_SESSION['type'] = 'admin') {
@@ -92,9 +88,7 @@
         </div>
           <div class="row">
               <div class="leftcolumn">
-
-<?php if ($loginAction == true) { ?>
-              <?php if (!isset($_SESSION ['success'])) { ?>
+              <?php if (!isset($_SESSION ['success'])) : ?>
                 <div class="card1">
                         <!-- Login Form -->
       <form action="../process/login_db.php" method="post">
@@ -107,7 +101,7 @@
         </dev>
       </form>       
                 </div>
-              <?php } else {?>
+  <?php else : ;?>
     <div class="card3">
     <a href="user/pageuser.php">
     <img src="../scr/img/profile.jpg" width="50%">
@@ -121,36 +115,8 @@
       <p><?php echo $_SESSION['major'];?></p>
   </div>
 
-              <?php } ?>
-              <?php } else { ?>
-                <div class="card1">
-                        <!-- Login Form -->
-      <form action="../process/login_db.php" method="post">
-        เข้าสู่ระบบ
-        <!-- <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
-        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-        
-        <dev class="card1leftcolumn">  -->
-        <div class="form-row" style='margin-top:60px'>
-        <div class="form-group col-md-3"></div>
-          <div class="form-group col-md-3">
-          <a href="afterindex.php" title="View" class="btn btn-primary">นักศึกษา</a>
-          <!-- <button type="submit" class="btn btn-primary" name = "login_user">นักศึกษา</button>  -->
-          </div>
-          </div>
-          <div class="form-row">
-          <div class="form-group col-md-3"></div>
-          <div class="form-group col-md-3">
-          <a href="admin/adminpage-login.php" title="View" class="btn btn-primary" style='margin-left:5px'>อาจารย์</a>
+   <?php endif ?>
 
-        </dev>
-          </div>
-          </div>
-         
-        
-      </form>       
-                </div>
-              <?php } ?>
                 <div class="card3">
                   <!DOCTYPE html>
 
@@ -232,8 +198,6 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
- action() {
-    $loginAction = true
- } 
+  include('../configure/connect.php')
   
 ?>

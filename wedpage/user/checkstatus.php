@@ -55,7 +55,7 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="../afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>

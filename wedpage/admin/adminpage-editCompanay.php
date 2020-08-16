@@ -140,7 +140,7 @@
                 
                 <div class="card2fortable">
                   
-                จัดการบัญชีแอดมิน
+                แก้ไขข้อมูลสถานประกอบการใหม่
                
 <form action="../../process/editCompany_db.php" method="post">
 
@@ -162,7 +162,7 @@
     <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
   </div>
   <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
-  <?php if ($_SESSION['id'] == '0') { ?>
+  <?php if ($_SESSION['major'] == '0') { ?>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
 <?php } ?>
 </form>

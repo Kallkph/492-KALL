@@ -129,7 +129,7 @@
                 
                 <div class="card2fortable">
                   
-                จัดการบัญชีแอดมิน
+                จัดการข้อมูลสถานประกอบการ
                 <!-- <div class="row row-cols-1 row-cols-md-3"> -->
 <table class="table" id="table_row" width="1060px">
   <thead class="thead-dark">

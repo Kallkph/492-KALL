@@ -119,7 +119,7 @@
           <div class="form-group col-md-3">
           </div>
           <div class="form-group col-md-">
-            ใบอนุมัติฝึกงานสาขาวิชา วิศวกรรมคอมพิวเตอร์(สำหรับ นศ.3ปี)
+            แก้ไขบัญชีอาจารย์
           </div>
         </div>
         <div class="form-row">

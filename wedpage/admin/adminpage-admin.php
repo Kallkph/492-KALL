@@ -196,6 +196,53 @@
         } ?>
   </tbody>
 </table>
+<h> สมัครสมาชิก </h>
+                      <form action="../../process/register_db.php" method="post">
+                        <?php include('../errors.php'); ?>
+                        <?php if (isset($_SESSION['error'])) : ?>
+                            <div class="error">
+                              <h3>
+                                  <?php 
+                                      echo $_SESSION['error'];
+                                      unset($_SESSION['error']);
+                                  ?>
+                              </h3>
+                            </div>
+                        <?php endif ?> 
+                        คำนำหน้าชื่อ<input type="text" name="name_titles" id="txt_fname">
+                          </select><br>  
+                          ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
+                        <br> 
+                        นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
+                        <br>
+                        รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
+                        <br>
+                        เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"> 
+                        <br>
+                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
+                        <br>
+                        สาขา<select name="major" class="form-control">
+                          <option value="cen">cen</option>
+                          <option value="cpe">คอมพิวเตอร์</option>
+                          <option value="che">เคมี</option>
+                          <option value="อุตสาหการ">อุตสาหการ</option>
+                          <option value="env">env</option>
+                          <option value="aen">aen</option>
+                          <option value="een">een</option>
+                          <option value="ien">ien</option>
+                          <option value="men">men</option>
+                          </select><br>
+                          <br>
+                        <!-- หลักสูตร<select name="course" class="form-control">
+                          <option value="100">ปกติ</option>
+                          <option value="70">ปวส</option>
+                          </select><br>             -->
+                          Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
+                          Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
+                          <br>
+                           
+                           <button type="submit" class="btn btn-light" id="btn_submit" name="regadmin" value="Save...">สมัครสมาชิก</button>
+                      </form>
 
 
 <!-- </div> -->

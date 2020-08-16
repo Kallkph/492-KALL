@@ -51,23 +51,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
-                    
-         
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-                        
                         <?php if (isset($_SESSION ['success'])) : ?>
                           <a class="nav-item nav-link" href="user/request-company.php">ยื่นเรื่องฝึกงาน</a>
                          <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
                         <?php endif ?>
-                       
-                        
-                    </div>
-                    
+                    </div>  
                 </div>
             </div>
         </nav>

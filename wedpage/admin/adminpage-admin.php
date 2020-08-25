@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users";
+  $sql = "SELECT * From advisor";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -136,8 +136,8 @@
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
       <th scope="col" width="500px">รหัสอาจารย์</th>
-      <th scope="col" >ชื่อ</th>
-      <th scope="col"  width="40%">สาขา</th>
+      <th scope="col" width="500px">ชื่อ</th>
+      <th scope="col"  width="20%">สาขา</th>
       <!-- <th scope="col"  width="30%">สถานะ</th> -->
       <th scope="col"  width="30%"></th>
     </tr>
@@ -146,34 +146,35 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-    if (($row['major'] != "0") && ($_SESSION['major'] == $row['major'])) {
-    echo "<tr>" ;
-      echo "<td>" . $row['id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['major'] . "</td>";
-      echo "<td>" ;
-        if ($row['status'] == 0) {
-        echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-        } else if ($row['status'] == 1) {
-        echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-         } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-         } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-         } else {
-        echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-         }
-      "</td>";
-      echo "<td>";
-         echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-         echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-      "</td>";
-    "</tr>";
-    } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
+
+    // if (($row['a_major'] != "0") && ($_SESSION['major'] == $row['major'])) {
+    // echo "<tr>" ;
+    //   echo "<td>" . $row['id'] . "</td>"; 
+    //   echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
+    //   echo "<td>" . $row['major'] . "</td>";
+    //   echo "<td>" ;
+    //     if ($row['status'] == 0) {
+    //     echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
+    //     } else if ($row['status'] == 1) {
+    //     echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
+    //      } else if ($row['status'] == 2) {
+    //     echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+    //      } else if ($row['status'] == 7) {
+    //     echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+    //      } else {
+    //     echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
+    //      }
+    //   "</td>";
+    //   echo "<td>";
+    //      echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+    //      echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
+    //   "</td>";
+    // "</tr>";
+    // } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
       echo "<tr>" ;
-      echo "<td>" . $row['id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['major'] . "</td>";
+      echo "<td>" . $row['a_id'] . "</td>"; 
+      echo "<td>" . $row['a_f_name'] ." ". $row['a_l_name'] . "</td>"; 
+      echo "<td>" . $row['a_major'] . "</td>";
       // echo "<td>" ;
       //   if ($row['status'] == 0) {
       //   echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -188,15 +189,15 @@
       //    }
       // "</td>";
       echo "<td>";
-         echo "<a href='adminpage-editAdminProfile.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
+         echo "<a href='adminpage-editAdminProfile.php?id=" . $row['a_id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
         //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";
-    }
+    // }
         } ?>
   </tbody>
 </table>
-<h> สมัครสมาชิก </h>
+<h> เพิ่มข้อมูลอาจารย์ </h>
                       <form action="../../process/register_db.php" method="post">
                         <?php include('../errors.php'); ?>
                         <?php if (isset($_SESSION['error'])) : ?>
@@ -209,7 +210,7 @@
                               </h3>
                             </div>
                         <?php endif ?> 
-                        คำนำหน้าชื่อ<input type="text" name="name_titles" id="txt_fname">
+                        ตำแหน่ง/คำนำหน้าชื่อ<input type="text" name="name_titles" id="txt_fname">
                           </select><br>  
                           ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
                         <br> 
@@ -241,7 +242,7 @@
                           Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
                           <br>
                            
-                           <button type="submit" class="btn btn-light" id="btn_submit" name="regadmin" value="Save...">สมัครสมาชิก</button>
+                           <button type="submit" class="btn btn-light" id="btn_submit" name="regadmin" value="Save...">เพิ่มข้อมูล</button>
                       </form>
 
 

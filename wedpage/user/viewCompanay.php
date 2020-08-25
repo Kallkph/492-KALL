@@ -19,21 +19,24 @@
     if($stmt = mysqli_prepare($con, $sql)) {
       mysqli_stmt_bind_param($stmt, "i", $param_id);
 
-      $param_id = trim($_GET['id']);
+      if ($_GET['id']) { $param_id = trim($_GET['id']);
 
-      if(mysqli_stmt_execute($stmt)) {
-        $result = mysqli_stmt_get_result($stmt);
+        if(mysqli_stmt_execute($stmt)) {
+          $result = mysqli_stmt_get_result($stmt);
 
-        if(mysqli_num_rows($result) == 1) {
-          $row = mysqli_fetch_assoc($result);
+          if(mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
 
-          $name = $row['c_id'];
+            $name = $row['c_id'];
 
-          // print_r($row);
-        } else {
-          echo "else";
-          // header("locatino: index.")
+            // print_r($row);
+          } else {
+            echo "else";
+            // header("locatino: index.")
+          }
         }
+      } else {
+        header('location: ../index.php');
       }
     }
   
@@ -237,7 +240,7 @@ Search:
     ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
   </div>
   <div class="form-group"  style="width: 600px">
-  สาขา : <input type="text" id="txtc_major" name="txtc_major" value='<?php echo $row['c_major']?>'> 
+  สาขา : <input type="text" id="" name="" value='<?php echo $row['']?>'> 
   </div>
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>

@@ -190,7 +190,7 @@
                         <br>
                         สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th"  value='<?php echo $row['major']?>'> 
                           <br>
-                         <?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
+                         <?php if ($_SESSION['major'] == 0) {echo "รหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
                           <br>
                           <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
               </form>

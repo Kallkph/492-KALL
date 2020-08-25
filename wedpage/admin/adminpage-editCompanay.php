@@ -37,7 +37,7 @@
         }
       }
     }
-    $sql2 = "SELECT DISTINCT* From company inner join requestcompany on company.c_name = requestcompany.r_company inner join users on users.id = requestcompany.r_id WHERE c_name = '$row[c_name]'";
+    $sql2 = "SELECT DISTINCT* From company inner join requestcompany on company.c_name = requestcompany.r_company inner join users on users.id = requestcompany.r_sid WHERE c_name = '$row[c_name]'";
     $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
     print_r($result2);
     // while($rows = $result2->fetch_assoc()){
@@ -154,7 +154,7 @@
     ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
   </div>
   <div class="form-group"  style="width: 600px">
-  สาขา : <input type="text" id="txtc_major" name="txtc_major" value='<?php echo $row['c_major']?>'> 
+  <!-- สาขา : <input type="text" id="" name="" value='?php echo $row['']?>'>  -->
   </div>
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
@@ -162,9 +162,15 @@
     <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
   </div>
   <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
+    <label for="exampleFormControlTextarea1" >ข้อมูลผู้ดูแลฝึกงาน</label>
     <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
   </div>
+
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 0px " >เบอร์โทรติดต่อ</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_tel" placeholder="เบอร์โทรติดต่อ" value='<?php echo $row['c_tel']?>'>
+  </div>
+  
   <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
   <?php if ($_SESSION['major'] == '0') { ?>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
@@ -193,7 +199,7 @@
     <?php while($rows = $result2->fetch_assoc()){
       // print_r($rows);
     echo "<tr>" ;
-      echo "<td>" . $rows['r_id'] . "</td>"; 
+      echo "<td>" . $rows['r_sid'] . "</td>"; 
       echo "<td>" . $rows['f_name'] ." ". $rows['l_name'] . "</td>"; 
       echo "<td>" . $rows['r_major'] . "</td>";
       echo "<td>" . $rows['r_startTime'] . "</td>";

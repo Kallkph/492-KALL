@@ -12,7 +12,7 @@
     header('location: index.php');
   }
 
-  if ($_SESSION['status'] != 3) {
+  if ($_SESSION['status'] != 5) {
     header('location: checkstatus.php');
   }
   
@@ -134,7 +134,7 @@
                 
                 <div class="card2"  style='height:1400px'>
                   
-                หน้ายื่นเรื่อง
+                หน้าแก้ไขข้อมูลผู้ดูแลฝึกงาน
                 
                
                 <form action="/wedpage/user/request-company.php" method="post">

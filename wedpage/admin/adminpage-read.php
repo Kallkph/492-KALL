@@ -17,9 +17,9 @@
     $sql = "SELECT DISTINCT * 
             From users 
             inner join requestcompany 
-            on users.id = requestcompany.r_id 
+            on users.id = requestcompany.r_sid 
             inner join grade
-            on requestcompany.r_id = grade.g_id
+            on requestcompany.r_sid = grade.g_id
             WHERE users.id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
@@ -243,48 +243,21 @@
                 <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคลที่ติดต่อ</label>
                 <?php echo "<br>" . $row['r_about'] ; ?> 
               </div>
+
             </div>
             <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="inputEmail4">เลขที่</label>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">ที่อยู่</label>
                 <?php echo "<br>" . $row['r_address'] ; ?> 
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputPassword4">หมู่</label>
-                <?php echo "<br>" . $row['r_mu'] ; ?> 
-              </div>
               <div class="form-group col-md-4">
-                <label for="inputPassword4">ถนน</label>
-                <?php echo "<br>" . $row['r_road'] ; ?> 
-              </div>
-              <div class="form-group col-md-3">
-                <label for="inputPassword4">แขวง/ตำบล</label>
-                <?php echo "<br>" . $row['r_address2'] ; ?> 
+                <label for="inputEmail4">เบอร์โทรติดต่อ</label>
+                <?php echo "<br>" . $row['r_tel'] ; ?> 
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="inputEmail4">เขต/อำเภอ</label>
-                <?php echo "<br>" . $row['r_city']  ; ?> 
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputEmail4">จังหวัด</label>
-                <?php echo "<br>" . $row['r_state'] ; ?> 
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputEmail4">รหัสไปรษณีย์</label>
-                <?php echo "<br>" . $row['r_zip'] ; ?> 
-              </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="inputEmail4">โทรศัพท์</label>
-                <?php echo "<br>" . $row['r_phone']  ; ?> 
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputEmail4">โทรสาร</label>
-                <?php echo "<br>" . $row['r_fax'] ; ?> 
-              </div>
             </div>
             <!-- <div class="form-row">
               <div class="form-group col-md-1">
@@ -316,21 +289,24 @@
           <?php 
           // if ($_SESSION['major'] == "0") {
             echo "<div class='form-row'>";
-            echo "<div class='form-group col-md-4'>";
+            echo "<div class='form-group col-md-2'>";
             echo  "<input type='hidden' id='txt_id' name='id' value='$row[id]'>";
             echo  "<input type='hidden' id='txt_id' name='_id' value='$_SESSION[id]'>";
             echo  "<button type='submit' class='btn btn-success' name='update-status' value='pass'> อนุมัติ </button>";
             echo "</div>";
-            echo "<div class='form-group col-md-4'>";
+            echo "<div class='form-group col-md-2'>";
             echo  "<button type='submit' class='btn btn-danger' name='update-status' value='false' > ไม่อนุมัติ </button>";
             echo "</div>";
+            echo "<div class='form-group col-md-3'>";
+            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFixg' >  ให้กลับไปแก้ไขข้อมูลผลการเรียน </button>";
+            echo "</div>";
             echo "<div class='form-group col-md-4'>";
-            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFix' >  ให้กลับไปแก้เขข้อมูล </button>";
+            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFixc' >  ให้กลับไปแก้ไขข้อมูลผู้ดูแลฝึกงาน </button>";
             echo "</div>";
             // }
 
             if ($_SESSION['major'] == "0") {
-              echo "<a href='adminpage-print.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ออกใบขอความอนุเคราะห์</a>";
+              echo "<a href='adminpage-print-mailofher.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ออกใบขอความอนุเคราะห์</a>";
             }
           ?>
           </div>

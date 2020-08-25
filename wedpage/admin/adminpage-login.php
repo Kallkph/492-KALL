@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
+  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 

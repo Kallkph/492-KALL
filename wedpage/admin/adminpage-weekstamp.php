@@ -135,18 +135,26 @@
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" style="width:100px;">รหัสนักศึกษา</th>
+      <th scope="col" style="width:150px;">รหัสนักศึกษา</th>
       <th scope="col"  style="width:160px;"></th>
       <th scope="col"  style="width:160px;">สัปดาห์ที่</th>
-      <th scope="col"  style="width:280px;">ภาาตัวอย่ง</th>
+      <th scope="col"  style="width:280px;">ภาพตัวอย่าง</th>
       <th scope="col"  ></th>
     </tr>
   </thead>
   
   <tbody>
- 
+  
   <?php while($row = $result->fetch_assoc()){
-    // if (($row['c_major'] != "0") && ($_SESSION['major'] == $row['c_major'])) {
+   $items[] = $row;
+  }
+  
+  $items = array_reverse($items ,true);
+  
+  foreach($items as $item){
+    //  echo $item['time']." - ".$item['username']." - ".$item['message'];
+  
+    // if (($
     // echo "<tr>" ;
     //   echo "<td>" . $row['c_id'] . "</td>"; 
     //   echo "<td>" . $row['c_name'] ." ". $row['l_name'] . "</td>"; 
@@ -172,10 +180,10 @@
     // } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
       echo "<tr>" ;
       // echo "<td>" . $row['c_id'] . "</td>"; 
-      echo "<td>" . $row['u_id'] . "</td>";
+      echo "<td>" . $item['u_id'] . "</td>";
       echo "<td>" . "</td>";
-      echo "<td>" . $row['type'] . "</td>";
-      echo "<td>" ."<img src='../../scr/fileupload/".$row['fileupload']."' width='200'>". "</td>";
+      echo "<td>" . $item['type'] . "</td>";
+      echo "<td>" ."<img src='../../scr/fileupload/".$item['fileupload']."' width='200'>". "</td>";
      
       // echo "<td>" ;
       //   if ($row['status'] == 0) {
@@ -191,7 +199,7 @@
       //    }
       // "</td>";
       echo "<td>";
-         echo "<a href='adminpage-weekstampView.php?id=" . $row['fileupload'] . "' title='View' class='btn btn-link'>ดูรูป</a>";
+         echo "<a href='adminpage-weekstampView.php?id=" . $item['fileupload'] . "' title='View' class='btn btn-link'>ดูรูป</a>";
         //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
       "</td>";
     "</tr>";

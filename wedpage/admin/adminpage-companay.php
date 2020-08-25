@@ -136,7 +136,7 @@
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
       <th scope="col" style="width:300px;">ชื่อ</th>
-      <th scope="col"  style="width:60px;">สาขา</th>
+      <th scope="col"  style="width:60px;"></th>
       <th scope="col"  style="width:280px;">ที่อยู่</th>
       <th scope="col"  ></th>
     </tr>
@@ -145,7 +145,7 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-    // if (($row['c_major'] != "0") && ($_SESSION['major'] == $row['c_major'])) {
+    // 
     // echo "<tr>" ;
     //   echo "<td>" . $row['c_id'] . "</td>"; 
     //   echo "<td>" . $row['c_name'] ." ". $row['l_name'] . "</td>"; 
@@ -172,7 +172,7 @@
       echo "<tr>" ;
       // echo "<td>" . $row['c_id'] . "</td>"; 
       echo "<td>" . $row['c_name'] . "</td>"; 
-      echo "<td>" . $row['c_major'] . "</td>";
+      echo "<td>" . "</td>";
       echo "<td>" . $row['c_address'] . "</td>";
       // echo "<td>" ;
       //   if ($row['status'] == 0) {
@@ -204,27 +204,34 @@
 
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >เพิ่มข้อมูลสถานประกอบการใหม่</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder="ชื้อ สถานประกอบการ">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder="ชื่อสถานประกอบการ">
   </div>
-  <div class="form-group"  style="width: 600px">
-  สาขา<select name="txtc_major" class="form-control">
+  <!-- <div class="form-group"  style="width: 600px">
+  สาขา<select name="" class="form-control">
     <option value="cen">cen</option>
     <option value="cpe">คอมพิวเตอร์</option>
     <option value="che">เคมี</option>
-    <option value="env">env</option>
+    <option value="env">สิ่งแวดล้อม</option>
     <option value="aen">aen</option>
     <option value="een">een</option>
     <option value="ien">ien</option>
     <option value="men">men</option>
     </select>
-  </div>
+  </div> -->
+
+  
+
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3"></textarea>
   </div>
   <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_detail" rows="3"  style="height: 300px"></textarea>
+    <label for="exampleFormControlTextarea1" >ข้อมูลเพิ่มเติม</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_detail" rows="4"  style="height: 300px"></textarea>
+  </div>
+  <div class="form-group"  style="width: 600px">
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 0px " >เบอร์โทรติดต่อ</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_tel" placeholder="เบอร์โทรติดต่อ">
   </div>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
 </form>

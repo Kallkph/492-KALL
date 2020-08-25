@@ -17,9 +17,9 @@
     $sql = "SELECT DISTINCT * 
             From users 
             inner join requestcompany 
-            on users.id = requestcompany.r_id 
+            on users.id = requestcompany.r_sid 
             inner join grade
-            on requestcompany.r_id = grade.g_id
+            on requestcompany.r_sid = grade.g_id
             WHERE users.id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
@@ -159,7 +159,7 @@
             เรื่อง
           </div>
           <div class="form-group col-md-4">
-            ขอส่งตัวนักศึกษาเข้ารับการฝึกงาน
+            ขอความอนุเคราะห์พิจารณานักศึกษาเข้าฝึกงาน
           </div>
           
         </div>
@@ -192,7 +192,7 @@
         <div class="form-group col-md-1">
         </div>
           <div class="form-group";>
-          วันที่   1  มิถุนายน  – 31  กรกฎาคม  2563  การฝึกงานถือเป็นวิชาหนึ่งในหลักสูตรของวิทยาลัยฯ ฯ   เพื่อเปิดโอกาสให้นักศึกษา หาประสบการณ์และทักษะในการทำงาน เตรียมตัวที่จะเป็นวิศวกร
+          วันที่   1  มิถุนายน  – 31  กรกฎาคม  2563  การฝึกงานถือเป็นวิชาหนึ่งในหลักสูตรของวิทยาลัยฯ    เพื่อเปิดโอกาสให้นักศึกษา หาประสบการณ์และทักษะในการทำงาน เตรียมตัวที่จะเป็นวิศวกร
           </div>
         </div>
         <div class="form-row">
@@ -258,6 +258,41 @@
               </div>
               <div class="form-group" style='margin-right:30px;'>
               ภาควิชา 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+               <?php 
+              //  echo $row['major']; 
+                  $major = $row['major'];
+                  switch ($major) {
+                    case "cen":
+                      $majorName = 'วิศวกรรมโยธา';
+                      break;
+                    case "che":
+                      $majorName = 'วิศวกรรมเคมี';
+                      break;
+                    case "env":
+                      $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+                      break;
+                    case "aen":
+                      $majorName = 'วิศวกรรมยานยนต์';
+                      break;
+                    case "een":
+                      $majorName = 'วิศวกรรมไฟฟ้า';
+                      break;
+                    case "ien":
+                      $majorName = 'วิศวกรรมอุตสาหการ';
+                      break;
+                    case "men":
+                      $majorName = 'วิศวกรรมเครื่องกล';
+                      break;
+                    case "cpe":
+                      $majorName = 'วิศวกรรมคอมพิวเตอร์';
+                      break;
+                    default:
+                    $majorName = 0;
+                  }
+                  echo  $majorName;
+               ?>
               </div>
         </div>
         

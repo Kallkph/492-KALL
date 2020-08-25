@@ -14,7 +14,7 @@
   }
   
   include('../../configure/connect.php');
-  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id";
+  $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid";
   // $result = mysqli_query($con, $sql);
   $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -106,7 +106,7 @@
     echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
     echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
     echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
-    echo "<a href='/wedpage/admin/adminpage-intern-by-year.php' class='list-group-item list-group-item-action list-group-item-light'>รายชื่อผู้เข้าฝึงงานประจำปี</a>";
+    echo "<a href='/wedpage/admin/adminpage-intern-by-year.php' class='list-group-item list-group-item-action list-group-item-light'>รายชื่อผู้เข้าฝึกงานประจำปี</a>";
     echo "<a href='adminpage-News.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลข่าวสาร</a>";
     echo "<a href='../../scr/Doc/travel.pdf' class='list-group-item list-group-item-action list-group-item-light'>ดาวน์โหลดเอกสารออกนิเทศ</a>";
     
@@ -148,7 +148,7 @@
   <?php while($row = $result->fetch_assoc()){
     if (($row['r_major'] != "0") && ($_SESSION['major'] == $row['r_major'])) {
     echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['r_sid'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
       echo "<td>" . $row['r_major'] . "</td>";
       echo "<td>" ;
@@ -171,7 +171,7 @@
     "</tr>";
     } else if ($_SESSION['major'] == "0") {
       echo "<tr>" ;
-      echo "<td>" . $row['r_id'] . "</td>"; 
+      echo "<td>" . $row['r_sid'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
       echo "<td>" . $row['r_major'] . "</td>";
       echo "<td>" ;
@@ -181,8 +181,16 @@
         echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
          } else if ($row['status'] == 2) {
         echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+        } else if ($row['status'] == 3) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+        } else if ($row['status'] == 4) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 5) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 6) {
+          echo "<button type='button' class='btn btn-warning'>" . 'กำลังฝึกงาน' . "</button>";
          } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+        echo "<button type='button' class='btn btn-danger'>" . 'ฝึกงานสำเร็จ' . "</button>";
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }
@@ -191,7 +199,7 @@
          echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
          
          if ($row['status'] == 1) {
-          echo "<a href='adminpage-print-mailofher.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>หนังสือขอความอนุเคราะห์</a>";
+          echo "<a href='adminpage-print.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>หนังสือส่งตัว</a>";
           }
       "</td>";
     "</tr>";

@@ -14,7 +14,7 @@
 
   if($_GET['id']){
     include('../../configure/connect.php');
-    $sql = "SELECT * FROM users WHERE id = ?";
+    $sql = "SELECT * FROM advisor WHERE a_id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
       mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -27,7 +27,7 @@
         if(mysqli_num_rows($result) == 1) {
           $row = mysqli_fetch_assoc($result);
 
-          $name = $row['id'];
+          $name = $row['a_id'];
 
           // print_r($row);
         } else {
@@ -124,22 +124,23 @@
         </div>
         <div class="form-row">
             <form action="../../process/editUserProfile_db.php" method="post">
-                        คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['name_titles']?>'>
-                          ชื่อ : <input type="text" name="txt_fname" id="txt_fname" value='<?php echo $row['f_name']?>' >
+                        คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['a_t_position']?>'>
+                          ชื่อ : <input type="text" name="txt_fname" id="txt_fname" value='<?php echo $row['a_f_name']?>' >
                         <br> 
-                        นามสกุล: <input type="text" name="txt_lname" id="txt_lname"  value='<?php echo $row['l_name']?>'>
+                        นามสกุล: <input type="text" name="txt_lname" id="txt_lname"  value='<?php echo $row['a_l_name']?>'>
                         <br>
-                        รหัสนักศึกษา : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}"  value='<?php echo $row['id']?>'>
+                        รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}"  value='<?php echo $row['a_id']?>'>
                         <br>
-                        เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"  value='<?php echo $row['tel']?>'> 
+                        เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"  value='<?php echo $row['a_tel']?>'> 
                         <br>
-                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"  value='<?php echo $row['email']?>'> 
+                        E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"  value='<?php echo $row['a_email']?>'> 
                         <br>
-                        สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th"  value='<?php echo $row['major']?>'> 
+                        สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th"  value='<?php echo $row['a_major']?>'> 
                           <br>
-                         <?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
+                        <!-- ?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='ระหัสผ่านอาจารย์'  value=$row[password]>" ; }?>  -->
+                        รหัสผ่าน : <input type="password" class="form-control" id="password" name="password" placeholder="ระหัสผ่านใหม่"  value='<?php echo $row['a_password']?>'>
                           <br>
-                          <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
+                          <button type="submit" class="btn btn-light" id="btn_submit" name="regAdmin" value="Save...">บันทึก</button>
               </form>
               </div>
       </div>

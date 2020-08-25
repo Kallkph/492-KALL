@@ -10,16 +10,16 @@
 if(isset($_POST['reg'])){
   $data = array(
     "c_name" => $_POST["txtc_name"],
-    "c_major" => $_POST["txtc_major"],
     "c_address" => $_POST["txtc_address"],
     "c_detail" => $_POST["txtc_detail"],
+    "c_tel" => $_POST["txtc_tel"],
   );
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO company (c_id, c_name, c_major, c_address, c_detail) 	
+      $sql =" INSERT INTO company (c_id, c_name, c_address, c_detail, c_tel) 	
       VALUES
-      (?, ?, ? ,? , ?)
+      (?, ? ,? , ?, ?)
       ";
 
       $qr = $con->prepare($sql);
@@ -30,7 +30,7 @@ if(isset($_POST['reg'])){
 
       $uuid = generateRandomString(); 
 
-    $qr->bind_param("sssss",$uuid , $data["c_name"], $data["c_major"], $data["c_address"], $data["c_detail"]);
+    $qr->bind_param("sssss",$uuid , $data["c_name"], $data["c_address"], $data["c_detail"], $data["c_tel"]);
     $qr->execute();
 
   

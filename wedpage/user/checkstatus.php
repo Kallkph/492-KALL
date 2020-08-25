@@ -11,7 +11,7 @@
 
   ///Get Status
   if (isset($_SESSION['id'])){
-    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_id AND users.id = '$_SESSION[id]'";
+    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid AND users.id = '$_SESSION[id]'";
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
     $userdata = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
@@ -171,6 +171,20 @@
                   </figure>
                   <div style="margin-left: 330px;">
                     <a class="btn btn-success" href="request-company.php" role="button">ยื่นเรื่องฝึกงาน</a>
+                  </div>
+                <?php } else if ($_SESSION['status'] == 4) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_edit_grade.jpg" width="100%">
+                  </figure>
+                  <div style="margin-left: 330px;">
+                    <a class="btn btn-success" href="infograde.php" role="button">แก้ไขผลการเรียน</a>
+                  </div>
+                <?php } else if ($_SESSION['status'] == 5) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_edit_c.jpg" width="100%">
+                  </figure>
+                  <div style="margin-left: 230px;">
+                    <a class="btn btn-success" href="request-company-edit.php" role="button">แก้ไขข้อมูลติดต่อผู้ดูแลฝึกงาน ณ สถานประกอบการ</a>
                   </div>
                 <?php } else {?>
                   <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>

@@ -145,7 +145,7 @@
   <tbody>
  
   <?php while($row = $result->fetch_assoc()){
-    // if (($row['c_major'] != "0") && ($_SESSION['major'] == $row['c_major'])) {
+    // if (
     // echo "<tr>" ;
     //   echo "<td>" . $row['c_id'] . "</td>"; 
     //   echo "<td>" . $row['c_name'] ." ". $row['l_name'] . "</td>"; 

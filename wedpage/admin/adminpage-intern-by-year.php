@@ -42,7 +42,7 @@
       "txt_year" => $_POST["year"]
     );
     $query = $data['txt_year']; 
-    $sql2 = "SELECT DISTINCT* From users inner join requestcompany on users.id = requestcompany.r_id WHERE r_yearnow = '$query'";
+    $sql2 = "SELECT DISTINCT* From users inner join requestcompany on users.id = requestcompany.r_sid WHERE r_yearnow = '$query'";
     $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
     print_r($result2);
     // while($rows = $result2->fetch_assoc()){
@@ -151,7 +151,7 @@
                 
                 <div class="card2fortable">
                   
-                ดูข้อมูล ผู้เข้าฝึงงานประจำปี
+                ดูข้อมูล ผู้เข้าฝึกงานประจำปี
                
 <form action="/wedpage/admin/adminpage-intern-by-year.php" method="post">
 
@@ -193,7 +193,7 @@
     <?php while($rows = $result2->fetch_assoc()){
       // print_r($rows);
     echo "<tr>" ;
-      echo "<td>" . $rows['r_id'] . "</td>"; 
+      echo "<td>" . $rows['r_sid'] . "</td>"; 
       echo "<td>" . $rows['f_name'] ." ". $rows['l_name'] . "</td>"; 
       echo "<td>" . $rows['r_major'] . "</td>";
       echo "<td>" . $rows['r_startTime'] . "</td>";

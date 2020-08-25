@@ -17,9 +17,9 @@
     $sql = "SELECT DISTINCT * 
             From users 
             inner join requestcompany 
-            on users.id = requestcompany.r_id 
+            on users.id = requestcompany.r_sid 
             inner join grade
-            on requestcompany.r_id = grade.g_id
+            on requestcompany.r_sid = grade.g_id
             WHERE users.id = ?";
 
     if($stmt = mysqli_prepare($con, $sql)) {
@@ -187,7 +187,7 @@
         <div class="form-group col-md-1">
         </div>
           <div class="form-group";>
-            เข้าฝึกงานนั้น ทางวิทยาลัยวิศวกรรมศาสตร์ ขอส่งตัวนักศึกษาเข้าฝึกงานกับหน่วยงาน ของท่าน ตั่งแต่วันที่
+            เข้าฝึกงานนั้น ทางวิทยาลัยวิศวกรรมศาสตร์ ขอส่งตัวนักศึกษาเข้าฝึกงานกับหน่วยงาน ของท่าน ตั้งแต่วันที่
           </div>
         </div>
         <div class="form-row">
@@ -239,6 +239,41 @@
               </div>
               <div class="form-group" style='margin-right:30px;'>
               ภาควิชา 
+              </div>
+              <div class="form-group" style='margin-right:30px;'>
+               <?php 
+              //  echo $row['major']; 
+                  $major = $row['major'];
+                  switch ($major) {
+                    case "cen":
+                      $majorName = 'วิศวกรรมโยธา';
+                      break;
+                    case "che":
+                      $majorName = 'วิศวกรรมเคมี';
+                      break;
+                    case "env":
+                      $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+                      break;
+                    case "aen":
+                      $majorName = 'วิศวกรรมยานยนต์';
+                      break;
+                    case "een":
+                      $majorName = 'วิศวกรรมไฟฟ้า';
+                      break;
+                    case "ien":
+                      $majorName = 'วิศวกรรมอุตสาหการ';
+                      break;
+                    case "men":
+                      $majorName = 'วิศวกรรมเครื่องกล';
+                      break;
+                    case "cpe":
+                      $majorName = 'วิศวกรรมคอมพิวเตอร์';
+                      break;
+                    default:
+                    $majorName = 0;
+                  }
+                  echo  $majorName;
+               ?>
               </div>
         </div>
         

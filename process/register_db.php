@@ -100,9 +100,9 @@ if(isset($_POST['reg'])){
   } else if((!count($errors) == 0)){
     echo $errors;
     print_r($errors);
-      $statusMsg = "else";
+    $statusMsg = "  รหัสนักศึกษานี้ถูกใช้ไปแล้ว กรุณาตรววจสอบอีกครั้ง";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/register.php';</script>";
   }
 }
 }else if(isset($_POST['regadmin'])){
@@ -114,8 +114,7 @@ if(isset($_POST['reg'])){
     "txt_mail" => $_POST["txt_mail"],
     "txt_tel" => $_POST["txt_tel"],
     "major" => $_POST["major"],
-    "type" => "admin",
-    "course" =>'',
+    "type" => 'admin',
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );
@@ -147,7 +146,7 @@ if(isset($_POST['reg'])){
 
     echo 'txtId >>>';
     echo $data['txt_id'];
-        $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] ";
+        $user_check_query = "SELECT * FROM advisor WHERE a_id = $data[txt_id] ";
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         // echo('qwe');4
@@ -157,7 +156,7 @@ if(isset($_POST['reg'])){
 
         if($result){
           echo ($result);
-          if($result['id'] === $data['txt_id']){
+          if($result['a_id'] === $data['txt_id']){
             array_push($errors, "Username already exists or email");
             echo 'มี id นี้ในระบบแล้ว';
           }
@@ -176,9 +175,10 @@ if(isset($_POST['reg'])){
     
     if (count($errors) == 0) {
       echo 'error = 0';
-      $sql =" INSERT INTO users (id, name_titles, f_name, l_name, email, major, tel, type, course, password)
+      
+      $sql =" INSERT INTO advisor (a_id, a_t_position, a_f_name, a_l_name, a_email, a_tel, a_major, a_type, a_password)
       VALUES
-      (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      (?, ?, ?, ?, ?, ?, ?, ?, ?)
       ";
 
       $qr = $con->prepare($sql);
@@ -186,7 +186,7 @@ if(isset($_POST['reg'])){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
 
-    $qr->bind_param("ssssssssss", $data["txt_id"], $data["name_titles"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"],  $data["txt_tel"], $data["type"], $data["course"], $data["txt_pwd"]);
+    $qr->bind_param("sssssssss", $data["txt_id"], $data["name_titles"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["txt_tel"], $data["major"], $data["type"], $data["txt_pwd"]);
     $qr->execute();
 
   
@@ -198,9 +198,9 @@ if(isset($_POST['reg'])){
   } else if((!count($errors) == 0)){
     echo $errors;
     print_r($errors);
-      $statusMsg = "else";
+      $statusMsg = "รหัสนี้มีการใช้งานแล้ว";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>";
   }
 }
 }

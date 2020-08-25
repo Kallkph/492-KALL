@@ -79,7 +79,7 @@ if (isset($_POST['login_user'])) {
 
   // if (count($errors == 0)) {
 
-    $query = "SELECT * FROM users WHERE id = '$id' AND password = '$password' ";
+    $query = "SELECT * FROM advisor WHERE a_id = '$id' AND a_password = '$password' ";
     $result = mysqli_query($con, $query);
     $userdata = mysqli_fetch_assoc($result);
 
@@ -87,36 +87,36 @@ if (isset($_POST['login_user'])) {
 
 
     if (mysqli_num_rows($result) == 1) {
-      switch ($userdata['type']) {
-        case 'user':
-          $_SESSION['id'] = $id;
-          $_SESSION['success'] = "Your are now login";
-          print_r($userdata);
-          $_SESSION['f_name'] = $userdata['f_name'];
-          $_SESSION['l_name'] = $userdata['l_name'];
-          $_SESSION['major'] = $userdata['major'];
-          $_SESSION['type'] = $userdata['type'];
-          $_SESSION['course'] = $userdata['course'];
-          $_SESSION['status'] = $userdata['status'];
+      // switch ($userdata['a_type']) {
+        // case 'user':
+        //   $_SESSION['id'] = $id;
+        //   $_SESSION['success'] = "Your are now login";
+        //   print_r($userdata);
+        //   $_SESSION['f_name'] = $userdata['f_name'];
+        //   $_SESSION['l_name'] = $userdata['l_name'];
+        //   $_SESSION['major'] = $userdata['major'];
+        //   $_SESSION['type'] = $userdata['type'];
+        //   $_SESSION['course'] = $userdata['course'];
+        //   $_SESSION['status'] = $userdata['status'];
 
-          if ($_SESSION['status'] == 0) {
-            header("location: ../wedpage/user/infograde.php");
-          } else {
-            header("location: ../wedpage/user/checkstatus.php");
-          }
+        //   if ($_SESSION['status'] == 0) {
+        //     header("location: ../wedpage/user/infograde.php");
+        //   } else {
+        //     header("location: ../wedpage/user/checkstatus.php");
+        //   }
 
-          break;
+        //   break;
   
-        case 'admin':
+        // case 'admin':
           $_SESSION['success'] = "Your are now login";
           $_SESSION['id'] = $id;
-          $_SESSION['f_name'] = $userdata['f_name'];
-          $_SESSION['major'] = $userdata['major'];
-          $_SESSION['type'] = $userdata['type'];
+          $_SESSION['f_name'] = $userdata['a_f_name'];
+          $_SESSION['major'] = $userdata['a_major'];
+          $_SESSION['type'] = $userdata['a_type'];
           header("location: ../wedpage/admin/adminpage.php");
-          break;
+          // break;
 
-      }
+      // }
         // case label3:
         //   code to be executed if n=label3;
         //   break;

@@ -130,7 +130,7 @@
                           <option value="cen">วิศวกรรมโยธา</option>
                           <option value="cpe">วิศวกรรมคอมพิวเตอร์</option>
                           <option value="che">วิศวกรรมเคมี</option>
-                          <option value="อุตสาหการ">วิศวกรรมอุตสาหการ</option>
+                          <option value="ien">วิศวกรรมอุตสาหการ</option>
                           <option value="env">วิศวกรรมสิ่งแวดล้อม</option>
                           <option value="aen">วิศวกรรมยานยนต์</option>
                           <option value="een">วิศวกรรมไฟฟ้า</option>

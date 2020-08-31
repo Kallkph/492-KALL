@@ -65,8 +65,8 @@
                 <div class="card1">
                         <!-- Login Form -->
                         <form action="../../process/login_db.php" method="post">
-        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
-        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID">
+        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password">
         
         <dev class="card1leftcolumn">
         <button type="submit" class="btn btn-primary" name = "login_admin">Login</button>

@@ -180,7 +180,7 @@
         } else if ($row['status'] == 1) {
         echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
          } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+        echo "<button type='button' class='btn btn-light'>" . 'รอการตรวจสอบ' . "</button>";
         } else if ($row['status'] == 3) {
           echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
         } else if ($row['status'] == 4) {
@@ -191,6 +191,10 @@
           echo "<button type='button' class='btn btn-warning'>" . 'กำลังฝึกงาน' . "</button>";
          } else if ($row['status'] == 7) {
         echo "<button type='button' class='btn btn-danger'>" . 'ฝึกงานสำเร็จ' . "</button>";
+      } else if ($row['status'] == 8) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์ใบขอความอนุเคราะห์แล้ว' . "</button>";
+      } else if ($row['status'] == 9) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์หนังสือส่งตัวแล้ว' . "</button>";
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }
@@ -198,7 +202,7 @@
       echo "<td>";
          echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
          
-         if ($row['status'] == 1) {
+         if ($row['status'] == 1 || $row['status'] == 8) {
           echo "<a href='adminpage-print.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>หนังสือส่งตัว</a>";
           }
       "</td>";

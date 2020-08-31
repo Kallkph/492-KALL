@@ -83,7 +83,7 @@
       </form>       
                 </div>
   <?php else : ;?>
-    <div class="card3">
+    <div class="card3" style="height:400px;">
     <a href="pageuser.php">
     <img src="../../scr/img/profile.jpg" width="50%">
 </a>

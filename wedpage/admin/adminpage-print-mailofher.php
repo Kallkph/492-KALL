@@ -338,7 +338,7 @@
               </div>
               <div class="form-group col-md-2" style='margin-right:60px;'>
               <div style='margin-right:60px;'>
-        จึงเรียนมาเพื่อโปรดทราบ
+    
         </div>
               </div>
               </div>
@@ -617,8 +617,11 @@
       }
       ?> -->
       <!-- <button type='submit' class='btn btn-warning' name='update-status' value='onFix' @click="window.print()" >  พิมพ์ </button> -->
-      <input type="button" value="Print" style='margin-top:100px;'
-               onclick="window.print()" id="print-btn"/> 
+      <form action="../../process/admin-update-status_db.php" method="post">
+      <?php echo  "<input type='hidden' id='txt_id' name='id' value='$row[id]'>";
+            echo  "<input type='hidden' id='txt_id' name='_id' value='$_SESSION[id]'>";?>
+      <input button type='submit' class='btn btn-warning' name='update-status' value='print1' style='margin-top:100px;'/> 
+      </form>
     </div>
   </body>
 </html>

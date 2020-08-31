@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="/wedpage/afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="../Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="about.php">ติดต่อเรา</a>
                        
@@ -137,10 +137,10 @@
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     </ol>
                     <div class="carousel-inner">
-                    <img src="../../scr/img/about.png" class="d-block w-100" alt="...">
-                      <div class="carousel-item">
+                    <img src="../../scr/img/about2.jpg" class="d-block w-100" alt="...">
+                      <!-- <div class="carousel-item">
                         <img src="../../scr/img/1.png" class="d-block w-100" alt="...">
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

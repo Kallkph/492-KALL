@@ -297,7 +297,7 @@
                           <br>
                         หน่วยกิตขั้นต่ำที่จำเป็นต้องถึงก่อน : <input type="text" id="course" name="course" placeholder="@rsu.ac.th"  value='<?php echo $row['course']?>'> 
                           <br>
-                          <?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
+                          <?php if ($_SESSION['major'] == 0) {echo "รหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='@rsu.ac.th'  value='$row[password]'>" ; }?> 
                           <br>
                           <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
               </form>
@@ -328,7 +328,7 @@
             echo  "<button type='submit' class='btn btn-danger' name='update-status' value='false' > ไม่อนุมัติ </button>";
             echo "</div>";
             echo "<div class='form-group col-md-4'>";
-            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFix' >  ให้กลับไปแก้เขข้อมูล </button>";
+            echo  "<button type='submit' class='btn btn-warning' name='update-status' value='onFix' >  ให้กลับไปแก้ไขข้อมูล </button>";
             echo "</div>";
             // }
 

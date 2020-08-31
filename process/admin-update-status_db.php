@@ -49,4 +49,22 @@ if ($_POST['update-status'] == 'onFixc') {
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
 }
 
+if ($_POST['update-status'] == 'print1') {
+    echo "onFix";
+    $sql = "UPDATE users SET
+    status = 8
+    WHERE id = $_POST[id] ";
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+    header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
+}
+
+if ($_POST['update-status'] == 'print2') {
+    echo "onFix";
+    $sql = "UPDATE users SET
+    status = 9
+    WHERE id = $_POST[id] ";
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+    header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
+}
+
 ?>

@@ -127,15 +127,15 @@
                         E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> 
                         <br>
                         สาขา<select name="major" class="form-control">
-                          <option value="cen">cen</option>
-                          <option value="cpe">คอมพิวเตอร์</option>
-                          <option value="che">เคมี</option>
-                          <option value="อุตสาหการ">อุตสาหการ</option>
-                          <option value="env">env</option>
-                          <option value="aen">aen</option>
-                          <option value="een">een</option>
-                          <option value="ien">ien</option>
-                          <option value="men">men</option>
+                          <option value="cen">วิศวกรรมโยธา</option>
+                          <option value="cpe">วิศวกรรมคอมพิวเตอร์</option>
+                          <option value="che">วิศวกรรมเคมี</option>
+                          <option value="อุตสาหการ">วิศวกรรมอุตสาหการ</option>
+                          <option value="env">วิศวกรรมสิ่งแวดล้อม</option>
+                          <option value="aen">วิศวกรรมยานยนต์</option>
+                          <option value="een">วิศวกรรมไฟฟ้า</option>
+                          <option value="ien">วิศวกรรมอุตสาหการ</option>
+                          <option value="men">วิศวกรรมเครื่องกล</option>
                           </select><br>
                           <br>
                         หลักสูตร<select name="course" class="form-control">

@@ -60,7 +60,6 @@
                     <div class="navbar-nav">
                     <a class="nav-item nav-link" href="../afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
                         
@@ -92,7 +91,7 @@
       </form>       
                 </div>
   <?php else : ;?>
-    <div class="card3">
+    <div class="card3" style="height:400px;">
     <a href="pageuser.php">
     <img src="../../scr/img/profile.jpg" width="50%">
 </a>

@@ -14,7 +14,7 @@
 
 
   // test
-  // $major = 'che';
+  // $major = 'env';
   
   // true
   $major = $_SESSION['major'];

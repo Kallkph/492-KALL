@@ -235,20 +235,18 @@ Search:
   <form action="../../process/editCompany_db.php" method="post" style="margin-left:90px">
 
   <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >แก้ไขข้อมูลสถานประกอบการใหม่</label>
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " ></label>
     <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
-    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
+     ข้อมูลสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
   </div>
-  <div class="form-group"  style="width: 600px">
-  สาขา : <input type="text" id="" name="" value='<?php echo $row['']?>'> 
-  </div>
+
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
     <input type="text" id="txtc_address" name="txtc_address" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
     <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
   </div>
   <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
+    <label for="exampleFormControlTextarea1" >ข้อมูลเพิ่มเติม</label>
     <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
   </div>
   <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>

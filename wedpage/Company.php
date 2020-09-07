@@ -205,7 +205,7 @@ Search:
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
       <th scope="col" style="width:300px;">ชื่อ</th>
-      <th scope="col"  style="width:60px;">สาขา</th>
+      <th scope="col"  style="width:60px;"></th>
       <th scope="col"  style="width:280px;">ที่อยู่</th>
       <th scope="col"  ></th>
     </tr>

@@ -139,7 +139,7 @@
                
                 <form action="/wedpage/user/request-company.php" method="post">
                   <div class="form-group"  style="width: 600px">
-                    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >กรอกชื่อสถานประกอบการเพื่อสือค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
+                    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >กรอกชื่อสถานประกอบการเพื่อค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
                     <div class="form-group row">
                     <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
                     <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
@@ -158,7 +158,7 @@
     <!-- <input type="text" class="form-control" id="major" name="major" value=' ?php echo $_SESSION['major']?>'> -->
         <input type="text" class="form-control" id="txt_r_company" name="txt_r_company" value='<?php echo $rows['c_name']?>'>
 
-    <label for="inputEmail4">กรอก ตำแหน่งหรือชื่อบุคคคล และ เบอร์โทรที่ติดต่อได้</label>
+    <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคคลและเบอร์โทรที่ติดต่อได้</label>
         <input type="text" class="form-control" id="txt_r_about" name="txt_r_about" value='<?php echo $rows['c_detail']?>'>
 
       <div class="form-group" style="width: 600px">
@@ -169,7 +169,7 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       เบอร์โทรศัพท์
-      <input type="text" id="txtc_address" name="txt_r_address" style="height:"  value='<?php echo $rows['c_tel']?>'> 
+      <input type="text" id="txtc_address" name="txt_r_tel" style="height:"  value='<?php echo $rows['c_tel']?>'> 
     </div>
   </div>
   <div class="form-row">

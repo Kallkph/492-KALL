@@ -90,7 +90,41 @@
       ?>
       </p>
       สาขา
-      <p><?php echo $_SESSION['major'];?></p>
+      <p>
+       <!-- ?php echo $_SESSION['major'];?> -->
+       <?php 
+                  $major = $_SESSION['major'];
+                  ;
+                  switch ($major) {
+                    case "cen":
+                      $majorName = 'วิศวกรรมโยธา';
+                      break;
+                    case "che":
+                      $majorName = 'วิศวกรรมเคมี';
+                      break;
+                    case "env":
+                      $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+                      break;
+                    case "aen":
+                      $majorName = 'วิศวกรรมยานยนต์';
+                      break;
+                    case "een":
+                      $majorName = 'วิศวกรรมไฟฟ้า';
+                      break;
+                    case "ien":
+                      $majorName = 'วิศวกรรมอุตสาหการ';
+                      break;
+                    case "men":
+                      $majorName = 'วิศวกรรมเครื่องกล';
+                      break;
+                    case "cpe":
+                      $majorName = 'วิศวกรรมคอมพิวเตอร์';
+                      break;
+                    default:
+                    $majorName = 0;
+                  }
+                  echo  $majorName;
+               ?>
   </div>
 
    <?php endif ?>

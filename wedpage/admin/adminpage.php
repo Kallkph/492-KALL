@@ -166,8 +166,8 @@
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" width="40%">รหัสนักศึกษา</th>
-      <th scope="col" >ชื่อ</th>
+      <th scope="col" width="20%">รหัสนักศึกษา</th>
+      <th scope="col" width="20%">ชื่อ</th>
       <th scope="col"  width="40%">สาขา</th>
       <th scope="col"  width="30%">สถานะ</th>
       <th scope="col"  width="30%"></th>
@@ -181,7 +181,39 @@
     echo "<tr>" ;
       echo "<td>" . $row['r_sid'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+      $major = $row['r_major'];
+      switch ($major) {
+        case "cen":
+          $majorName = 'วิศวกรรมโยธา';
+          break;
+        case "che":
+          $majorName = 'วิศวกรรมเคมี';
+          break;
+        case "env":
+          $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+          break;
+        case "aen":
+          $majorName = 'วิศวกรรมยานยนต์';
+          break;
+        case "een":
+          $majorName = 'วิศวกรรมไฟฟ้า';
+          break;
+        case "ien":
+          $majorName = 'วิศวกรรมอุตสาหการ';
+          break;
+        case "men":
+          $majorName = 'วิศวกรรมเครื่องกล';
+          break;
+        case "cpe":
+          $majorName = 'วิศวกรรมคอมพิวเตอร์';
+          break;
+        default:
+        $majorName = 0;
+      }
+      // echo  $majorName;
+
+
+      echo "<td>" . $majorName . "</td>";
       echo "<td>" ;
         if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
@@ -204,7 +236,38 @@
       echo "<tr>" ;
       echo "<td>" . $row['r_sid'] . "</td>"; 
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['r_major'] . "</td>";
+
+      $major = $row['r_major'];
+      switch ($major) {
+        case "cen":
+          $majorName = 'วิศวกรรมโยธา';
+          break;
+        case "che":
+          $majorName = 'วิศวกรรมเคมี';
+          break;
+        case "env":
+          $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+          break;
+        case "aen":
+          $majorName = 'วิศวกรรมยานยนต์';
+          break;
+        case "een":
+          $majorName = 'วิศวกรรมไฟฟ้า';
+          break;
+        case "ien":
+          $majorName = 'วิศวกรรมอุตสาหการ';
+          break;
+        case "men":
+          $majorName = 'วิศวกรรมเครื่องกล';
+          break;
+        case "cpe":
+          $majorName = 'วิศวกรรมคอมพิวเตอร์';
+          break;
+        default:
+        $majorName = 0;
+      }
+
+      echo "<td>" . $majorName . "</td>";
       echo "<td>" ;
         if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 

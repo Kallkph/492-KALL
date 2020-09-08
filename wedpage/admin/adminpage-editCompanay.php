@@ -149,9 +149,9 @@
 <form action="../../process/editCompany_db.php" method="post">
 
   <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >แก้ไขข้อมูลสถานประกอบการใหม่</label>
+    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " ></label>
     <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
-    ชื้อ สถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
+    ชื่อสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
   </div>
   <div class="form-group"  style="width: 600px">
   <!-- สาขา : <input type="text" id="" name="" value='?php echo $row['']?>'>  -->
@@ -173,7 +173,7 @@
   
   <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
   <?php if ($_SESSION['major'] == '0') { ?>
-  <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
+  <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
 <?php } ?>
 </form>
 

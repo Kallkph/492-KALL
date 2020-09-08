@@ -150,14 +150,26 @@
       echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
       echo "<td>" . $row['major'] . "</td>";
       echo "<td>" ;
-        if ($row['status'] == 0) {
+      if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
         } else if ($row['status'] == 1) {
         echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
          } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+        echo "<button type='button' class='btn btn-light'>" . 'รอการตรวจสอบ' . "</button>";
+        } else if ($row['status'] == 3) {
+          echo "<button type='button' class='btn btn-warning'>" . 'บันทึกผลการศึกษาแล้ว' . "</button>";
+        } else if ($row['status'] == 4) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 5) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 6) {
+          echo "<button type='button' class='btn btn-warning'>" . 'กำลังฝึกงาน' . "</button>";
          } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+        echo "<button type='button' class='btn btn-danger'>" . 'ฝึกงานสำเร็จ' . "</button>";
+      } else if ($row['status'] == 8) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์ใบขอความอนุเคราะห์แล้ว' . "</button>";
+      } else if ($row['status'] == 9) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์หนังสือส่งตัวแล้ว' . "</button>";
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }
@@ -170,17 +182,60 @@
     } else if ($_SESSION['major'] == "0" && $row['type'] == 'user') {
       echo "<tr>" ;
       echo "<td>" . $row['id'] . "</td>"; 
-      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>"; 
-      echo "<td>" . $row['major'] . "</td>";
+      echo "<td>" . $row['f_name'] ." ". $row['l_name'] . "</td>";
+      
+      $major = $row['major'];
+      switch ($major) {
+        case "cen":
+          $majorName = 'วิศวกรรมโยธา';
+          break;
+        case "che":
+          $majorName = 'วิศวกรรมเคมี';
+          break;
+        case "env":
+          $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+          break;
+        case "aen":
+          $majorName = 'วิศวกรรมยานยนต์';
+          break;
+        case "een":
+          $majorName = 'วิศวกรรมไฟฟ้า';
+          break;
+        case "ien":
+          $majorName = 'วิศวกรรมอุตสาหการ';
+          break;
+        case "men":
+          $majorName = 'วิศวกรรมเครื่องกล';
+          break;
+        case "cpe":
+          $majorName = 'วิศวกรรมคอมพิวเตอร์';
+          break;
+        default:
+        $majorName = 0;
+      }
+
+      echo "<td>" . $majorName . "</td>";
       echo "<td>" ;
-        if ($row['status'] == 0) {
+      if ($row['status'] == 0) {
         echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
         } else if ($row['status'] == 1) {
         echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
          } else if ($row['status'] == 2) {
-        echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
+        echo "<button type='button' class='btn btn-light'>" . 'รอการตรวจสอบ' . "</button>";
+        } else if ($row['status'] == 3) {
+          echo "<button type='button' class='btn btn-warning'>" . 'บันทึกผลการศึกษาแล้ว' . "</button>";
+        } else if ($row['status'] == 4) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 5) {
+          echo "<button type='button' class='btn btn-warning'>" . 'รอการแก้ไขข้อมูล' . "</button>";
+        } else if ($row['status'] == 6) {
+          echo "<button type='button' class='btn btn-warning'>" . 'กำลังฝึกงาน' . "</button>";
          } else if ($row['status'] == 7) {
-        echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
+        echo "<button type='button' class='btn btn-danger'>" . 'ฝึกงานสำเร็จ' . "</button>";
+      } else if ($row['status'] == 8) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์ใบขอความอนุเคราะห์แล้ว' . "</button>";
+      } else if ($row['status'] == 9) {
+        echo "<button type='button' class='btn btn-success'>" . 'พิมพ์หนังสือส่งตัวแล้ว' . "</button>";
          } else {
         echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
          }

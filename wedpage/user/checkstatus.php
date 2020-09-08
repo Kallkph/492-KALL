@@ -218,7 +218,7 @@
                   <img src="../../scr/img/status_edit_c.jpg" width="100%">
                   </figure>
                   <div style="margin-left: 230px;">
-                    <a class="btn btn-success" href="request-company-edit.php" role="button">แก้ไขข้อมูลติดต่อผู้ดูแลฝึกงาน ณ สถานประกอบการ</a>
+                    <a class="btn btn-success" href="request-company-edit.php" role="button">แก้ไขข้อมูลติดต่อผู้ดูแลฝึกงานของสถานประกอบการ</a>
                   </div>
                 <?php } else {?>
                   <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>

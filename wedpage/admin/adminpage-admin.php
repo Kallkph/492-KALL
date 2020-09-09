@@ -198,7 +198,7 @@
   </tbody>
 </table>
 <h> เพิ่มข้อมูลอาจารย์ </h>
-                      <form action="../../process/register_db.php" method="post">
+                      <form action="../../process/register_db.php" method="post" style="width: 600px">
                         <?php include('../errors.php'); ?>
                         <?php if (isset($_SESSION['error'])) : ?>
                             <div class="error">

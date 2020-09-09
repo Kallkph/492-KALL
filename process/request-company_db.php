@@ -82,6 +82,9 @@ if(isset($_POST['r_submit'])){
       echo "else";
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
   }
+
+} else if($_POST['rc_edit']) {
+  echo "8adfl;m";
 } else {
   $data = array(
         

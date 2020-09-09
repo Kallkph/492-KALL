@@ -12,9 +12,9 @@
     header('location: index.php');
   }
 
-  if ($_SESSION['status'] != 5) {
-    header('location: checkstatus.php');
-  }
+  // if ($_SESSION['status'] != 5) {
+  //   header('location: checkstatus.php');
+  // }
   
   if(isset($_POST['query'])){
     $data = array(
@@ -26,7 +26,7 @@
   if ($result2) {
     $fetresult2 = true;
   }
-  print_r($result2);
+  // print_r($result2);
   } else {
     $fetresult2 = false;
   }
@@ -137,7 +137,7 @@
                 หน้าแก้ไขข้อมูลผู้ดูแลฝึกงาน
                 
                
-                <form action="/wedpage/user/request-company.php" method="post">
+                <form action="/wedpage/user/request-company-edit.php" method="post">
                   <div class="form-group"  style="width: 600px">
                     <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >กรอกชื่อสถานประกอบการเพื่อสือค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
                     <div class="form-group row">

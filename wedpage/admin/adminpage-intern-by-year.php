@@ -177,9 +177,9 @@
   <thead class="thead-dark">
     <tr>
       <!-- <th scope="col">ลำดับ</th> -->
-      <th scope="col" width="20%">รหัสนักศึกษา</th>
+      <th scope="col" width="10%">รหัสนักศึกษา</th>
       <th scope="col" width="11%">ชื่อ</th>
-      <th scope="col"  width="10%">สาขา</th>
+      <th scope="col"  width="20%">สาขา</th>
       <th scope="col"  width="30%">เริ่มฝึกเมื่อ</th>
       <th scope="col"  width="30%">สิ้นสุดการฝึก</th>
       <th scope="col"  width="30%">สถานะ</th>
@@ -195,7 +195,37 @@
     echo "<tr>" ;
       echo "<td>" . $rows['r_sid'] . "</td>"; 
       echo "<td>" . $rows['f_name'] ." ". $rows['l_name'] . "</td>"; 
-      echo "<td>" . $rows['r_major'] . "</td>";
+      $major = $rows['r_major'];
+      switch ($major) {
+        case "cen":
+          $majorName = 'วิศวกรรมโยธา';
+          break;
+        case "che":
+          $majorName = 'วิศวกรรมเคมี';
+          break;
+        case "env":
+          $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+          break;
+        case "aen":
+          $majorName = 'วิศวกรรมยานยนต์';
+          break;
+        case "een":
+          $majorName = 'วิศวกรรมไฟฟ้า';
+          break;
+        case "ien":
+          $majorName = 'วิศวกรรมอุตสาหการ';
+          break;
+        case "men":
+          $majorName = 'วิศวกรรมเครื่องกล';
+          break;
+        case "cpe":
+          $majorName = 'วิศวกรรมคอมพิวเตอร์';
+          break;
+        default:
+        $majorName = 0;
+      }
+      // echo  $majorName;
+      echo "<td>" . $majorName . "</td>";
       echo "<td>" . $rows['r_startTime'] . "</td>";
       echo "<td>" . $rows['r_endTime'] . "</td>";
       echo "<td>" ;

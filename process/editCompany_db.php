@@ -31,13 +31,11 @@ if(isset($_POST['reg'])){
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>";
 
-    // $qr->close();
   } else if((!count($errors) == 0)){
     echo $errors;
     print_r($errors);
       $statusMsg = "else";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
   }
 }
 }

@@ -44,12 +44,9 @@ if(isset($_POST['reg'])){
     print_r($errors);
       $statusMsg = "else";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
   }
 }
   
-// echo ;
-
 function generateRandomString($length = 8) {
   $characters = '0123456789';
   $charactersLength = strlen($characters);

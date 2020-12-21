@@ -18,8 +18,6 @@ if(isset($_POST['reg'])){
     $major = $_POST["major"],
     $type = "user",
     $course = $_POST["course"],
-    // "txt_pwd" => $_POST["txt_pwd"],
-    // "txt_cpwd" => $_POST["txt_cpwd"]
   );
   if ($_POST["txt_fname"] == "") {
     $statusMsg = "โปรดระบุชื่อจริง";
@@ -47,13 +45,11 @@ if(isset($_POST['reg'])){
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-users.php';</script>";
 
-    // $qr->close();
   } else if((!count($errors) == 0)){
     echo $errors;
     print_r($errors);
       $statusMsg = "else";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
     }
   }
 } else if(isset($_POST['regAdmin'])){
@@ -67,7 +63,6 @@ if(isset($_POST['reg'])){
     $major = $_POST["major"],
     $type = "user",
     $txt_pwd = $_POST["password"],
-    // "txt_cpwd" => $_POST["txt_cpwd"]
   );
   if ($_POST["txt_fname"] == "") {
     $statusMsg = "โปรดระบุชื่อจริง";
@@ -96,13 +91,11 @@ if(isset($_POST['reg'])){
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-users.php';</script>";
 
-    // $qr->close();
   } else if((!count($errors) == 0)){
     echo $errors;
     print_r($errors);
       $statusMsg = "else";
       echo "else";
-      // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
     }
   }
 }

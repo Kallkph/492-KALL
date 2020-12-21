@@ -34,16 +34,6 @@
     if (count($errors) == 0) {
       echo 'error = 0';
       $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1)
-      
-
-                -- g_subject2
-                -- g_term2
-                -- g_year2
-                -- g_gpa2
-                -- g_subject3
-                -- g_term3
-                -- g_year3
-                -- g_gpa3
 
       VALUES
       (?,?,?,?,?,?,?,?,?,?,?)
@@ -85,12 +75,10 @@
         "term" => $_POST["g_term"],
         "yearTerm" => $_POST["g_yearTerm"],
         "creditnow" => $_POST["g_creditnow"],
-         ///////////////////////////////////
         "s1_name" => $_POST["s1_name"],
         "s1_term" => $_POST["s1_term"],
         "s1_year" => $_POST["s1_year"],
         "s1_grade" => $_POST["s1_grade"],
-        ///////////////////////////////////
         "s2_name" => $_POST["s2_name"],
         "s2_term" => $_POST["s2_term"],
         "s2_year" => $_POST["s2_year"],
@@ -109,16 +97,6 @@
         echo 'error = 0';
         $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1, g_subject2, g_term2, g_year2, g_gpa2)
         
-  
-                  -- g_subject2
-                  -- g_term2
-                  -- g_year2
-                  -- g_gpa2
-                  -- g_subject3
-                  -- g_term3
-                  -- g_year3
-                  -- g_gpa3
-  
         VALUES
         (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         ";
@@ -160,17 +138,14 @@
       "term" => $_POST["g_term"],
       "yearTerm" => $_POST["g_yearTerm"],
       "creditnow" => $_POST["g_creditnow"],
-       ///////////////////////////////////
       "s1_name" => $_POST["s1_name"],
       "s1_term" => $_POST["s1_term"],
       "s1_year" => $_POST["s1_year"],
       "s1_grade" => $_POST["s1_grade"],
-      ///////////////////////////////////
       "s2_name" => $_POST["s2_name"],
       "s2_term" => $_POST["s2_term"],
       "s2_year" => $_POST["s2_year"],
       "s2_grade" => $_POST["s2_grade"],
-      ///////////////////////////////////
       "s3_name" => $_POST["s3_name"],
       "s3_term" => $_POST["s3_term"],
       "s3_year" => $_POST["s3_year"],
@@ -228,7 +203,6 @@
   } else {
     print_r($errors);
     echo "else";
-    // echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
   }
 
   function updateStatus($data){

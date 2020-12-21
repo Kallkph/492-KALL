@@ -52,8 +52,6 @@ if(isset($_POST['reg'])){
         $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] ";
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
-        // echo('qwe');4
-       
         print_r($result);
         
 
@@ -67,15 +65,8 @@ if(isset($_POST['reg'])){
               array_push($errors, "Username already exists or email");
             echo 'มี id นี้ในระบบแล้ว';
           }
-          // $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
-          // echo "<script type='text/javascript'>alert('$statusMsg')";
-          // print_r($errors);
-          //   echo ('if (have result(มีอยู่แล้ว))');
-          //   array_push($errors, "Username already exists");
         }
 
-        // print_r($errors);
-    
     if (count($errors) == 0) {
       echo 'error = 0';
       $sql =" INSERT INTO users (id, name_titles, f_name, l_name, email, major, tel, type, course, password)
@@ -149,8 +140,6 @@ if(isset($_POST['reg'])){
         $user_check_query = "SELECT * FROM advisor WHERE a_id = $data[txt_id] ";
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
-        // echo('qwe');4
-       
         print_r($result);
         
 
@@ -164,14 +153,7 @@ if(isset($_POST['reg'])){
               array_push($errors, "Username already exists or email");
             echo 'มี id นี้ในระบบแล้ว';
           }
-          // $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
-          // echo "<script type='text/javascript'>alert('$statusMsg')";
-          // print_r($errors);
-          //   echo ('if (have result(มีอยู่แล้ว))');
-          //   array_push($errors, "Username already exists");
         }
-
-        // print_r($errors);
     
     if (count($errors) == 0) {
       echo 'error = 0';

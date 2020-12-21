@@ -107,36 +107,30 @@
               <br>
               E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> //textboxสามารถแก้ไขชื่อได้
               <br>
-              สาขา<select name="major" class="form-control">
-                <option value="cen">วิศวกรรมโยธา</option>
-                <option value="cpe">วิศวกรรมคอมพิวเตอร์</option>
-                <option value="che">วิศวกรรมเคมี</option>
-                <option value="ien">วิศวกรรมอุตสาหการ</option>
-                <option value="env">วิศวกรรมสิ่งแวดล้อม</option>
-                <option value="aen">วิศวกรรมยานยนต์</option>
-                <option value="een">วิศวกรรมไฟฟ้า</option>
-                <option value="ien">วิศวกรรมอุตสาหการ</option>
-                <option value="men">วิศวกรรมเครื่องกล</option>
+              สาขา<select name="major" class="form-control"> // เปิดคำสั่ง css โดยมี class ชื่อ form-control
+                <option value="cen">วิศวกรรมโยธา</option> // option ของ select มีการเก็บค่า value = cen
+                <option value="cpe">วิศวกรรมคอมพิวเตอร์</option> // option ของ select มีการเก็บค่า value = cpe
+                <option value="che">วิศวกรรมเคมี</option> // option ของ select มีการเก็บค่า value = che
+                <option value="ien">วิศวกรรมอุตสาหการ</option> // option ของ select มีการเก็บค่า value = ien
+                <option value="env">วิศวกรรมสิ่งแวดล้อม</option> // option ของ select มีการเก็บค่า value = env
+                <option value="aen">วิศวกรรมยานยนต์</option> // option ของ select มีการเก็บค่า value = aen
+                <option value="een">วิศวกรรมไฟฟ้า</option> // option ของ select มีการเก็บค่า value = een
+                <option value="ien">วิศวกรรมอุตสาหการ</option> // option ของ select มีการเก็บค่า value = ien
+                <option value="men">วิศวกรรมเครื่องกล</option> // option ของ select มีการเก็บค่า value = men
+              </select><br> // ปิดคำสั่ง css โดยมี class ชื่อ form-control
+              <br> 
+              หลักสูตร<select name="course" class="form-control"> // เปิดคำสั่ง css โดยมี class ชื่อ form-control
+                <option value="100">ปกติ</option> // option ของ select มีการเก็บค่า value = 100
+                <option value="70">ปวส</option> // option ของ select มีการเก็บค่า value = 70
               </select><br>
-              <br>
-              หลักสูตร<select name="course" class="form-control">
-                <option value="100">ปกติ</option>
-                <option value="70">ปวส</option>
-              </select><br>
-              Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
-              Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd">
+              Password :<input type="text" name="txt_pwd" id="txt_pwd"><br> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
+              Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
               <br>
               <button type="submit" class="btn btn-light" id="btn_submit" name="reg"
-                value="Save...">สมัครสมาชิก</button>
+                value="Save...">สมัครสมาชิก</button> // ปุ่มสมัครสมาชิก
             </form>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="conteiner">
-    <div class="footer">
-      <div class="fakeimg">
       </div>
     </div>
   </div>

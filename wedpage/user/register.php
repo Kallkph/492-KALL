@@ -123,8 +123,8 @@
                 <option value="100">ปกติ</option> // option ของ select มีการเก็บค่า value = 100
                 <option value="70">ปวส</option> // option ของ select มีการเก็บค่า value = 70
               </select><br>
-              Password :<input type="text" name="txt_pwd" id="txt_pwd"><br> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
-              Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
+              Password :<input type="text" name="txt_pwd" id="txt_pwd"><br> // textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
+              Confirm Password : <input type="text" name="txt_cpwd" id="txt_cpwd"> // textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
               <br>
               <button type="submit" class="btn btn-light" id="btn_submit" name="reg"
                 value="Save...">สมัครสมาชิก</button> // ปุ่มสมัครสมาชิก

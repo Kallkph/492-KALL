@@ -9,7 +9,7 @@
     unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่าใดๆ
     header('location: index.php'); // การ route ไปยัง index.php
   }
-  $major = $_SESSION['major']; // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
+  $major = $_SESSION['major']; // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวเลขที่เก็บค่า major
   switch ($major) {
     case "cen":
       $s_value_length = 2;
@@ -170,8 +170,8 @@
                   3. <option value="66">66</option> // option ของ select มีการเก็บค่า value = 66
                 </select>
               </div>
-              <div class="col-sm-2"> คำสั่งการแบ่งคอลัมน์ col-md-2
-                <input class="form-control" id="input" name="g_creditnow"> textbox สำหรับใส่ หน่วยกิต
+              <div class="col-sm-2"> // คำสั่งการแบ่งคอลัมน์ col-md-2
+                <input class="form-control" id="input" name="g_creditnow"> // textbox สำหรับใส่ หน่วยกิต
               </div>
               <label for="inputEmail3" class="col-sm-2 col-form-label">มากกว่า <?php echo $_SESSION['course'] ?> // พิมพ์ _SESSION['course']
                 หน่วยกิต</label>
@@ -194,8 +194,8 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s1_term" class="form-control">
-                  <option selected>เทอม</option>
-                  1. <option>S</option>
+                  <option selected>เทอม</option> // เปิดคำสั่ง css โดยมี selected ชื่อ form-control
+                  1. <option>S</option> 
                   2. <option>1</option> 
                   3. <option>2</option> 
                 </select>
@@ -203,7 +203,7 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s1_year" class="form-control">
-                  <option selected>ปี</option>
+                  <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>57</option>
                   1. <option>58</option>
                   1. <option>59</option>
@@ -491,7 +491,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_grade" class="form-control">
-          <option selected>เกรต</option>
+          <option selected>เกรด</option>
           1. <option value="A">A</option>
           2. <option value="B+">B+</option> 
           3. <option value="B">B</option> 

@@ -19,6 +19,7 @@
           $name = $row['id']; // การเก็บค่าไวใน $row['id'] ในตัวแปล name
       }
     }
+  }
 ?> //ปิดท้ายประกาศคำสั่งphp
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" //กำหนด stylesheet css ของหน้าเว็บไซต์

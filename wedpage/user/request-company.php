@@ -1,19 +1,19 @@
-<?php
-  session_start();
-  include('../../configure/connect.php');
+<?php // เปิดหัวประกาศคำสั่งphp
+  session_start(); // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
+  include('../../configure/connect.php'); // include คือการเรียกใช้ script จาก ../configure/connect.php
 
-  if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
+  if (!isset($_SESSION['id'])) { // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
+    $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!"; // การเก็บค่าไวใน _SESSION ในตัวแปล msg
   }
 
-  if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['id']);
-    header('location: index.php');
+  if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหากพบ การออกจากระบบจะทำให้เงื่อนไขนี้เป็นจริง true
+    session_destroy(); // คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
+    unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่าใดๆ
+    header('location: index.php'); // การ route ไปยัง index.php
   }
 
   if ($_SESSION['status'] != 3) {
-    header('location: checkstatus.php');
+    header('location: checkstatus.php'); // การ route ไปยัง index.php
   }
   
   if(isset($_POST['query'])){
@@ -40,35 +40,36 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <head>
     <meta charset="utf-8" />
-    <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
+    <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
 
-    <link rel="stylesheet" href="../../scr/css/styles.css">
-</head>
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
+</head> // ปิดการกำหนดคำสั่งต่างในส่วนhead
 
 
-<body>
-    <div class="container">
-    <img src="../../scr/img/Banner.png" width="100%">
-    <div id="mainlink">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body> // คำสั่งที่บอกส่วนเนื้อเรื่องบนหน้าเว็บไซต์
+    <div class="container"> // คำสั่ง bootstrap container
+    <img src="../../scr/img/Banner.png" width="100%"> // กำหนดขนาดความกว้างของรูปภาพที่นำมาโชว์และให้ภาพนี้แสดงมาจาก ../scr/img/Banner.png
+    <div id="mainlink"> // เปิดการกำหนด div mainlink
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> // คำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" // คำสั่งเปิดปุ่ม bootstrap เรียกใช้ class ชื่อ navbar-toggler
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ navbarNavAltMarkup
+                <span class="navbar-toggler-icon"></span> // คำสั่ง bootstrap แสดงรูป navbar-toggler-icon
+            </button>  // ปิดคำสั่งปุ่ม bootstrap
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> // คำสั่ง bootstrap เรียกใช้ class ชื่อ collapse navbar-collapse
+                <div class="container"> // คำสั่ง bootstrap container
                     
          
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/wedpage/afterindex.php">หน้าหลัก</a>
-                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
-                        <a class="nav-item nav-link" href="#">ข่าวสาร</a>
-                        <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
+                    <div class="navbar-nav"> // คำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
+                    <a class="nav-item nav-link" href="/wedpage/afterindex.php">หน้าหลัก</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ ../webpage/afterindex.php
+                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a> //คำสั่ง bootstrap ชื่อ nav-link
+                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a> // คำสั่ง bootstrap ชื่อ nav-link
+                        <a class="nav-item nav-link" href="#">ข่าวสาร</a> // คำสั่ง bootstrap ชื่อ nav-link
+                        <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a> // คำสั่ง bootstrap ชื่อ nav-link
                         
-                        <?php if (isset($_SESSION ['success'])) : ?>
-                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
-                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
+                        <?php if (isset($_SESSION ['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['success'] จะทำให้เงื่อนไขนี้เป็นจริง true
+                          <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>  // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ request-company.php
+                         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>  
                         <?php endif ?>
                        
                         

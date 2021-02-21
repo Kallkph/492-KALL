@@ -27,7 +27,7 @@ if(isset($_POST['reg'])){
       tel = '$txt_tel',
       major ='$major'
       WHERE id ='$txt_id' ";
-      $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+      $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/pageuser.php';</script>";

@@ -38,7 +38,7 @@
       }
     }
     $sql2 = "SELECT DISTINCT* From company inner join requestcompany on company.c_name = requestcompany.r_company inner join users on users.id = requestcompany.r_sid WHERE c_name = '$row[c_name]'";
-    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
     print_r($result2);
     // while($rows = $result2->fetch_assoc()){
     //   print_r($rows);

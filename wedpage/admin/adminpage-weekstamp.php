@@ -16,7 +16,7 @@
   include('../../configure/connect.php');
   $sql = "SELECT * From uploadfile WHERE type != 'news'";
   // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
 
   // print_r($result);
   //   function pre_r( $array ) {

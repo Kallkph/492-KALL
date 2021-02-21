@@ -185,7 +185,7 @@
                   <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";           
               $result = mysqli_query($con, $query);
-              while($row = $result->fetch_assoc()) { ?>
+              while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
                   <option><?php echo $row['s_value']?>
                   </option>
                   <?php } ?>
@@ -238,7 +238,7 @@
                   <?php
                     $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
                     $result = mysqli_query($con, $query);
-                    while($row = $result->fetch_assoc()) { ?>
+                    while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
                   <option><?php echo $row['s_value']?>
                   </option>
                   <?php } ?>
@@ -291,7 +291,7 @@
                   <?php
                     $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
                     $result = mysqli_query($con, $query);
-                    while($row = $result->fetch_assoc()) { ?>
+                    while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
                   <option><?php echo $row['s_value']?>
                   </option>
                   <?php } ?>
@@ -349,7 +349,7 @@
           <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
               $result = mysqli_query($con, $query);
-              while($row = $result->fetch_assoc()) { ?>
+              while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
           <option><?php echo $row['s_value']?>
           </option>
           <?php } ?>
@@ -401,7 +401,7 @@
           <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
               $result = mysqli_query($con, $query);
-              while($row = $result->fetch_assoc()) { ?>
+              while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
           <option><?php echo $row['s_value']?>
           </option>
           <?php } ?>
@@ -458,7 +458,7 @@
           <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
               $result = mysqli_query($con, $query);
-              while($row = $result->fetch_assoc()) { ?>
+              while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
           <option value=<?php echo $row['s_value']?>><?php echo $row['s_value']?>
           </option>
           <?php } ?>

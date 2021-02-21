@@ -41,7 +41,7 @@
       $sql2 = "UPDATE users SET
         status = 3
         WHERE id = $_SESSION[id] ";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
     
       $qr = $con->prepare($sql);
@@ -103,7 +103,7 @@
         $sql2 = "UPDATE users SET
         status = 3
         WHERE id = $_SESSION[id] ";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
   
       
         $qr = $con->prepare($sql);
@@ -172,7 +172,7 @@
       $sql2 = "UPDATE users SET
         status = 3
         WHERE id = $_SESSION[id] ";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
 
     

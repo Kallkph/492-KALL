@@ -26,7 +26,7 @@ if(isset($_POST['reg'])){
       c_detail = '$c_detail',
       c_tel = '$c_tel'
       WHERE c_id ='$c_id' ";
-      $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+      $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>";

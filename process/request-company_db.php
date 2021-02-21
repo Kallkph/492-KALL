@@ -48,7 +48,7 @@ if(isset($_POST['r_submit'])){
         $sql2 = "UPDATE users SET
         status = 2
         WHERE id = $_SESSION[id] ";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
         $uuid = generateRandomString(); 
         
@@ -117,7 +117,7 @@ if(isset($_POST['r_submit'])){
         $sql2 = "UPDATE users SET
         status = 2
         WHERE id = $_SESSION[id] ";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
       
 

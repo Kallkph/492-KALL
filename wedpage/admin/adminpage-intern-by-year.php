@@ -43,7 +43,7 @@
     );
     $query = $data['txt_year']; 
     $sql2 = "SELECT DISTINCT* From users inner join requestcompany on users.id = requestcompany.r_sid WHERE r_yearnow = '$query'";
-    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
     print_r($result2);
     // while($rows = $result2->fetch_assoc()){
     //   print_r($rows);

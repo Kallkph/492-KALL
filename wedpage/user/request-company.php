@@ -22,7 +22,7 @@
     );
   $query = $data['txt_company'];
   $sql2 = "SELECT DISTINCT* From company WHERE c_name = '$query'";
-  $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+  $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
   if ($result2) {
     $fetresult2 = true;
   }

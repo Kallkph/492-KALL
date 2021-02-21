@@ -110,7 +110,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $sql2 = "UPDATE uploadfile SET
         fileupload = '$newname'
         WHERE type = '$_POST[weekstamp]'";
-        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+        $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
         $statusMsg = "news สำเร็จ";
         echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-News.php';</script>";

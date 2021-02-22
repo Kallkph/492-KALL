@@ -75,7 +75,7 @@ if ($_GET['id']) {
         </div>
         <form action="../../process/admin-update-status_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/admin-update-status_db.php
           <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
-            <div class="form-group col-md-1"> 
+            <div class="form-group col-md-1">
             </div>
             <div class="form-group col-md-3">
               ที่ วศ.130/2562

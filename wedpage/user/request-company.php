@@ -110,19 +110,19 @@ if (isset($_POST['query'])) {
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
-          
-            <div class="fakeimg" style="height:200px;"></div>
+
+          <div class="fakeimg" style="height:200px;"></div>
         </div>
       </div>
-      <div class="rightcolumn">  // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
-        <div class="card2" style='height:1400px'>  // คำสั่ง css โดยใช้ class ชื่อ card2
+      <div class="rightcolumn"> // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
+        <div class="card2" style='height:1400px'> // คำสั่ง css โดยใช้ class ชื่อ card2
           หน้ายื่นเรื่อง
           <form action="/wedpage/user/request-company.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
-            <div class="form-group" style="width: 600px">  คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
+            <div class="form-group" style="width: 600px"> คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
               <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px ">กรอกชื่อสถานประกอบการเพื่อค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
               <div class="form-group row"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งแถวของหน้าเว็บ row
                 <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
-                <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button> 
+                <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
               </div>
             </div>
           </form>
@@ -145,13 +145,13 @@ if (isset($_POST['query'])) {
                   <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'> // แสดงต่า $row['c_address']
                   <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4">
                     เบอร์โทรศัพท์
                     <input type="text" id="txtc_address" name="txt_r_tel" style="height:" value='<?php echo $rows['c_tel'] ?>'> // แสดงต่า $row['c_tel']
                   </div>
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4" style='margin-top:4px'>
                     <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
                     <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
@@ -164,7 +164,7 @@ if (isset($_POST['query'])) {
                     </select>
                   </div>
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
                     <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime" placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">

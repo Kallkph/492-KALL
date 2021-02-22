@@ -8,7 +8,7 @@ if (isset($_GET['logout'])) {  // เงื่อนไข if ถ้าหาก
   session_destroy();   // คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
   unset($_SESSION['id']);  // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่าใดๆ
   header('location: index.php');  // การ route ไปยัง index.php
-}  
+}
 // if ($_SESSION['status'] != 5) {
 //   header('location: checkstatus.php');
 // }
@@ -106,8 +106,8 @@ if (isset($_POST['query'])) {
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
           </ul>
           <p>ติดต่อเรา..</p>
-          
-            <div class="fakeimg" style="height:200px;"></div>
+
+          <div class="fakeimg" style="height:200px;"></div>
         </div>
       </div>
       <div class="rightcolumn">
@@ -135,13 +135,13 @@ if (isset($_POST['query'])) {
                   <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
                   <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'> // แสดงต่า $row['c_address']
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
-                  <div class="form-group col-md-4"> 
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                  <div class="form-group col-md-4">
                     เบอร์โทรศัพท์
                     <input type="text" id="txtc_address" name="txt_r_address" style="height:" value='<?php echo $rows['c_tel'] ?>'> // แสดงต่า $row['c_tel']
                   </div>
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4" style='margin-top:4px'>
                     <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
                     <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
@@ -154,7 +154,7 @@ if (isset($_POST['query'])) {
                     </select>
                   </div>
                 </div>
-                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+                <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
                     <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime" placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
@@ -191,7 +191,7 @@ if (isset($_POST['query'])) {
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> // คำสั่ง css กำหนดค่าสไลด์โชว์ active 
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> // คำสั่ง css กำหนดค่าสไลด์โชว์ active
               <span class="carousel-control-next-icon" aria-hidden="true"></span> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <span class="sr-only">Next</span>
             </a>

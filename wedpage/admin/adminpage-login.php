@@ -24,13 +24,11 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
-
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
-
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
@@ -46,7 +44,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
     <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
-          <!-- Login Form -->
+          <!-- Login Form --> 
           <form action="../../process/login_db.php" method="post">
             <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID">
             <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password">
@@ -57,7 +55,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
         </div>
       <?php else :; ?>
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
-          <a href="pageuser.php"> // คำสั่ง route จากรูปภาพไปที่ user/pageuser.php
+          <a href="pageuser.php">  // คำสั่ง route จากรูปภาพไปที่ user/pageuser.php
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
           ชื่อ Admin
@@ -89,7 +87,6 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
   </div>
   </div>
 </body>
-
 </html>
 <script>
   $(document).ready(function() {

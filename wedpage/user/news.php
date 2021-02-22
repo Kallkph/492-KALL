@@ -62,20 +62,20 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหาก�
               <?php else : ?>
                 <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ request-company.php
                 <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
-              <?php endif ?> 
-            </div> 
-          </div> 
-        </div> 
-      </nav> 
-    </div> 
-    <div class="row">  // คำสั่งการแบ่งแถวของหน้าเว็บ
-      <div class="leftcolumn">  // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ          
+              <?php endif ?>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
         <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
           <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
-            <!-- Login Form --> 
+            <!-- Login Form -->
             <form action="../process/login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
-              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับใส่ password 
+              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับใส่ password
               <dev class="card1leftcolumn"> // คำสั่ง css โดยใช้ class ชื่อ card1leftcolumn
                 <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
@@ -104,16 +104,16 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหาก�
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
-          
-            <div class="fakeimg" style="height:200px;"></div> //คำสั่ง css ทำให้มีพื้นที่สูง 200px
+
+          <div class="fakeimg" style="height:200px;"></div> //คำสั่ง css ทำให้มีพื้นที่สูง 200px
         </div>
       </div>
       <div class="rightcolumn"> // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
         <div class="card2_index"> // คำสั่ง css โดยใช้ class ชื่อ card2_index
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> คำสั่ง bootstrap เรียกใช้ class ชื่อ carousel slide โดยมี id carouselExampleIndicators
             <ol class="carousel-indicators"> คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> // คำสั่ง css กำหนดค่าสไลด์โชว์ active 
-            </ol> 
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> // คำสั่ง css กำหนดค่าสไลด์โชว์ active
+            </ol>
             <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <img src="../../scr/img/about.png" class="d-block w-100" alt="...">
               <div class="carousel-item">

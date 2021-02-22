@@ -62,7 +62,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
         </div>
       <?php else :; ?>
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
-          <a href="pageuser.php">  // คำสั่ง route จากรูปภาพไปที่ user/pageuser.php
+          <a href="pageuser.php"> // คำสั่ง route จากรูปภาพไปที่ user/pageuser.php
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
 
@@ -166,6 +166,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
   </div>
   </div>
 </body>
+
 </html>
 <script>
   $(document).ready(function() {

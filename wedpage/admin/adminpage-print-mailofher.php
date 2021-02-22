@@ -39,18 +39,20 @@ if ($_GET['id']) {
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
+
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <!-- <link rel="stylesheet" href="../../scr/css/styles.css"> -->
   <link rel="stylesheet" type="test/css" href="../../scr/css/print.css" media="print">
 </head>
+
 <body>
   <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
     <div class="rightcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
-      <div class="card2-from-admin-read" style='padding:0px' ;> 
+      <div class="card2-from-admin-read" style='padding:0px' ;>
         <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
-          <a href="adminpage.php">  // คำสั่ง route จากรูปภาพไปที่ admin/adminpage.php
+          <a href="adminpage.php"> // คำสั่ง route จากรูปภาพไปที่ admin/adminpage.php
             <img src="../../scr/img/rsuhead.jpg" width="100%" style='padding: 10px;'>
           </a>
         </div>

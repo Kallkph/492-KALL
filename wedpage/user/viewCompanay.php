@@ -85,7 +85,7 @@ if ($stmt = mysqli_prepare($con, $sql)) {
       </nav>
     </div>
     <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
-      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ          
+      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
         <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
           <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <!-- Login Form -->
@@ -121,8 +121,8 @@ if ($stmt = mysqli_prepare($con, $sql)) {
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
           </ul>
           <p>ติดต่อเรา..</p>
-          
-            <div class="fakeimg" style="height:200px;"></div>
+
+          <div class="fakeimg" style="height:200px;"></div>
         </div>
       </div>
       <div class="rightcolumn">

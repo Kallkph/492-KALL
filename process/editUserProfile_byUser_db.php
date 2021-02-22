@@ -21,7 +21,7 @@ if(isset($_POST['reg'])){
     echo "if";
         
     if (count($errors) == 0) {
-      $sql2 = "UPDATE users SET
+      $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       name_titles ='$name_titles',
       email ='$txt_mail',
       tel = '$txt_tel',

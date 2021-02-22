@@ -20,7 +20,7 @@ if(isset($_POST['reg'])){
     echo "if";
         
     if (count($errors) == 0) {
-      $sql2 = "UPDATE company SET
+      $sql2 = "UPDATE company SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       c_name ='$c_name',
       c_address ='$c_address',
       c_detail = '$c_detail',

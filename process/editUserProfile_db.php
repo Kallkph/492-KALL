@@ -32,7 +32,7 @@ if(isset($_POST['reg'])){
     echo "if";
         
     if (count($errors) == 0) {
-      $sql2 = "UPDATE users SET
+      $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       name_titles ='$name_titles',
       f_name ='$txt_fname',
       l_name ='$txt_lname',
@@ -77,7 +77,7 @@ if(isset($_POST['reg'])){
     echo "if";
         
     if (count($errors) == 0) {
-      $sql2 = "UPDATE advisor SET
+      $sql2 = "UPDATE advisor SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       a_t_position ='$name_titles',
       a_f_name ='$txt_fname',
       a_l_name ='$txt_lname',

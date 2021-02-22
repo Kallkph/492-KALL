@@ -38,7 +38,7 @@
       VALUES
       (?,?,?,?,?,?,?,?,?,?,?)
       ";
-      $sql2 = "UPDATE users SET
+      $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
         status = 3
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
@@ -100,7 +100,7 @@
         VALUES
         (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         ";
-        $sql2 = "UPDATE users SET
+        $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
         status = 3
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
@@ -169,7 +169,7 @@
       VALUES
       (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
       ";
-      $sql2 = "UPDATE users SET
+      $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
         status = 3
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );

@@ -40,7 +40,7 @@
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
     <link rel="stylesheet" href="../../scr/css/styles.css">

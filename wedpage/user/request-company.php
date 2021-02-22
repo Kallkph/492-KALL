@@ -31,14 +31,14 @@ if (isset($_POST['query'])) {
   $fetresult2 = false;
 }
 ?>
-<html lang="th">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head> // ปิดการกำหนดคำสั่งต่างในส่วนhead
@@ -68,32 +68,32 @@ if (isset($_POST['query'])) {
         </div>
       </nav>
     </div>
-    <div class="row">
-      <div class="leftcolumn">
-        <?php if (!isset($_SESSION['success'])) : ?>
-          <div class="card1">
+    <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+        <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
+          <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <!-- Login Form -->
-            <form action="login_db.php" method="post">
+            <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
               <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
 
               <dev class="card1leftcolumn">
-                <button type="submit" class="btn btn-primary" name="login_user">Login</button>
+                <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
-              </dev>
-            </form>
-          </div>
-        <?php else :; ?>
-          <div class="card3">
-            <a href="pageuser.php">
-              <img src="../../scr/img/profile.jpg" width="50%">
+              </dev> // ปิดคำสั่ง css โดยใช้ class ชื่อ card1leftcolumn
+            </form> // ปิดคำสั่งการส่งข้อมูล
+          </div> // ปิดคำสั่ง css โดยใช้ class ชื่อ card1
+        <?php else :; ?> // ถ้าเงื่อนไข if ถ้ามี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้ไม่เป็นจริง false
+          <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
+            <a href="pageuser.php"> // คำสั่ง route จากรูปภาพไปที่ user/pageuser.php
+              <img src="../../scr/img/profile.jpg" width="50%"> // กำหนดขนาดความกว้างของรูปภาพที่นำมาโชว์และให้ภาพนี้แสดงมาจาก ../scr/img/profile.jpg
             </a>
             รหัสนักศึกษา
-            <p><?php echo $_SESSION['id']; ?></p>
+            <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ _SESSION['id']
             ชื่อ
             <p><?php echo $_SESSION['f_name'], ' ', $_SESSION['l_name']; ?></p>
             สาขา
-            <p><?php echo $_SESSION['id']; ?></p>
+            <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ $_SESSION['major']
             <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>
@@ -101,28 +101,28 @@ if (isset($_POST['query'])) {
             </div>
           </div>
         <?php endif ?>
-        <div class="card3">
+        <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
           <!DOCTYPE html>
           <p id="top">Link Download เอกสารต่างๆ </p>
           <ul>
-            <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
-            <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li>
-            <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li>
+            <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li> // ลิ้งค์ Download จาก เอกสารแนะนำสถานที่ฝึกงาน.doc
+            <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li> // ลิ้งค์ Download จาก รายงานประจำสัปดาห์.doc
+            <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
           <p><b><a href="https://www.en-rsu.ac.th" target="_blank">link.//www.en-rsu.ac.th</a></b>
             <div class="fakeimg" style="height:200px;"></div>
         </div>
       </div>
-      <div class="rightcolumn">
-        <div class="card2" style='height:1400px'>
+      <div class="rightcolumn">  // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
+        <div class="card2" style='height:1400px'>  // คำสั่ง css โดยใช้ class ชื่อ card2
           หน้ายื่นเรื่อง
-          <form action="/wedpage/user/request-company.php" method="post">
-            <div class="form-group" style="width: 600px">
+          <form action="/wedpage/user/request-company.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
+            <div class="form-group" style="width: 600px">  คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
               <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px ">กรอกชื่อสถานประกอบการเพื่อค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
-              <div class="form-group row">
+              <div class="form-group row"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งแถวของหน้าเว็บ row
                 <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
-                <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
+                <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button> 
               </div>
             </div>
           </form>
@@ -145,13 +145,13 @@ if (isset($_POST['query'])) {
                   <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'>
                   <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4">
                     เบอร์โทรศัพท์
                     <input type="text" id="txtc_address" name="txt_r_tel" style="height:" value='<?php echo $rows['c_tel'] ?>'>
                   </div>
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4" style='margin-top:4px'>
                     <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
                     <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
@@ -164,7 +164,7 @@ if (isset($_POST['query'])) {
                     </select>
                   </div>
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
                     <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime" placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
@@ -186,7 +186,7 @@ if (isset($_POST['query'])) {
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <div class="carousel-item active">
                 <img src="../../scr/img/2.png" class="d-block w-100" alt="...">
               </div>

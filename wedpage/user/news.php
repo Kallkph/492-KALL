@@ -73,17 +73,17 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหาก�
         <?php if (!isset($_SESSION['success'])) : ?>
           <div class="card1">
             <!-- Login Form -->
-            <form action="../process/login_db.php" method="post">
-              <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
-              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-              <dev class="card1leftcolumn">
-                <button type="submit" class="btn btn-primary" name="login_user">Login</button>
+            <form action="../process/login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
+              <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
+              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับใส่ password 
+              <dev class="card1leftcolumn"> // คำสั่ง css โดยใช้ class ชื่อ card1leftcolumn
+                <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
               </dev>
             </form>
           </div>
         <?php else :; ?>
-          <div class="card3">
+          <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
             <a href="user/pageuser.php">
               <img src="../../scr/img/profile.jpg" width="50%">
             </a>
@@ -95,7 +95,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหาก�
             <p><?php echo $_SESSION['major']; ?></p>
           </div>
         <?php endif ?>
-        <div class="card3">
+        <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
           <!DOCTYPE html>
           <p id="top">Link Download เอกสารต่างๆ </p>
           <ul>

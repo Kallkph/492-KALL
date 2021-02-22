@@ -37,7 +37,7 @@
   //       }
   //     }
   //   }
-  if(isset($_POST['query'])){
+  if(isset($_POST['query'])){ 
     $data = array(
       "txt_year" => $_POST["year"]
     );
@@ -69,7 +69,7 @@
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
     <link rel="stylesheet" href="../../scr/css/styles.css">
@@ -157,7 +157,7 @@
 
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >เลือกปีที่ต้องการสืบค้น</label>
-    <div class="form-group row">
+    <div class="form-group row"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งแถวของหน้าเว็บ row
     สาขา<select name="year" class="form-control">
                           <option value="63">63</option>
                           <option value="64">64</option>

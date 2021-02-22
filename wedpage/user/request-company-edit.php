@@ -1,14 +1,14 @@
-<?php
-session_start();
-include('../../configure/connect.php');
-if (!isset($_SESSION['id'])) {
-  $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
+<?php  // เปิดหัวประกาศคำสั่งphp
+session_start();  // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
+include('../../configure/connect.php');  // include คือการเรียกใช้ script จาก ../configure/connect.php
+if (!isset($_SESSION['id'])) {  // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
+  $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";  // การเก็บค่าไวใน _SESSION ในตัวแปล msg
 }
-if (isset($_GET['logout'])) {
-  session_destroy();
-  unset($_SESSION['id']);
-  header('location: index.php');
-}
+if (isset($_GET['logout'])) {  // เงื่อนไข if ถ้าหากพบ การออกจากระบบจะทำให้เงื่อนไขนี้เป็นจริง true
+  session_destroy();   // คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
+  unset($_SESSION['id']);  // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่าใดๆ
+  header('location: index.php');  // การ route ไปยัง index.php
+}  
 // if ($_SESSION['status'] != 5) {
 //   header('location: checkstatus.php');
 // }
@@ -27,14 +27,14 @@ if (isset($_POST['query'])) {
   $fetresult2 = false;
 }
 ?>
-<html lang="th">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
   <link rel="stylesheet" href="../../scr/css/styles.css">
 </head>
@@ -64,23 +64,23 @@ if (isset($_POST['query'])) {
         </div>
       </nav>
     </div>
-    <div class="row">
-      <div class="leftcolumn">
-        <?php if (!isset($_SESSION['success'])) : ?>
-          <div class="card1">
+    <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+        <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
+          <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <!-- Login Form -->
             <form action="login_db.php" method="post">
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
               <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
 
               <dev class="card1leftcolumn">
-                <button type="submit" class="btn btn-primary" name="login_user">Login</button>
+                <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
               </dev>
             </form>
           </div>
         <?php else :; ?>
-          <div class="card3">
+          <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
             <a href="pageuser.php">
               <img src="../../scr/img/profile.jpg" width="50%">
             </a>
@@ -97,7 +97,7 @@ if (isset($_POST['query'])) {
             </div>
           </div>
         <?php endif ?>
-        <div class="card3">
+        <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
           <!DOCTYPE html>
           <p id="top">Link Download เอกสารต่างๆ </p>
           <ul>
@@ -116,7 +116,7 @@ if (isset($_POST['query'])) {
           <form action="/wedpage/user/request-company-edit.php" method="post">
             <div class="form-group" style="width: 600px">
               <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px ">กรอกชื่อสถานประกอบการเพื่อสือค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
-              <div class="form-group row">
+              <div class="form-group row"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งแถวของหน้าเว็บ row
                 <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
                 <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
               </div>
@@ -135,13 +135,13 @@ if (isset($_POST['query'])) {
                   <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
                   <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'>
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4">
                     เบอร์โทรศัพท์
                     <input type="text" id="txtc_address" name="txt_r_address" style="height:" value='<?php echo $rows['c_tel'] ?>'>
                   </div>
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-4" style='margin-top:4px'>
                     <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
                     <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
@@ -154,7 +154,7 @@ if (isset($_POST['query'])) {
                     </select>
                   </div>
                 </div>
-                <div class="form-row">
+                 <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
                     <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime" placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
@@ -176,23 +176,23 @@ if (isset($_POST['query'])) {
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../../scr/img/2.png" class="d-block w-100" alt="...">
+            <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
+              <div class="carousel-item active"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
+                <img src="../../scr/img/2.png" class="d-block w-100" alt="..."> // คำสั่ง css เรียกใช้ controls ชื่อ carousel-item
               </div>
               <div class="carousel-item">
-                <img src="../../scr/img/1.png" class="d-block w-100" alt="...">
+                <img src="../../scr/img/1.png" class="d-block w-100" alt="..."> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
               </div>
               <div class="carousel-item">
-                <img src="../../scr/img/3.png" class="d-block w-100" alt="...">
+                <img src="../../scr/img/3.png" class="d-block w-100" alt="..."> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item ให้ทำงาน
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> // คำสั่ง css กำหนดค่าสไลด์โชว์ active 
+              <span class="carousel-control-next-icon" aria-hidden="true"></span> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <span class="sr-only">Next</span>
             </a>
           </div>

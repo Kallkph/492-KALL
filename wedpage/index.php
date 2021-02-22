@@ -103,7 +103,7 @@
                 <a href="afterindex.php" title="View" class="btn btn-primary">นักศึกษา</a> // ลิ้งค์ route จากรูปภาพไปที่ afterindex.php
               </div>// ปิดคำสั่ง css
             </div>// ปิดคำสั่ง css
-            <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row 
               <div class="form-group col-md-3"></div> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งคอลัมน์ col-md-3
                 <div class="form-group col-md-3"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งคอลัมน์ col-md-3
                   <a href="admin/adminpage-login.php" title="View" class="btn btn-primary" style='margin-left:5px'>อาจารย์</a> // ลิ้งค์ route จากรูปภาพไปที่ admin/adminpage-login.php

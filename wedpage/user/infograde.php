@@ -177,7 +177,7 @@
                 หน่วยกิต</label>
             </div>
             <?php if ($s_value_length == '3') { ?>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s1_name" class="form-control">
@@ -219,7 +219,7 @@
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s1_grade" class="form-control">
-                  <option selected>เกรด</option>
+                  <option selected>เกรด</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>A</option>
                   2. <option>B+</option> 
                   3. <option>B</option> 
@@ -230,7 +230,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s2_name" class="form-control">
@@ -247,7 +247,7 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s2_term" class="form-control">
-                  <option selected>เทอม</option>
+                  <option selected>เทอม</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>S</option>
                   2. <option>1</option> 
                   3. <option>2</option> 
@@ -256,7 +256,7 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s2_year" class="form-control">
-                  <option selected>ปี</option>
+                  <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>57</option>
                   1. <option>58</option>
                   1. <option>59</option>
@@ -272,7 +272,7 @@
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s2_grade" class="form-control">
-                  <option selected>เกรด</option>
+                  <option selected>เกรด</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>A</option>
                   2. <option>B+</option> 
                   3. <option>B</option> 
@@ -283,7 +283,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s3_name" class="form-control">
@@ -300,7 +300,7 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s3_term" class="form-control">
-                  <option selected>เทอม</option>
+                  <option selected>เทอม</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>S</option>
                   2. <option>1</option> 
                   3. <option>2</option> 
@@ -309,7 +309,7 @@
               <div class="form-group col-md-2">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s3_year" class="form-control">
-                  <option selected>ปี</option>
+                  <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>57</option>
                   1. <option>58</option>
                   1. <option>59</option>
@@ -325,7 +325,7 @@
               <div class="form-group col-md-4">
                 <label for="inputState">State</label>
                 <select id="txt_r_state" name="s3_grade" class="form-control">
-                  <option selected>เกรด</option>
+                  <option selected>เกรด</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
                   1. <option>A</option>
                   2. <option>B+</option> 
                   3. <option>B</option> 
@@ -341,14 +341,14 @@
       </div>
     </div>
     <?php } else if($s_value_length == '2') {?>
-    <div class="form-row">
+     <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_name" class="form-control">
           <option selected>รายวิชา</option>
           <?php
-              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-              $result = mysqli_query($con, $query);
+              $query = "SELECT * FROM subject WHERE s_key LIKE '$major'"; 
+              $result = mysqli_query($con, $query); //การ Read ข้อมูลเพื่อหา id ที่ตรงกับ $_SESSION[id] แล้วนำไปเก็บไว้ในตัวแปล query
               while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
           <option><?php echo $row['s_value']?>
           </option>
@@ -358,7 +358,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_term" class="form-control">
-          <option selected>เทอม</option>
+          <option selected>เทอม</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>S</option>
           2. <option>1</option> 
           3. <option>2</option> 
@@ -367,8 +367,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_year" class="form-control">
-          <option selected>ปี</option>
-
+          <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>57</option>
           1. <option>58</option>
           1. <option>59</option>
@@ -384,7 +383,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_grade" class="form-control">
-          <option selected>เกรต</option>
+          <option selected>เกรต</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>A</option>
           2. <option>B+</option> 
           3. <option>B</option> 
@@ -410,7 +409,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s2_term" class="form-control">
-          <option selected>เทอม</option>
+          <option selected>เทอม</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>S</option>
           2. <option>1</option> 
           3. <option>2</option> 
@@ -419,7 +418,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s2_year" class="form-control">
-          <option selected>ปี</option>
+          <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>57</option>
           1. <option>58</option>
           1. <option>59</option>
@@ -435,7 +434,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s2_grade" class="form-control">
-          <option selected>เกรดดดต</option>
+          <option selected>เกรดดดต</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option>A</option>
           2. <option>B+</option> 
           3. <option>B</option> 
@@ -450,7 +449,7 @@
       </div>
     </div>
     <?php } else if($s_value_length == '1') {?>
-    <div class="form-row">
+     <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_name" class="form-control">
@@ -467,7 +466,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_term" class="form-control">
-          <option selected>เทอม</option>
+          <option selected>เทอม</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option value="S">S</option>
           2. <option value="1">1</option> 
           3. <option value="2">2</option> 
@@ -476,7 +475,7 @@
       <div class="form-group col-md-2">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_year" class="form-control">
-          <option selected>ปี</option>
+          <option selected>ปี</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option value="58">58</option>
           1. <option value="59">59</option>
           1. <option value="60">60</option>
@@ -491,7 +490,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_grade" class="form-control">
-          <option selected>เกรด</option>
+          <option selected>เกรด</option> //เปิดคำสั่ง css โดยมี selected ชื่อ form-control
           1. <option value="A">A</option>
           2. <option value="B+">B+</option> 
           3. <option value="B">B</option> 
@@ -502,12 +501,12 @@
         </select>
       </div>
       <div class="form-group">
-        <button type="submit" name="g_save" value="Save1" class="btn btn-primary">บันทึกข้อมูล</button>
+        <button type="submit" name="g_save" value="Save1" class="btn btn-primary">บันทึกข้อมูล</button> // ปุ่ม Save ข้อมูล 
       </div>
     </div>
     <?php } else {?>
     <div class="form-group">
-      <button type="submit" name="g_save" value="Save0" class="btn btn-primary">บันทึกข้อมูล</button>
+      <button type="submit" name="g_save" value="Save0" class="btn btn-primary">บันทึกข้อมูล</button> // ปุ่ม Save ข้อมูล 
     </div>
     <?php } ?>
   </div>
@@ -522,16 +521,6 @@
       </div>
     </div>
   </div>
-  <?php 
-if (isset($_SESSION ['success'])) {
-  echo $_SESSION['id'];
-  echo $_SESSION['f_name'];
-  echo $_SESSION['l_name'];
-  unset($_SESSION['error']);
-} else {
-  echo "Have a good night!";
-}
-?>
   </div>
 </body>
 

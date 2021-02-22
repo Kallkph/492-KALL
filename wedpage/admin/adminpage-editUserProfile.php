@@ -49,13 +49,13 @@
   
 ?>
 
-<html lang="th">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
     <link rel="stylesheet" href="../../scr/css/styles.css">
   </head>
@@ -94,7 +94,7 @@
             <p><?php echo $_SESSION['id'];?></p>
           </div>
         <?php } ?>
-      <div class="card3">
+      <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
         <div class="btn-group-vertical">
           แผงควบคุม
         </div>  
@@ -114,7 +114,7 @@
     </div>
     <div class="rightcolumn">            
       <div class="card2-from-admin-read">
-        <div class="form-row">
+         <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
           <div class="form-group col-md-4">
           </div>
           <div class="form-group col-md-">
@@ -122,7 +122,7 @@
           </div>
         </div>
         <!-- <form action="../../process/admin-update-status_db.php" method="post"> -->
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <br>
                 <label for="inputEmail4">ข้อมูลของ</label>
@@ -214,7 +214,7 @@
                 ?php echo "<br>" . $row['r_company'] ; ?>
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -238,7 +238,7 @@
                 ?php echo "<br>" . $row['r_about'] ; ?> 
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-2">
                 <label for="inputEmail4">เลขที่</label>
                 ?php echo "<br>" . $row['r_address'] ; ?> 
@@ -256,7 +256,7 @@
                 ?php echo "<br>" . $row['r_address2'] ; ?> 
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-4">
                 <label for="inputEmail4">เขต/อำเภอ</label>
                 ?php echo "<br>" . $row['r_city']  ; ?> 
@@ -270,7 +270,7 @@
                 ?php echo "<br>" . $row['r_zip'] ; ?> 
               </div>
             </div>
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
               <div class="form-group col-md-2">
                 <label for="inputEmail4">โทรศัพท์</label>
                 ?php echo "<br>" . $row['r_phone']  ; ?> 
@@ -280,7 +280,7 @@
                 ?php echo "<br>" . $row['r_fax'] ; ?> 
               </div>
             </div> -->
-            <div class="form-row">
+             <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
             <form action="../../process/editUserProfile_db.php" method="post">
                         คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['name_titles']?>'>
                           ชื่อ : <input type="text" name="txt_fname" id="txt_fname" value='<?php echo $row['f_name']?>' >
@@ -345,15 +345,6 @@
         <div class="fakeimg" >  
         </div>
       </div>
-      <?php if (isset($_SESSION ['success'])) {
-        // echo $_SESSION['id'];
-        echo $_SESSION['f_name'];
-        // echo $_SESSION['l_name'];
-        unset($_SESSION['error']);
-      } else {
-        echo "Have a good night!";
-      }
-      ?>
     </div>
   </body>
 </html>

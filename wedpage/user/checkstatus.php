@@ -155,7 +155,7 @@
               <?php echo $userdata['r_company'];?> // พิมพ์ userdata['r_company']
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row"> // คำสั่ง css โดยใช้ class ชื่อ form-group และมีคำสั่ง คำสั่งการแบ่งแถวของหน้าเว็บ row
             <label for="inputEmail3" class="col-sm-2 col-form-label">วันที่เริ่มฝึกงาน</label>
             <div class="col-sm-3" style='margin-top:8px'> // คำสั่ง css โดยใช้ class ชื่อ col-sm-2 และมีคำสั่ง คำสั่งการแบ่งคอลัมน์ col-md-4
               <?php echo $userdata['r_startTime'];?> // พิมพ์ userdata['r_startTime']

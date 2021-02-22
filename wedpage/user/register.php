@@ -64,7 +64,7 @@
           </div>
           <?php endif ?>
         </div>
-        <div class="card3">
+        <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
           <!DOCTYPE html>
           <p id="top">Link Download เอกสารต่างๆ </p>
           <ul>

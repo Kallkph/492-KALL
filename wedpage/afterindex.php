@@ -104,7 +104,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <div class="carousel-item">
                 <?php
                 $query = "SELECT * FROM uploadfile WHERE type = 'news'";

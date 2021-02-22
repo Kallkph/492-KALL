@@ -119,7 +119,7 @@
       </div>
       <div class="rightcolumn"> // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
         <div class="card2_1"> // คำสั่ง css โดยใช้ class ชื่อ card2_1
-          <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
+           <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row // คำสั่ง css โดยใช้ class ชื่อ form-row
             <form action="../../process/editUserProfile_byUser_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../../process/editUserProfile_byUser_db.php
               ชื่อ : <?php echo $row['f_name']?>  // พิมพ์ row['f_name']
               <br>

@@ -21,14 +21,13 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     echo "if";
         
     if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
-      $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
+      $sql2 = "UPDATE users SET  // คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       name_titles ='$name_titles',
       email ='$txt_mail',
       tel = '$txt_tel',
       major ='$major'
       WHERE id ='$txt_id' ";
       $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
-
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ"; 
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/pageuser.php';</script>"; // ทำการ router ไปที่ .../pageuser.php
 

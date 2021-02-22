@@ -185,7 +185,7 @@ if ($_GET['id']) {
               <?php
               //  echo $row['major']; 
               $major = $row['major'];
-              switch ($major) {
+              switch ($major) { // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
                 case "cen":
                   $majorName = 'วิศวกรรมโยธา';
                   break;

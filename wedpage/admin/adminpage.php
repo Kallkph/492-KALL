@@ -11,7 +11,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
   header('location: index.php'); // การ route ไปยัง index.php
 }
 $major = $_SESSION['major'];
-switch ($major) {
+switch ($major) { // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
   case "cen":
     $majorName = 'วิศวกรรมโยธา';
     break;
@@ -107,7 +107,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
         </div>
         <div class="list-group">
           <?php
-          if ($_SESSION['major'] == "0") {
+          if ($_SESSION['major'] == "0") { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าเท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง true
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์และแผนที่</a>";
             echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
@@ -149,7 +149,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
                 echo "<td>" . $row['r_sid'] . "</td>";
                 echo "<td>" . $row['f_name'] . " " . $row['l_name'] . "</td>";
                 $major = $row['r_major'];
-                switch ($major) {
+                switch ($major) { // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
                   case "cen":
                     $majorName = 'วิศวกรรมโยธา';
                     break;
@@ -196,12 +196,12 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
                 echo "<a href=' " . $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
                 "</td>";
                 "</tr>";
-              } else if ($_SESSION['major'] == "0") {
+              } else if ($_SESSION['major'] == "0") { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าเท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง true
                 echo "<tr>";
                 echo "<td>" . $row['r_sid'] . "</td>";
                 echo "<td>" . $row['f_name'] . " " . $row['l_name'] . "</td>";
                 $major = $row['r_major'];
-                switch ($major) {
+                switch ($major) { // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
                   case "cen":
                     $majorName = 'วิศวกรรมโยธา';
                     break;

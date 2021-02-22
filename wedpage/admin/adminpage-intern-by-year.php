@@ -83,7 +83,7 @@ if (isset($_POST['query'])) {
         </div>
         <div class="list-group">
           <?php
-          if ($_SESSION['major'] == "0") {
+          if ($_SESSION['major'] == "0") { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าเท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง true
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
             echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
@@ -136,7 +136,7 @@ if (isset($_POST['query'])) {
               echo "<td>" . $rows['r_sid'] . "</td>";
               echo "<td>" . $rows['f_name'] . " " . $rows['l_name'] . "</td>";
               $major = $rows['r_major'];
-              switch ($major) {
+              switch ($major) { // คำสั่ง switch โดยจะเข้าเงื่อนไข case จากตัวแลที่เก็บค่า major
                 case "cen":
                   $majorName = 'วิศวกรรมโยธา';
                   break;

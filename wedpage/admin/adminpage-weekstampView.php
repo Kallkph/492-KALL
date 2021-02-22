@@ -1,35 +1,26 @@
 <?php // เปิดหัวประกาศคำสั่งphp
 session_start(); // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
 // include('../../configure/connect.php');
-
 if (!isset($_SESSION['id'])) { // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true 
   $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
 }
-
 if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_GET['logout'] จะทำให้เงื่อนไขนี้เป็นจริง true
   session_destroy();
   unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['id']
   unset($_SESSION['type']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['type']
   header('location: index.php'); // การ route ไปยัง index.php
 }
-
 if ($_GET['id']) {
   include('../../configure/connect.php');
   $sql = "SELECT * FROM uploadfile WHERE fileupload = ?";
-
   if ($stmt = mysqli_prepare($con, $sql)) {
     mysqli_stmt_bind_param($stmt, "i", $param_id);
-
     $param_id = trim($_GET['id']);
-
     if (mysqli_stmt_execute($stmt)) {
       $result = mysqli_stmt_get_result($stmt);
-
       if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-
         $name = $row['u_id'];
-
         // print_r($row);
       } else {
         echo "else";
@@ -38,10 +29,7 @@ if ($_GET['id']) {
     }
   }
 }
-
-
 ?>
-
 <html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
@@ -53,15 +41,11 @@ if ($_GET['id']) {
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
-
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
-
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
-
-
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
@@ -74,14 +58,13 @@ if ($_GET['id']) {
     </form>
   </nav>
   <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
-    <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ          
+    <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <!-- Login Form -->
           <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
             <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
             <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
-
             <dev class="card1leftcolumn">
               <button type="submit" class="btn btn-primary" name="login_user">Login</button>
               <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
@@ -93,28 +76,22 @@ if ($_GET['id']) {
           <a href="pageuser.php">
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
-
-
           ชื่อ Admin
           <p><?php echo $_SESSION['f_name']; // พิมพ์ _SESSION['f_name']
               // ' ', $_SESSION['l_name'];
               ?>
           </p>
           สาขา
-          <p><?php echo $_SESSION['major']; ?></p>  // พิมพ์ _SESSION['major']
+          <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ _SESSION['major']
         </div>
-
       <?php endif ?>
-
       <div class="card3-adminpage">
         <div class="btn-group-vertical">
           แผงควบคุม
         </div>
-
-
         <div class="list-group">
           <?php
-          if ($_SESSION['major'] == "0") {
+          if ($_SESSION['major'] == "0") { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าเท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง true
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์และแผนที่</a>";
             echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
@@ -128,18 +105,11 @@ if ($_GET['id']) {
           }
           ?>
         </div>
-
-
-
         <div class="fakeimg" style="height:200px;"></div>
       </div>
     </div>
-
     <div class="rightcolumn">
-
       <div class="card2fortable">
-
-
         <!-- <div class="row row-cols-1 row-cols-md-3"> -->
         <table class="table" id="table_row" width="1060px">
           <thead class="thead-dark">
@@ -152,104 +122,23 @@ if ($_GET['id']) {
               <th scope="col"></th>
             </tr>
           </thead>
-
           <tbody>
-
             <?php
             if ($row['type'] != 'map') {
               echo 'ภาพ รายงานประจำสัปดาหฺ์ของ' . ' ' . $row['u_id'] . ' สัปดาหฺ์ที่ ' .  $row['type'];
             } else {
               echo 'ภาพ แผนที่';
             }
-            // if (($ro
-            // echo "<tr>" ;
-            //   echo "<td>" . $row['c_id'] . "</td>"; 
-            //   echo "<td>" . $row['c_name'] ." ". $row['l_name'] . "</td>"; 
-            //   echo "<td>" . "</td>";
-            //   echo "<td>" ;
-            //     if ($row['status'] == 0) {
-            //     echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-            //     } else if ($row['status'] == 1) {
-            //     echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-            //      } else if ($row['status'] == 2) {
-            //     echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-            //      } else if ($row['status'] == 7) {
-            //     echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-            //      } else {
-            //     echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-            //      }
-            //   "</td>";
-            //   echo "<td>";
-            //      echo "<a href='adminpage-read.php?id=" . $row['id'] . "' title='View' class='btn btn-link'>ดูข้อมูล</a>";
-            //      echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
-            //   "</td>";
-            // "</tr>";
-            // } else if ($_SESSION['major'] == "0" && $row['type'] == 'admin') {
             echo "<tr>";
-            // echo "<td>" . $row['c_id'] . "</td>"; 
             echo "<td>" . "</td>";
             echo "<td>"  . "</td>";
             echo "<td>" . "<img src='../../scr/fileupload/" . $row['fileupload'] . "' width='1000px'>" . "</td>";
-
-            // echo "<td>" ;
-            //   if ($row['status'] == 0) {
-            //   echo "<button type='button' class='btn btn-light'>" . 'รอผลการเรียน' . "</button>"; 
-            //   } else if ($row['status'] == 1) {
-            //   echo "<button type='button' class='btn btn-success'>" . 'ยื่นเรื่องสำเร็จ' . "</button>";
-            //    } else if ($row['status'] == 2) {
-            //   echo "<button type='button' class='btn btn-warning'>" . 'รอการตรวจสอบ' . "</button>";
-            //    } else if ($row['status'] == 7) {
-            //   echo "<button type='button' class='btn btn-danger'>" . 'ยังไม่ผ่าน' . "</button>";
-            //    } else {
-            //   echo "<button type='button' class='btn btn-danger'>" . 'ตรวจสอบข้อมูล' . "</button>";
-            //    }
-            // "</td>";
             echo "<td>";
-            //  echo "<a href='adminpage-editCompanay.php?id=" . $row['fileupload'] . "' title='View' class='btn btn-link'>ดูรูป</a>";
-            //  echo "<a href=' ". $row['id'] . " ' title='View' class='btn btn-link'>แก้ไข</a>";
             "</td>";
             "</tr>";
-            // }
             ?>
           </tbody>
         </table>
-
-
-        <!-- </div> -->
-        <!-- ?php if ($_SESSION['major'] == '0') {?>
-<form action="../../process/adminpage-add-companay.php" method="post">
-
-  <div class="form-group"  style="width: 600px">
-    <label for="exampleFormControlTextarea1" >ข้อมูลเพิมเติม</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_detail" rows="3"  style="height: 300px"></textarea>
-  </div>
-  <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">เพิ่ม</button>
-</form>
-<form action='../../process/uploadPoto_db.php' method='post' enctype='multipart/form-data'>
-  <div class='form-group'>
-  <label for='inputEmail4'> อัพโหลด รูปภาพข้อมูลข่าวสาร </label>
-  </div>
-  <div class='form-row'>
-  <div class='form-group col-md-4'>
-  <input type='file' name='fileupload' id='fileupload' required='required'/>
-  </div>
-  <div class='form-group col-md-4'>
-  <select id='weekstamp' name='weekstamp' class='form-control'>
-  <option selected>news
-  </option>
-  </select>
-  </div>
-  </div>
-
-
-  <div class='form-group'>
-  <div class='form-group col-md-6'>
-  <input type='hidden' id='upload_id' name='upload_id' value='$_SESSION[id]'>
-  <button type='submit' name='btn_upload' value='upload_news' class='btn btn-primary'> บันทึก </button>
-  </div>
-  </div>
-    </form> -->
-        <!-- ?php } ?> -->
         <a class="nav-item nav-link" href="adminpage-weekstamp.php">กลับ</a>
       </div>
     </div>
@@ -263,9 +152,7 @@ if ($_GET['id']) {
   </div>
   </div>
 </body>
-
 </html>
-
 <script>
   $(document).ready(function() {
     $('#table_row').DataTable();

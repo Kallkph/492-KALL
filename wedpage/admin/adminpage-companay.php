@@ -62,11 +62,11 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql ");  // ผล�
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
           ชื่อ Admin
-          <p><?php echo $_SESSION['f_name'];
+          <p><?php echo $_SESSION['f_name']; // พิมพ์ _SESSION['f_name']
               ?>
           </p>
           สาขา
-          <p><?php echo $_SESSION['major']; ?></p>
+          <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ _SESSION['major']
         </div>
       <?php endif ?>
       <div class="card3-adminpage">

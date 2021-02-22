@@ -52,7 +52,7 @@ if ($_GET['id']) {
     <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <?php if (!isset($_SESSION['success'])) { // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
         "<div class='card1'>";
-        "<form action='login_db.php' method='post'>";
+        "<form action='login_db.php' method='post'>"; // เป็นคำสั่ง php ในการส่งข้อมูลรูปแบบ post ไปที่ login_db.php
         echo "<input type='text' id='txt_id' class='fadeIn second' name='txt_id' placeholder='id'>";
         echo "<input type='text' id='txt_password' class='fadeIn third' name='txt_password' placeholder='password'>";
         "<dev class='card1leftcolumn'>";
@@ -60,15 +60,15 @@ if ($_GET['id']) {
         "</dev>";
         "</form>";
         "</div>";
-      } else { ?>
+      } else { ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง false
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <a href="adminpage.php"> // คำสั่ง route จากรูปภาพไปที่ admin/adminpage.php
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
           ชื่อ Admin
-          <p><?php echo $_SESSION['f_name']; ?></p>
+          <p><?php echo $_SESSION['f_name']; ?></p> // พิมพ์ _SESSION['f_name']
           สาขา
-          <p><?php echo $_SESSION['major']; ?></p>
+          <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ _SESSION['major']
           <p><?php echo $_SESSION['id']; ?></p>
         </div>
       <?php } ?>

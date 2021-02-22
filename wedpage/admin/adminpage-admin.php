@@ -46,8 +46,8 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <!-- Login Form -->
           <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
-            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
-            <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> 
+            <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับกรอก password
             <dev class="card1leftcolumn">
               <button type="submit" class="btn btn-primary" name="login_user">Login</button>
               <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
@@ -60,12 +60,12 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
             <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
           ชื่อ Admin
-          <p><?php echo $_SESSION['f_name'];
+          <p><?php echo $_SESSION['f_name']; // พิมพ์ _SESSION['f_name']
               // ' ', $_SESSION['l_name'];
               ?>
           </p>
           สาขา
-          <p><?php echo $_SESSION['major']; ?></p>
+          <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ _SESSION['major']
         </div>
       <?php endif ?>
       <div class="card3-adminpage">
@@ -132,17 +132,17 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
               </h3>
             </div>
           <?php endif ?>
-          ตำแหน่ง/คำนำหน้าชื่อ<input type="text" name="name_titles" id="txt_fname">
+          ตำแหน่ง/คำนำหน้าชื่อ<input type="text" name="name_titles" id="txt_fname"> textbox สำหรับกรอก name_titles
           </select><br>
-          ชื่อ : <input type="text" name="txt_fname" id="txt_fname">
+          ชื่อ : <input type="text" name="txt_fname" id="txt_fname"> textbox สำหรับกรอก txt_fname
           <br>
-          นามสกุล: <input type="text" name="txt_lname" id="txt_lname">
+          นามสกุล: <input type="text" name="txt_lname" id="txt_lname"> textbox สำหรับกรอก txt_lname
           <br>
-          รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}">
+          รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}"> textbox สำหรับกรอก txt_id
           <br>
-          เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}">
+          เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}"> textbox สำหรับกรอก txt_tel
           <br>
-          E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th">
+          E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> textbox สำหรับกรอก txt_mail
           <br>
           สาขา<select name="major" class="form-control">
             <option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>

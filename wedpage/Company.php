@@ -60,7 +60,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลก
           <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
-              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับกรอก password
               <dev class="card1leftcolumn">
                 <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
               </dev> // ปิดคำสั่ง css โดยใช้ class ชื่อ card1leftcolumn

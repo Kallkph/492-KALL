@@ -62,7 +62,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
             <!-- Login Form -->
             <form action="../process/login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID"> 
-              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password">
+              <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password"> textbox สำหรับกรอก password
               <dev class="card1leftcolumn">
                 <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->

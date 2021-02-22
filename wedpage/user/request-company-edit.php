@@ -36,11 +36,11 @@ if (isset($_POST['query'])) {
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
-  <link rel="stylesheet" href="../../scr/css/styles.css">
+  <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 <body>
-  <div class="container">
+  <div class="container"> // คำสั่ง bootstrap container
     <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,7 +48,7 @@ if (isset($_POST['query'])) {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="container">
+          <div class="container"> // คำสั่ง bootstrap container
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="/wedpage/afterindex.php">หน้าหลัก</a>
               <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
@@ -128,17 +128,17 @@ if (isset($_POST['query'])) {
             ?>
               <form action="../../process/request-company_db.php" method="post">
                 <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
-                <input type="text" class="form-control" id="txt_r_company" name="txt_r_company" value='<?php echo $rows['c_name'] ?>'>
+                <input type="text" class="form-control" id="txt_r_company" name="txt_r_company" value='<?php echo $rows['c_name'] ?>'> // แสดงต่า $row['c_name']
                 <label for="inputEmail4">กรอก ตำแหน่งหรือชื่อบุคคคล และ เบอร์โทรที่ติดต่อได้</label>
-                <input type="text" class="form-control" id="txt_r_about" name="txt_r_about" value='<?php echo $rows['c_detail'] ?>'>
+                <input type="text" class="form-control" id="txt_r_about" name="txt_r_about" value='<?php echo $rows['c_detail'] ?>'>// แสดงต่า $row['c_detail']
                 <div class="form-group" style="width: 600px">
                   <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
-                  <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'>
+                  <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px" value='<?php echo $rows['c_address'] ?>'> // แสดงต่า $row['c_address']
                 </div>
                  <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-4"> 
                     เบอร์โทรศัพท์
-                    <input type="text" id="txtc_address" name="txt_r_address" style="height:" value='<?php echo $rows['c_tel'] ?>'>
+                    <input type="text" id="txtc_address" name="txt_r_address" style="height:" value='<?php echo $rows['c_tel'] ?>'> // แสดงต่า $row['c_tel']
                   </div>
                 </div>
                  <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row

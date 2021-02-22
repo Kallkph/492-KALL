@@ -15,8 +15,8 @@ if (isset($_POST['login_user'])) {
     echo 'need passwoed';
   }
 
-    $query = "SELECT * FROM users WHERE id = '$id' AND password = '$password' ";
-    $result = mysqli_query($con, $query);
+    $query = "SELECT * FROM users WHERE id = '$id' AND password = '$password' "; // คำสั่งเชื่อมต่อฐานข้อมูล users โดยหา id ทีตรงกับ '$id' และ มี password ทีตรงกับ '$password'
+    $result = mysqli_query($con, $query); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     $userdata = mysqli_fetch_assoc($result);
 
     
@@ -72,8 +72,8 @@ if (isset($_POST['login_user'])) {
   }
 
 
-    $query = "SELECT * FROM advisor WHERE a_id = '$id' AND a_password = '$password' ";
-    $result = mysqli_query($con, $query);
+    $query = "SELECT * FROM advisor WHERE a_id = '$id' AND a_password = '$password' "; // คำสั่งเชื่อมต่อฐานข้อมูล advisor โดยหา a_id ทีตรงกับ '$id' และ มี password ทีตรงกับ '$password'
+    $result = mysqli_query($con, $query); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     $userdata = mysqli_fetch_assoc($result);
 
     

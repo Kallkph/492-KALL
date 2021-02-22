@@ -20,7 +20,7 @@ if ($result = $mysqli -> query("SELECT * FROM users")) {
   $result -> free_result();
 }
 
-$result = mysqli_query "SELECT id, name FROM mytable" ;
+$result = mysqli_query "SELECT id, name FROM mytable" ; 
 
 while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
     printf("ID: %s  Name: %s", $row[0], $row[1]);  

@@ -16,8 +16,8 @@
   include('../../configure/connect.php');
   $sql = "SELECT * From users";
   // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
-
+  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
+ 
   // print_r($result);
   //   function pre_r( $array ) {
   //     echo '<pre>';
@@ -43,7 +43,7 @@
     <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 
@@ -143,7 +143,7 @@
   
   <tbody>
  
-  <?php while($row = $result->fetch_assoc()){
+  <?php while($row = $result->fetch_assoc()){ // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row 
     if (($row['major'] != "0") && ($_SESSION['major'] == $row['major'])) {
     echo "<tr>" ;
       echo "<td>" . $row['id'] . "</td>"; 

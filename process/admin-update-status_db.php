@@ -9,7 +9,7 @@ if ($_POST['update-status'] == 'pass') {
     $sql = "UPDATE users SET
     status = 1
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     if ($_SESSION['major'] != "0") {
         $sql2 = "UPDATE requestcompany SET
         r_advisor = $_SESSION[id]
@@ -26,7 +26,7 @@ if ($_POST['update-status'] == 'false') {
     $sql = "UPDATE users SET
     status = 0
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . ""); 
 }
 
@@ -36,7 +36,7 @@ if ($_POST['update-status'] == 'onFixg') {
     $sql = "UPDATE users SET
     status = 4
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
 }
 
@@ -45,7 +45,7 @@ if ($_POST['update-status'] == 'onFixc') {
     $sql = "UPDATE users SET
     status = 5
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
 }
 
@@ -54,7 +54,7 @@ if ($_POST['update-status'] == 'print1') {
     $sql = "UPDATE users SET
     status = 8
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
 }
 
@@ -63,7 +63,7 @@ if ($_POST['update-status'] == 'print2') {
     $sql = "UPDATE users SET
     status = 9
     WHERE id = $_POST[id] ";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
     header("location: ../wedpage/admin/adminpage-read.php?id=" . $_POST['id'] . "");
 }
 

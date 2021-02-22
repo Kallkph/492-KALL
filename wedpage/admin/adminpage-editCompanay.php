@@ -65,7 +65,7 @@
     <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 
@@ -151,27 +151,27 @@
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " ></label>
     <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
-    ชื่อสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> 
+    ชื่อสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name']?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_name'] 
   </div>
   <div class="form-group"  style="width: 600px">
   <!-- สาขา : <input type="text" id="" name="" value='?php echo $row['']?>'>  -->
   </div>
   <div class="form-group" style="width: 600px">
     <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
-    <input type="text" id="txtc_address" name="txtc_address" style="height: 200px"  value='<?php echo $row['c_address']?>'> 
+    <input type="text" id="txtc_address" name="txtc_address" style="height: 200px"  value='<?php echo $row['c_address']?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_address']
     <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
   </div>
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlTextarea1" >ข้อมูลผู้ดูแลฝึกงาน</label>
-    <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'>
+    <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px"  value='<?php echo $row['c_detail']?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_detail']
   </div>
 
   <div class="form-group"  style="width: 600px">
     <label for="exampleFormControlInput1" bootstrap style="margin-top: 0px " >เบอร์โทรติดต่อ</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_tel" placeholder="เบอร์โทรติดต่อ" value='<?php echo $row['c_tel']?>'>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_tel" placeholder="เบอร์โทรติดต่อ" value='<?php echo $row['c_tel']?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_tel']
   </div>
   
-  <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
+  <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_id']
   <?php if ($_SESSION['major'] == '0') { ?>
   <button type="submit" class="btn btn-light" id="btn_submit" name="reg" value="Save...">บันทึก</button>
 <?php } ?>
@@ -196,7 +196,7 @@
   <tbody>
  
   <!-- ?php while($row = $result->fetch_assoc()){ -->
-    <?php while($rows = $result2->fetch_assoc()){
+    <?php while($rows = $result2->fetch_assoc()){ // คำสั่งการ loop ค่าในตัวแปล $result2 ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row 
       // print_r($rows);
     echo "<tr>" ;
       echo "<td>" . $rows['r_sid'] . "</td>"; 

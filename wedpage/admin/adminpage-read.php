@@ -63,7 +63,7 @@
   <head>
     <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
-    <link rel="stylesheet" href="../../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
   </head>
   <body>
     <nav class="navbar navbar-light bg-light">

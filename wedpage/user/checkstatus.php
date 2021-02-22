@@ -5,7 +5,7 @@
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!"; // การเก็บค่าไวใน _SESSION ในตัวแปล msg
   }
   if (isset($_SESSION['id'])){  // เงื่อนไข if ถ้า มี isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
-    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid AND users.id = '$_SESSION[id]'"; // การกำหนดค่า ตัวแปล loginAction ใหัมีค่า true
+    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid AND users.id = '$_SESSION[id]'"; 
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); //การ Read ข้อมูลเพื่อหา id ที่ตรงกับ $_SESSION[id] แล้วนำไปเก็บไว้ในตัวแปล query
     $userdata = mysqli_fetch_assoc($result); // ผลของการค้นหาข้อมูลจาก query จะถูกเก็บไว้ในตัวแปล result 
     if (mysqli_num_rows($result) == 1) { // เงื่อนไข if ถ้ามีการพบข้อมูลที่มี length เท่ากับ 1 จะทำให้เงื่อนไขนี้เป็นจริง true

@@ -107,7 +107,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
             <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
               <div class="carousel-item">
                 <?php
-                $query = "SELECT * FROM uploadfile WHERE type = 'news'";
+                $query = "SELECT * FROM uploadfile WHERE type = 'news'";  // คำสั่งเชื่อมต่อฐานข้อมูล uploadfile โดยหา type ทีตรงกับ 'news'
                 $result = mysqli_query($con, $query);
                 while ($row = mysqli_fetch_array($result)) {
                   echo "<img src='../../scr/fileupload/" . $row['fileupload'] . "' width='100%'>";

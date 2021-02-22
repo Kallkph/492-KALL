@@ -33,7 +33,7 @@ if(isset($_POST['r_submit'])){
 
     echo 'txtId >>>';
     echo $data['_id'];
-        $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] ";
+        $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
         
        
         print_r($query = mysqli_query($con, $user_check_query));
@@ -102,7 +102,7 @@ if(isset($_POST['r_submit'])){
 
     echo 'txtId >>>';
     echo $data['_id'];
-        $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] ";
+        $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
         
        
         print_r($query = mysqli_query($con, $user_check_query));

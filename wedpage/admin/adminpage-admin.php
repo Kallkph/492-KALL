@@ -12,24 +12,16 @@
     unset($_SESSION['type']);
     header('location: index.php');
   }
-  
   include('../../configure/connect.php');
-  $sql = "SELECT * From advisor";
-  // $result = mysqli_query($con, $sql);
-  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " );
-
+  $sql = "SELECT * From advisor";  //เชื่อมฐานข้อมูล advisor โดบเก็บไว้ในตัวแปล $sql
+  $result = mysqli_query($con, $sql) or die ("Error in query: $sql " ); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
   // print_r($result);
   //   function pre_r( $array ) {
   //     echo '<pre>';
   //     print_r($array);
   //     echo '</pre>';
   //   }
-
-
-
-  
 ?>
-
 <html lang="th">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -46,7 +38,7 @@
     <meta charset="utf-8" />
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 
@@ -145,7 +137,7 @@
   
   <tbody>
  
-  <?php while($row = $result->fetch_assoc()){
+  <?php while($row = $result->fetch_assoc()){ // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row 
 
     // if (($row['a_major'] != "0") && ($_SESSION['major'] == $row['major'])) {
     // echo "<tr>" ;

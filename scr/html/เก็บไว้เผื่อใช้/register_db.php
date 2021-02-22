@@ -43,7 +43,7 @@
         // }
 
         
-        $user_check_query = "SELECT * FROM users WHERE s_id = 'txt_id' ";
+        $user_check_query = "SELECT * FROM users WHERE s_id = 'txt_id' "; // คำสั่งเชื่อมต่อฐานข้อมูล users โดยหา s_id ทีตรงกับ 'txt_id'
         $query = mysqli_query($conn, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         // echo('qwe');4

@@ -27,43 +27,32 @@ if ($_SESSION['status'] != 1) {
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
-
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
-
-  <link rel="stylesheet" href="../../scr/css/styles.css">
+  <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
-
-
 <body>
-  <div class="container">
+  <div class="container"> // คำสั่ง bootstrap container
     <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="container">
-
-
+          <div class="container"> // คำสั่ง bootstrap container
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="../afterindex.php">หน้าหลัก</a>
               <a class="nav-item nav-link" href="../Company.php">สถานประกอบการ</a>
               <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
               <a class="nav-item nav-link" href="#">ข่าวสาร</a>
               <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-
               <?php if (isset($_SESSION['success'])) : ?>
                 <a class="nav-item nav-link" href="request-company.php">ยื่นเรื่องฝึกงาน</a>
                 <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
               <?php endif ?>
-
-
             </div>
-
           </div>
         </div>
       </nav>
@@ -76,7 +65,6 @@ if ($_SESSION['status'] != 1) {
             <form action="login_db.php" method="post">
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> textbox สำหรับใส่รหัสประจำตัวของผู้ใช้เช่น รหัสนักศึกษา, รหัสอาจารย์
-
               <dev class="card1leftcolumn">
                 <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
                 <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
@@ -118,8 +106,8 @@ if ($_SESSION['status'] != 1) {
         <div class="card2infograde">
           <?php
           $map = false;
-          $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'";
-          $resultMap = mysqli_query($con, $queryMap);
+          $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'"; // คำสั่งเชื่อมต่อฐานข้อมูล uploadfile โดยหา u_id ทีตรงกับ $_SESSION[id] $sql และมี type เท่ากับ 'map'
+          $resultMap = mysqli_query($con, $queryMap); // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล resultMap 
           if (mysqli_num_rows($resultMap) > 0) {
             $map = true;
           } else {
@@ -159,7 +147,7 @@ if ($_SESSION['status'] != 1) {
             echo "</tr>";
             echo "</thead>";
             echo "<tbody>";
-            $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'" or die("Error:");
+            $queryMap = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id] AND type = 'map'" or die("Error:"); // คำสั่งเชื่อมต่อฐานข้อมูล uploadfile โดยหา u_id ทีตรงกับ $_SESSION[id] $sql และมี type เท่ากับ 'map'
             $resultMap = mysqli_query($con, $queryMap);
             while ($row = mysqli_fetch_array($resultMap)) {
               echo "<tr>";
@@ -171,7 +159,7 @@ if ($_SESSION['status'] != 1) {
             echo "</table>";
             echo "</form>";
           }
-          if (isset($_SESSION['id']) && $map) {
+          if (isset($_SESSION['id']) && $map) { // เงื่อนไข if ถ้ามี isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
             echo "<form action='../../process/uploadPoto_db.php' method='post' enctype='multipart/form-data'>";
             echo "<div class='form-group'>";
             echo "<label for='inputEmail4'> อัพโหลดรายงานประจำสัปดาห์ </label>";
@@ -232,7 +220,7 @@ if ($_SESSION['status'] != 1) {
             echo "</thead>";
             echo "<tbody>";
             $query = "SELECT * FROM uploadfile WHERE u_id = $_SESSION[id]" or die("Error:");
-            $result = mysqli_query($con, $query);
+            $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
             while ($row = mysqli_fetch_array($result)) {
               echo "<tr>";
               echo "<td>" . $row['fileupload'] . "</td>";
@@ -257,9 +245,7 @@ if ($_SESSION['status'] != 1) {
   </div>
   </div>
 </body>
-
 </html>
 <?php
 include('../../configure/connect.php')
-
 ?>

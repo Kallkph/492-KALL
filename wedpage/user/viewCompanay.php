@@ -40,60 +40,46 @@ if ($stmt = mysqli_prepare($con, $sql)) {
     header('location: ../index.php');
   }
 }
-
-
-
-
 ?>
-
 <html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
-<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script>
+<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
+<script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
-
-  <link rel="stylesheet" href="../../scr/css/styles.css">
+  <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
-
 <body>
-  <div class="container">
+  <div class="container"> // คำสั่ง bootstrap container
     <img src="../../scr/img/Banner.png" width="100%">
     <div id="mainlink">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="container">
-
-
+          <div class="container"> // คำสั่ง bootstrap container
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="../afterindex.php">หน้าหลัก</a>
               <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
               <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
               <a class="nav-item nav-link" href="#">ข่าวสาร</a>
               <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
-
               <?php if (isset($_SESSION['success'])) : ?>
                 <a class="nav-item nav-link" href="user/request-company.php">ยื่นเรื่องฝึกงาน</a>
                 <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a>
               <?php endif ?>
-
-
             </div>
-
           </div>
         </div>
       </nav>
@@ -118,7 +104,6 @@ if ($stmt = mysqli_prepare($con, $sql)) {
             <a href="pageuser.php">
               <img src="./scr/img/profile.jpg" width="50%">
             </a>
-
             รหัสนักศึกษา
             <p><?php echo $_SESSION['id']; ?></p>
             ชื่อ
@@ -126,12 +111,9 @@ if ($stmt = mysqli_prepare($con, $sql)) {
             สาขา
             <p><?php echo $_SESSION['id']; ?></p>
           </div>
-
         <?php endif ?>
-
         <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3
           <!DOCTYPE html>
-
           <p id="top">Link Download เอกสารต่างๆ </p>
           <ul>
             <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li>
@@ -144,118 +126,24 @@ if ($stmt = mysqli_prepare($con, $sql)) {
         </div>
       </div>
       <div class="rightcolumn">
-
         <div class="card2" style="height:900px;">
-
           <div class="row row-cols-1 row-cols-md-3">
           </div>
-          <!-- <div class="col mb-4">
-    <div class="card">
-      <img src="../scr/img/01.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">คอมพิวเตอร์</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/02.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">ซ่อมบำรุงอากาศยาน</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/03.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">ยานยนต์</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/04.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/05.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/06.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/07.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-    <img src="../scr/img/08.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h6 class="card-title">Card title</h6>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
-
-          <!-- <div id="table_row_filter" class="dataTables_filter">
-Search:
-<input type="search" class="form-control input-sm" placeholder aria-controls="table_row">
-</div> -->
-
           <form action="../../process/editCompany_db.php" method="post" style="margin-left:90px">
-
             <div class="form-group" style="width: 600px">
               <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px "></label>
-              <!-- <input type="text" class="form-control" id="exampleFormControlInput1" name="txtc_name" placeholder=""> -->
-              ข้อมูลสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name'] ?>'>
+              ข้อมูลสถานประกอบการ : <input type="text" id="txtc_name" name="txtc_name" value='<?php echo $row['c_name'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_name']
             </div>
-
             <div class="form-group" style="width: 600px">
               <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
-              <input type="text" id="txtc_address" name="txtc_address" style="height: 200px" value='<?php echo $row['c_address'] ?>'>
-              <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
+              <input type="text" id="txtc_address" name="txtc_address" style="height: 200px" value='<?php echo $row['c_address'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_address']
             </div>
             <div class="form-group" style="width: 600px">
               <label for="exampleFormControlTextarea1">ข้อมูลเพิ่มเติม</label>
-              <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px" value='<?php echo $row['c_detail'] ?>'>
+              <input type="text" id="txtc_detail" name="txtc_detail" style="height: 200px" value='<?php echo $row['c_detail'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_detail']
             </div>
-            <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'>
+            <input type='hidden' id='c_id' name='txtc_id' value='<?php echo $row['c_id'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['c_id']
           </form>
-
-
-
         </div>
       </div>
     </div>
@@ -263,13 +151,9 @@ Search:
   <div class="conteiner">
     <div class="footer">
       <div class="fakeimg">
-
       </div>
-
     </div>
-
   </div>
-  <!-- //// -->
   <?php
   if (isset($_SESSION['success'])) {
     echo $_SESSION['id'];
@@ -281,11 +165,9 @@ Search:
   }
   ?>
   </div>
-
 </body>
 
 </html>
-
 <script>
   $(document).ready(function() {
     $('#table_row').DataTable();

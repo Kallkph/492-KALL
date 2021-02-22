@@ -49,7 +49,7 @@ if(isset($_POST['reg'])){
 
     echo 'txtId >>>';
     echo $data['txt_id'];
-        $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] ";
+        $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล users โดยหา a_id ทีตรงกับ $data[txt_id]
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         print_r($result);
@@ -137,7 +137,7 @@ if(isset($_POST['reg'])){
 
     echo 'txtId >>>';
     echo $data['txt_id'];
-        $user_check_query = "SELECT * FROM advisor WHERE a_id = $data[txt_id] ";
+        $user_check_query = "SELECT * FROM advisor WHERE a_id = $data[txt_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล advisor โดยหา a_id ทีตรงกับ $data[txt_id]
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         print_r($result);

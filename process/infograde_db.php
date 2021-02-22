@@ -28,7 +28,7 @@
 
     echo $_SESSION['id'];
 
-    $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] ";
+    $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ที่ตรงกับ $data[_id]
     print_r($query = mysqli_query($con, $user_check_query));
   
     if (count($errors) == 0) {
@@ -90,7 +90,7 @@
   
       echo $_SESSION['id'];
   
-      $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] ";
+      $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ทีตรงกับ $data[_id]
       print_r($query = mysqli_query($con, $user_check_query));
     
       if (count($errors) == 0) {
@@ -157,7 +157,7 @@
 
     echo $_SESSION['id'];
 
-    $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] ";
+    $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ทีตรงกับ $data[_id]
     print_r($query = mysqli_query($con, $user_check_query));
   
     if (count($errors) == 0) {

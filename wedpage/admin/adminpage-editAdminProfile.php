@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
 
 if ($_GET['id']) {
   include('../../configure/connect.php');
-  $sql = "SELECT * FROM advisor WHERE a_id = ?";
+  $sql = "SELECT * FROM advisor WHERE a_id = ?"; 
 
   if ($stmt = mysqli_prepare($con, $sql)) {
     mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -58,7 +58,7 @@ if ($_GET['id']) {
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
-  <link rel="stylesheet" href="../../scr/css/styles.css">
+  <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 <body>
@@ -126,21 +126,21 @@ if ($_GET['id']) {
         </div>
         <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
           <form action="../../process/editUserProfile_db.php" method="post">
-            คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['a_t_position'] ?>'>
-            ชื่อ : <input type="text" name="txt_fname" id="txt_fname" value='<?php echo $row['a_f_name'] ?>'>
+            คำนำหน้าชื่อ : <input type="text" name="name_titles" id="name_titles" value='<?php echo $row['a_t_position'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_t_position']
+            ชื่อ : <input type="text" name="txt_fname" id="txt_fname" value='<?php echo $row['a_f_name'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_f_name']
             <br>
-            นามสกุล: <input type="text" name="txt_lname" id="txt_lname" value='<?php echo $row['a_l_name'] ?>'>
+            นามสกุล: <input type="text" name="txt_lname" id="txt_lname" value='<?php echo $row['a_l_name'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_l_name']
             <br>
-            รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}" value='<?php echo $row['a_id'] ?>'>
+            รหัสอาจารย์ : <input type="text" id="txt_id" name="txt_id" pattern="[0-9]{7}" value='<?php echo $row['a_id'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_id']
             <br>
-            เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}" value='<?php echo $row['a_tel'] ?>'>
+            เบอร์โทร : <input type="text" id="telnum" name="txt_tel" pattern="[0-9]{10}" value='<?php echo $row['a_tel'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_tel']
             <br>
-            E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th" value='<?php echo $row['a_email'] ?>'>
+            E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th" value='<?php echo $row['a_email'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_email']
             <br>
-            สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th" value='<?php echo $row['a_major'] ?>'>
+            สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th" value='<?php echo $row['a_major'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_major']
             <br>
             <!-- ?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='ระหัสผ่านอาจารย์'  value=$row[password]>" ; }?>  -->
-            รหัสผ่าน : <input type="password" class="form-control" id="password" name="password" placeholder="ระหัสผ่านใหม่" value='<?php echo $row['a_password'] ?>'>
+            รหัสผ่าน : <input type="password" class="form-control" id="password" name="password" placeholder="ระหัสผ่านใหม่" value='<?php echo $row['a_password'] ?>'>  // เป็นช่อง input ที่จะแสดงต่า $row['a_password']
             <br>
             <button type="submit" class="btn btn-light" id="btn_submit" name="regAdmin" value="Save...">บันทึก</button>
           </form>

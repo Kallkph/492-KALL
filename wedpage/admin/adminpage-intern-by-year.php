@@ -72,7 +72,7 @@
     <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
     <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
 
-    <link rel="stylesheet" href="../../scr/css/styles.css">
+    <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
 
@@ -190,7 +190,7 @@
   <tbody>
  
   <!-- ?php while($row = $result->fetch_assoc()){ -->
-    <?php while($rows = $result2->fetch_assoc()){
+    <?php while($rows = $result2->fetch_assoc()){ // คำสั่งการ loop ค่าในตัวแปล $result2 ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row 
       // print_r($rows);
     echo "<tr>" ;
       echo "<td>" . $rows['r_sid'] . "</td>"; 

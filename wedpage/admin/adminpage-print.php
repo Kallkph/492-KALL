@@ -223,19 +223,19 @@
               <div class="form-group col-md-2">
               </div>
               <div class="form-group" style='margin-right:10px;'>
-              <?php echo $row['name_titles']; ?> 
+              <?php echo $row['name_titles']; ?> // แสดงต่า $row['name_titles']
               </div>
               <div class="form-group" style='margin-right:30px;'>
-              <?php echo $row['f_name']; ?> 
+              <?php echo $row['f_name']; ?> // แสดงต่า $row['f_name']
               </div>
               <div class="form-group" style='margin-right:30px;'>
-              <?php echo $row['l_name']; ?> 
+              <?php echo $row['l_name']; ?> // แสดงต่า $row['l_name']
               </div>
               <div class="form-group" style='margin-right:30px;'>
               รหัส
               </div>
               <div class="form-group" style='margin-right:30px;'>
-              <?php echo $row['id']; ?> 
+              <?php echo $row['id']; ?> // แสดงต่า $row['id']
               </div>
               <div class="form-group" style='margin-right:30px;'>
               ภาควิชา 

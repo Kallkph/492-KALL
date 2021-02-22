@@ -184,9 +184,9 @@
                   <option selected>รายวิชา</option>
                   <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";           
-              $result = mysqli_query($con, $query);
+              $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
               while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-                  <option><?php echo $row['s_value']?>
+                  <option><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
                   </option>
                   <?php } ?>
                 </select>
@@ -237,9 +237,9 @@
                   <option selected>รายวิชา</option>
                   <?php
                     $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-                    $result = mysqli_query($con, $query);
+                    $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
                     while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-                  <option><?php echo $row['s_value']?>
+                  <option><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
                   </option>
                   <?php } ?>
                 </select>
@@ -289,10 +289,10 @@
                 <select id="txt_r_state" name="s3_name" class="form-control">
                   <option selected>รายวิชา</option>
                   <?php
-                    $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-                    $result = mysqli_query($con, $query);
+                    $query = "SELECT * FROM subject WHERE s_key LIKE '$major'"; 
+                    $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
                     while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-                  <option><?php echo $row['s_value']?>
+                  <option><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
                   </option>
                   <?php } ?>
                 </select>
@@ -350,7 +350,7 @@
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'"; 
               $result = mysqli_query($con, $query); //การ Read ข้อมูลเพื่อหา id ที่ตรงกับ $_SESSION[id] แล้วนำไปเก็บไว้ในตัวแปล query
               while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-          <option><?php echo $row['s_value']?>
+          <option><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
           </option>
           <?php } ?>
         </select>
@@ -399,9 +399,9 @@
           <option selected>รายวิชา</option>
           <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-              $result = mysqli_query($con, $query);
+              $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
               while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-          <option><?php echo $row['s_value']?>
+          <option><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
           </option>
           <?php } ?>
         </select>
@@ -456,9 +456,9 @@
           <option selected>รายวิชา</option>
           <?php
               $query = "SELECT * FROM subject WHERE s_key LIKE '$major'";
-              $result = mysqli_query($con, $query);
+              $result = mysqli_query($con, $query);  // ผลของการค้นหาข้อมูลจาก mysqli_query จะถูกเก็บไว้ในตัวแปล result 
               while($row = $result->fetch_assoc()) {  // คำสั่งการ loop ค่าในตัวแปล $result ด้วยคำสั่ง fetch_assoc() แล้วนำค่าที่ได้ index นั่นๆเก็บลง $row  ?>
-          <option value=<?php echo $row['s_value']?>><?php echo $row['s_value']?>
+          <option value=<?php echo $row['s_value']?>><?php echo $row['s_value']?> // แสดงต่า $row['s_value']
           </option>
           <?php } ?>
         </select>

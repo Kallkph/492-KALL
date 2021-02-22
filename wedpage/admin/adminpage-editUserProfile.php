@@ -64,9 +64,9 @@ if ($_GET['id']) {
         "</form>";
         "</div>";
       } else { ?>
-        <div class="card1">
-          <a href="adminpage.php">
-            <img src="../../scr/img/adminproflie.jpg" width="40%">
+        <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
+          <a href="adminpage.php"> // คำสั่ง route จากรูปภาพไปที่ user/adminpage.php
+            <img src="../../scr/img/adminproflie.jpg" width="40%"> 
           </a>
           ชื่อ Admin
           <p><?php echo $_SESSION['f_name']; ?></p>

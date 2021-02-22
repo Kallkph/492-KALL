@@ -1,66 +1,42 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['id'])) {
+<?php // เปิดหัวประกาศคำสั่งphp
+session_start(); // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
+if (!isset($_SESSION['id'])) { // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true 
   $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
 }
-
-if (isset($_GET['logout'])) {
-  session_destroy();
-  unset($_SESSION['id']);
-  unset($_SESSION['type']);
-  header('location: index.php');
+if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_GET['logout'] จะทำให้เงื่อนไขนี้เป็นจริง true
+  session_destroy();// คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
+  unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['id']
+  unset($_SESSION['type']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['type']
+  header('location: index.php'); // การ route ไปยัง index.php
 }
-
 if ($_GET['id']) {
   include('../../configure/connect.php');
-  $sql = "SELECT * FROM advisor WHERE a_id = ?"; 
-
+  $sql = "SELECT * FROM advisor WHERE a_id = ?";
   if ($stmt = mysqli_prepare($con, $sql)) {
     mysqli_stmt_bind_param($stmt, "i", $param_id);
-
     $param_id = trim($_GET['id']);
-
     if (mysqli_stmt_execute($stmt)) {
       $result = mysqli_stmt_get_result($stmt);
-
       if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-
         $name = $row['a_id'];
-
-        // print_r($row);
       } else {
         echo "else";
-        // header("locatino: index.")
       }
     }
   }
 }
-
-
-// print_r($_SESSION);
-
-
-// require_once __DIR__ . '/vendor/autoload.php';
-
-// $mpdf = new \Mpdf\Mpdf();
-// ob_start();
-
 ?>
-
 <html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
-
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
-
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
@@ -140,7 +116,7 @@ if ($_GET['id']) {
             สาขา : <input type="text" id="major" name="major" placeholder="@rsu.ac.th" value='<?php echo $row['a_major'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_major']
             <br>
             <!-- ?php if ($_SESSION['major'] == 0) {echo "ระหัสผ่าน :" . "<input type='text' id='password' name='password' placeholder='ระหัสผ่านอาจารย์'  value=$row[password]>" ; }?>  -->
-            รหัสผ่าน : <input type="password" class="form-control" id="password" name="password" placeholder="ระหัสผ่านใหม่" value='<?php echo $row['a_password'] ?>'>  // เป็นช่อง input ที่จะแสดงต่า $row['a_password']
+            รหัสผ่าน : <input type="password" class="form-control" id="password" name="password" placeholder="ระหัสผ่านใหม่" value='<?php echo $row['a_password'] ?>'> // เป็นช่อง input ที่จะแสดงต่า $row['a_password']
             <br>
             <button type="submit" class="btn btn-light" id="btn_submit" name="regAdmin" value="Save...">บันทึก</button>
           </form>
@@ -155,5 +131,4 @@ if ($_GET['id']) {
       ?>
     </div>
 </body>
-
 </html>

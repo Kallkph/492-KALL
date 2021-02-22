@@ -69,7 +69,7 @@ if ($_GET['id']) {
           <p><?php echo $_SESSION['f_name']; ?></p> // พิมพ์ _SESSION['f_name']
           สาขา
           <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ _SESSION['major']
-          <p><?php echo $_SESSION['id']; ?></p>
+          <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ _SESSION['id']
         </div>
       <?php } ?>
       <div class="card3"> // คำสั่ง css โดยใช้ class ชื่อ card3

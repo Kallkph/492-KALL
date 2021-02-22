@@ -88,7 +88,7 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหาก�
               <img src="../../scr/img/profile.jpg" width="50%">
             </a>
             รหัสนักศึกษา
-            <p><?php echo $_SESSION['id']; ?></p>
+            <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ _SESSION['id']
             ชื่อ
             <p><?php echo $_SESSION['f_name'], ' ', $_SESSION['l_name']; ?></p>
             สาขา

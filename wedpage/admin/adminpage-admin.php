@@ -144,15 +144,15 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
           <br>
           E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> textbox สำหรับกรอก txt_mail
           <br>
-          สาขา<select name="major" class="form-control">
-            <option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>
-            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
-            <option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option>
-            <option value="วิศวกรรมอุตสาหการ">วิศวกรรมอุตสาหการ</option>
-            <option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option>
-            <option value="วิศวกรรมยานยนต์">วิศวกรรมยานยนต์</option>
-            <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>
-            <option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>
+          สาขา<select name="major" class="form-control"> 
+            <option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option> 
+            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option> 
+            <option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option> 
+            <option value="วิศวกรรมอุตสาหการ">วิศวกรรมอุตสาหการ</option> 
+            <option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option> 
+            <option value="วิศวกรรมยานยนต์">วิศวกรรมยานยนต์</option> 
+            <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option> 
+            <option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option> 
           </select><br>
           <br>
           Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>

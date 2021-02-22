@@ -85,11 +85,11 @@ if (isset($_POST['query'])) {
               <img src="../../scr/img/profile.jpg" width="50%">
             </a>
             รหัสนักศึกษา
-            <p><?php echo $_SESSION['id']; ?></p>
+            <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ _SESSION['id']
             ชื่อ
             <p><?php echo $_SESSION['f_name'], ' ', $_SESSION['l_name']; ?></p>
             สาขา
-            <p><?php echo $_SESSION['id']; ?></p>
+            <p><?php echo $_SESSION['id']; ?></p> // พิมพ์ _SESSION['id']
             <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-light">แก้ไขข้อมูลประจำตัว</a>

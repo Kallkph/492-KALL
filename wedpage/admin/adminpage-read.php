@@ -94,7 +94,7 @@
               <img src="../../scr/img/adminproflie.jpg" width="40%">
             </a>
             ชื่อ Admin
-            <p><?php echo $_SESSION['f_name'];?></p>
+            <p><?php echo $_SESSION['f_name'];?></p> // พิมพ์ _SESSION['f_name']
             สาขา
             <p><?php echo $_SESSION['major'];?></p>
             <p><?php echo $_SESSION['id'];?></p>

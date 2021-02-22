@@ -24,18 +24,16 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
-
 <head>
-  <meta charset="utf-8" />
-  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
+  <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
+  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
-
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
     <form class="form-inline">
-      <?php if (!isset($_SESSION)) : ?>
+      <?php if (!isset($_SESSION)) : ?> // เงื่อนไข if ถ้า ไม่มี isset($_SESSION จะทำให้เงื่อนไขนี้เป็นจริง true
         <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
       <?php else : ?>
         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>
@@ -44,10 +42,10 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
   </nav>
   <div class="row">
     <div class="leftcolumn">
-      <?php if (!isset($_SESSION['success'])) : ?>
+      <?php if (!isset($_SESSION['success'])) : ?> // เงื่อนไข if ถ้า ไม่มี isset($_SESSION จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1">
           <!-- Login Form -->
-          <form action="login_db.php" method="post">
+          <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
             <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
             <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
             <dev class="card1leftcolumn">
@@ -76,14 +74,14 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
         </div>
         <div class="list-group">
           <?php
-          if ($_SESSION['major'] == "0") {
+          if ($_SESSION['major'] == "0") { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าเท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง true
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์และแผนที่</a>";
             echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีสมาชิก</a>";
             echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีอาจารย์</a>";
             echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลสถานประกอบการ</a>";
             echo "<a href='adminpage-News.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการข้อมูลข่าวสาร</a>";
-          } else {
+          } else { // เงื่อนไข if ถ้า $_SESSION['major'] มีค่าไม่เท่ากับ "0" จะทำให้เงื่อนไขนี้เป็นจริง false
             echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
             echo "<a href='adminpage-weekstamp.php' class='list-group-item list-group-item-action list-group-item-light'>รายงานประจำสัปดาห์</a>";
             echo "<a href='adminpage-companay.php' class='list-group-item list-group-item-action list-group-item-light'>ดูข้อมูลสถานประกอบการ</a>";
@@ -155,7 +153,6 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
             <option value="วิศวกรรมยานยนต์">วิศวกรรมยานยนต์</option>
             <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>
             <option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>
-
           </select><br>
           <br>
           Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
@@ -175,7 +172,6 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
   </div>
   </div>
 </body>
-
 </html>
 <script>
   $(document).ready(function() {

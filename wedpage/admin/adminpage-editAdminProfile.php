@@ -34,14 +34,14 @@ if ($_GET['id']) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
-  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
+  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
     <form class="form-inline">
-      <?php if (!isset($_SESSION)) : ?>
+      <?php if (!isset($_SESSION)) : ?> // เงื่อนไข if ถ้า ไม่มี isset($_SESSION จะทำให้เงื่อนไขนี้เป็นจริง true
         <a class="nav-item nav-link" href="register.php">สมัครสมาชิก</a>
       <?php else : ?>
         <a class="nav-item nav-link" href="../index.php?logout='1'">ออกจากระบบ</a>

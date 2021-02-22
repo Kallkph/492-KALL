@@ -55,7 +55,7 @@ if ($stmt = mysqli_prepare($con, $sql)) {
 
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
-  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
+  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
 
@@ -89,7 +89,7 @@ if ($stmt = mysqli_prepare($con, $sql)) {
         <?php if (!isset($_SESSION['success'])) : ?>
           <div class="card1">
             <!-- Login Form -->
-            <form action="login_db.php" method="post">
+            <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
               <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
               <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
 

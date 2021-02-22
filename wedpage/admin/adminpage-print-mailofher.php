@@ -41,7 +41,7 @@ if ($_GET['id']) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
-  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
+  <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <!-- <link rel="stylesheet" href="../../scr/css/styles.css"> -->
   <link rel="stylesheet" type="test/css" href="../../scr/css/print.css" media="print">
 </head>
@@ -60,7 +60,7 @@ if ($_GET['id']) {
           <div class="form-group col-md-5" style='margin-top:60px' ;>
           </div>
         </div>
-        <form action="../../process/admin-update-status_db.php" method="post">
+        <form action="../../process/admin-update-status_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/admin-update-status_db.php
           <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
             <div class="form-group col-md-1">
             </div>
@@ -413,7 +413,7 @@ if ($_GET['id']) {
       <div class="fakeimg">
       </div>
     </div>
-    <form action="../../process/admin-update-status_db.php" method="post">
+    <form action="../../process/admin-update-status_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/admin-update-status_db.php
       <?php echo  "<input type='hidden' id='txt_id' name='id' value='$row[id]'>";
       echo  "<input type='hidden' id='txt_id' name='_id' value='$_SESSION[id]'>"; ?>
       <input button type='submit' class='btn btn-warning' name='update-status' value='print1' style='margin-top:100px;' />

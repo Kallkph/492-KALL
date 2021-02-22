@@ -77,49 +77,8 @@
         ?php endif ?>
       </form> -->
     <!-- </nav> -->
-    <div class="row">
-      <!-- <div class="leftcolumn">
-        ?php if (!isset($_SESSION ['success'])) { 
-        "<div class='card1'>";
-          "<form action='login_db.php' method='post'>";
-            echo "<input type='text' id='txt_id' class='fadeIn second' name='txt_id' placeholder='id'>";
-            echo "<input type='text' id='txt_password' class='fadeIn third' name='txt_password' placeholder='password'>";
-            "<dev class='card1leftcolumn'>";
-            echo "<button type='submit' class='btn btn-primary' name = 'login_user'> . Login . </button>";
-            "</dev>";
-          "</form>";       
-        "</div>";
-        } else { ?>
-          <div class="card1">
-            <a href="adminpage.php">
-              <img src="../../scr/img/adminproflie.jpg" width="40%">
-            </a>
-            ชื่อ Admin
-            <p>?php echo $_SESSION['f_name'];?></p>
-            สาขา
-            <p>?php echo $_SESSION['major'];?></p>
-            <p>?php echo $_SESSION['id'];?></p>
-          </div>
-        ?php } ?>
-      <div class="card3">
-        <div class="btn-group-vertical">
-          แผงควบคุม
-        </div>  
-        <div class="list-group">
-        ?php
-          if ($_SESSION['major'] == "0") {
-            echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
-            echo "<a href='adminpage-users.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีผู้ใช้</a>";
-            echo "<a href='adminpage-admin.php' class='list-group-item list-group-item-action list-group-item-light'>จัดการบัญชีแอดมิน</a>";
-          } else {
-            echo "<a href='adminpage.php' class='list-group-item list-group-item-action list-group-item-light'>ใบคำร้องขอฝึกงาน</a>";
-          }
-          ?>
-        </div>
-          <div class="fakeimg" style="height:200px;"></div>  
-      </div>
-    </div> -->
-    <div class="rightcolumn">            
+    <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+    <div class="rightcolumn">   // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ          
       <div class="card2-from-admin-read" style='padding:0px';>
        <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
       <a href="adminpage.php">

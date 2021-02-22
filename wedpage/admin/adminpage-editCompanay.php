@@ -59,9 +59,9 @@ if ($_GET['id']) {
       <?php endif ?>
     </form>
   </nav>
-  <div class="row">
-    <div class="leftcolumn">
-      <?php if (!isset($_SESSION['success'])) : ?>
+  <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+    <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+      <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1">
           <!-- Login Form -->
           <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php

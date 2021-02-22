@@ -40,8 +40,8 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
       <?php endif ?>
     </form>
   </nav>
-  <div class="row">
-    <div class="leftcolumn">
+  <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+    <div class="leftcolumn">  // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <?php if (!isset($_SESSION['success'])) : ?> // เงื่อนไข if ถ้า ไม่มี isset($_SESSION จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1">
           <!-- Login Form -->

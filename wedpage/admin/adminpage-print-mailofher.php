@@ -46,9 +46,9 @@ if ($_GET['id']) {
   <link rel="stylesheet" type="test/css" href="../../scr/css/print.css" media="print">
 </head>
 <body>
-  <div class="row">
-    <div class="rightcolumn">
-      <div class="card2-from-admin-read" style='padding:0px' ;>
+  <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
+    <div class="rightcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+      <div class="card2-from-admin-read" style='padding:0px' ;> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="form-row"> // คำสั่ง css โดยใช้ class ชื่อ form-row
           <a href="adminpage.php">
             <img src="../../scr/img/rsuhead.jpg" width="100%" style='padding: 10px;'>

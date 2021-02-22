@@ -1,15 +1,15 @@
-<?php
-  session_start();
+<?php // เปิดหัวประกาศคำสั่งphp
+  session_start(); // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
 
-  if (!isset($_SESSION['id'])) {
+  if (!isset($_SESSION['id'])) { // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true 
     $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
   }
 
-  if (isset($_GET['logout'])) {
+  if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_GET['logout'] จะทำให้เงื่อนไขนี้เป็นจริง true
     session_destroy();
-    unset($_SESSION['id']);
-    unset($_SESSION['type']);
-    header('location: index.php');
+    unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['id']
+    unset($_SESSION['type']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่า $_SESSION['type']
+    header('location: index.php'); // การ route ไปยัง index.php
   }
 
   if($_GET['id']){
@@ -235,7 +235,7 @@
               รหัส
               </div>
               <div class="form-group" style='margin-right:30px;'>
-              <?php echo $row['id']; ?> // แสดงต่า $row['id']
+              <?php  ['id']; ?> // แสดงต่า $row['id']
               </div>
               <div class="form-group" style='margin-right:30px;'>
               ภาควิชา 

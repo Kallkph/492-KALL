@@ -110,9 +110,6 @@
           <p>ติดต่อเรา</p>
           <p>
             <b>
-              <a href="https://www.en-rsu.ac.th"
-                target="_blank">link.//www.en-rsu.ac.th  ลิ้งค์ไปยัง www.en-rsu.ac.th
-              </a>
             </b> 
           <div class="fakeimg" style="height:200px;"></div> คำสั่ง css ทำให้มีพื้นที่สูง 200px
         </div>

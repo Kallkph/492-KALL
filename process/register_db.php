@@ -67,7 +67,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
           }
         }
 
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO users (id, name_titles, f_name, l_name, email, major, tel, type, course, password)
       VALUES
@@ -155,7 +155,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
           }
         }
     
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       
       $sql =" INSERT INTO advisor (a_id, a_t_position, a_f_name, a_l_name, a_email, a_tel, a_major, a_type, a_password)

@@ -25,7 +25,7 @@
     echo $_SESSION['id'];
     $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ที่ตรงกับ $data[_id]
     print_r($query = mysqli_query($con, $user_check_query));
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1)
       VALUES
@@ -73,7 +73,7 @@
       echo $_SESSION['id'];
       $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ทีตรงกับ $data[_id]
       print_r($query = mysqli_query($con, $user_check_query));
-      if (count($errors) == 0) {
+      if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
         echo 'error = 0';
         $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1, g_subject2, g_term2, g_year2, g_gpa2)
         
@@ -139,7 +139,7 @@
     $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ทีตรงกับ $data[_id]
     print_r($query = mysqli_query($con, $user_check_query));
   
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow,
         g_subject1, g_term1, g_year1, g_gpa1,

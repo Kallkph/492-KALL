@@ -10,7 +10,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     "c_detail" => $_POST["txtc_detail"],
     "c_tel" => $_POST["txtc_tel"],
   );
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO company (c_id, c_name, c_address, c_detail, c_tel) 	
       VALUES

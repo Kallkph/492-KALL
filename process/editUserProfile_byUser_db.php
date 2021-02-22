@@ -20,7 +20,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
   if($_POST){
     echo "if";
         
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       $sql2 = "UPDATE users SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
       name_titles ='$name_titles',
       email ='$txt_mail',

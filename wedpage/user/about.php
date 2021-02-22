@@ -92,7 +92,7 @@
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
-          <p><b><a href="https://www.en-rsu.ac.th" target="_blank">link.//www.en-rsu.ac.th</a></b>
+          
             <div class="fakeimg" style="height:200px;"></div>
         </div>
       </div>

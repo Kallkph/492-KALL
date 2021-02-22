@@ -31,7 +31,7 @@ if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['
     echo $data['_id'];
         $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
         print_r($query = mysqli_query($con, $user_check_query));
-         if (count($errors) == 0) {
+         if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO requestcompany (r_id, r_sid, r_major, r_yearnow, r_company, r_about, r_set, r_address, r_mu, r_road, r_address2, r_city, r_state, r_zip, r_phone, r_fax, r_startTime, r_endTime)
       VALUES
@@ -85,7 +85,7 @@ if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['
     echo $data['_id'];
         $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
         print_r($query = mysqli_query($con, $user_check_query));
-         if (count($errors) == 0) {
+         if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO requestcompany (r_id ,r_sid, r_major, r_yearnow, r_company, r_about, r_tel, r_address, r_startTime, r_endTime)
       VALUES

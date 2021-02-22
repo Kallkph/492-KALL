@@ -43,7 +43,7 @@ if (isset($_POST['reg'])) {
       array_push($errors, "Username already exists");
     }
     print_r($errors);
-    if (count($errors) == 0) {
+    if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
         "txt_id" => $_POST["txt_id"],
         "txt_fname" => $_POST["txt_fname"],

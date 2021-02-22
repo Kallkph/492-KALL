@@ -88,7 +88,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลก
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
-          <p><b><a href="https://www.en-rsu.ac.th" target="_blank">link.//www.en-rsu.ac.th</a></b> link.//www.en-rsu.ac.th</a></b> ลิ้งค์ สำหรับ www.en-rsu.ac.th
+           
             <div class="fakeimg" style="height:200px;"></div> คำสั่ง css ทำให้มีพื้นที่สูง 200px
         </div>
       </div>// ปิดคำสั่งการแบ่งคอลัมน์ของหน้าเว็บ

@@ -26,7 +26,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $statusMsg = "เพิ่มข้อมูลเรียบร้อย";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>"; // ทำการ router ไปที่ .../adminpage-companay.php
     $qr->close();
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
       $statusMsg = "else";

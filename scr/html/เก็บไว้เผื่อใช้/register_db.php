@@ -58,7 +58,7 @@
 
         print_r($errors);
         
-        if (count($errors) == 0 AND $data) {
+        if (count($errors) == 0 AND $data) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 และมี $data จะทำให้เงื่อนไขนี้เป็นจริง true
             // $password = ($password_1);
             $sql =" INSERT INTO users (s_id, s_fname, s_lname, s_email, s_password)
             VALUES

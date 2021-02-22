@@ -23,7 +23,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
       $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>"; // ทำการ router ไปที่ .../adminpage-companay.php
-    } else if((!count($errors) == 0)){
+    } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo $errors;
       print_r($errors);
         $statusMsg = "else";

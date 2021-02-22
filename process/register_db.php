@@ -21,40 +21,36 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );
-  if ($_POST["txt_fname"] == "") {
+  if ($_POST["txt_fname"] == "") { // เงื่อนไข if ถ้า $_POST['txt_fname'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุชื่อจริง";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  else if ($_POST["txt_lname"] == "") {
+  else if ($_POST["txt_lname"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_lname'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
       $statusMsg = "โปรดระบุนามสกุล";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  else if ($_POST["txt_pwd"] == "") {
+  else if ($_POST["txt_pwd"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_pwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
       $statusMsg = "โปรดระบุรหัสผ่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
-  else if ($_POST["txt_cpwd"] == "") {
+  else if ($_POST["txt_cpwd"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_cpwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุรหัสผ่านยืนยัน!";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
 
-  else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) {
+  else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) { // เงื่อนไข else if ถ้า $_POST['txt_pwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
 
   if($_POST["txt_pwd"] != "" && $_POST["txt_cpwd"] != "" && ($_POST["txt_pwd"] == $_POST["txt_cpwd"])){
     echo "if";
-
-
     echo 'txtId >>>';
     echo $data['txt_id'];
         $user_check_query = "SELECT * FROM users WHERE id = $data[txt_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล users โดยหา a_id ทีตรงกับ $data[txt_id]
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         print_r($result);
-        
-
         if($result){
           echo ($result);
           if($result['id'] === $data['txt_id']){
@@ -66,29 +62,22 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
             echo 'มี id นี้ในระบบแล้ว';
           }
         }
-
     if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
       $sql =" INSERT INTO users (id, name_titles, f_name, l_name, email, major, tel, type, course, password)
       VALUES
       (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       ";
-
       $qr = $con->prepare($sql);
       if($qr === false){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
-
     $qr->bind_param("ssssssssss", $data["txt_id"], $data["name_titles"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["major"],  $data["txt_tel"], $data["type"], $data["course"], $data["txt_pwd"]);
     $qr->execute();
-
-  
-
     $statusMsg = "สมัครสมาชิกเรียบร้อย";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>"; // ทำการ router ไปที่ .../index.php
-
     $qr->close();
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
     $statusMsg = "  รหัสนักศึกษานี้ถูกใช้ไปแล้ว กรุณาตรววจสอบอีกครั้ง";
@@ -109,40 +98,35 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     "txt_pwd" => $_POST["txt_pwd"],
     "txt_cpwd" => $_POST["txt_cpwd"]
   );
-  if ($_POST["txt_fname"] == "") {
+  if ($_POST["txt_fname"] == "") { // เงื่อนไข if ถ้า $_POST['txt_fname'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุชื่อจริง";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  else if ($_POST["txt_lname"] == "") {
+  else if ($_POST["txt_lname"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_lname'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
       $statusMsg = "โปรดระบุนามสกุล";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  else if ($_POST["txt_pwd"] == "") {
+  else if ($_POST["txt_pwd"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_pwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
       $statusMsg = "โปรดระบุรหัสผ่าน!";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
-  else if ($_POST["txt_cpwd"] == "") {
+  else if ($_POST["txt_cpwd"] == "") { // เงื่อนไข else if ถ้า $_POST['txt_cpwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุรหัสผ่านยืนยัน!";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
 
-  else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) {
+  else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) { // เงื่อนไข else if ถ้า $_POST['txt_pwd'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   }
-
   if($_POST["txt_pwd"] != "" && $_POST["txt_cpwd"] != "" && ($_POST["txt_pwd"] == $_POST["txt_cpwd"])){
     echo "if";
-
-
     echo 'txtId >>>';
     echo $data['txt_id'];
         $user_check_query = "SELECT * FROM advisor WHERE a_id = $data[txt_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล advisor โดยหา a_id ทีตรงกับ $data[txt_id]
         $query = mysqli_query($con, $user_check_query);
         $result = mysqli_fetch_assoc($query);
         print_r($result);
-        
-
         if($result){
           echo ($result);
           if($result['a_id'] === $data['txt_id']){
@@ -154,30 +138,22 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
             echo 'มี id นี้ในระบบแล้ว';
           }
         }
-    
     if (count($errors) == 0) { // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       echo 'error = 0';
-      
       $sql =" INSERT INTO advisor (a_id, a_t_position, a_f_name, a_l_name, a_email, a_tel, a_major, a_type, a_password)
       VALUES
       (?, ?, ?, ?, ?, ?, ?, ?, ?)
       ";
-
       $qr = $con->prepare($sql);
       if($qr === false){
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
-
     $qr->bind_param("sssssssss", $data["txt_id"], $data["name_titles"], $data["txt_fname"], $data["txt_lname"], $data["txt_mail"], $data["txt_tel"], $data["major"], $data["type"], $data["txt_pwd"]);
     $qr->execute();
-
-  
-
     $statusMsg = "สมัครสมาชิกเรียบร้อย";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>"; // ทำการ router ไปที่ .../adminpage-admin.php
-
     $qr->close();
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
       $statusMsg = "รหัสนี้มีการใช้งานแล้ว";

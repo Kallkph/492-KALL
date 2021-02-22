@@ -19,7 +19,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $type = "user",
     $course = $_POST["course"],
   );
-  if ($_POST["txt_fname"] == "") {
+  if ($_POST["txt_fname"] == "") { // เงื่อนไข if ถ้า $_POST['txt_fname'] มีค่า "" จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุชื่อจริง";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
@@ -45,14 +45,14 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-users.php';</script>";  // ทำการ router ไปที่ .../adminpage-users.php
 
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าเท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
       $statusMsg = "else";
       echo "else";
     }
   }
-} else if(isset($_POST['regAdmin'])){
+} else if(isset($_POST['regAdmin'])){ // เงื่อนไข if ถ้า $_POST['regAdmin'] มีค่า "" จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     $txt_id = $_POST["txt_id"],
     $name_titles = $_POST["name_titles"],
@@ -64,11 +64,11 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $type = "user",
     $txt_pwd = $_POST["password"],
   );
-  if ($_POST["txt_fname"] == "") {
+  if ($_POST["txt_fname"] == "") { // เงื่อนไข if ถ้า $_POST['txt_fname'] มีค่า "" จะทำให้เงื่อนไขนี้เป็นจริง true
     $statusMsg = "โปรดระบุชื่อจริง";
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
-  else if ($_POST["txt_lname"] == "") {
+  else if ($_POST["txt_lname"] == "") { // เงื่อนไข if ถ้า $_POST['txt_lname'] มีค่า "" จะทำให้เงื่อนไขนี้เป็นจริง true
       $statusMsg = "โปรดระบุนามสกุล";
       echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } 
@@ -91,7 +91,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-users.php';</script>"; // ทำการ router ไปที่ .../adminpage-users.php
 
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
       $statusMsg = "else";

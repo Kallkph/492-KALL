@@ -46,7 +46,7 @@
       $statusMsg = "สำเร็จ";
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../adminpage-users.php
       $qr->close();
-    } else if((!count($errors) == 0)){
+    } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
       print_r($errors);
         echo "else";
         echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
@@ -102,7 +102,7 @@
         echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
   
         $qr->close();
-      } else if((!count($errors) == 0)){
+      } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
   
         print_r($errors);
           echo "else";
@@ -173,7 +173,7 @@
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
 
       $qr->close();
-    } else if((!count($errors) == 0)){
+    } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
 
       print_r($errors);
         echo "else";

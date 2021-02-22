@@ -52,7 +52,7 @@ if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['
           return $randomString;
         }
       $qr = $con->prepare($sql);
-      if($qr === false){
+      if($qr === false){ // เงื่อนไข if ถ้า $qr ไม่มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
         echo "($qr === false)";
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
@@ -62,12 +62,12 @@ if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['
     $statusMsg = "สำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
     $qr->close();
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     print_r($errors);
       echo "else";
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
   }
-} else if($_POST['rc_edit']) {
+} else if($_POST['rc_edit']) { // เงื่อนไข if ถ้า $_POST['rc_edit'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   echo "8adfl;m";
 } else {
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
@@ -116,7 +116,7 @@ if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['
     $statusMsg = "สำเร็จ";
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
     $qr->close();
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     print_r($errors);
       echo "else";
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php

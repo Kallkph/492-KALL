@@ -31,7 +31,7 @@ if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg']
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ"; 
     echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/pageuser.php';</script>"; // ทำการ router ไปที่ .../pageuser.php
 
-  } else if((!count($errors) == 0)){
+  } else if((!count($errors) == 0)){ // เงื่อนไข if ถ้า $errors มีค่าไม่เท่ากับ 0 จะทำให้เงื่อนไขนี้เป็นจริง true
     echo $errors;
     print_r($errors);
       $statusMsg = "else";

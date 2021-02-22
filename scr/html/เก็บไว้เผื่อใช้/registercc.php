@@ -21,10 +21,10 @@ if (isset($_POST['reg'])) {
     echo "<script type='text/javascript'>alert('$statusMsg');</script>";
   } else if ($_POST["txt_cpwd"] == "") {
     $statusMsg = "โปรดระบุรหัสผ่านยืนยัน!";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
   } else if ($_POST["txt_pwd"] != $_POST["txt_cpwd"]) {
-    $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+    $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน"; 
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
   }
 
   if ($_POST["txt_pwd"] != "" && $_POST["txt_cpwd"] != "" && ($_POST["txt_pwd"] == $_POST["txt_cpwd"])) {
@@ -37,7 +37,7 @@ if (isset($_POST['reg'])) {
     print_r($result);
     if ($result) {
       $statusMsg = "โปรดระบุรหัสผ่านและรหัสยืนยัน ให้ตรงกัน";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
       print_r($errors);
       echo ('if (have result(มีอยู่แล้ว))');
       array_push($errors, "Username already exists");

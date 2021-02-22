@@ -44,12 +44,12 @@
       $qr->execute();
       echo "if";
       $statusMsg = "สำเร็จ";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../adminpage-users.php
       $qr->close();
     } else if((!count($errors) == 0)){
       print_r($errors);
         echo "else";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
     }
   } else if($_POST['g_save'] == 'Save2'){
       $data = array(  // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
@@ -99,14 +99,14 @@
   
         echo "if";
         $statusMsg = "สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
   
         $qr->close();
       } else if((!count($errors) == 0)){
   
         print_r($errors);
           echo "else";
-          echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+          echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
       }
   } else if($_POST['g_save'] == 'Save3'){
     $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
@@ -170,14 +170,14 @@
       echo "if";
       $statusMsg = "สำเร็จ";
       updateStatus(true);
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
 
       $qr->close();
     } else if((!count($errors) == 0)){
 
       print_r($errors);
         echo "else";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
     }
   } else {
     print_r($errors);

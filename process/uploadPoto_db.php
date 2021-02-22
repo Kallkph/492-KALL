@@ -27,7 +27,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $qr->bind_param("sss", $newname, $_POST['upload_id'], $week);
         $qr->execute();
         $statusMsg = "upload $week สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>"; // ทำการ router ไปที่ .../weekstamp.php
         $qr->close();
     }
 } else if ($_POST['btn_upload'] == 'upload_map') {
@@ -55,7 +55,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $qr->bind_param("sss", $newname, $_POST['upload_id'], $maps);
         $qr->execute();
         $statusMsg = "upload map สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/weekstamp.php';</script>"; // ทำการ router ไปที่ .../weekstamp.php
         $qr->close();
     }
 } else if ($_POST['btn_upload'] == 'upload_news') {
@@ -80,7 +80,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $result2 = mysqli_query($con, $sql2) or die("Error in query: $sql2 ");
 
         $statusMsg = "news สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-News.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-News.php';</script>"; // ทำการ router ไปที่ .../adminpage-News.php
 
         $qr->close();
     }

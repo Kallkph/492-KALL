@@ -7,7 +7,7 @@
 
   $errors = array();
 
-if(isset($_POST['reg'])){
+if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     "txt_id" => $_POST["txt_id"],
     "name_titles" => $_POST["name_titles"],
@@ -85,7 +85,7 @@ if(isset($_POST['reg'])){
   
 
     $statusMsg = "สมัครสมาชิกเรียบร้อย";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>"; // ทำการ router ไปที่ .../index.php
 
     $qr->close();
   } else if((!count($errors) == 0)){
@@ -93,10 +93,10 @@ if(isset($_POST['reg'])){
     print_r($errors);
     $statusMsg = "  รหัสนักศึกษานี้ถูกใช้ไปแล้ว กรุณาตรววจสอบอีกครั้ง";
       echo "else";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/register.php';</script>"; // ทำการ router ไปที่ .../register.php
   }
 }
-}else if(isset($_POST['regadmin'])){
+}else if(isset($_POST['regadmin'])){ // เงื่อนไข if ถ้า $_POST['regadmin'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     "txt_id" => $_POST["txt_id"],
     "name_titles" => $_POST["name_titles"],
@@ -174,7 +174,7 @@ if(isset($_POST['reg'])){
   
 
     $statusMsg = "สมัครสมาชิกเรียบร้อย";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>"; // ทำการ router ไปที่ .../adminpage-admin.php
 
     $qr->close();
   } else if((!count($errors) == 0)){
@@ -182,7 +182,7 @@ if(isset($_POST['reg'])){
     print_r($errors);
       $statusMsg = "รหัสนี้มีการใช้งานแล้ว";
       echo "else";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-admin.php';</script>"; // ทำการ router ไปที่ .../adminpage-admin.php
   }
 }
 }

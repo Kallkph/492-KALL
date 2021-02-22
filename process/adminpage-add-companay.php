@@ -3,7 +3,7 @@
   echo "<pre>", print_r($_POST, true), "</pre>"; 
   include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
   $errors = array();
-if(isset($_POST['reg'])){
+if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     "c_name" => $_POST["txtc_name"],
     "c_address" => $_POST["txtc_address"],
@@ -24,7 +24,7 @@ if(isset($_POST['reg'])){
     $qr->bind_param("sssss",$uuid , $data["c_name"], $data["c_address"], $data["c_detail"], $data["c_tel"]);
     $qr->execute();
     $statusMsg = "เพิ่มข้อมูลเรียบร้อย";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>"; // ทำการ router ไปที่ .../adminpage-companay.php
     $qr->close();
   } else if((!count($errors) == 0)){
     echo $errors;

@@ -7,9 +7,8 @@
 
   $errors = array();
 
-if(isset($_POST['r_submit'])){
+if(isset($_POST['r_submit'])){ // เงื่อนไข if ถ้า $_POST['r_submit'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
-        
     "_id" => $_SESSION['id'],
     "txt_r_major" => $_SESSION['major'],
     "txt_r_company" => $_POST["txt_r_company"],
@@ -27,18 +26,11 @@ if(isset($_POST['r_submit'])){
     "txt_r_yearnow" => $_POST["txt_r_yearnow"],
     "txt_r_startTime" => $_POST["txt_r_startTime"],
     "txt_r_endTime" => $_POST["txt_r_endTime"]
-    
   );
-
-
     echo 'txtId >>>';
     echo $data['_id'];
         $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
-        
-       
         print_r($query = mysqli_query($con, $user_check_query));
-        
-
          if (count($errors) == 0) {
       echo 'error = 0';
       $sql =" INSERT INTO requestcompany (r_id, r_sid, r_major, r_yearnow, r_company, r_about, r_set, r_address, r_mu, r_road, r_address2, r_city, r_state, r_zip, r_phone, r_fax, r_startTime, r_endTime)
@@ -49,9 +41,7 @@ if(isset($_POST['r_submit'])){
         status = 2
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
-
         $uuid = generateRandomString(); 
-        
         function generateRandomString($length = 15) {
           $characters = '0123456789';
           $charactersLength = strlen($characters);
@@ -61,33 +51,26 @@ if(isset($_POST['r_submit'])){
           }
           return $randomString;
         }
-
       $qr = $con->prepare($sql);
       if($qr === false){
         echo "($qr === false)";
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
-
     $qr->bind_param("ssssssssssssssssss",$uuid ,$data["_id"],$data["txt_r_major"],$data["txt_r_yearnow"],$data["txt_r_company"], $data["txt_r_about"],$data["txt_r_set"], $data["txt_r_address"], $data["txt_r_mu"], $data["txt_r_road"], $data["txt_r_address2"], $data["txt_r_city"], $data["txt_r_state"],$data["txt_r_zip"],$data["txt_r_phone"],$data["txt_r_fax"],$data["txt_r_startTime"],$data["txt_r_endTime"]);
     $qr->execute();
-
     echo "if";
     $statusMsg = "สำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
-
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
     $qr->close();
   } else if((!count($errors) == 0)){
-
     print_r($errors);
       echo "else";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
   }
-
 } else if($_POST['rc_edit']) {
   echo "8adfl;m";
 } else {
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
-        
     "_id" => $_SESSION['id'],
     "txt_r_major" => $_SESSION['major'],
     "txt_r_company" => $_POST["txt_r_company"],
@@ -97,17 +80,11 @@ if(isset($_POST['r_submit'])){
     "txt_r_yearnow" => $_POST["txt_r_yearnow"],
     "txt_r_startTime" => $_POST["txt_r_startTime"],
     "txt_r_endTime" => $_POST["txt_r_endTime"]
-    
   );
-
     echo 'txtId >>>';
     echo $data['_id'];
         $user_check_query = "SELECT * FROM requestcompany WHERE id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล requestcompany โดยหา id ทีตรงกับ $data[_id]
-        
-       
         print_r($query = mysqli_query($con, $user_check_query));
-        
-
          if (count($errors) == 0) {
       echo 'error = 0';
       $sql =" INSERT INTO requestcompany (r_id ,r_sid, r_major, r_yearnow, r_company, r_about, r_tel, r_address, r_startTime, r_endTime)
@@ -118,15 +95,11 @@ if(isset($_POST['r_submit'])){
         status = 2
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
-
-      
-
       $qr = $con->prepare($sql);
       if($qr === false){
         echo "($qr === false)";
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
-
       function generateRandomStrings($length = 15) {
         $characters = '0123456789';
         $charactersLength = strlen($characters);
@@ -136,27 +109,17 @@ if(isset($_POST['r_submit'])){
         }
         return $randomString;
       }
-
       $uuid = generateRandomStrings(); 
-        
-
-
     $qr->bind_param("ssssssssss", $uuid, $data["_id"],$data["txt_r_major"],$data["txt_r_yearnow"],$data["txt_r_company"], $data["txt_r_about"], $data["txt_r_tel"], $data["txt_r_address"], $data["txt_r_startTime"],$data["txt_r_endTime"]);
     $qr->execute();
-
     echo "if";
     $statusMsg = "สำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
-
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>"; // ทำการ router ไปที่ .../afterindex.php
     $qr->close();
   } else if((!count($errors) == 0)){
-
     print_r($errors);
       echo "else";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>"; // ทำการ router ไปที่ .../register.php
   }
 }
-
-  
-
 ?>

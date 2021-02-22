@@ -3,7 +3,7 @@
   echo "<pre>", print_r($_POST, true), "</pre>";
   include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
   $errors = array(); // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
-if(isset($_POST['reg'])){
+if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     $c_name = $_POST["txtc_name"],
     $c_address = $_POST["txtc_address"],
@@ -22,7 +22,7 @@ if(isset($_POST['reg'])){
       WHERE c_id ='$c_id' ";
       $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
     $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>";
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/admin/adminpage-companay.php';</script>"; // ทำการ router ไปที่ .../adminpage-companay.php
     } else if((!count($errors) == 0)){
       echo $errors;
       print_r($errors);

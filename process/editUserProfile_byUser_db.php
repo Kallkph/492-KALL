@@ -7,7 +7,7 @@
 
   $errors = array();
 
-if(isset($_POST['reg'])){
+if(isset($_POST['reg'])){ // เงื่อนไข if ถ้า $_POST['reg'] มีค่า จะทำให้เงื่อนไขนี้เป็นจริง true
   $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     $txt_id = $_POST["txt_id"],
     $name_titles = $_POST["name_titles"],
@@ -29,8 +29,8 @@ if(isset($_POST['reg'])){
       WHERE id ='$txt_id' ";
       $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
 
-    $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ";
-    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/pageuser.php';</script>";
+    $statusMsg = "ผลการแก้ไขข้อมูลสำเร็จ"; 
+    echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/user/pageuser.php';</script>"; // ทำการ router ไปที่ .../pageuser.php
 
   } else if((!count($errors) == 0)){
     echo $errors;

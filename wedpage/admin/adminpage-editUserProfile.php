@@ -27,7 +27,6 @@ if ($_GET['id']) {
   }
 }
 ?>
-
 <html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
@@ -66,7 +65,7 @@ if ($_GET['id']) {
       } else { ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง false
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <a href="adminpage.php"> // คำสั่ง route จากรูปภาพไปที่ user/adminpage.php
-            <img src="../../scr/img/adminproflie.jpg" width="40%"> 
+            <img src="../../scr/img/adminproflie.jpg" width="40%">
           </a>
           ชื่อ Admin
           <p><?php echo $_SESSION['f_name']; ?></p> // พิมพ์ _SESSION['f_name']

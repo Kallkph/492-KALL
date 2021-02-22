@@ -1,7 +1,7 @@
 <?php // เปิดหัวประกาศคำสั่งphp
 session_start(); // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
 if (!isset($_SESSION['id'])) { // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
-  $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!"; 
+  $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!";
 }
 if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_GET['logout'] จะทำให้เงื่อนไขนี้เป็นจริง true
   session_destroy(); // คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
@@ -24,11 +24,13 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
+
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title> // ชื่อที่แสดงส่วนบนหัวเว็บไซต์
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
+
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
@@ -41,12 +43,12 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
     </form>
   </nav>
   <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
-    <div class="leftcolumn">  // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+    <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <?php if (!isset($_SESSION['success'])) : ?> // เงื่อนไข if ถ้า ไม่มี isset($_SESSION จะทำให้เงื่อนไขนี้เป็นจริง true
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <!-- Login Form -->
           <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
-            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> 
+            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
             <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> //textbox สำหรับกรอก password
             <dev class="card1leftcolumn">
               <button type="submit" class="btn btn-primary" name="login_user">Login</button>
@@ -144,15 +146,15 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
           <br>
           E-mail : <input type="text" id="txt_mail" name="txt_mail" placeholder="@rsu.ac.th"> //textbox สำหรับกรอก txt_mail
           <br>
-          สาขา<select name="major" class="form-control"> 
-            <option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option> 
-            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option> 
-            <option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option> 
-            <option value="วิศวกรรมอุตสาหการ">วิศวกรรมอุตสาหการ</option> 
-            <option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option> 
-            <option value="วิศวกรรมยานยนต์">วิศวกรรมยานยนต์</option> 
-            <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option> 
-            <option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option> 
+          สาขา<select name="major" class="form-control">
+            <option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>
+            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
+            <option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option>
+            <option value="วิศวกรรมอุตสาหการ">วิศวกรรมอุตสาหการ</option>
+            <option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option>
+            <option value="วิศวกรรมยานยนต์">วิศวกรรมยานยนต์</option>
+            <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>
+            <option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>
           </select><br>
           <br>
           Password :<input type="text" name="txt_pwd" id="txt_pwd"><br>
@@ -172,6 +174,7 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลข
   </div>
   </div>
 </body>
+
 </html>
 <script>
   $(document).ready(function() {

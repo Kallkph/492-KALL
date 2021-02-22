@@ -33,11 +33,13 @@ if (isset($_POST['query'])) {
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> //การเรียกใช้งาน jquery ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
 <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"></script> //การเรียกใช้งาน bootstrap css framework ของหน้าเว็บไซต์
+
 <head>
   <meta charset="utf-8" /> // กำหนดรูปแบบภาษาไทย
   <title> ระบบฐานข้อมูลนักศึกษาฝึกงาน </title>
   <link rel="stylesheet" href="../../scr/css/styles.css"> // การเรียกใช้ stylesheet css ของหน้าเว็บไซต์
 </head>
+
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">หน้าเพจสำหรับ ADMIN</a>
@@ -55,10 +57,10 @@ if (isset($_POST['query'])) {
         <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
           <!-- Login Form -->
           <form action="login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
-            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id"> 
-            <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password"> 
-            <dev class="card1leftcolumn"> 
-              <button type="submit" class="btn btn-primary" name="login_user">Login</button> 
+            <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
+            <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+            <dev class="card1leftcolumn">
+              <button type="submit" class="btn btn-primary" name="login_user">Login</button>
               <!-- <button type="submit" class="btn btn-primary" name="login" value="">Primary</button> -->
             </dev>
           </form>
@@ -201,6 +203,7 @@ if (isset($_POST['query'])) {
   </div>
   </div>
 </body>
+
 </html>
 <script>
   $(document).ready(function() {

@@ -36,32 +36,32 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
     <div id="mainlink"> // เปิดการกำหนด div mainlink
       <nav class="navbar navbar-expand-lg navbar-light bg-light"> // คำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> // คำสั่งเปิดปุ่ม bootstrap เรียกใช้ class ชื่อ navbar-toggler
-          <span class="navbar-toggler-icon"></span>   // คำสั่ง bootstrap แสดงรูป navbar-toggler-icon
+          <span class="navbar-toggler-icon"></span> // คำสั่ง bootstrap แสดงรูป navbar-toggler-icon
         </button> // ปิดคำสั่งปุ่ม bootstrap
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> // คำสั่งเปิดปุ่ม bootstrap เรียกใช้ class ชื่อ navbar-toggler
-          <div class="container">  // คำสั่ง bootstrap container
-            <div class="navbar-nav">  // คำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
-              <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a> //  คำสั่ง bootstrap ชื่อ nav-link
+          <div class="container"> // คำสั่ง bootstrap container
+            <div class="navbar-nav"> // คำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
+              <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a> // คำสั่ง bootstrap ชื่อ nav-link
               <a class="nav-item nav-link" href="user/news.php">แนะนำ</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ user/news.php
               <a class="nav-item nav-link" href="../wedpage/user/about.php">ติดต่อเรา</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ /user/about.php
               <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
-                <a class="nav-item nav-link" href="/wedpage/user/register.php">สมัครสมาชิก</a>  // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ /wedpage/user/register.php
+                <a class="nav-item nav-link" href="/wedpage/user/register.php">สมัครสมาชิก</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ /wedpage/user/register.php
               <?php else : ?> // เงื่อนไข if ถ้า มี isset($_SESSION['id'] จะทำให้เงื่อนไขนี้ไม่เป็นจริง false
                 <a class="nav-item nav-link" href="user/checkstatus.php">ยื่นเรื่องฝึกงาน</a> // คำสั่ง bootstrap ชื่อ nav-link โดย route ไปที่ user/checkstatus.php
                 <a class="nav-item nav-link" href="index.php?logout='1'">ออกจากระบบ</a> // คำสั่ง bootstrap ชื่อ nav-link และส่งค่า logout เท่ากับ 1
               <?php endif ?> // ปิดคำสั่ง else
-            </div>  // คำสั่ง bootstrap ชื่อ nav-link และส่งค่า logout เท่ากับ 1
-          </div>  // ปิดคำสั่ง php ใน tag html
-        </div>  // ปิดคำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
-      </nav>  // ปิดคำสั่ง bootstrap container
-    </div>  // ปิดคำสั่ง bootstrap เรียกใช้ class ชื่อ collapse navbar-collapse
+            </div> // คำสั่ง bootstrap ชื่อ nav-link และส่งค่า logout เท่ากับ 1
+          </div> // ปิดคำสั่ง php ใน tag html
+        </div> // ปิดคำสั่ง bootstrap เรียกใช้ class ชื่อ navbar
+      </nav> // ปิดคำสั่ง bootstrap container
+    </div> // ปิดคำสั่ง bootstrap เรียกใช้ class ชื่อ collapse navbar-collapse
     <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
       <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
         <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
           <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <!-- Login Form -->
             <form action="../process/login_db.php" method="post"> // คำสั่งการส่งข้อมูลด้วยวิธีการ post ไปยัง ../process/login_db.php
-              <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID"> 
+              <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID">
               <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password"> textbox สำหรับกรอก password
               <dev class="card1leftcolumn">
                 <button type="submit" class="btn btn-primary" name="login_user">Login</button> // ปุ่มเข้าสู่ระบบ
@@ -80,77 +80,77 @@ if (isset($_GET['logout'])) { // เงื่อนไข if ถ้า มี $_
             <p><?php echo $_SESSION['f_name'], ' ', $_SESSION['l_name']; ?></p>
             สาขา
             <p><?php echo $_SESSION['major']; ?></p> // พิมพ์ $_SESSION['major']
-          </ > // ปิดคำสั่ง css โดยใช้ class ชื่อ card3
-        <?php endif ?> // ปิดคำสั่ง else
-        <div class="card3"> // เปิดคำสั่ง css โดยใช้ class ชื่อ card3
-          <!DOCTYPE html>
-          <p id="top">Link Download เอกสารต่างๆ </p>
-          <ul>
-            <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li> // ลิ้งค์ Download จาก เอกสารแนะนำสถานที่ฝึกงาน.doc
-            <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li> // ลิ้งค์ Download จาก รายงานประจำสัปดาห์.doc
-            <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
-          </ul>
-          <p>ติดต่อเรา..</p>
+            </> // ปิดคำสั่ง css โดยใช้ class ชื่อ card3
+          <?php endif ?> // ปิดคำสั่ง else
+          <div class="card3"> // เปิดคำสั่ง css โดยใช้ class ชื่อ card3
+            <!DOCTYPE html>
+            <p id="top">Link Download เอกสารต่างๆ </p>
+            <ul>
+              <li><a href="เอกสารแนะนำสถานที่ฝึกงาน.doc">เอกสารแนะนำสถานที่ฝึกงาน</a></li> // ลิ้งค์ Download จาก เอกสารแนะนำสถานที่ฝึกงาน.doc
+              <li><a href="รายงานประจำสัปดาห์.doc">รายงานประจำสัปดาห์</a></li> // ลิ้งค์ Download จาก รายงานประจำสัปดาห์.doc
+              <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
+            </ul>
+            <p>ติดต่อเรา..</p>
             <div class="fakeimg" style="height:200px;"></div> คำสั่ง css ทำให้มีพื้นที่สูง 200px
-        </div> 
-      </div>  // ปิดคำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
-      <div class="rightcolumn">  // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
-        <div class="card2_index">  // คำสั่ง css โดยใช้ class ชื่อ card2_index
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> คำสั่ง bootstrap เรียกใช้ class ชื่อ carousel slide โดยมี id carouselExampleIndicators
-            <ol class="carousel-indicators"> คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> // คำสั่ง css กำหนดค่าสไลด์โชว์ active 
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
-              <div class="carousel-item">
-                <?php
-                $query = "SELECT * FROM uploadfile WHERE type = 'news'";  // คำสั่งเชื่อมต่อฐานข้อมูล uploadfile โดยหา type ทีตรงกับ 'news'
-                $result = mysqli_query($con, $query);
-                while ($row = mysqli_fetch_array($result)) {
-                  echo "<img src='../../scr/fileupload/" . $row['fileupload'] . "' width='100%'>";
-                }
-                ?>
-              </div>
-              <div class="carousel-item"> // คำสั่ง css เรียกใช้ controls ชื่อ carousel-item
-                <img src="../scr/img/1.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
-                <img src="../scr/img/3.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item active"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
-                <img src="../scr/img/2.png" class="d-block w-100" alt="...">
+          </div>
+          </div> // ปิดคำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
+          <div class="rightcolumn"> // คำสั่ง css โดยใช้ class ชื่อ rightcolumn
+            <div class="card2_index"> // คำสั่ง css โดยใช้ class ชื่อ card2_index
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> คำสั่ง bootstrap เรียกใช้ class ชื่อ carousel slide โดยมี id carouselExampleIndicators
+                <ol class="carousel-indicators"> คำสั่ง css เรียกใช้ class ชื่อ carousel-indicators
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> // คำสั่ง css กำหนดค่าสไลด์โชว์ active
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner"> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
+                  <div class="carousel-item">
+                    <?php
+                    $query = "SELECT * FROM uploadfile WHERE type = 'news'";  // คำสั่งเชื่อมต่อฐานข้อมูล uploadfile โดยหา type ทีตรงกับ 'news'
+                    $result = mysqli_query($con, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                      echo "<img src='../../scr/fileupload/" . $row['fileupload'] . "' width='100%'>";
+                    }
+                    ?>
+                  </div>
+                  <div class="carousel-item"> // คำสั่ง css เรียกใช้ controls ชื่อ carousel-item
+                    <img src="../scr/img/1.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
+                    <img src="../scr/img/3.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item active"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item
+                    <img src="../scr/img/2.png" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item ให้ทำงาน
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> // คำสั่ง css กำหนดค่าสไลด์โชว์ active
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> // คำสั่ง css โดยใช้ class ชื่อ carousel-item ให้ทำงาน
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> // คำสั่ง css กำหนดค่าสไลด์โชว์ active 
-              <span class="carousel-control-next-icon" aria-hidden="true"></span> // คำสั่ง bootstrap เรียกใช้ controls ชื่อ carousel-inner
-              <span class="sr-only">Next</span>
-            </a>
           </div>
+      </div>
+    </div>
+    <div class="conteiner">
+      <div class="footer">
+        <div class="fakeimg">
         </div>
       </div>
     </div>
-  </div>
-  <div class="conteiner">
-    <div class="footer">
-      <div class="fakeimg">
-      </div>
-    </div>
-  </div>
-  <?php
-  if (isset($_SESSION['success'])) {
-    echo $_SESSION['id']; // พิมพ์ _SESSION['id']
-    echo $_SESSION['f_name']; // พิมพ์ _SESSION['f_name']
-    echo $_SESSION['l_name']; // พิมพ์ _SESSION['l_name']
-    echo $_SESSION['type']; // พิมพ์ _SESSION['type']
-    unset($_SESSION['error']); // ไม่เก็บค่า _SESSION['type']
-  }
-  ?>
+    <?php
+    if (isset($_SESSION['success'])) {
+      echo $_SESSION['id']; // พิมพ์ _SESSION['id']
+      echo $_SESSION['f_name']; // พิมพ์ _SESSION['f_name']
+      echo $_SESSION['l_name']; // พิมพ์ _SESSION['l_name']
+      echo $_SESSION['type']; // พิมพ์ _SESSION['type']
+      unset($_SESSION['error']); // ไม่เก็บค่า _SESSION['type']
+    }
+    ?>
   </div>
 </body>
 

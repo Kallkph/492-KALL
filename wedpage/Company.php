@@ -88,8 +88,8 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql "); // ผลก
             <li><a href="แบบประเมินผลฝึกงาน.doc">แบบประเมินผลฝึกงาน</a></li> // ลิ้งค์ Download จาก แบบประเมินผลฝึกงาน.doc
           </ul>
           <p>ติดต่อเรา..</p>
-           
-            <div class="fakeimg" style="height:200px;"></div> คำสั่ง css ทำให้มีพื้นที่สูง 200px
+
+          <div class="fakeimg" style="height:200px;"></div> คำสั่ง css ทำให้มีพื้นที่สูง 200px
         </div>
       </div>// ปิดคำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
       <div class="rightcolumn"> // คำสั่ง css โดยใช้ class ชื่อ rightcolumn

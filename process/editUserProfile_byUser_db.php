@@ -3,12 +3,12 @@
 
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "../configure/connect.php";
+  include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 
   $errors = array();
 
 if(isset($_POST['reg'])){
-  $data = array(
+  $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     $txt_id = $_POST["txt_id"],
     $name_titles = $_POST["name_titles"],
     $txt_mail = $_POST["txt_mail"],

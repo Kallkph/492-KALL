@@ -1,5 +1,5 @@
 <?php
-include "../configure/connect.php";
+include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 session_start();
   
 

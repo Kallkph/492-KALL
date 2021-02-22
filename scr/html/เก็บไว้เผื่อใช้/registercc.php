@@ -1,7 +1,7 @@
 <?php
 echo "<pre>", print_r($_POST, true), "</pre>";
 
-include "../configure/connect.php";
+include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 
 $errors = array();
 
@@ -44,7 +44,7 @@ if (isset($_POST['reg'])) {
     }
     print_r($errors);
     if (count($errors) == 0) {
-      $data = array(
+      $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
         "txt_id" => $_POST["txt_id"],
         "txt_fname" => $_POST["txt_fname"],
         "txt_lname" => $_POST["txt_lname"],

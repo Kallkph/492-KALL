@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <?php
-include "../configure/connect.php";
+include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 session_start();
 if ($_POST['btn_upload'] == 'upload_weekstamp') {
     echo "<pre>", print_r($_POST, true), "</pre>";
@@ -74,7 +74,7 @@ if ($_POST['btn_upload'] == 'upload_weekstamp') {
         $c_id = $_POST['weekstamp'];
         $newnewname = $newname;
         move_uploaded_file($_FILES['fileupload']['tmp_name'], $path_copy);
-        $sql2 = "UPDATE uploadfile SET คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
+        $sql2 = "UPDATE uploadfile SET  //คำสั่ง sql ใช้กำหนดสำหรับเพิ่มค่าในฐานข้อมูลหากไม่มีหรือมีค่าเดิมอยู่ให้ทำการ update ค่าเดิม
         fileupload = '$newname'
         WHERE type = '$_POST[weekstamp]'";
         $result2 = mysqli_query($con, $sql2) or die("Error in query: $sql2 ");

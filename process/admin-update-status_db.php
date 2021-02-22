@@ -1,6 +1,6 @@
-<?php
-include "../configure/connect.php";
-session_start();
+<?php // เปิดหัวประกาศคำสั่งphp
+include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
+session_start(); // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
 echo "<pre>", print_r($_POST, true), "</pre>";
 if ($_POST['update-status'] == 'pass') { // if คือเงื่อนไข ถ้าหาก $_POST['update-status'] มีค่าเท่ากับ 'pass' จะทำให้เงื่อนไขนี้เป็นจริง true
     echo "pass";

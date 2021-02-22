@@ -4,7 +4,7 @@
     
     $errors = array();
     if (isset($_POST['reg_user'])) {
-        $data = array(
+        $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
             "txt_id" => $_POST["txt_id"],
             "txt_fname" => $_POST["txt_fname"],
             "txt_lname" => $_POST["txt_lname"],

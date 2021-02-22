@@ -3,13 +3,12 @@
 
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "../configure/connect.php";
+  include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 
   $errors = array();
 
   if($_POST['g_save'] == 'Save1'){
-    $data = array(
-          
+    $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array 
       "_id" => $_SESSION['id'],
       "class" => $_POST['g_class'],
       "sumcredit" => $_POST["g_sumcredit"],
@@ -21,20 +20,14 @@
       "s1_term" => $_POST["s1_term"],
       "s1_year" => $_POST["s1_year"],
       "s1_grade" => $_POST["s1_grade"]
-
     );
-
     print_r($data);
-
     echo $_SESSION['id'];
-
     $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ที่ตรงกับ $data[_id]
     print_r($query = mysqli_query($con, $user_check_query));
-  
     if (count($errors) == 0) {
       echo 'error = 0';
       $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1)
-
       VALUES
       (?,?,?,?,?,?,?,?,?,?,?)
       ";
@@ -42,32 +35,24 @@
         status = 3
         WHERE id = $_SESSION[id] ";
         $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " );
-
-    
       $qr = $con->prepare($sql);
       if($qr === false){
         echo "($qr === false)";
         trigger_error("Wrong SQL : ".$sql."Error :".$son->erro, E_USER_ERROR);
       }
-
       $qr->bind_param("sssssssssss",$data["_id"],$data["class"],$data["sumcredit"],$data["gpa"], $data["term"], $data["yearTerm"], $data["creditnow"], $data["s1_name"],$data["s1_term"],$data["s1_year"],$data["s1_grade"]);
       $qr->execute();
-
       echo "if";
       $statusMsg = "สำเร็จ";
       echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
-
       $qr->close();
     } else if((!count($errors) == 0)){
-
       print_r($errors);
         echo "else";
         echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
     }
-
   } else if($_POST['g_save'] == 'Save2'){
-      $data = array(
-            
+      $data = array(  // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
         "_id" => $_SESSION['id'],
         "class" => $_POST['g_class'],
         "sumcredit" => $_POST["g_sumcredit"],
@@ -83,16 +68,11 @@
         "s2_term" => $_POST["s2_term"],
         "s2_year" => $_POST["s2_year"],
         "s2_grade" => $_POST["s2_grade"]
-  
       );
-  
       print_r($data);
-  
       echo $_SESSION['id'];
-  
       $user_check_query = "SELECT * FROM grade WHERE g_id = $data[_id] "; // คำสั่งเชื่อมต่อฐานข้อมูล grade โดยหา g_id ทีตรงกับ $data[_id]
       print_r($query = mysqli_query($con, $user_check_query));
-    
       if (count($errors) == 0) {
         echo 'error = 0';
         $sql =" INSERT INTO grade (g_id, g_class, g_credit, g_gpa, g_termnow, g_yearnow, g_creditnow, g_subject1, g_term1, g_year1, g_gpa1, g_subject2, g_term2, g_year2, g_gpa2)
@@ -129,8 +109,7 @@
           echo "<script type='text/javascript'>alert('$statusMsg');window.location ='register.php';</script>";
       }
   } else if($_POST['g_save'] == 'Save3'){
-    $data = array(
-            
+    $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
       "_id" => $_SESSION['id'],
       "class" => $_POST['g_class'],
       "sumcredit" => $_POST["g_sumcredit"],

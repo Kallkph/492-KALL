@@ -1,27 +1,18 @@
 <?php // เปิดหัวประกาศคำสั่งphp
 session_start();  // ประกาศสร้าง session เพื่อเก็บข้อมูลหรือนำ session ไปใช้งานในหน้า page อื่น
 include('../../configure/connect.php');  // include คือการเรียกใช้ script จาก ../configure/connect.php
-
 if (!isset($_SESSION['id'])) {  // เงื่อนไข if ถ้า ไม่มี !isset($_SESSION['id'] จะทำให้เงื่อนไขนี้เป็นจริง true
   $_SESSION['msg'] = "ไปล๊อกอินก่อนไป!!!!"; // การเก็บค่าไวใน _SESSION ในตัวแปล msg
 }
-
 if (isset($_GET['logout'])) { // เงื่อนไข if ถ้าหากพบ การออกจากระบบจะทำให้เงื่อนไขนี้เป็นจริง true
   session_destroy(); // คำสั่งการยกเลิกข้อมูลทั้งหมดที่อยู่ใน session
   unset($_SESSION['id']); // คำสั่งทำให้ $_SESSION ไม่มีการเก็บค่าใดๆ
   header('location: index.php'); // การ route ไปยัง index.php
 }
-
 if ($_SESSION['status'] != 1) {
   header('location: checkstatus.php'); // การ route ไปยัง index.php
 }
-
-
-
-
-
 ?>
-
 <html lang="th"> //กำหนดภาษาของหน้าเว็บไซต์
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> //กำหนด stylesheet css ของหน้าเว็บไซต์
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> //การเรียกใช้งาน script jquery ของหน้าเว็บไซต์
@@ -58,7 +49,7 @@ if ($_SESSION['status'] != 1) {
       </nav>
     </div>
     <div class="row"> // คำสั่งการแบ่งแถวของหน้าเว็บ
-      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ          
+      <div class="leftcolumn"> // คำสั่งการแบ่งคอลัมน์ของหน้าเว็บ
         <?php if (!isset($_SESSION['success'])) : ?> // เปิดคำสั่ง php ใน tag html เงื่อนไข if ถ้าไม่มี isset($_SESSION ['success']) จะทำให้เงื่อนไขนี้เป็นจริง true
           <div class="card1"> // คำสั่ง css โดยใช้ class ชื่อ card1
             <!-- Login Form -->

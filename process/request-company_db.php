@@ -3,12 +3,12 @@
 
   echo "<pre>", print_r($_POST, true), "</pre>";
 
-  include "../configure/connect.php";
+  include "../configure/connect.php"; // include คือการเรียกใช้ script จาก ../configure/connect.php
 
   $errors = array();
 
 if(isset($_POST['r_submit'])){
-  $data = array(
+  $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
         
     "_id" => $_SESSION['id'],
     "txt_r_major" => $_SESSION['major'],
@@ -86,7 +86,7 @@ if(isset($_POST['r_submit'])){
 } else if($_POST['rc_edit']) {
   echo "8adfl;m";
 } else {
-  $data = array(
+  $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
         
     "_id" => $_SESSION['id'],
     "txt_r_major" => $_SESSION['major'],

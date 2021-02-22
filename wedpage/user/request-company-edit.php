@@ -13,7 +13,7 @@ if (isset($_GET['logout'])) {  // เงื่อนไข if ถ้าหาก
 //   header('location: checkstatus.php');
 // }
 if (isset($_POST['query'])) {
-  $data = array(
+  $data = array( // สร้างตัวแปรเพื่อเก็บค่า ต่างๆหลัง () เพื่อนำไปใช้งาน โดยจัดเก็บข้อมูลให้อยู่ในรูปแบบ array
     "txt_company" => $_POST["txt_r_company"]
   );
   $query = $data['txt_company'];

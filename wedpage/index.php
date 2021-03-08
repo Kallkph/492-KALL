@@ -9,17 +9,23 @@
 
   ///Get Status
   if (isset($_SESSION['id'])){
+    $loginAction = true;
     $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
     $result = mysqli_query($con, $query);
     $userdata = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
     }
+    header("location: /../afterindex.php");
+  } else {
+     $loginAction = false;
   }
 
   // if ($_SESSION['type'] = 'admin') {
   //   header('location: /wedpage/admin/adminpage.php');
   // }
+
+
 
   if (isset($_GET['logout'])) {
     session_destroy();
@@ -53,10 +59,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="container">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
-                        <a class="nav-item nav-link" href="#">ข่าวสาร</a>
-                        <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
+                    <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
+                        <a class="nav-item nav-link" href="user/news.php">แนะนำ</a>
+                        <a class="nav-item nav-link" href="about.php">ติดต่อเรา</a>
                        
                        
 
@@ -87,12 +92,14 @@
         </div>
           <div class="row">
               <div class="leftcolumn">
-              <?php if (!isset($_SESSION ['success'])) : ?>
+
+<?php if ($loginAction == true) { ?>
+              <?php if (!isset($_SESSION ['success'])) { ?>
                 <div class="card1">
                         <!-- Login Form -->
       <form action="../process/login_db.php" method="post">
-        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
-        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+        <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="ID">
+        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="Password">
         
         <dev class="card1leftcolumn">
         <button type="submit" class="btn btn-primary" name = "login_user">Login</button>
@@ -100,9 +107,9 @@
         </dev>
       </form>       
                 </div>
-  <?php else : ;?>
+              <?php } else {?>
     <div class="card3">
-    <a href="pageuser.php">
+    <a href="user/pageuser.php">
     <img src="../scr/img/profile.jpg" width="50%">
 </a>
     
@@ -114,8 +121,36 @@
       <p><?php echo $_SESSION['major'];?></p>
   </div>
 
-   <?php endif ?>
+              <?php } ?>
+              <?php } else { ?>
+                <div class="card1">
+                        <!-- Login Form -->
+      <form action="../process/login_db.php" method="post">
+        เข้าสู่ระบบ
+        <!-- <input type="text" id="txt_id" class="fadeIn second" name="txt_id" placeholder="id">
+        <input type="text" id="txt_password" class="fadeIn third" name="txt_password" placeholder="password">
+        
+        <dev class="card1leftcolumn">  -->
+        <div class="form-row" style='margin-top:60px'>
+        <div class="form-group col-md-3"></div>
+          <div class="form-group col-md-3">
+          <a href="afterindex.php" title="View" class="btn btn-primary">นักศึกษา</a>
+          <!-- <button type="submit" class="btn btn-primary" name = "login_user">นักศึกษา</button>  -->
+          </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-3"></div>
+          <div class="form-group col-md-3">
+          <a href="admin/adminpage-login.php" title="View" class="btn btn-primary" style='margin-left:5px'>อาจารย์</a>
 
+        </dev>
+          </div>
+          </div>
+         
+        
+      </form>       
+                </div>
+              <?php } ?>
                 <div class="card3">
                   <!DOCTYPE html>
 
@@ -138,16 +173,26 @@
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="../scr/img/2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-item">
+                        <?php 
+                          $query = "SELECT * FROM uploadfile WHERE type = 'news'";
+                          $result = mysqli_query($con, $query);
+                          while ($row = mysqli_fetch_array($result)) {
+                              echo "<img src='../../scr/fileupload/".$row['fileupload']."' width='100%'>";
+                            } 
+                        ?>
                       </div>
                       <div class="carousel-item">
                         <img src="../scr/img/1.png" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
                         <img src="../scr/img/3.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item active">
+                        <img src="../scr/img/2.png" class="d-block w-100" alt="...">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -169,7 +214,7 @@
             </div>
           </div>
           </div>
-        <!-- //// -->
+
         <?php 
 if (isset($_SESSION ['success'])) {
   echo $_SESSION['id'];
@@ -187,6 +232,8 @@ if (isset($_SESSION ['success'])) {
 </html>
 
 <?php
-  include('../configure/connect.php')
+ action() {
+    $loginAction = true
+ } 
   
 ?>

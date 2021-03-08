@@ -65,7 +65,7 @@
 
       echo "if";
       $statusMsg = "สำเร็จ";
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
 
       $qr->close();
     } else if((!count($errors) == 0)){
@@ -141,7 +141,7 @@
   
         echo "if";
         $statusMsg = "สำเร็จ";
-        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/index.php';</script>";
+        echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
   
         $qr->close();
       } else if((!count($errors) == 0)){
@@ -216,7 +216,7 @@
       echo "if";
       $statusMsg = "สำเร็จ";
       updateStatus(true);
-      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='index.php';</script>";
+      echo "<script type='text/javascript'>alert('$statusMsg');window.location ='../wedpage/afterindex.php';</script>";
 
       $qr->close();
     } else if((!count($errors) == 0)){

@@ -1,4 +1,4 @@
-<?php
+<!-- ?php
   session_start();
 
   echo "<pre>", print_r($_POST, true), "</pre>";
@@ -23,7 +23,7 @@
     // $status = 1
     // $updata = true;
     // mysql_select_db(requestcompany);
-    $con = "UPDATE users SET email= 1 WHERE r_id=$id");
+    $con = "UPDATE users SET email= 1 WHERE r_sid=$id");
     // $sql->query("UPDATE requestcompany SET ='$status', WHERE _id=$id") or die($mysqli->error());
 
 //   } else {
@@ -32,7 +32,7 @@
   }
 
   
-?>
+?> -->
 
 <!-- <a href="adminpage_db.php?awite=
           class="btn btn-info">กำลังดำเนินการ</a>

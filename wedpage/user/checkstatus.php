@@ -7,13 +7,16 @@
   }
 
 
+
+
   ///Get Status
   if (isset($_SESSION['id'])){
-    $query = "SELECT * FROM users WHERE id = '$_SESSION[id]' ";
-    $result = mysqli_query($con, $query);
+    $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid AND users.id = '$_SESSION[id]'";
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
     $userdata = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
+      // print_r($userdata);
     }
   }
 
@@ -55,9 +58,8 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="../index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="../afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
-                        <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
                         <a class="nav-item nav-link" href="Fac.html">ติดต่อเรา</a>
                         
@@ -89,7 +91,7 @@
       </form>       
                 </div>
   <?php else : ;?>
-    <div class="card3">
+    <div class="card3" style="height:400px;">
     <a href="pageuser.php">
     <img src="../../scr/img/profile.jpg" width="50%">
 </a>
@@ -99,7 +101,42 @@
       ชื่อ
       <p><?php echo $_SESSION['f_name'],' ', $_SESSION['l_name'];?></p>
       สาขา
-      <p><?php echo $_SESSION['major'];?></p>
+      <p>
+        <!-- ?php echo $_SESSION['major'];?> -->
+        <?php 
+                  $major = $_SESSION['major'];
+                  ;
+                  switch ($major) {
+                    case "cen":
+                      $majorName = 'วิศวกรรมโยธา';
+                      break;
+                    case "che":
+                      $majorName = 'วิศวกรรมเคมี';
+                      break;
+                    case "env":
+                      $majorName = 'วิศวกรรมสิ่งแวดล้อม';
+                      break;
+                    case "aen":
+                      $majorName = 'วิศวกรรมยานยนต์';
+                      break;
+                    case "een":
+                      $majorName = 'วิศวกรรมไฟฟ้า';
+                      break;
+                    case "ien":
+                      $majorName = 'วิศวกรรมอุตสาหการ';
+                      break;
+                    case "men":
+                      $majorName = 'วิศวกรรมเครื่องกล';
+                      break;
+                    case "cpe":
+                      $majorName = 'วิศวกรรมคอมพิวเตอร์';
+                      break;
+                    default:
+                    $majorName = 0;
+                  }
+                  echo  $majorName;
+               ?>
+      </p>
 
       <div class="list-group">
       <a href="weekstamp.php" class="list-group-item list-group-item-action list-group-item-light">อัพโหลดรายงานประจำสัปดาห์</a>
@@ -143,6 +180,22 @@
                   </div>
                 <?php } else if ($_SESSION['status'] == 1) {?>
                   <img src="../../scr/img/status_allow.png" width="100%">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">เข้่ารับการฝึกงาน ณ </label>
+                    <div class="col-sm-5" style='margin-top:8px'>
+                    <?php echo $userdata['r_company'];?>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">วันที่เริ่มฝึกงาน</label>
+                    <div class="col-sm-3" style='margin-top:8px'>
+                    <?php echo $userdata['r_startTime'];?>
+                    </div>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">วันสิ้นสุดการฝึกงาน</label>
+                    <div class="col-sm-4" style='margin-top:8px'>
+                      <?php echo $userdata['r_endTime'];?>
+                    </div>
+                  </div>
                 <?php } else if ($_SESSION['status'] == 2) {?>
                   <img src="../../scr/img/status_wait.png" width="100%">
                   <!-- <button type="button" class="btn btn-success">ดำเนินการสำเร็จ</button> -->
@@ -152,6 +205,20 @@
                   </figure>
                   <div style="margin-left: 330px;">
                     <a class="btn btn-success" href="request-company.php" role="button">ยื่นเรื่องฝึกงาน</a>
+                  </div>
+                <?php } else if ($_SESSION['status'] == 4) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_edit_grade.jpg" width="100%">
+                  </figure>
+                  <div style="margin-left: 330px;">
+                    <a class="btn btn-success" href="infograde.php" role="button">แก้ไขผลการเรียน</a>
+                  </div>
+                <?php } else if ($_SESSION['status'] == 5) {?>
+                  <figure class="figure">
+                  <img src="../../scr/img/status_edit_c.jpg" width="100%">
+                  </figure>
+                  <div style="margin-left: 230px;">
+                    <a class="btn btn-success" href="request-company-edit.php" role="button">แก้ไขข้อมูลติดต่อผู้ดูแลฝึกงานของสถานประกอบการ</a>
                   </div>
                 <?php } else {?>
                   <button type="button" class="btn btn-danger">ตรวจสอบข้อมูล!</button>

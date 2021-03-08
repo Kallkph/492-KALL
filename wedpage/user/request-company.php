@@ -15,7 +15,21 @@
   if ($_SESSION['status'] != 3) {
     header('location: checkstatus.php');
   }
-
+  
+  if(isset($_POST['query'])){
+    $data = array(
+      "txt_company" => $_POST["txt_r_company"]
+    );
+  $query = $data['txt_company'];
+  $sql2 = "SELECT DISTINCT* From company WHERE c_name = '$query'";
+  $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+  if ($result2) {
+    $fetresult2 = true;
+  }
+  print_r($result2);
+  } else {
+    $fetresult2 = false;
+  }
   
 ?>
 
@@ -46,7 +60,7 @@
                     
          
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.php">หน้าหลัก</a>
+                    <a class="nav-item nav-link" href="/wedpage/afterindex.php">หน้าหลัก</a>
                         <a class="nav-item nav-link" href="Company.php">สถานประกอบการ</a>
                         <a class="nav-item nav-link" href="Doc.html"> Download เอกสารต่างๆ </a>
                         <a class="nav-item nav-link" href="#">ข่าวสาร</a>
@@ -118,159 +132,259 @@
               </div>
               <div class="rightcolumn">
                 
-                <div class="card2">
+                <div class="card2"  style='height:1400px'>
                   
                 หน้ายื่นเรื่อง
                 
                
-
+                <form action="/wedpage/user/request-company.php" method="post">
+                  <div class="form-group"  style="width: 600px">
+                    <label for="exampleFormControlInput1" bootstrap style="margin-top: 50px " >กรอกชื่อสถานประกอบการเพื่อค้นสถานประกอบการและกรอกข้อมูลอัตโนมัติ</label>
+                    <div class="form-group row">
+                    <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
+                    <button type="submit" class="btn btn-light" id="btn_submit" name="query" value="Save...">ค้นหา</button>
+                    </div>
+                  </div>
+                </form>
 
   <!-- <div class="form-row">  -->
-  <form action="../../process/request-company_db.php" method="post">
-    <div class="form-group">
-      
-      <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
-      <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
-      
-    </div>
+  <?php if ($fetresult2 == true) {?>
+    <?php while($rows = $result2->fetch_assoc()){
+      ($rows); //
+       ?>
+   <form action="../../process/request-company_db.php" method="post">
+    <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
+    <!-- <input type="text" class="form-control" id="id" name="id" value=' ?php echo $_SESSION['id']?>'> -->
+    <!-- <input type="text" class="form-control" id="major" name="major" value=' ?php echo $_SESSION['major']?>'> -->
+        <input type="text" class="form-control" id="txt_r_company" name="txt_r_company" value='<?php echo $rows['c_name']?>'>
 
-  <!-- </div> -->
-  <div class="form-check">
-  <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios1" value="1" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    สำนักงาน(วิทยาลัยวิศวกรรมศาสตร์) จัดหาให้
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios2" value="2">
-  <label class="form-check-label" for="exampleRadios2">
-    นักศึกษาจัดหาเอง
-  </label>
-</div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="txt_r_address" name="txt_r_address" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="txt_r_address2" name="txt_r_address2" placeholder="Apartment, studio, or floor">
+    <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคคลและเบอร์โทรที่ติดต่อได้</label>
+        <input type="text" class="form-control" id="txt_r_about" name="txt_r_about" value='<?php echo $rows['c_detail']?>'>
+
+      <div class="form-group" style="width: 600px">
+    <label for="exampleFormControlTextarea1">ข้อมูลที่อยู่</label>
+    <input type="text" id="txtc_address" name="txt_r_address" style="height: 200px"  value='<?php echo $rows['c_address']?>'> 
+    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" name="txtc_address" rows="3" ></textarea> -->
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="txt_r_city" name="txt_r_city">
-    </div>
     <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="txt_r_state" name="txt_r_state" class="form-control">
-        <option selected>เลือก...</option>
-1. <option>กรุงเทพมหานคร </option>
-2. <option>กระบี่</option> 
-3. <option>กาญจนบุรี</option> 
-4. <option>กาฬสินธุ์</option> 
-5. <option>กำแพงเพชร</option> 
-6. <option>ขอนแก่น</option> 
-7. <option>จันทบุรี</option> 
-8. <option>ฉะเชิงเทรา</option> 
-9. <option>ชลบุรี</option> 
-10. <option>ชัยนาท</option> 
-11. <option>ชัยภูมิ</option> 
-12. <option>ชุมพร</option> 
-13. <option>เชียงราย</option> 
-14. <option>เชียงใหม่</option> 
-15. <option>ตรัง</option> 
-16. <option>ตราด</option> 
-17. <option>ตาก</option> 
-18. <option>นครนายก</option> 
-19. <option>นครปฐม</option> 
-20. <option>นครพนม</option> 
-21. <option>นครราชสีมา</option> 
-22. <option>นครศรีธรรมราช</option> 
-23. <option>นครสวรรค์</option> 
-24. <option>นนทบุรี</option> 
-25. <option>นราธิวาส</option> 
-26. <option>น่าน</option> 
-27. <option>บึงกาฬ</option> 
-28. <option>บุรีรัมย์</option> 
-29. <option>ปทุมธานี</option> 
-30. <option>ประจวบคีรีขันธ์</option> 
-31. <option>ปราจีนบุรี</option> 
-32. <option>ปัตตานี</option> 
-33. <option>พระนครศรีอยุธยา</option>
-34. <option>พังงา</option>
-35. <option>พัทลุง</option>
-36. <option>พิจิตร</option>
-37. <option>พิษณุโลก</option>
-38. <option>เพชรบุรี</option>
-39. <option>เพชรบูรณ์</option>
-40. <option>แพร่</option>
-41. <option>พะเยา</option>
-42. <option>ภูเก็ต</option>
-43. <option>มหาสารคาม</option>
-44. <option>มุกดาหาร</option>
-45. <option>แม่ฮ่องสอน</option>
-46. <option>ยะลา</option>
-47. <option>ยโสธร</option>
-48. <option>ร้อยเอ็ด</option>
-49. <option>ระนอง</option>
-50. <option>ระยอง</option>
-51. <option>ราชบุรี</option>
-52. <option>ลพบุรี</option>
-53. <option>ลำปาง</option>
-54. <option>ลำพูน</option>
-55. <option>เลย</option>
-56. <option>ศรีสะเกษ</option>
-57. <option>สกลนคร</option>
-58. <option>สงขลา</option>
-59. <option>สตูล</option>
-60. <option>สมุทรปราการ</option>
-61. <option>สมุทรสงคราม</option>
-62. <option>สมุทรสาคร</option>
-63. <option>สระแก้ว</option>
-64. <option>สระบุรี</option>
-65. <option>สิงห์บุรี</option>
-66. <option>สุโขทัย</option>
-67. <option>สุพรรณบุรี</option>
-68. <option>สุราษฎร์ธานี</option>
-69. <option>สุรินทร์</option>
-70. <option>หนองคาย</option>
-71. <option>หนองบัวลำภู</option>
-72. <option>อ่างทอง</option>
-73. <option>อุดรธานี</option>
-74. <option>อุทัยธานี</option>
-75. <option>อุตรดิตถ์</option>
-76. <option>อุบลราชธานี</option>
-77. <option>อำนาจเจริญ</option>
-
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="txt_r_zip" name="txt_r_zip">
+      เบอร์โทรศัพท์
+      <input type="text" id="txtc_address" name="txt_r_tel" style="height:"  value='<?php echo $rows['c_tel']?>'> 
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">เบอร์โทรศัพท์</label>
-      <input type="text" class="form-control" id="txt_r_phone" name="txt_r_phone">
-      
+      <div class="form-group col-md-4" style='margin-top:4px'>
+        <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
+        <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
+          <option selected>ปี</option>
+          <option>63</option>
+          <option>64</option> 
+          <option>65</option> 
+          <option>66</option> 
+          <option>67</option> 
+        </select>
+      </div>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">เบอร์โทรสาร</label>
-      <input type="text" class="form-control" id="txt_r_fax" name="txt_r_fax">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
+        <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime"  placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
+        
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">สิ้นสุดเมื่อ</label>
+        <input type="text" class="form-control" id="txt_r_fax" name="txt_r_endTime" placeholder="วันที่ 1 เดือน เมษายน ปี พ.ศ.2563"  style='margin-top:30px'>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        ตรวจสอบความถูกต้อง
-      </label>
-    </div>
-  </div>
-  <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
-</form>
 
+  <button type="submit" name="r_seveInfo" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
+  </form>
+    <?php } ?>
+  <!-- ?php } ?> -->
+    <!-- <form action="../../process/request-company_db.php" method="post">
+      <div class="form-group">
+        
+        <label for="inputEmail4">ชื่อหน่วยงาน/บริษัท ที่ประสงค์จะฝึกงาน</label>
+        <input type="text" class="form-control" id="txt_r_company" name="txt_r_company">
+
+        <label for="inputEmail4">ตำแหน่งหรือชื่อบุคคคลที่ติดต่อ</label>
+        <input type="text" class="form-control" id="txt_r_about" name="txt_r_about">
+        
+        
+      </div>
+
+    !-- </div> --
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios1" value="1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      สำนักงาน(วิทยาลัยวิศวกรรมศาสตร์) จัดหาให้
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="txt_r_set" id="exampleRadios2" value="2">
+    <label class="form-check-label" for="exampleRadios2">
+      นักศึกษาจัดหาเอง
+    </label>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputAddress">เลขที่</label>
+      <input type="text" class="form-control" id="txt_r_address" name="txt_r_address" placeholder="1234 Main St">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputAddress">หมู่</label>
+      <input type="text" class="form-control" id="txt_r_mu" name="txt_r_mu" placeholder="1">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">ถนน</label>
+      <input type="text" class="form-control" id="txt_r_road" name="txt_r_road" placeholder="1234 Main St">
+    </div>
+  </div>
+    <div class="form-group">
+      <label for="inputAddress2">แขวง/ตำบบล</label>
+      <input type="text" class="form-control" id="txt_r_address2" name="txt_r_address2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">เขต/อำเภอ</label>
+        <input type="text" class="form-control" id="txt_r_city" name="txt_r_city">
+      </div>
+      <div class="form-group col-md-4" style='margin-top:4px'>
+        <label for="inputState">State</label>
+        <select id="txt_r_state" name="txt_r_state" class="form-control">
+          <option selected>เลือก...</option>
+  1. <option>กรุงเทพมหานคร </option>
+  2. <option>กระบี่</option> 
+  3. <option>กาญจนบุรี</option> 
+  4. <option>กาฬสินธุ์</option> 
+  5. <option>กำแพงเพชร</option> 
+  6. <option>ขอนแก่น</option> 
+  7. <option>จันทบุรี</option> 
+  8. <option>ฉะเชิงเทรา</option> 
+  9. <option>ชลบุรี</option> 
+  10. <option>ชัยนาท</option> 
+  11. <option>ชัยภูมิ</option> 
+  12. <option>ชุมพร</option> 
+  13. <option>เชียงราย</option> 
+  14. <option>เชียงใหม่</option> 
+  15. <option>ตรัง</option> 
+  16. <option>ตราด</option> 
+  17. <option>ตาก</option> 
+  18. <option>นครนายก</option> 
+  19. <option>นครปฐม</option> 
+  20. <option>นครพนม</option> 
+  21. <option>นครราชสีมา</option> 
+  22. <option>นครศรีธรรมราช</option> 
+  23. <option>นครสวรรค์</option> 
+  24. <option>นนทบุรี</option> 
+  25. <option>นราธิวาส</option> 
+  26. <option>น่าน</option> 
+  27. <option>บึงกาฬ</option> 
+  28. <option>บุรีรัมย์</option> 
+  29. <option>ปทุมธานี</option> 
+  30. <option>ประจวบคีรีขันธ์</option> 
+  31. <option>ปราจีนบุรี</option> 
+  32. <option>ปัตตานี</option> 
+  33. <option>พระนครศรีอยุธยา</option>
+  34. <option>พังงา</option>
+  35. <option>พัทลุง</option>
+  36. <option>พิจิตร</option>
+  37. <option>พิษณุโลก</option>
+  38. <option>เพชรบุรี</option>
+  39. <option>เพชรบูรณ์</option>
+  40. <option>แพร่</option>
+  41. <option>พะเยา</option>
+  42. <option>ภูเก็ต</option>
+  43. <option>มหาสารคาม</option>
+  44. <option>มุกดาหาร</option>
+  45. <option>แม่ฮ่องสอน</option>
+  46. <option>ยะลา</option>
+  47. <option>ยโสธร</option>
+  48. <option>ร้อยเอ็ด</option>
+  49. <option>ระนอง</option>
+  50. <option>ระยอง</option>
+  51. <option>ราชบุรี</option>
+  52. <option>ลพบุรี</option>
+  53. <option>ลำปาง</option>
+  54. <option>ลำพูน</option>
+  55. <option>เลย</option>
+  56. <option>ศรีสะเกษ</option>
+  57. <option>สกลนคร</option>
+  58. <option>สงขลา</option>
+  59. <option>สตูล</option>
+  60. <option>สมุทรปราการ</option>
+  61. <option>สมุทรสงคราม</option>
+  62. <option>สมุทรสาคร</option>
+  63. <option>สระแก้ว</option>
+  64. <option>สระบุรี</option>
+  65. <option>สิงห์บุรี</option>
+  66. <option>สุโขทัย</option>
+  67. <option>สุพรรณบุรี</option>
+  68. <option>สุราษฎร์ธานี</option>
+  69. <option>สุรินทร์</option>
+  70. <option>หนองคาย</option>
+  71. <option>หนองบัวลำภู</option>
+  72. <option>อ่างทอง</option>
+  73. <option>อุดรธานี</option>
+  74. <option>อุทัยธานี</option>
+  75. <option>อุตรดิตถ์</option>
+  76. <option>อุบลราชธานี</option>
+  77. <option>อำนาจเจริญ</option>
+
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="txt_r_zip" name="txt_r_zip">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">เบอร์โทรศัพท์</label>
+        <input type="text" class="form-control" id="txt_r_phone" name="txt_r_phone">
+        
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">เบอร์โทรสาร</label>
+        <input type="text" class="form-control" id="txt_r_fax" name="txt_r_fax">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4" style='margin-top:4px'>
+        <label for="inputState">ปีการศึกษาที่จะทำการฝึกงาน</label>
+        <select id="txt_r_state" name="txt_r_yearnow" class="form-control">
+          <option selected>ปี</option>
+          <option>63</option>
+          <option>64</option> 
+          <option>65</option> 
+          <option>66</option> 
+          <option>67</option> 
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">ระยะเวลาเริ่มฝึกงาน กรุณากรอก ในรูปแบบ<br> วันที่ 1 มกราคม พ.ศ.2563</label>
+        <input type="text" class="form-control" id="txt_r_phone" name="txt_r_startTime"  placeholder="วันที่ 1 เดือน มกราคม ปี พ.ศ.2563">
+        
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">สิ้นสุดเมื่อ</label>
+        <input type="text" class="form-control" id="txt_r_fax" name="txt_r_endTime" placeholder="วันที่ 1 เดือน เมษายน ปี พ.ศ.2563"  style='margin-top:30px'>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          ตรวจสอบความถูกต้อง
+        </label>
+      </div>
+    </div>
+    
+    <button type="submit" name="r_submit" value="Save..." class="btn btn-primary">ยื่นเรื่อง</button>
+  </form>
+<?php } ?> -->
 
 
 

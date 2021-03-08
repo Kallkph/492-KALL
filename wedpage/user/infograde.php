@@ -14,11 +14,11 @@
 
 
   // test
-  // $major = 'che';
+  // $major = 'env';
   
   // true
   $major = $_SESSION['major'];
-  echo $major;
+  // echo $major;
 
   switch ($major) {
     case "cen":
@@ -49,7 +49,7 @@
       $s_value_length = 0;
   }
 
-  echo $s_value_length;
+  // echo $s_value_length;
 
   // คิดปี
   // $year = (date('Y') + 543) - 2500;
@@ -175,7 +175,7 @@
   <!-- <div class="form-row">  -->
   <form action="../../process/infograde_db.php" method="post">
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่</label>
+    <label for="inputEmail3" class="col-sm-4 col-form-label">ชั้นปีที่ </label>
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_class">
     </div>
@@ -183,18 +183,18 @@
 
   <!-- </div> -->
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิจสะสม</label>
+    <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิตสะสม</label>
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_sumcredit">
     </div>
-    <label for="inputEmail3" class="col-sm-3 col-form-label">หน่วยกิจ (ไม่รวม W, F)</label>
+    <label for="inputEmail3" class="col-sm-3 col-form-label">หน่วยกิต (ไม่รวม W, F)</label>
     <label for="inputEmail3" class="col-sm-2.5 col-form-label">GPA</label>
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_gpa">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิจลงทะเบียนเทอม(ปัจจุบัน)</label>
+    <label for="inputEmail3" class="col-sm-4 col-form-label">จำนวนหน่วยกิตลงทะเบียนเทอม(ปัจจุบัน)</label>
     <div class="form-group col-md-2">
       <!-- <label for="inputState">State</label> -->
       <select id="txt_r_state" name="g_term" class="form-control">
@@ -223,7 +223,7 @@
     <div class="col-sm-2">
       <input class="form-control" id="input" name="g_creditnow">
     </div>
-    <label for="inputEmail3" class="col-sm-2 col-form-label">หน่วยกิจ</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">มากกว่า <?php echo $_SESSION['course'] ?> หน่วยกิต</label>
   </div>
 
   <?php if ($s_value_length == '3') { ?>
@@ -271,7 +271,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s1_grade" class="form-control">
-          <option selected>เกรต</option>
+          <option selected>เกรด</option>
           1. <option>A</option>
           2. <option>B+</option> 
           3. <option>B</option> 
@@ -327,7 +327,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
       <select id="txt_r_state" name="s2_grade" class="form-control">
-        <option selected>เกรต</option>
+        <option selected>เกรด</option>
         1. <option>A</option>
         2. <option>B+</option> 
         3. <option>B</option> 
@@ -384,7 +384,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
       <select id="txt_r_state" name="s3_grade" class="form-control">
-        <option selected>เกรต</option>
+        <option selected>เกรด</option>
         1. <option>A</option>
         2. <option>B+</option> 
         3. <option>B</option> 
@@ -397,12 +397,7 @@
   </div>
 
 
-    <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        ตรวจสอบความถูกต้อง
-      </label>
+   
       
     </div>
     <button type="submit" name="g_save" value="Save3" class="btn btn-primary">บันทึกข้อมูล</button>
@@ -508,7 +503,7 @@
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="txt_r_state" name="s2_grade" class="form-control">
-          <option selected>เกรต</option>
+          <option selected>เกรดดดต</option>
           1. <option>A</option>
           2. <option>B+</option> 
           3. <option>B</option> 
@@ -521,13 +516,13 @@
 
 
       <div class="form-group">
-    <div class="form-check">
+    <!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
         ตรวจสอบความถูกต้อง
       </label>
       
-    </div>
+    </div> -->
     <button type="submit" name="g_save" value="Save2" class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
     </div>
@@ -587,25 +582,25 @@
       </div>
 
       <div class="form-group">
-    <div class="form-check">
+    <!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
         ตรวจสอบความถูกต้อง
       </label>
       
-    </div>
+    </div> -->
     <button type="submit" name="g_save" value="Save1" class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
     </div>
   <?php } else {?>
     <div class="form-group">
-    <div class="form-check">
+    <!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
         ตรวจสอบความถูกต้อง
       </label>
       
-    </div>
+    </div> -->
     <button type="submit" name="g_save" value="Save0" class="btn btn-primary">บันทึกข้อมูล</button>
   </div>
   <?php } ?>

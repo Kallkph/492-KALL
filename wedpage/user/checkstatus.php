@@ -14,6 +14,10 @@
     $sql = "SELECT * From users inner join requestcompany on users.id = requestcompany.r_sid AND users.id = '$_SESSION[id]'";
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
     $userdata = mysqli_fetch_assoc($result);
+   
+    if ( $userdata['status'] === 0) {
+      header("location: infograde.php");
+    }
     if (mysqli_num_rows($result) == 1) {
       $_SESSION['status'] = $userdata['status'];
       // print_r($userdata);

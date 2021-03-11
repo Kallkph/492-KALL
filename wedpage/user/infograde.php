@@ -63,7 +63,9 @@
 
   // debug
   // print_r($result);
-  
+  if ( $userdata['status'] !== 0) {
+    header("location: checkstatus.php");
+  }
   
 ?>
 

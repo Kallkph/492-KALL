@@ -37,11 +37,11 @@ if (isset($_POST['login_user'])) {
           $_SESSION['course'] = $userdata['course'];
           $_SESSION['status'] = $userdata['status'];
 
-          if ($_SESSION['status'] == 0) {
-            header("location: ../wedpage/user/infograde.php");
-          } else {
+          // if ($_SESSION['status'] == 0) {
+          //   header("location: ../wedpage/user/infograde.php");
+          // } else {
             header("location: ../wedpage/user/checkstatus.php");
-          }
+          // }
 
           break;
   
